@@ -1,5 +1,28 @@
 import React from "react"
+import { graphql, useStaticQuery, Link } from 'gatsby';
 
-export default function Home() {
-  return <div>Hello world!</div>
-}
+const pageQuery = graphql`
+  {
+    gcms {
+      products {
+        name
+        slug
+        
+      }
+    }
+  }
+`;
+
+const IndexPage = () => {
+  const {
+    gcms: { products },
+  } = useStaticQuery(pageQuery);
+
+  return products.map(({ slug, ...product }) => (
+    <Link key={slug} to={`/products/${slug}`}>
+      {product.name}
+    </Link>
+  ));
+};
+
+export default IndexPage;
