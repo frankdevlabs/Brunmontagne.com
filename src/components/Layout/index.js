@@ -1,5 +1,5 @@
 import React from "react"
-import SEO from "../seo"
+import SEO from "../SEO"
 import Navigation from "../Navigation"
 import Header from "../Header"
 
