@@ -1,0 +1,112 @@
+.btn {
+  &, &:link, &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+    border: 0;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($black, 0.2);
+  }
+  &:active,
+  &:focus {
+    outline: 0;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 1rem rgba($black, 0.2);
+  }
+  &--white {
+    color: $grey-dark-3;
+  }
+  &--white,
+  &--white::after {
+    background-color: $white;
+  }
+  &--primary {
+    color: $white;
+    background-color: $purple-dark;
+  }
+  &--primary,
+  &--primary::after,
+  &--secondary::after {
+    background-color: $purple-dark;
+  }
+
+  &--primary:hover,
+  &--primary:focus,
+  &--primary:active,
+  &--primary:hover::after,
+  &--primary:focus::after,
+  &--primary:active::after {
+    background-color: $purple-light-1;
+  }
+
+  &--secondary {
+    background-color: $white;
+    border: 2px solid $purple-dark !important;
+    color: $purple-dark;
+  }
+  &--secondary,
+  &--secondary:link,
+  &--secondary:visited {
+    padding: 14px 39px;
+  }
+  &--secondary:active,
+  &--secondary:focus,
+  &--secondary:hover {
+    color: $white;
+    background-color: $purple-dark;
+  }
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+  &--animated {
+    -webkit-animation: moveInBottom 0.5s ease-out 0.75s;
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    -webkit-animation-fill-mode: backwards;
+    animation-fill-mode: backwards;
+  }
+  &--mgn {
+    margin: 5rem auto 0;
+  }
+  &--cta:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+  &-text:link,
+  &-text:visited {
+    font-size: 1.6rem;
+    color: $purple-light-2;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $purple-light-2;
+    padding: 3px;
+    transition: all 0.2s;
+  }
+  &-text:hover {
+    background-color: $purple-light-2;
+    color: $white;
+    box-shadow: 0 1rem 2rem rgba($black, 0.15);
+    transform: translateY(-2px);
+  }
+  &-text:active {
+    box-shadow: 0 0.5rem 1rem rgba($black, 0.15);
+    transform: translateY(0);
+  }
+}
+
+

@@ -4,25 +4,25 @@ import Img from "gatsby-image"
 
 const ProductPage = ({ data }) => {
   const product = data.gcms.product
-  console.log(product.localizations[0])
+  const assets = data.gcms.assets
 
   return (
     <React.Fragment>
-      <h1>{product.localizations[0].name}</h1>
+      <h1>{product.name}</h1>
       <div style={{ maxWidth: "560px" }}>
-        {product.images.map(image => {
+        {assets.images.map(image => {
           return <Img fluid={image.node.childImageSharp.fluid} />
         })}
       </div>
       <p>
-        {new Intl.NumberFormat("de-DE", {
+        {new Intl.NumberFormat("nl-NL", {
           style: "currency",
           currency: "EUR",
         }).format(product.price)}
       </p>
       <div
         dangerouslySetInnerHTML={{
-          __html: product.localizations[0].description.html,
+          __html: product.description.html,
         }}
       />
     </React.Fragment>
@@ -30,22 +30,21 @@ const ProductPage = ({ data }) => {
 }
 
 export const pageQuery = graphql`
-  query ProductPageQuery($id: ID!) {
+  query ProductPageQuery($id: ID!, $locale: [GraphCMS_Locale!]!) {
     gcms {
-      product(where: { id: $id }) {
+      product(where: { id: $id }, locales: $locale) {
         id
         price
         salePrice
         sale
-        localizations(locales: nl) {
-          id
-          name
-          locale
-          slug
-          description {
-            html
-          }
+        name
+        locale
+        slug
+        description {
+          html
         }
+      }
+      assets: product(where: { id: $id }) {
         images {
           id
           alt

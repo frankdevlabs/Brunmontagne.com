@@ -1,0 +1,20 @@
+.link {
+  &:link, &:visited {
+    text-decoration: none;
+    color: currentColor;
+    white-space: nowrap;
+    transition: all 0.2;
+  }
+
+  &-primary {
+    &:active, &:hover  {
+      color: $purple-dark;
+    }
+  }
+
+  &-secondary {
+    &:active, &:hover  {
+      color: $yellow-1;
+    }
+  }
+}

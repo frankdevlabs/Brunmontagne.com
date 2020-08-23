@@ -1,0 +1,35 @@
+@import 'node_modules/bulma/sass/utilities/_all.sass';
+
+// fonts
+$header-font: 'Montserrat', sans-serif;
+$default-font: 'Lato', serif;
+
+$default-font-size: 1.6rem;
+
+// screens
+$vp-xl: 1600px;
+$vp-lg: 1200px;
+$vp-md: 1024px;
+$vp-sm: 620px;
+$vp-xs: 480px;
+
+// colors
+$purple-light-1: #686de0;
+$purple-light-2: #4834d4;
+$purple-dark: #130f40;
+
+$watch-strap-blue:#13162c;
+$watch-strap-black: $black;
+$watch-strap-green: #20413f;
+$watch-strap-silver: #a9b2ad;
+$watch-strap-gold: #b39f8b;
+
+$yellow-1: #ffb900;
+$orange-1: #f0932b;
+
+$grey-dark-2: #999;
+$grey-dark-3: #777;
+$grey-dark-6: #3c3c3c;
+
+$black: #000;
+$white: #fff;

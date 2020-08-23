@@ -1,0 +1,68 @@
+body,
+input,
+select,
+textarea {
+  font-size: $default-font-size;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+}
+.heading-1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.2rem;
+  font-size: 5rem;
+  font-weight: 300;
+}
+@media only screen and (max-width: 28.25em) {
+  .heading-1 {
+    font-size: 3rem;
+    letter-spacing: 0.7rem;
+  }
+}
+.heading-2,
+.heading-3,
+.heading-4,
+.page-title {
+  font-family: 'Montserrat', sans-serif, serif;
+  color: #130f40;
+  text-transform: uppercase;
+}
+.heading-2,
+.page-title {
+  white-space: nowrap;
+  letter-spacing: 0.5rem;
+  font-size: 3rem;
+}
+.heading-3,
+.heading-4 {
+  letter-spacing: 0.2rem;
+  font-size: 2rem;
+}
+.heading-4 {
+  color: #fff;
+  font-weight: 100;
+  letter-spacing: 0.3rem;
+}
+.heading-tagline {
+  color: currentColor;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  font-size: 1.6rem;
+}
+.long-paragraph {
+  color: #3c3c3c;
+  font-size: 1.6rem;
+  max-width: 700px;
+  letter-spacing: 0.03rem;
+}
+.long-paragraph:not(:last-of-type) {
+  margin-bottom: 1rem;
+}
+
+.white-text {
+  color: #fff;
+}

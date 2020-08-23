@@ -1,0 +1,61 @@
+{
+  "en": {
+    "translation": {
+      "siteMetadata": {
+        "title": "Represents you",
+        "description": "Brunmontagne. Een horloge wat je draagt wat gezien mag worden, niet iets wat probeert om gezien te worden. Tijdloos, kwalitatief en uniek."
+      },
+      "home": {
+        "title": "Represents you",
+        "greeting": "test translation",
+        "collection-section-title": "Collection",
+        "collection-section-description": "Take a look at the Representor. A great superior watch.",
+        "collection-section-collection-btn": "To our collection"
+      },
+      "navigation": {
+        "watches": {
+          "term": "Watches",
+          "slug": "watches"
+        }, "pre-orders": {
+          "term": "Pre-orders",
+          "slug": "pre-orders"
+        },
+        "watch-straps": {
+          "term": "Watch straps",
+          "slug": "watch-straps"
+        },
+        "product-category":"product-category"
+      }
+    }
+  },
+  "nl": {
+    "translation": {
+      "siteMetadata": {
+        "title": "Represents you",
+        "description": "Brunmontagne. Een horloge wat je draagt wat gezien mag worden, niet iets wat probeert om gezien te worden. Tijdloos, kwalitatief en uniek."
+      },
+      "home": {
+        "title": "Represents you",
+        "greeting": "test vertaling",
+        "collection-section-title": "Collectie",
+        "collection-section-description": "Bekijk onze Representor. Een tijdloos, kwalitatief en uniek horloge.",
+        "collection-section-collection-btn": "Bekijk de collectie"
+      },
+      "navigation": {
+        "watches": {
+          "term": "Horloges",
+          "slug": "horloges"
+        }, "pre-orders": {
+          "term": "Pre-orders",
+          "slug": "pre-orders"
+        },
+        "watch-straps": {
+          "term": "Horlogebanden",
+          "term-short": "Banden",
+          "slug": "horlogebanden"
+        },
+        "product-category":"product-categorie"
+      }
+    }
+  }
+}

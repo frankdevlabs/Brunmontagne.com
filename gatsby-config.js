@@ -6,6 +6,12 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: `Brunmontagne`,
+    siteUrl: `https://www.brunmontagne.com`,
+    description: `Represents you`,
+    supportedLanguages: ["nl", "en"],
+  },
   plugins: [
     `gatsby-plugin-sharp`,
     {
@@ -13,9 +19,19 @@ module.exports = {
       options: {
         typeName: `GraphCMS`,
         fieldName: `gcms`,
-        url: `https://api-eu-central-1.graphcms.com/v2/ckdq3fyugeueh01xncuk8d32l/master`,
+        url: `${process.env.GRAPH_CMS_URL}`,
       },
     },
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require("sass"),
+        data: `@import "${__dirname}/src/scss/abstracts/_variables.scss";
+        @import "${__dirname}/src/scss/abstracts/_mixins.scss";
+        `,
+      },
+    },
+    `gatsby-plugin-netlify`,
   ],
 }

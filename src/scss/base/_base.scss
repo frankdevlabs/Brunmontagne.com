@@ -1,0 +1,41 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+
+  @include respond($vp-md) {
+    font-size: 57.5%;
+  }
+
+  @include respond($vp-sm) {
+    font-size: 50%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  align-items: flex-end;
+  text-align: center;
+}
+.main-container {
+  text-align: left;
+}
+select {
+  outline: 0;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}

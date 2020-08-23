@@ -1,0 +1,31 @@
+.section-collection {
+  padding: 5rem 0 8rem;
+
+  @include respond($vp-md) {
+    padding: 6rem 4rem;
+  }
+
+  @include respond($vp-sm) {
+    padding: 4rem 2%;
+  }
+
+  &__btn {
+    justify-content: center;
+    display: flex;
+    margin-top: 2rem;
+  }
+
+  &__container {
+    max-width: 1140px;
+    margin: 0 auto;
+    & .long-paragraph {
+      margin-bottom: 4rem;
+    }
+
+    & .heading-2,
+    & .long-paragraph {
+      text-align: center;
+      max-width: none;
+    }
+  }
+}

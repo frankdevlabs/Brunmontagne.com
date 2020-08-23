@@ -1,0 +1,7 @@
+.cards {
+  list-style: none;
+  display: flex;
+  @media screen and (min-width: 1024px) and (max-width: 1140px) {
+    padding: 0 2%;
+  }
+}

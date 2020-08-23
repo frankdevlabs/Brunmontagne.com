@@ -1,0 +1,24 @@
+.language-picker {
+  &:hover > &--inactive {
+    opacity: 1;
+  }
+
+  &--inactive {
+    opacity: 0;
+    transition: 0.2s all;
+  }
+
+  &--active {
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    background: 0 0;
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid $grey-dark-6;
+  }
+}

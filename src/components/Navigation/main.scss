@@ -1,0 +1,348 @@
+.navigation {
+  border-bottom: 1px solid $grey-dark-2;
+  background-color: $white;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  &__ghost-item.navigation__cart {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+
+    @include respond($tablet) {
+      visibility: visible;
+      display: block;
+    }
+
+    @include respond($vp-md) {
+      visibility: visible;
+      display: block;
+    }
+  }
+
+  &,
+  &__container,
+  &__main,
+  &__list,
+  &__menu,
+  &__cart {
+    min-height: 12rem;
+    @include respond($tablet) {
+      min-height: 9rem;
+    }
+
+    @include respond($vp-md) {
+      min-height: 9rem;
+    }
+  }
+
+  &__container {
+    width: $vp-lg;
+
+    @include respond($vp-lg) {
+      max-width: $vp-lg;
+      padding: 0 1rem;
+    }
+
+    @include respond($tablet) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include respond($vp-md) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &.columns.is-variable {
+      margin-right: 0;
+    }
+  }
+
+  &__main {
+    &.column.is-three-quarters {
+      @include respond($tablet) {
+        width: auto;
+      }
+
+      @include respond($vp-md) {
+        width: auto;
+      }
+    }
+  }
+
+  &__menu,
+  &__language {
+    @include respond($tablet) {
+      display: none;
+    }
+
+    @include respond($vp-md) {
+      display: none;
+    }
+  }
+
+  &__cart {
+    min-width: 10rem;
+
+    @include respond($tablet) {
+      justify-content: flex-end;
+    }
+    @include respond($vp-md) {
+      justify-content: flex-end;
+    }
+
+    &--icon {
+      margint-right:3rem;
+      max-height: 4rem;
+      max-width: 4rem;
+    }
+
+    &--link {
+      margin-right: 3.4rem;
+
+      &:link,
+      &:visited {
+        text-align: center;
+        text-transform: uppercase;
+        color: $purple-dark;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s;
+        padding: 0.3rem 0;
+        text-decoration: none;
+      }
+
+      &:active,
+      &:hover {
+        color: $purple-light-1;
+
+        border-bottom: 2px solid transparent;
+      }
+    }
+
+    &--notification {
+      position: absolute;
+      right: 2.5rem;
+      top: 3rem;
+      font-size: 0.8em;
+      height: 1.75rem;
+      width: 1.75rem;
+      border-radius: 50%;
+      background-color: $orange-1;
+      color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include respond($tablet) {
+        top: 1.5rem;
+        right:1.5rem;
+      }
+      @include respond($vp-md) {
+        top: 1.5rem;
+        right:1.5rem;
+      }
+    }
+  }
+
+  & .columns.is-variable .column {
+
+    @include respond($tablet) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    @include respond($vp-md) {
+      padding-left: 0;
+      padding-right: 0;
+
+    }
+  }
+
+  &__logo,
+  &__img {
+    max-height: 12rem;
+    max-width: 25rem;
+    width: 100%;
+
+    @include respond($tablet) {
+      max-height: 9rem;
+    }
+    @include respond($vp-md) {
+      max-height: 9rem;
+    }
+  }
+
+  &__logo {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    &-home {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+
+  &__language {
+    position: relative;
+
+  }
+
+  &__cart,
+  &__item,
+  &__language {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__language {
+    align-items: flex-end;
+  }
+
+  &__language {
+    position: relative;
+    @include respond($tablet) {
+      display: none;
+    }
+    @include respond($vp-md) {
+      display: none;
+    }
+  }
+}
+
+.navigation-mobile {
+  align-self: start;
+  display: none;
+  visibility: hidden;
+
+  &__list-sub {
+    display: flex;
+    flex-direction: column;
+
+    & .navigation-mobile__item {
+      margin: 0;
+      border-bottom: 2px solid transparent;
+    }
+  }
+
+  @include respond($vp-md) {
+    visibility: visible;
+    position: relative;
+    display: block;
+    z-index: 1001;
+    user-select: none;
+  }
+
+  @include respond($tablet) {
+    visibility: visible;
+    position: relative;
+    display: block;
+    z-index: 1001;
+    user-select: none;
+  }
+
+  &__checkbox {
+    position: absolute;
+    width: 4.1rem;
+    height: 9rem;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    -webkit-touch-callout: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: blue;
+    left: 2.5rem;
+  }
+
+  &__container {
+    position: absolute;
+    height: 9rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    left: 2.5rem;
+    width: 4.1rem;
+  }
+
+  & .hamburger {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: $purple-dark;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+
+  & .hamburger:first-child {
+    transform-origin: 0% 0%;
+  }
+
+  & .hamburger:nth-last-child(2) {
+    transform-origin: 18% -300%;
+  }
+
+  &__checkbox:checked ~ div .hamburger {
+    opacity: 1;
+    transform: rotate(-45deg) translate(-4px, -4px);
+    background: $purple-dark;
+  }
+
+  &__checkbox:checked ~ div .hamburger:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  &__checkbox:checked ~ div .hamburger:nth-last-child(2) {
+    transform: rotate(45deg) translate(2px, -6px);
+  }
+
+  &__checkbox:checked ~ ul {
+    transform: none;
+  }
+
+  &__list {
+    top: 9rem;
+    position: absolute;
+    width: 25vw;
+    min-width: 25rem;
+    box-shadow: 0 1rem 2rem rgba($black, 0.5);
+    background-image: radial-gradient($white, $white);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(-150%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+    &.columns:not(.is-desktop) {
+      @media screen and (min-width: 769px) {
+        display: inherit;
+      }
+    }
+  }
+
+  &__item {
+    white-space: nowrap;
+    padding-left: 0;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 2rem;
+    margin: 5rem;
+    border-bottom: 2px solid $purple-dark;
+  }
+
+  &__language {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
