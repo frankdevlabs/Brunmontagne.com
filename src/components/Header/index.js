@@ -7,7 +7,12 @@ import { isMobile as _isMobile } from "../../utils/isMobile"
 import "./header.scss"
 
 const Header = () => {
-  const isMobile = _isMobile()
+  let isMobile = true
+
+  React.useEffect(() => {
+    isMobile = _isMobile()
+  })
+
   const { t } = useTranslation()
 
   return (
