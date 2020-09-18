@@ -1,0 +1,10 @@
+.product-cart {
+  &__btn {
+    display: flex;
+  }
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.5rem;
+  }
+}

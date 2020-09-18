@@ -1,0 +1,24 @@
+.product-stock {
+  margin-bottom: 1rem;
+  &__available {
+    padding: 0.5rem;
+    border: 1px solid $green-1;
+    display: inline;
+    margin-bottom: 14rem;
+    color: $green-1;
+  }
+
+  &__not-available {
+    padding: 0.5rem;
+    border: 1px solid $grey-dark-3;
+    display: inline;
+    margin-bottom: 14rem;
+    color: $grey-dark-3
+  }
+
+  &__info {
+    color: $green-1;
+    font-size: 1.4rem;
+    margin-top:0.5rem;
+  }
+}

@@ -25,6 +25,27 @@
           "slug": "watch-straps"
         },
         "product-category":"product-category"
+      },
+      "product": {
+        "inBasket": "Add to basket",
+        "movement": "Movement",
+        "watchStrap": "Watch strap",
+        "options": "Options",
+        "description": "Product description",
+        "image": "Image",
+        "of": "of",
+        "regularPrice": "Regular price",
+        "youSave": "You safe",
+        "availableIcon": "Op vooraad",
+        "availableStockMsg": "available",
+        "availableMsg": "Shipped within 4 days!",
+        "notAvailableIcon": "Not available",
+        "notAvailableMsg": "Expected in december 2020. Pre-order now!"
+      },
+      "productCards" : {
+        "leatherStraps": "Leather straps",
+        "steelStraps":"Steel straps",
+        "movement": "Movement"
       }
     }
   },
@@ -55,6 +76,27 @@
           "slug": "horlogebanden"
         },
         "product-category":"product-categorie"
+      },
+      "product": {
+        "inBasket": "In winkelmand",
+        "movement": "Uurwerk",
+        "watchStrap": "Band",
+        "options": "Opties",
+        "description": "Productbeschrijving",
+        "image": "Afbeelding",
+        "of": "van",
+        "regularPrice": "Normaal",
+        "youSave": "Je bespaart",
+        "availableIcon": "Op vooraad",
+        "availableStockMsg": "beschikbaar",
+        "availableMsg": "Maximaal 4 werkdagen levertijd!",
+        "notAvailableIcon": "Niet (direct) leverbaar",
+        "notAvailableMsg": "Verwacht in december 2020. Pre-order nu alvast!"
+      },
+      "productCards" : {
+        "leatherStraps": "Leren banden",
+        "steelStraps":"Stalen banden",
+        "movement": "Uurwerk"
       }
     }
   }

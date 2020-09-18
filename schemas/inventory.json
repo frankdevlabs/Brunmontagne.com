@@ -1,0 +1,84 @@
+{
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name"
+      }
+    },
+    "public_name": {
+      "type": "Text",
+      "config": {
+        "label": "Public name"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Description"
+      }
+    },
+    "inventory_type": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "CASE",
+          "STRAP"
+        ],
+        "default_value": "CASE",
+        "label": "Inventory type"
+      }
+    },
+    "material": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "LEATHER",
+          "STEEL"
+        ],
+        "default_value": "LEATHER",
+        "label": "Material"
+      }
+    },
+    "color": {
+      "type": "Color",
+      "config": {
+        "label": "Color"
+      }
+    },
+    "stock": {
+      "type": "Number",
+      "config": {
+        "label": "Stock"
+      }
+    },
+    "images": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Link",
+            "config": {
+              "select": "media",
+              "label": "image"
+            }
+          },
+          "alt": {
+            "type": "Text",
+            "config": {
+              "label": "alt"
+            }
+          }
+        },
+        "label": "Images"
+      }
+    },
+    "factory_location": {
+      "type": "GeoPoint",
+      "config": {
+        "label": "Factory location"
+      }
+    }
+  }
+}

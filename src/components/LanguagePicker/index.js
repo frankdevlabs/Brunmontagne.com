@@ -66,4 +66,4 @@ const LanguagePicker = props => {
   )
 }
 
-export default LanguagePicker
+export default React.memo(LanguagePicker)

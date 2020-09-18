@@ -23,14 +23,17 @@ export default props => {
       <Link
         to={props.to}
         className={`navigation__link ${
-          props.mode === "mobile" ? " navigation__link-secondary" : null
+          props.mode === "mobile" ? " navigation__link-secondary" : ""
         }`}
       >
         {props.children}
         {props.items.length > 0 ? (
-          <svg width="14px" height="14px">
-            <use xlinkHref="/svg/main.svg#arrow-down"></use>
-          </svg>
+          <>
+            {" "}
+            <svg width="14px" height="14px">
+              <use xlinkHref="/svg/main.svg#arrow-down"></use>
+            </svg>
+          </>
         ) : null}
       </Link>
       {props.items.length > 0 ? (

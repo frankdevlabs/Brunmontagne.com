@@ -1,0 +1,43 @@
+{
+  "Main" : {
+    "name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Name"
+      }
+    },
+    "email" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Email"
+      }
+    },
+    "headline" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading5",
+        "label" : "Headline"
+      }
+    },
+    "message" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "Message"
+      }
+    },
+    "rating" : {
+      "type" : "Number",
+      "config" : {
+        "label" : "Rating"
+      }
+    },
+    "verified_buyer" : {
+      "type" : "Boolean",
+      "config" : {
+        "default_value" : false,
+        "label" : "Verified buyer"
+      }
+    }
+  }
+}

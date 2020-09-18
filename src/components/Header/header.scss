@@ -1,9 +1,10 @@
-.header {
+.header-home {
   height: 50vh;
 
-  &--page {
-    height: 0;
-    display: none;
+  @media only screen and (orientation : landscape) {
+   &, &__cover, &__slide {
+      min-height: 40rem;
+    }
   }
 
   &__text {
@@ -128,4 +129,9 @@
       }
     }
   }
+}
+
+.header-page {
+    height: 0;
+    display: none;
 }

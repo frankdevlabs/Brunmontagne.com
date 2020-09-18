@@ -27,12 +27,11 @@ textarea {
 .heading-4,
 .page-title {
   font-family: 'Montserrat', sans-serif, serif;
-  color: #130f40;
+  color: $purple-dark;
   text-transform: uppercase;
 }
 .heading-2,
 .page-title {
-  white-space: nowrap;
   letter-spacing: 0.5rem;
   font-size: 3rem;
 }
@@ -45,6 +44,12 @@ textarea {
   color: #fff;
   font-weight: 100;
   letter-spacing: 0.3rem;
+}
+
+.heading-5 {
+  font-family: $header-font;
+  color: $purple-dark;
+  font-size: $default-font-size;
 }
 .heading-tagline {
   color: currentColor;

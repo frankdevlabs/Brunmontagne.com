@@ -1,7 +1,7 @@
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
 const DEFAULT_OPTIONS = require("./constants").DEFAULT_OPTIONS
 
-exports.createResolvers = ({
+exports.createResolvers = async ({
   actions: { createNode },
   cache,
   createNodeId,
@@ -9,60 +9,99 @@ exports.createResolvers = ({
   store,
   reporter,
 }) => {
-  const resolvers = {
-    GraphCMS_Asset: {
-      node: {
-        type: `File`,
-        resolve: ({ url }, args, context, info) => {
-          return createRemoteFileNode({
-            url,
-            store,
-            cache,
-            createNode,
-            createNodeId,
-            reporter,
-          })
-        },
+  const fields = {
+    node: {
+      type: `File`,
+      resolve: ({ image: { url } }, args, context, info) => {
+        return createRemoteFileNode({
+          url,
+          store,
+          cache,
+          createNode,
+          createNodeId,
+          reporter,
+        })
       },
     },
   }
+  const resolvers = {
+    PrismicProductImagesGroupType: {
+      ...fields,
+    },
+    PrismicInventoryImagesGroupType: {
+      ...fields,
+    },
+  }
 
-  createResolvers(resolvers)
+  await createResolvers(resolvers)
 }
 
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
-  const {
-    data: { gcms: locales },
-  } = await graphql(`
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const pages = await graphql(`
     {
-      gcms {
-        nl: products(locales: nl) {
-          id
-          locale
-          slug
-        }
-        en: products(locales: en) {
-          id
-          locale
-          slug
+      allPrismicProduct(filter: { data: { variable_product: { eq: false } } }) {
+        edges {
+          node {
+            id
+            uid
+            lang
+            data {
+              variable_product
+              variable_products {
+                product {
+                  document {
+                    ... on PrismicProduct {
+                      id
+                      uid
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
   `)
 
-  const products = [...locales.nl, ...locales.en]
+  const template = require.resolve(`./src/templates/productPage.js`)
+  pages.data.allPrismicProduct.edges.forEach(
+    ({ node: { id, uid, lang, data } }) => {
+      const sanitzedLang = lang === "en-gb" ? "en" : "nl"
+      const baseURI = lang === "en-gb" ? `/en` : ""
+      const basePath = `/products/${uid}`
 
-  products.forEach(({ id, slug, locale }) => {
-    const baseURI = locale === "en" ? "/en" : ""
-    createPage({
-      path: `${baseURI}/products/${slug}`,
-      component: require.resolve(`./src/templates/ProductPage.js`),
-      context: {
-        id,
-        locale,
-      },
-    })
-  })
+      createPage({
+        path: `${baseURI}${basePath}`,
+        component: template,
+        context: {
+          id: id,
+          uid: uid,
+          variant: undefined,
+          locale: lang,
+          originalPath: `${basePath}`,
+          lang: sanitzedLang,
+        },
+      })
+
+      data.variable_products.forEach(({ product: { document } }) => {
+        if (document)
+          createPage({
+            path: `${baseURI}${basePath}/variants/${document.uid}`,
+            component: template,
+            context: {
+              id: id,
+              uid: uid,
+              variant: document.uid,
+              locale: lang,
+              originalPath: `${basePath}/variants/${document.uid}`,
+              lang: sanitzedLang,
+            },
+          })
+      })
+    }
+  )
 }
 
 /**
@@ -77,6 +116,7 @@ exports.onCreatePage = async ({
   const {
     supportedLanguages,
     defaultLanguage,
+    locales,
     notFoundPage,
     excludedPages,
     deleteOriginalPages,
@@ -104,6 +144,7 @@ exports.onCreatePage = async ({
         ...page.context,
         originalPath,
         lang: defaultLanguage,
+        locale: locales[defaultLanguage],
       },
     })
   }
@@ -130,6 +171,7 @@ exports.onCreatePage = async ({
           ...page.context,
           originalPath,
           lang,
+          locale: locales[lang],
         },
       })
     })

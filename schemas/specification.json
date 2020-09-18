@@ -1,0 +1,22 @@
+{
+  "Main" : {
+    "name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Name"
+      }
+    },
+    "key" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Key"
+      }
+    },
+    "value" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Value"
+      }
+    }
+  }
+}

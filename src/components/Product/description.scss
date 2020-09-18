@@ -1,0 +1,17 @@
+.product-description {
+  & p {
+    color: #3c3c3c;
+    font-size: 1.45rem;
+    max-width: 700px;
+    letter-spacing: 0.03rem;
+  }
+  & p:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
+
+  & .heading-3 {
+    text-transform: revert;
+    color: #3c3c3c;
+    font-size: 1.6rem;
+  }
+}

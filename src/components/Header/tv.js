@@ -21,8 +21,8 @@ class TV extends React.PureComponent {
   }
 
   loadVideo = () => {
-    let w = document.getElementsByClassName("header")[0].offsetWidth
-    let h = document.getElementsByClassName("header")[0].offsetHeight + 200
+    let w = document.getElementsByClassName("header-home")[0].offsetWidth
+    let h = document.getElementsByClassName("header-home")[0].offsetHeight + 200
 
     const playerDefaults = {
       autoplay: 1,
@@ -54,6 +54,7 @@ class TV extends React.PureComponent {
   }
 
   onPlayerReady = event => {
+    this.vidRescale()
     this.tv.mute()
     event.target.playVideo()
   }
@@ -65,21 +66,30 @@ class TV extends React.PureComponent {
   }
 
   vidRescale = () => {
-    let w = document.getElementsByClassName("header")[0].offsetWidth
-    let h = document.getElementsByClassName("header")[0].offsetHeight + 200
+    if (this.tv) {
+      let w = document.getElementsByClassName("header-home")[0].offsetWidth
+      let h =
+        document.getElementsByClassName("header-home")[0].offsetHeight + 200
 
-    var screen = document.querySelector("#tv.screen")
-    if (w / h > 16 / 9) {
-      this.tv.setSize(w, (w / 16) * 9)
-      screen.style.left = "0px"
-    } else {
-      this.tv.setSize((h / 9) * 16, h)
+      var screen = document.querySelector("#tv.screen")
+      if (w / h > 16 / 9) {
+        this.tv.setSize(w, (w / 16) * 9)
+        screen.style.left = "0px"
+      } else {
+        this.tv.setSize((h / 9) * 16, h)
+      }
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.tv) {
+      this.tv.stopVideo()
     }
   }
 
   render = () => {
     return (
-      <div className="header__tv">
+      <div className="header-home__tv">
         <div className="screen mute" id="tv"></div>
       </div>
     )

@@ -1,0 +1,35 @@
+.product {
+  max-width: $section;
+
+  &__header-meta {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    color: $grey-dark-3;
+  }
+
+  &__header-meta-option {
+    display: flex;
+    align-items: center;
+  }
+
+  &__header-meta-option:not(:last-child) {
+    margin-right:0.7rem;
+
+    &::after {
+      content: "|";
+      display: inline-block;
+      margin-left: 0.5rem
+    }
+  }
+
+  &__add-to-cart-button {
+    margin: 2rem 0;
+  }
+
+  & .heading-3 {
+    text-transform: revert;
+    color: #3c3c3c;
+    font-size: 1.6rem;
+  }
+}

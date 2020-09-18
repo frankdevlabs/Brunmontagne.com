@@ -25,7 +25,9 @@ export default props => {
               href="https://wwww.brunmontagne.com"
               aria-label="cart"
               role="button"
-            ></a>
+            >
+              <i aria-hidden="true"></i>
+            </a>
             <span className="navigation__cart--notification">0</span>
           </div>
           <div className="navigation__logo column is-one-quarter is-half-mobile">

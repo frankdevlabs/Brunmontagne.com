@@ -1,0 +1,26 @@
+.rating {
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+
+  &__stars {
+    margin-right: 0.5rem;
+  }
+
+  &__icon {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  &__star-full use {
+    fill: $yellow-1;
+  }
+
+  &__star-empty {
+    color: $yellow-1;
+  }
+
+  &__text {
+    color: $grey-dark-3;
+  }
+}

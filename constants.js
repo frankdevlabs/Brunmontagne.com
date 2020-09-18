@@ -5,6 +5,11 @@ exports.DEFAULT_OPTIONS = {
   // the default language for your gatsby app
   defaultLanguage: "nl",
 
+  locales: {
+    en: "en-gb",
+    nl: "nl-nl",
+  },
+
   // the domain (url) in which your web app is hosted in
   siteUrl: process.env.URL || "localhost:8080",
 

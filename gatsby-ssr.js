@@ -2,9 +2,11 @@ import React from "react"
 import i18next from "i18next"
 import merge from "lodash.merge"
 import { PageContext } from "./pageContext"
+import { ProductProvider } from "./src/components/Product/context"
 import { DEFAULT_OPTIONS } from "./constants"
 import i18n from "./i18next"
 import { I18nextProvider } from "react-i18next"
+import { preProcessProductData } from "./src/components/Product/preProcessProductsData"
 
 /**
  * Wrap all pages with a Translation provider and set the language on SSR time
@@ -28,7 +30,6 @@ export const wrapPageElement = ({ element, props }) => {
   if (excludedPages.includes(props.location.pathname)) {
     return element
   }
-
   const contextValue = merge({}, props.pageContext, {
     supportedLanguages,
     defaultLanguage,
@@ -49,7 +50,33 @@ export const wrapPageElement = ({ element, props }) => {
   // which exist only if `deleteOriginalPages` is `false`
   i18next.changeLanguage(props.pageContext.lang || defaultLanguage)
 
+  // *******************
+
+  const ProductStore = ({ props, element }) => {
+    const { caseOptions, strapOptions, flatProduct } =
+      props.data && props.data.productPage
+        ? preProcessProductData(props.data)
+        : {
+            caseOptions: undefined,
+            trapOptions: undefined,
+            flatProduct: undefined,
+          }
+
+    return (
+      <ProductProvider
+        product={flatProduct}
+        caseOptions={caseOptions}
+        strapOptions={strapOptions}
+        variant={props.pageContext.variant}
+      >
+        {element}
+      </ProductProvider>
+    )
+  }
+
   return (
-    <PageContext.Provider value={contextValue}>{element}</PageContext.Provider>
+    <PageContext.Provider value={contextValue}>
+      <ProductStore props={props} element={element} />
+    </PageContext.Provider>
   )
 }

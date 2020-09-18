@@ -1,48 +1,30 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import { useTranslation } from "react-i18next"
 
 import Layout from "../components/Layout"
 import ProductCards from "../components/ProductCards"
-import StyledLink from "../components/Link"
 
 import "./home.scss"
+import { graphql } from "gatsby"
 
-const pageQuery = graphql`
-  {
-    gcms {
-      products {
-        name
-        slug
-      }
-    }
-  }
-`
-
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   const { t } = useTranslation()
-  const {
-    gcms: { products },
-  } = useStaticQuery(pageQuery)
+  const Cards = data.landingPage.edges.reduce(
+    (acc, cur) => [
+      ...acc,
+      { id: cur.node.id, uid: cur.node.uid, ...cur.node.data },
+    ],
+    []
+  )
   return (
-    <Layout seoTitle={t("home.title")}>
-      {/*<p>{t("home.greeting")}</p>*/}
-      {/*{products.map(({ slug, ...product }) => (*/}
-      {/*  <StyledLink*/}
-      {/*    className="link link-primary"*/}
-      {/*    key={slug}*/}
-      {/*    to={`/products/${slug}`}*/}
-      {/*  >*/}
-      {/*    {product.name}*/}
-      {/*  </StyledLink>*/}
-      {/*))}*/}
+    <Layout seoTitle={t("home.title")} headerMode="home">
       <section className="section-collection">
         <div className="section-collection__container ">
           <h2 className="heading-2">{t("home.collection-section-title")}</h2>
           <p className="long-paragraph">
             {t("home.collection-section-description")}
           </p>
-          <ProductCards />
+          <ProductCards cards={Cards} />
           <div className="section-collection__btn">
             <a href="/shop/" className="btn btn--secondary btn">
               {t("home.collection-section-collection-btn")}
@@ -55,3 +37,34 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query LandingPageProductCards($locale: String!) {
+    landingPage: allPrismicProduct(
+      filter: {
+        lang: { eq: $locale }
+        data: {
+          variable_product: { eq: false }
+          categories: { elemMatch: { category: { uid: { eq: "watches" } } } }
+        }
+      }
+    ) {
+      edges {
+        node {
+          ...ProductFields
+          data {
+            variable_products {
+              product {
+                document {
+                  ... on PrismicProduct {
+                    ...ProductFields
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
