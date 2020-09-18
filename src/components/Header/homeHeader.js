@@ -53,9 +53,9 @@ const HomeHeader = () => {
             </div>
           </div>
         </div>
-        {!isMobile ? <Slider /> : null}
+        {isMobile ? <Slider /> : null}
       </div>
-      {isMobile ? <TV /> : null}
+      {!isMobile ? <TV /> : null}
     </>
   )
 }

@@ -18,14 +18,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-source-graphql`,
-    //   options: {
-    //     typeName: `GraphCMS`,
-    //     fieldName: `gcms`,
-    //     url: `${process.env.GATSBY_CMS_URL}`,
-    //   },
-    // },
     {
       resolve: `gatsby-source-prismic`,
       options: {
