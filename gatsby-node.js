@@ -13,6 +13,7 @@ exports.createResolvers = async ({
     node: {
       type: `File`,
       resolve: ({ image: { url } }, args, context, info) => {
+        console.log(url)
         return createRemoteFileNode({
           url,
           store,
