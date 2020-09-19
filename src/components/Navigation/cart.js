@@ -1,0 +1,20 @@
+import React from "react"
+import { SnipcartContext } from "gatsby-plugin-snipcart-advanced/context"
+
+const Cart = () => {
+  const { state } = React.useContext(SnipcartContext)
+  const { cartQuantity } = state
+
+  return (
+    <>
+      <button className="navigation__cart--link snipcart-checkout">
+        <svg className="navigation__cart--icon">
+          <use xlinkHref="/svg/main.svg#cart"></use>
+        </svg>
+      </button>
+      <span className="navigation__cart--notification">{cartQuantity}</span>
+    </>
+  )
+}
+
+export default Cart

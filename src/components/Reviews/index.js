@@ -3,10 +3,12 @@ import { useEmblaCarousel } from "embla-carousel/react"
 import { useRecursiveTimeout } from "./useRecursiveTimeout"
 import { DotButton, PrevButton, NextButton } from "./buttons"
 import Rating from "../Rating"
-
+import { usePageContext } from "../../../pageContext"
 import "./reviews.scss"
 
 const Reviews = ({ reviews }) => {
+  const { locale } = usePageContext()
+
   const [viewportRef, embla] = useEmblaCarousel()
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
@@ -72,6 +74,9 @@ const Reviews = ({ reviews }) => {
             {reviews.map(item => {
               if (item && item.review && item.review.document) {
                 const data = item.review.document.data
+                const date = new Date(
+                  item.review.document.first_publication_date
+                )
                 return (
                   <div className="reviews__slide" key={data.name}>
                     <div className="reviews__slide__inner">
@@ -91,11 +96,11 @@ const Reviews = ({ reviews }) => {
                                 {data.message.text}
                               </blockquote>
                             </cite>
-                            <div className="reviews__article-meta columns is-mobile">
-                              <span className="column is-narrow">
-                                {data.name} |
-                              </span>
-                              <span className="column is-narrow">
+                            <div className="reviews__article-meta">
+                              <div className="reviews__article-meta-item">
+                                {data.name}
+                              </div>
+                              <div className="reviews__article-meta-item">
                                 <div>
                                   <Rating
                                     readonly={true}
@@ -103,7 +108,13 @@ const Reviews = ({ reviews }) => {
                                     value={data.rating}
                                   />
                                 </div>
-                              </span>
+                              </div>
+                              <div className="reviews__article-meta-item">
+                                {date.toLocaleDateString(locale, {
+                                  year: "numeric",
+                                  month: "long",
+                                })}
+                              </div>
                             </div>
                           </div>
                         </div>

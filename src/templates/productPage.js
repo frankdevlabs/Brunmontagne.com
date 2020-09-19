@@ -144,6 +144,7 @@ export const pageQuery = graphql`
         review {
           document {
             ... on PrismicReview {
+              first_publication_date
               data {
                 name
                 email

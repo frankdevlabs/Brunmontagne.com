@@ -6,6 +6,7 @@ import AddToCartButton from "./add-to-cart-btn"
 import Description from "./description"
 import Rating from "../Rating"
 import Options from "./options"
+import Accordion from "../Accordion"
 import ProductContext from "./context"
 import "./product.scss"
 import { withTranslation } from "react-i18next"
@@ -18,8 +19,16 @@ class Product extends React.Component {
       <ProductContext.Consumer>
         {value => {
           const {
-            product: { name, description, variableProducts = [] },
+            product: {
+              name,
+              description,
+              variableProducts = [],
+              reviews,
+              specifications,
+            },
           } = value
+
+          console.log(value)
 
           const { price, discountPrice, discountActive, images } =
             value.variableProductsUIDs.length > 0
@@ -41,13 +50,22 @@ class Product extends React.Component {
               ? `/products/${value.product.uid}/variants/${uid}`
               : `/products/${uid}`
 
+          const avgRating = () => {
+            let total = 0
+            for (let i = 0; i < reviews.length; i++) {
+              total += reviews[i].rating
+            }
+            const avg = total / reviews.length
+            return Math.round((avg + Number.EPSILON) * 10) / 10
+          }
+
           return (
             <div className="product columns is-tablet is-multiline">
               <div className="product__header column is-full">
                 <h2 className="heading-2">{name}</h2>
                 <div className="product__header-meta">
                   <div className="product__header-meta-option">
-                    <Rating />
+                    <Rating value={avgRating()} votes={reviews.length} />
                   </div>
                   {options ? (
                     <>
@@ -84,6 +102,19 @@ class Product extends React.Component {
                   />
                 </div>
                 <Description content={description.html} />
+                {specifications.length > 0 ? (
+                  <div className="product__specifications">
+                    <Accordion head="Productspecifcaties">
+                      {specifications.map(spec => {
+                        return (
+                          <p className="long-paragraph" key={spec.key}>
+                            {spec.key} &mdash; {spec.value}
+                          </p>
+                        )
+                      })}
+                    </Accordion>
+                  </div>
+                ) : null}
               </div>
             </div>
           )

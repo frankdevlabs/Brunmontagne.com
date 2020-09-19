@@ -12,7 +12,7 @@ module.exports = {
   /* Your site config here */
   siteMetadata: {
     title: `Brunmontagne`,
-    siteUrl: `https://www.brunmontagne.com`,
+    siteUrl: `${process.env.SITE_URL}`,
     description: `Represents you`,
     supportedLanguages: ["nl", "en"],
   },
@@ -48,7 +48,6 @@ module.exports = {
         `,
       },
     },
-    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-snipcart-advanced`,
       options: {
@@ -66,5 +65,31 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Brunmontagne`,
+        short_name: `Brunmontagne`,
+        description: `E-commmerce app van Brunmontagne.`,
+        lang: `nl`,
+        display: `standalone`,
+        icon: `src/assets/icon/icon.png`,
+        start_url: `/`,
+        background_color: `#f1f1f1`,
+        theme_color: `#130f40`,
+        cache_busting_mode: "none",
+        localize: [
+          {
+            start_url: `/en/`,
+            lang: `en`,
+            name: `Brunmontagne`,
+            short_name: `Brunmontagne`,
+            description: `E-commmerce app of Brunmontagne.`,
+          },
+        ],
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }

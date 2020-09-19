@@ -1,5 +1,6 @@
 import React from "react"
 import NavList from "./list"
+import Cart from "./cart"
 import LanguagePicker from "../LanguagePicker"
 import "./main.scss"
 
@@ -43,17 +44,7 @@ export default props => {
                 <NavList items={props.items} mode="default" />
               </div>
               <div className="navigation__cart column is-narrow">
-                <a
-                  className="navigation__cart--link"
-                  href="<?php echo wc_get_cart_url(); ?>"
-                >
-                  <svg className="navigation__cart--icon">
-                    <use xlinkHref="/svg/main.svg#cart"></use>
-                  </svg>
-                </a>
-                <span className="navigation__cart--notification">
-                  {/* Todo: implement cart counter*/}0
-                </span>
+                <Cart />
               </div>
               <div className="navigation__language column is-narrow">
                 <LanguagePicker />

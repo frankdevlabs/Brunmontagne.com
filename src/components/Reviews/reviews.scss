@@ -178,10 +178,25 @@
   }
 
   &__article-meta {
+    display: flex;
     margin-top: 1rem;
     font-size: 1.2rem;
     color:$grey-dark-3;
     align-items: center;
+  }
+
+  &__article-meta-item {
+    display: flex;
+    align-items: center;
+    &:not(:last-child) {
+      margin-right:0.7rem;
+
+      &::after {
+        content: "|";
+        display: inline-block;
+        margin-left: 0.5rem
+      }
+    }
   }
 }
 

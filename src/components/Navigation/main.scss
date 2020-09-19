@@ -101,6 +101,10 @@
 
     &--link {
       margin-right: 3.4rem;
+      outline: none;
+      border: none;
+      background: transparent;
+      cursor: pointer;
 
       &:link,
       &:visited {
@@ -233,7 +237,7 @@
     visibility: visible;
     position: relative;
     display: block;
-    z-index: 1001;
+    z-index: 2501;
     user-select: none;
   }
 
@@ -241,7 +245,7 @@
     visibility: visible;
     position: relative;
     display: block;
-    z-index: 1001;
+    z-index: 2501;
     user-select: none;
   }
 
