@@ -8,7 +8,10 @@ import "./productPage.scss"
 const ProductPage = props => {
   const data = props.data
   return (
-    <Layout seoTitle={data.productPage.data.seo.text}>
+    <Layout
+      seoDescription={data.productPage.data.seo.text}
+      seoPageTitle={data.productPage.data.name}
+    >
       <section className="section-product">
         <Product />
       </section>

@@ -2,12 +2,12 @@
   "en": {
     "translation": {
       "siteMetadata": {
-        "title": "Represents you",
+        "title": "Brunmontagne",
+        "pageTitle": "Represents you",
         "description": "Brunmontagne. Een horloge wat je draagt wat gezien mag worden, niet iets wat probeert om gezien te worden. Tijdloos, kwalitatief en uniek."
       },
       "home": {
-        "title": "Represents you",
-        "greeting": "test translation",
+        "pageTitle": "Represents you",
         "collection-section-title": "Collection",
         "collection-section-description": "Take a look at the Representor. A great superior watch.",
         "collection-section-collection-btn": "To our collection"
@@ -52,11 +52,12 @@
   "nl": {
     "translation": {
       "siteMetadata": {
-        "title": "Represents you",
+        "title": "Brunmontagne",
+        "pageTitle": "Represents you",
         "description": "Brunmontagne. Een horloge wat je draagt wat gezien mag worden, niet iets wat probeert om gezien te worden. Tijdloos, kwalitatief en uniek."
       },
       "home": {
-        "title": "Represents you",
+        "pageTitle": "Represents you",
         "greeting": "test vertaling",
         "collection-section-title": "Collectie",
         "collection-section-description": "Bekijk onze Representor. Een tijdloos, kwalitatief en uniek horloge.",

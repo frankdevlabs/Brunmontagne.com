@@ -33,8 +33,6 @@ class Slider extends React.Component {
   }
 
   render() {
-    console.log(this.props.data)
-
     const { hero1, hero2, hero3 } = this.props.data
     return (
       <>

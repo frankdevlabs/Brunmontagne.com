@@ -17,7 +17,11 @@ const IndexPage = ({ data }) => {
     []
   )
   return (
-    <Layout seoTitle={t("home.title")} headerMode="home">
+    <Layout
+      seoPageTitle={t("home.pageTitle")}
+      seoDescription={t("home.description")}
+      headerMode="home"
+    >
       <section className="section-collection">
         <div className="section-collection__container ">
           <h2 className="heading-2">{t("home.collection-section-title")}</h2>
