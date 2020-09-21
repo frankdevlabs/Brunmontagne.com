@@ -11,7 +11,7 @@ exports.DEFAULT_OPTIONS = {
   },
 
   // the domain (url) in which your web app is hosted in
-  siteUrl: process.env.URL || "localhost:8080",
+  siteUrl: process.env.SITE_URL || "localhost:8080",
 
   // the (optional) path in which your web app redirects in case of a 404
   notFoundPage: "/404/",

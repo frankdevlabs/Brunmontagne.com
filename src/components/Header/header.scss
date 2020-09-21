@@ -65,32 +65,32 @@
     opacity: 0;
     transition: opacity 1s ease-in;
 
-    &--1 {
-      background-image: linear-gradient(
-                      to right bottom,
-                      rgba(60, 60, 60, 0.3),
-                      rgba(60, 60, 60, 0.3)
-      ),
-      url(/img/hero-image-brunmontagne-1920-1.jpg);
-    }
-
-    &--2 {
-      background-image: linear-gradient(
-                      to right bottom,
-                      rgba(60, 60, 60, 0.3),
-                      rgba(60, 60, 60, 0.3)
-      ),
-      url(/img/hero-image-brunmontagne-1920-2.jpg);
-    }
-
-    &--3 {
-      background-image: linear-gradient(
-                      to right bottom,
-                      rgba(60, 60, 60, 0.3),
-                      rgba(60, 60, 60, 0.3)
-      ),
-      url(/img/hero-image-brunmontagne-1920-3.jpg);
-    }
+    //&--1 {
+    //  background-image: linear-gradient(
+    //                  to right bottom,
+    //                  rgba(60, 60, 60, 0.3),
+    //                  rgba(60, 60, 60, 0.3)
+    //  ),
+    //  url(/img/hero-image-brunmontagne-1920-1.jpg);
+    //}
+    //
+    //&--2 {
+    //  background-image: linear-gradient(
+    //                  to right bottom,
+    //                  rgba(60, 60, 60, 0.3),
+    //                  rgba(60, 60, 60, 0.3)
+    //  ),
+    //  url(/img/hero-image-brunmontagne-1920-2.jpg);
+    //}
+    //
+    //&--3 {
+    //  background-image: linear-gradient(
+    //                  to right bottom,
+    //                  rgba(60, 60, 60, 0.3),
+    //                  rgba(60, 60, 60, 0.3)
+    //  ),
+    //  url(/img/hero-image-brunmontagne-1920-3.jpg);
+    //}
 
     &.active {
       opacity: 1;

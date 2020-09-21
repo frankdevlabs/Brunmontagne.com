@@ -7,9 +7,17 @@ import "./main.scss"
 export default props => {
   return (
     <>
-      <nav className="navigation-mobile" role="navigation">
+      <nav
+        className="navigation-mobile"
+        role="navigation"
+        for="navigation-mobile"
+      >
         <div className="navigation-mobile__menu">
-          <input className="navigation-mobile__checkbox " type="checkbox" />
+          <input
+            className="navigation-mobile__checkbox "
+            type="checkbox"
+            id="navigation-mobile"
+          />
           <div className="navigation-mobile__container">
             <span className="hamburger"></span>
             <span className="hamburger"></span>

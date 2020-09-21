@@ -29,6 +29,7 @@ const Card = ({ data, options }) => {
         <button
           onClick={toggleImage}
           className="card__arrow-btn card__arrow-btn--left"
+          aria-label="move-product-image-left"
         >
           <svg className="card__arrow">
             <use xlinkHref="/svg/main.svg#arrow-left"></use>
@@ -37,6 +38,7 @@ const Card = ({ data, options }) => {
         <button
           onClick={toggleImage}
           className="card__arrow-btn card__arrow-btn--right"
+          aria-label="move-product-image-right"
         >
           <svg className="card__arrow">
             <use xlinkHref="/svg/main.svg#arrow-right"></use>

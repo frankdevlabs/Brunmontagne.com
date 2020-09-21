@@ -4,6 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const path = require("path")
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -17,6 +19,14 @@ module.exports = {
     supportedLanguages: ["nl", "en"],
   },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `img`,
+        path: path.join(__dirname, `src`, `assets`, `img`),
+      },
+    },
+    `gatsby-background-image-es5`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-prismic`,

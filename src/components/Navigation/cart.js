@@ -7,7 +7,10 @@ const Cart = () => {
 
   return (
     <>
-      <button className="navigation__cart--link snipcart-checkout">
+      <button
+        className="navigation__cart--link snipcart-checkout"
+        aria-label="cart-button"
+      >
         <svg className="navigation__cart--icon">
           <use xlinkHref="/svg/main.svg#cart"></use>
         </svg>
