@@ -22,10 +22,12 @@
   &__image-caption {
     font-size: 1.2rem;
     display: block;
+    text-align: center;
   }
 
   &__embed iframe {
     margin: 0 auto;
     display: block;
+    max-width: 100%;
   }
 }

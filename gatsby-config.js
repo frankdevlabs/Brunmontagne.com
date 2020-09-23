@@ -43,6 +43,7 @@ module.exports = {
           category: require("./schemas/category.json"),
           collection: require("./schemas/collection.json"),
           inventory: require("./schemas/inventory.json"),
+          page: require("./schemas/page.json"),
           product: require("./schemas/product.json"),
           review: require("./schemas/review.json"),
           specification: require("./schemas/specification.json"),

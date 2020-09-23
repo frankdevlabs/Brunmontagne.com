@@ -6,12 +6,10 @@ const Required = () => {
 }
 
 const TextField = ({ label, name, type, required = true, mode = "input" }) => {
-  console.log({ label, name, type, required, mode })
-
   if (mode === "input")
     return (
       <div className="textfield">
-        <label for={name} className="textfield__label">
+        <label htmlFor={name} className="textfield__label">
           {label}
           {required ? <Required /> : ""}
         </label>
@@ -27,7 +25,7 @@ const TextField = ({ label, name, type, required = true, mode = "input" }) => {
   else if (mode === "textarea")
     return (
       <div className="textfield">
-        <label for={name} className="textfield__label">
+        <label htmlFor={name} className="textfield__label">
           {label}
           {required ? <Required /> : ""}
         </label>

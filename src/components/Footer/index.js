@@ -1,8 +1,11 @@
 import React from "react"
 import ExtLink from "../ExternalLink"
 import "./footer.scss"
+import Link from "../Link"
+import { usePageContext } from "../../../pageContext"
 
 const Footer = () => {
+  const { lang } = usePageContext()
   return (
     <footer className="footer">
       <div className="footer__social">
@@ -49,28 +52,27 @@ const Footer = () => {
         <div className="footer-nav">
           <ul className="footer-nav__legal columns is-centered">
             <li className="footer-nav__item column">
-              <a
-                href="/privacy/"
+              <Link
+                to="/privacy/"
                 className="footer-nav__link url url-secondary"
               >
                 Privacy & cookie statement
-              </a>
+              </Link>
             </li>
             <li className="footer-nav__item column">
-              <a
-                href="/conditions/"
-                className="footer-nav__link url url-secondary"
-              >
-                Terms & conditions
-              </a>
+              <Link to="/terms/" className="footer-nav__link url url-secondary">
+                {lang === "en" ? "Terms & conditions" : "Algemene voorwaarden"}
+              </Link>
             </li>
             <li className="footer-nav__item column">
-              <a
-                href="/returns/"
+              <Link
+                to="/returns/"
                 className="footer-nav__link url url-secondary"
               >
-                Warranty and returns
-              </a>
+                {lang === "en"
+                  ? "Warranty and returns"
+                  : "Garantie en retouren"}
+              </Link>
             </li>
           </ul>
         </div>

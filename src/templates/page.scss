@@ -1,0 +1,40 @@
+.section-page {
+  padding: 8rem 2%;
+  background-color: $grey-light-2;
+  margin: 0 auto;
+
+  & > h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  &__content {
+    max-width: 700px;
+    margin: 0 auto;
+    color: $grey-dark-6;
+  }
+
+  &__content div > ul {
+    margin-left: 2.2rem;
+  }
+
+  &__content div > p {
+    font-size: 1.6rem;
+    max-width: 700px;
+    letter-spacing: .03rem;
+
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__content div > h3 {
+    margin-top: 1.5rem;
+    letter-spacing: .2rem;
+    font-size: 2rem;
+    font-family: $header-font;
+    text-transform: uppercase;
+    color: $purple-dark;
+  }
+}

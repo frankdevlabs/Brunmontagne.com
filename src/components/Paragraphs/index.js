@@ -34,9 +34,7 @@ const Parapgraphs = ({ data }) => {
                     alt={element.alt}
                   />
                 </div>
-                <caption className="paragraphs__image-caption">
-                  {element.alt}
-                </caption>
+                <div className="paragraphs__image-caption">{element.alt}</div>
               </div>
             )
           default:

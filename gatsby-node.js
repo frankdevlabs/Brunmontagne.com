@@ -9,7 +9,7 @@ exports.createResolvers = async ({
   store,
   reporter,
 }) => {
-  const fields = {
+  const imageFields = {
     node: {
       type: `File`,
       resolve: ({ image: { url } }, args, context, info) => {
@@ -27,6 +27,7 @@ exports.createResolvers = async ({
       },
     },
   }
+
   const resolvers = {
     PrismicAboutPageParagraphsGroupType: {
       paragraphType: {
@@ -63,10 +64,10 @@ exports.createResolvers = async ({
       },
     },
     PrismicProductImagesGroupType: {
-      ...fields,
+      ...imageFields,
     },
     PrismicInventoryImagesGroupType: {
-      ...fields,
+      ...imageFields,
     },
   }
 
@@ -75,7 +76,7 @@ exports.createResolvers = async ({
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const pages = await graphql(`
+  const productPages = await graphql(`
     {
       allPrismicProduct(filter: { data: { variable_product: { eq: false } } }) {
         edges {
@@ -102,8 +103,8 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const template = require.resolve(`./src/templates/productPage.js`)
-  pages.data.allPrismicProduct.edges.forEach(
+  const productPageTemplate = require.resolve(`./src/templates/productPage.js`)
+  productPages.data.allPrismicProduct.edges.forEach(
     ({ node: { id, uid, lang, data } }) => {
       const sanitzedLang = lang === "en-gb" ? "en" : "nl"
       const baseURI = lang === "en-gb" ? `/en` : ""
@@ -111,7 +112,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
       createPage({
         path: `${baseURI}${basePath}`,
-        component: template,
+        component: productPageTemplate,
         context: {
           id: id,
           uid: uid,
@@ -126,7 +127,7 @@ exports.createPages = async ({ graphql, actions }) => {
         if (document)
           createPage({
             path: `${baseURI}${basePath}/variants/${document.uid}`,
-            component: template,
+            component: productPageTemplate,
             context: {
               id: id,
               uid: uid,
@@ -139,6 +140,39 @@ exports.createPages = async ({ graphql, actions }) => {
       })
     }
   )
+
+  const page = await graphql(`
+    {
+      allPrismicPage {
+        edges {
+          node {
+            id
+            uid
+            lang
+          }
+        }
+      }
+    }
+  `)
+
+  const pageTemplate = require.resolve(`./src/templates/page.js`)
+  page.data.allPrismicPage.edges.forEach(({ node: { id, uid, lang } }) => {
+    const sanitzedLang = lang === "en-gb" ? "en" : "nl"
+    const baseURI = lang === "en-gb" ? `/en` : ""
+    const basePath = `/${uid}`
+
+    createPage({
+      path: `${baseURI}${basePath}`,
+      component: pageTemplate,
+      context: {
+        id: id,
+        uid: uid,
+        locale: lang,
+        originalPath: `${basePath}`,
+        lang: sanitzedLang,
+      },
+    })
+  })
 }
 
 /**
