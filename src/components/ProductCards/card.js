@@ -8,13 +8,6 @@ import { useTranslation } from "react-i18next"
 const Card = ({ data, options }) => {
   const { t } = useTranslation("translation")
 
-  const [activeImage, setActiveImage] = React.useState(1)
-  const toggleImage = () => {
-    if (activeImage < 2) setActiveImage(activeImage + 1)
-    else {
-      setActiveImage(1)
-    }
-  }
   const strapLeatherOptions = options.filter(
     e => e.inventory_type === "STRAP" && e.material === "LEATHER"
   )
@@ -26,38 +19,12 @@ const Card = ({ data, options }) => {
   return (
     <div className="card column is-one-quarter is-half-touch is-full-mobile">
       <div className="card__container">
-        <button
-          onClick={toggleImage}
-          className="card__arrow-btn card__arrow-btn--left"
-          aria-label="move-product-image-left"
-        >
-          <svg className="card__arrow">
-            <use xlinkHref="/svg/main.svg#arrow-left"></use>
-          </svg>
-        </button>
-        <button
-          onClick={toggleImage}
-          className="card__arrow-btn card__arrow-btn--right"
-          aria-label="move-product-image-right"
-        >
-          <svg className="card__arrow">
-            <use xlinkHref="/svg/main.svg#arrow-right"></use>
-          </svg>
-        </button>
         <div className="card__image-overlay"></div>
         <div className="card__image" style={{ maxWidth: "285px" }}>
-          <div
-            className={`card__image--1 ${
-              activeImage === 1 ? "active" : "inactive"
-            }`}
-          >
+          <div className="card__image--1 active">
             <Img fluid={data.images[0].node.childImageSharp.fluid} />
           </div>
-          <div
-            className={`card__image--2 ${
-              activeImage === 2 ? "active" : "inactive"
-            }`}
-          >
+          <div className="card__image--2 inactive">
             <Img fluid={data.images[1].node.childImageSharp.fluid} />
           </div>
         </div>

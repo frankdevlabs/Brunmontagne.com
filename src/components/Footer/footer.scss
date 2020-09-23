@@ -1,0 +1,75 @@
+.footer {
+  font-size: 1.4rem;
+  color: $white;
+  padding: 0 0 1rem;
+  background-color: $purple-dark;
+
+  &__social {
+    background-color: $grey-light-5;
+    height: 4rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid $purple-dark;
+  }
+
+  &__container {
+    justify-content: center;
+    margin-top: 2rem;
+  }
+}
+
+.footer-nav {
+  font-size: 1.2rem;
+
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0 1.5rem;
+
+  &,
+  &__legal {
+    list-style: none;
+  }
+
+  &__legal {
+    margin-bottom: 0.8rem;
+  }
+
+  &__item.column {
+    padding: 0 0.75rem;
+  }
+}
+
+
+.contact {
+  & > * {
+    font-style: normal;
+  }
+
+  &__phone {
+    text-decoration: none;
+    color: currentColor;
+  }
+}
+
+.social {
+  &__list {
+    list-style: none;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+  }
+  &__icon {
+    height: 3rem;
+    width: 3rem;
+  }
+  &__item {
+    width: 4rem;
+    height: 3rem;
+  }
+  &__item > a:active > &__icon,
+  &__item > a:hover > &__icon {
+    fill: $yellow-1;
+  }
+}
+

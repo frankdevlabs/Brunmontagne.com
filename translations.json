@@ -46,6 +46,15 @@
         "leatherStraps": "Leather straps",
         "steelStraps":"Steel straps",
         "movement": "Movement"
+      },
+      "contactForm": {
+        "general": "Do you have question or remark? Call, mail or fill in the contact form. We will get back to you as soon as possible!",
+        "information": "Fields marked with an * are required.",
+        "nameFieldLabel": "Name",
+        "emailFieldLabel": "Email",
+        "phoneFieldLabel": "Phone",
+        "messageFieldLabel": "Message",
+        "buttonLabel": "Send"
       }
     }
   },
@@ -98,6 +107,15 @@
         "leatherStraps": "Leren banden",
         "steelStraps":"Stalen banden",
         "movement": "Uurwerk"
+      },
+      "contactForm": {
+        "general": "Heb je een vraag of een opmerking? Bel, mail of vul het contactformulier in. We nemen snel contact met je op!",
+        "information": "Velden die gemarkeerd zijn met een * zijn verplichte velden.",
+        "nameFieldLabel": "Naam",
+        "emailFieldLabel": "Email",
+        "phoneFieldLabel": "Telefoonnummer",
+        "messageFieldLabel": "Bericht",
+        "buttonLabel": "Verstuur"
       }
     }
   }

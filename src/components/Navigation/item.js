@@ -25,6 +25,9 @@ export default props => {
         className={`navigation__link ${
           props.mode === "mobile" ? " navigation__link-secondary" : ""
         }`}
+        activeClassName={
+          props.mode !== "mobile" ? "navigation__link--active" : ""
+        }
       >
         {props.children}
         {props.items.length > 0 ? (

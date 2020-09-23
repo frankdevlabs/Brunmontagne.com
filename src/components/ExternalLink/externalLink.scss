@@ -1,0 +1,16 @@
+.ext-link {
+  &:link, &:visited {
+    text-decoration: none;
+    color: currentColor;
+    white-space: nowrap;
+    transition: all 0.2;
+  }
+
+  &__primary:active, &__primary:hover {
+    color: $purple-dark;
+  }
+
+  &__secondary:active, &__secondary:hover {
+    color: $yellow-1;
+  }
+}

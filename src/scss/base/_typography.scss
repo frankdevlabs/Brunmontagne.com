@@ -71,3 +71,26 @@ textarea {
 .white-text {
   color: #fff;
 }
+
+.url a:link,
+.url a:visited,
+.url:link,
+.url:visited {
+  text-decoration: none;
+  color: currentColor;
+  white-space: nowrap;
+  transition: all 0.2;
+}
+.url a-primary:active,
+.url a-primary:hover,
+.url-primary:active,
+.url-primary:hover {
+  color: #130f40;
+}
+.url a-secondary:active,
+.url a-secondary:hover,
+.url-secondary:active,
+.url-secondary:hover {
+  color: #ffb900;
+}
+

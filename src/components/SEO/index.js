@@ -7,15 +7,12 @@ import { usePageContext } from "../../../pageContext"
 
 const SEO = ({ title, pageTitle, description }) => {
   const { siteUrl } = useSiteMetadata()
-  const { supportedLanguages, defaultLanguage } = DEFAULT_OPTIONS
+  const { supportedLanguages, defaultLanguage, locales } = DEFAULT_OPTIONS
   const { t } = useTranslation()
-
   const { lang, originalPath } = usePageContext()
-  console.log(title, description)
   const metaDescription = description || t("siteMetadata.description")
   const metaPageTitle = pageTitle || t("siteMetadata.pageTitle")
   const metaTitle = title || t("siteMetadata.title")
-
   const canonicalUrl =
     lang === defaultLanguage
       ? `${siteUrl}${originalPath}`
@@ -24,7 +21,7 @@ const SEO = ({ title, pageTitle, description }) => {
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: locales[lang],
       }}
       titleTemplate={`%s | ${metaPageTitle}`}
     >
@@ -41,15 +38,16 @@ const SEO = ({ title, pageTitle, description }) => {
         href={`${siteUrl}${originalPath}`}
       />
       {supportedLanguages.map(supportedLang => {
-        const path =
-          lang === supportedLang
-            ? `/${originalPath}`
-            : `/${supportedLang}${originalPath}`
+        const supportedLangCanonicalUrl =
+          supportedLang === defaultLanguage
+            ? `${siteUrl}${originalPath}`
+            : `${siteUrl}/${lang}${originalPath}`
+
         return (
           <link
             rel="alternate"
-            href={`${siteUrl}${path}`}
-            hrefLang={supportedLang}
+            href={supportedLangCanonicalUrl}
+            hrefLang={locales[supportedLang]}
             key={supportedLang}
           />
         )

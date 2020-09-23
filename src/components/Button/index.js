@@ -5,7 +5,14 @@ import { usePageContext } from "../../../pageContext"
 import { DEFAULT_OPTIONS } from "../../../constants"
 import "./button.scss"
 
-const Button = React.forwardRef(({ to, children, ...rest }, ref) => {
+const Button = props => {
+  if (props.mode === "button") {
+    return <button {...props} />
+  }
+  return <GatsbyButton {...props} />
+}
+
+const GatsbyButton = React.forwardRef(({ to, children, ...rest }, ref) => {
   const { lang } = usePageContext()
   const { defaultLanguage } = DEFAULT_OPTIONS
 
