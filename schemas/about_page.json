@@ -1,0 +1,38 @@
+{
+  "Main" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Slug"
+      }
+    },
+    "seo_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "SEO Decription"
+      }
+    },
+    "title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading2",
+        "label" : "Title"
+      }
+    },
+    "paragraphs" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "content" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+              "label" : "Content"
+            }
+          }
+        },
+        "label" : "Paragraphs"
+      }
+    }
+  }
+}

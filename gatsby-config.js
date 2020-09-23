@@ -39,6 +39,7 @@ module.exports = {
           return true
         },
         schemas: {
+          about_page: require("./schemas/about_page.json"),
           category: require("./schemas/category.json"),
           collection: require("./schemas/collection.json"),
           inventory: require("./schemas/inventory.json"),

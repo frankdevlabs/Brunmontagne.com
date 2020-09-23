@@ -18,7 +18,7 @@ export default () => {
       },
       {
         content: "Over ons",
-        to: "/over-ons",
+        to: "/about-us",
         subMenu: [],
       },
       {

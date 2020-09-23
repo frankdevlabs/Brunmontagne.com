@@ -28,6 +28,40 @@ exports.createResolvers = async ({
     },
   }
   const resolvers = {
+    PrismicAboutPageParagraphsGroupType: {
+      paragraphType: {
+        type: `String`,
+        resolve: (source, args, context, info) => {
+          return source.content.raw[0].type
+        },
+      },
+      alt: {
+        type: `String`,
+        resolve: (source, args, context, info) => {
+          return source.content.raw[0].alt
+        },
+      },
+      image: {
+        type: `File`,
+        resolve: (source, args, context, info) => {
+          const url =
+            source.content.raw[0].type === "image"
+              ? source.content.raw[0].url
+              : ""
+          if (url !== "")
+            return createRemoteFileNode({
+              url,
+              store,
+              cache,
+              createNode,
+              createNodeId,
+              reporter,
+            })
+
+          return
+        },
+      },
+    },
     PrismicProductImagesGroupType: {
       ...fields,
     },
