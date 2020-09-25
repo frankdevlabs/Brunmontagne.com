@@ -12,16 +12,6 @@ export default () => {
         subMenu: [],
       },
       {
-        content: "Lookbook",
-        to: "/lookbook",
-        subMenu: [],
-      },
-      {
-        content: "Over ons",
-        to: "/about-us",
-        subMenu: [],
-      },
-      {
         content: "Collectie",
         to: "/collectie",
         subMenu: [
@@ -43,6 +33,17 @@ export default () => {
         ],
       },
       {
+        content: "Lookbook",
+        to: "/lookbook",
+        subMenu: [],
+      },
+      {
+        content: "Over Brunmontagne",
+        to: "/about-us",
+        subMenu: [],
+      },
+
+      {
         content: "Contact",
         to: "/contact",
         subMenu: [],
@@ -52,16 +53,6 @@ export default () => {
       {
         content: "Home",
         to: "/en",
-        subMenu: [],
-      },
-      {
-        content: "Lookbook",
-        to: "/en/lookbook",
-        subMenu: [],
-      },
-      {
-        content: "About us",
-        to: "/en/about-us",
         subMenu: [],
       },
       {
@@ -84,6 +75,16 @@ export default () => {
             subMenu: [],
           },
         ],
+      },
+      {
+        content: "Lookbook",
+        to: "/en/lookbook",
+        subMenu: [],
+      },
+      {
+        content: "About Brunmontagne",
+        to: "/en/about-us",
+        subMenu: [],
       },
       {
         content: "Contact",

@@ -61,6 +61,17 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        access_token: `${process.env.INSTA_ACCESS_TOKEN}`,
+        instagram_id: `${process.env.INSTA_BUSINESS_ACC_ID}`,
+        hashtags: {
+          enabled: true,
+          commentDepth: 10,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-snipcart-advanced`,
       options: {
         version: "3.0.15",

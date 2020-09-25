@@ -29,6 +29,7 @@
     "gatsby-plugin-sitemap": "^2.4.13",
     "gatsby-plugin-snipcart-advanced": "^1.0.1",
     "gatsby-source-filesystem": "^2.3.24",
+    "gatsby-source-instagram": "^0.9.0",
     "gatsby-source-prismic": "^3.2.1",
     "gatsby-transformer-sharp": "^2.5.13",
     "i18next": "^19.6.3",
