@@ -34,7 +34,11 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
         grid-gap: 2rem;
-        margin: 0
+        margin: 0;
+
+        @include respond(520px) {
+          grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        }
     }
   }
 
@@ -46,6 +50,11 @@
     box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
     overflow: hidden;
     max-height: 24rem;
+
+    @include respond(520px) {
+      flex: 1 0 18rem;
+      max-height: 18rem;
+    }
 
     @supports (display: grid) {
       margin: 0

@@ -318,8 +318,6 @@
   &__list {
     top: 9rem;
     position: absolute;
-    width: 25vw;
-    min-width: 25rem;
     box-shadow: 0 1rem 2rem rgba($black, 0.5);
     background-image: radial-gradient($white, $white);
     list-style-type: none;
@@ -343,6 +341,7 @@
     font-size: 2rem;
     margin: 5rem;
     border-bottom: 2px solid $purple-dark;
+    text-align: center;
   }
 
   &__language {
