@@ -41,15 +41,6 @@ exports.createResolvers = async ({
           return (
             context.nodeModel.runQuery({
               query: {
-                // filter: {
-                //   data: {
-                //     hashtags: {
-                //       elemMatch: {
-                //         hashtag: { in: arg },
-                //       },
-                //     },
-                //   },
-                // },
                 filter: {
                   data: {
                     hashtags: {
@@ -260,7 +251,7 @@ exports.onCreatePage = async ({
   await Promise.all(
     supportedLanguages.map(async lang => {
       const localizedPath =
-        lang === defaultLanguage ? page.path : `${lang}${page.path}`
+        lang === defaultLanguage ? page.path : `/${lang}${page.path}`
 
       // create a redirect based on the accept-language header
       createRedirect({
