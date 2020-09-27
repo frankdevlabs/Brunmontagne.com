@@ -13,4 +13,10 @@
   &__secondary:active, &__secondary:hover {
     color: $yellow-1;
   }
+
+  &__border {
+    padding: 0.2rem 0.8rem;
+    border: 1px solid currentColor;
+    display: inline-block;
+  }
 }

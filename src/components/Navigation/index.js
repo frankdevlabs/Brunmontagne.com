@@ -38,7 +38,7 @@ export default () => {
         subMenu: [],
       },
       {
-        content: "Over Brunmontagne",
+        content: "Het verhaal",
         to: "/about-us",
         subMenu: [],
       },
@@ -82,7 +82,7 @@ export default () => {
         subMenu: [],
       },
       {
-        content: "About Brunmontagne",
+        content: "The story",
         to: "/en/about-us",
         subMenu: [],
       },

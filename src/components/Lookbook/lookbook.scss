@@ -1,0 +1,158 @@
+.lookbook {
+  &__gallery {
+    display: flex;
+    flex-wrap: wrap;
+    /* Compensate for excess margin on outer gallery flex items */
+    margin: -1rem -1rem;
+
+    @supports (display: grid) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+      grid-gap: 2rem;
+      margin: 0;
+
+      @include respond(520px) {
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      }
+    }
+  }
+
+  &__gallery-item {
+    /* Minimum width of 24rem and grow to fit available space */
+    flex: 1 0 24rem;
+    /* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+    margin: 1rem;
+    box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+    max-height: 24rem;
+    position: relative;
+
+    @include respond(520px) {
+      flex: 1 0 18rem;
+      max-height: 18rem;
+    }
+
+    @supports (display: grid) {
+      margin: 0
+    }
+  }
+
+  &__gallery-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 200ms ease-out;
+  }
+
+  &__overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 400ms ease-out;
+    overflow: hidden;
+
+    &:hover {
+      height: 100%;
+      overflow: unset;
+      opacity: 1;
+      background: radial-gradient(ellipse at center, rgba(80, 80, 80, 0.7) 0%, rgba(95, 95, 95, 0.5) 0%, rgba(20, 21, 20, 0.7) 100%);
+    }
+  }
+
+  &__overlay-inner {
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    height: 0;
+    width: 100%;
+    background: $white;
+    transition: all 300ms ease-in;
+    color: $grey-dark-6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__overlay-inner-top {
+    border-bottom: 1px solid $grey-light-1;
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__overlay-inner-bottom {
+    border-top: 1px solid $grey-light-1;
+    font-size: 1.2rem;
+    color: $grey-dark-6;
+    letter-spacing: 0.03rem;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__product-indicator {
+    display: flex;
+  }
+
+  &__overlay-inner-middle {
+    --lh: 1.7rem;
+    --max-lines: 6;
+    line-height: var(--lh);
+    max-height: calc(var(--lh) * var(--max-lines));
+
+    @include respond(520px) {
+      --lh: 1.7rem;
+      --max-lines: 4;
+    }
+  }
+
+  &__overlay:hover &__overlay-inner {
+    opacity: 1;
+    height: 75%;
+    padding: 2%;
+
+    @include respond(520px) {
+      height: 100%;
+    }
+  }
+
+  &__overlay:hover &__gallery-image {
+    transform: scale(1.15);
+  }
+
+  &__caption {
+    font-size: 1rem;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: auto;
+  }
+
+  &__meta-item:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+
+  &__meta-icon {
+    height: 2rem;
+    width: 2rem;
+    fill: $grey-dark-6;
+  }
+
+  &__at {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__product-name {
+    color: $purple-dark;
+    white-space: nowrap;
+    max-width: 16rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+}

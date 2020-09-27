@@ -25,9 +25,9 @@ const IndexPage = ({ data }) => {
       <section className="section-collection">
         <div className="section-collection__container ">
           <h2 className="heading-2">{t("home.collection-section-title")}</h2>
-          <p className="long-paragraph">
-            {t("home.collection-section-description")}
-          </p>
+          {/*<p className="long-paragraph">*/}
+          {/*  {t("home.collection-section-description")}*/}
+          {/*</p>*/}
           <ProductCards cards={Cards} />
           <div className="section-collection__btn">
             <a href="/shop/" className="btn btn--secondary btn">

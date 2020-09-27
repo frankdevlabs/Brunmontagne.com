@@ -1,183 +1,207 @@
 {
-  "Main" : {
-    "name" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Name"
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name"
       }
     },
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "label" : "Slug"
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug"
       }
     },
-    "seo" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label" : "SEO"
+    "seo": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "SEO"
       }
     },
-    "title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading3",
-        "label" : "Title"
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Title"
       }
     },
-    "subtitle" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading4",
-        "label" : "Subtitle"
+    "subtitle": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading4",
+        "label": "Subtitle"
       }
     },
-    "description" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-        "label" : "Description"
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Description"
       }
     },
-    "specifications" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "specification" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "label" : "Specification"
+    "specifications": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "specification": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "label": "Specification"
             }
           }
         },
-        "label" : "Specifications"
+        "label": "Specifications"
       }
     },
-    "variable_product" : {
-      "type" : "Boolean",
-      "config" : {
-        "default_value" : false,
-        "label" : "Variable product"
+    "variable_product": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Variable product"
       }
     },
-    "variable_products" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "product" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "customtypes" : [ "product" ],
-              "label" : "Product"
+    "variable_products": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "product": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "product"
+              ],
+              "label": "Product"
             }
           }
         },
-        "label" : "Variable products"
+        "label": "Variable products"
       }
     },
-    "price" : {
-      "type" : "Number",
-      "config" : {
-        "label" : "Price"
+    "price": {
+      "type": "Number",
+      "config": {
+        "label": "Price"
       }
     },
-    "discount_price" : {
-      "type" : "Number",
-      "config" : {
-        "label" : "Discount price"
+    "discount_price": {
+      "type": "Number",
+      "config": {
+        "label": "Discount price"
       }
     },
-    "discount_active" : {
-      "type" : "Boolean",
-      "config" : {
-        "default_value" : false,
-        "label" : "Discount active"
+    "discount_active": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Discount active"
       }
     },
-    "sku" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "SKU"
+    "sku": {
+      "type": "Text",
+      "config": {
+        "label": "SKU"
       }
     },
-    "inventory_components" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "component" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "customtypes" : [ "inventory" ],
-              "label" : "component"
+    "inventory_components": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "component": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "inventory"
+              ],
+              "label": "component"
             }
           }
         },
-        "label" : "Inventory components"
+        "label": "Inventory components"
       }
     },
-    "images" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "image" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "media",
-              "label" : "Image"
+    "images": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Link",
+            "config": {
+              "select": "media",
+              "label": "Image"
             }
           },
-          "alt" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "alt"
+          "alt": {
+            "type": "Text",
+            "config": {
+              "label": "alt"
             }
           }
         },
-        "label" : "Images"
+        "label": "Images"
       }
     },
-    "collection" : {
-      "type" : "Link",
-      "config" : {
-        "select" : "document",
-        "customtypes" : [ "collection" ],
-        "label" : "Collection"
+    "collection": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": [
+          "collection"
+        ],
+        "label": "Collection"
       }
     },
-    "categories" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "category" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "customtypes" : [ "category" ],
-              "label" : "Category"
+    "categories": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "category": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "category"
+              ],
+              "label": "Category"
             }
           }
         },
-        "label" : "Categories"
+        "label": "Categories"
       }
     },
-    "reviews" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "review" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "customtypes" : [ "review" ],
-              "label" : "Review"
+    "reviews": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "review": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "review"
+              ],
+              "label": "Review"
             }
           }
         },
-        "label" : "Reviews"
+        "label": "Reviews"
+      }
+    },
+    "hashtags": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "hashtag": {
+            "type": "Text",
+            "config": {
+              "label": "hashtag"
+            }
+          }
+        },
+        "label": "Hashtags"
       }
     }
   }

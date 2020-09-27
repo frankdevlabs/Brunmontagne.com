@@ -1,7 +1,7 @@
 import React from "react"
-import "./select.scss"
+import "./dropdown.scss"
 
-class Select extends React.Component {
+class Dropdown extends React.Component {
   constructor(props) {
     super(props)
 
@@ -27,11 +27,13 @@ class Select extends React.Component {
         ref={this.dropdown}
         onClick={this.onToggleDropdown}
         onKeyDown={this.onToggleDropdown}
-        className={`dropdown${this.state.open ? " active" : ""}`}
+        className={`dropdown${this.state.open ? " active" : ""} ${
+          this.props.small ? " dropdown--sm" : ""
+        }`}
       >
         <div className="select">
           <span>{this.props.activeOption}</span>
-          <svg className="product-cart__icon">
+          <svg className="select__icon">
             <use xlinkHref="/svg/main.svg#arrow-down"></use>
           </svg>
         </div>
@@ -41,4 +43,4 @@ class Select extends React.Component {
   }
 }
 
-export default Select
+export default Dropdown

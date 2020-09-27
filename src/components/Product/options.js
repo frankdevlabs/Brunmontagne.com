@@ -1,5 +1,5 @@
 import React from "react"
-import Select from "./select"
+import Dropdown from "../Dropdown"
 import ProductContext from "./context"
 import "./options.scss"
 import { useTranslation } from "react-i18next"
@@ -23,7 +23,7 @@ const Options = () => {
     return (
       <div className="options__item">
         <h5 className="heading-5">{t("product.watchStrap")}: </h5>
-        <Select activeOption={activeStrapOption.public_name}>
+        <Dropdown activeOption={activeStrapOption.public_name}>
           {straps.map(option => {
             const active = activeStrapOption.name === option.name
             let uid
@@ -49,7 +49,7 @@ const Options = () => {
               </li>
             )
           })}
-        </Select>
+        </Dropdown>
       </div>
     )
   }

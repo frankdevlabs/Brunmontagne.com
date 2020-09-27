@@ -29,6 +29,43 @@ exports.createResolvers = async ({
   }
 
   const resolvers = {
+    InstaNode: {
+      linkedProducts: {
+        type: `[PrismicProduct]`,
+        args: {
+          locale: "String!",
+        },
+        resolve: (source, args, context, info) => {
+          // const arg = source.hashtags
+
+          return (
+            context.nodeModel.runQuery({
+              query: {
+                // filter: {
+                //   data: {
+                //     hashtags: {
+                //       elemMatch: {
+                //         hashtag: { in: arg },
+                //       },
+                //     },
+                //   },
+                // },
+                filter: {
+                  data: {
+                    hashtags: {
+                      elemMatch: { hashtag: { in: source.hashtags } },
+                    },
+                  },
+                  lang: { eq: args.locale || "nl-nl" },
+                },
+              },
+              type: "PrismicProduct",
+              firstOnly: false,
+            }) || []
+          )
+        },
+      },
+    },
     PrismicAboutPageParagraphsGroupType: {
       paragraphType: {
         type: `String`,
