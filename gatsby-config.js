@@ -58,6 +58,11 @@ module.exports = {
         data: `@import "${__dirname}/src/scss/abstracts/_variables.scss";
         @import "${__dirname}/src/scss/abstracts/_mixins.scss";
         `,
+        postCssPlugins: [
+          require(`postcss-preset-env`)({
+            stage: 2,
+          }),
+        ],
       },
     },
     {
