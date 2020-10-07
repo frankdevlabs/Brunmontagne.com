@@ -13,21 +13,16 @@ export default () => {
       },
       {
         content: "Collectie",
-        to: "/collectie",
+        to: "/collection",
         subMenu: [
           {
             content: "Horloges",
-            to: "/product-categorie/horloges",
-            subMenu: [],
-          },
-          {
-            content: "Pre-orders",
-            to: "/product-categorie/pre-orders",
+            to: "/collectie#watches",
             subMenu: [],
           },
           {
             content: "Banden",
-            to: "/product-categorie/horlogebanden",
+            to: "/collectie#watch-straps",
             subMenu: [],
           },
         ],
@@ -61,17 +56,12 @@ export default () => {
         subMenu: [
           {
             content: "Watches",
-            to: "/en/product-category/watches",
-            subMenu: [],
-          },
-          {
-            content: "Pre-orders",
-            to: "/en/product-category/pre-orders",
+            to: "/en/collectie#watches",
             subMenu: [],
           },
           {
             content: "Watch straps",
-            to: "/en/product-category/watch-straps",
+            to: "/en/collectie#watch-straps",
             subMenu: [],
           },
         ],

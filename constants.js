@@ -15,7 +15,12 @@ exports.DEFAULT_OPTIONS = {
 
   // a list of paths, whose pages should not be processed by this plugin (i.e. delegate to whatever
   // gatsby would do by default)
-  excludedPages: [],
+  excludedPages: [
+    `/dev-404-page/`,
+    `/404/`,
+    `/404.html`,
+    `/offline-plugin-app-shell-fallback/`,
+  ],
 
   // Whether to delete the original pages at the original URLs or keep them
   deleteOriginalPages: true,

@@ -18,7 +18,6 @@ const Options = () => {
   const activeProduct = variableProducts[activeVariableProduct]
   const activeStrapOption = activeProduct.options.strap
   const activeCaseOption = activeProduct.options.case
-
   const StrapOptions = () => {
     return (
       <div className="options__item">

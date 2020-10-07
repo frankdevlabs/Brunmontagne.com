@@ -14,6 +14,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "autoprefixer": "9.8.6",
     "bulma": "^0.9.0",
     "dotenv": "^8.2.0",
     "embla-carousel": "^4.0.1",
@@ -23,6 +24,7 @@
     "gatsby-plugin-manifest": "^2.4.30",
     "gatsby-plugin-netlify": "^2.3.13",
     "gatsby-plugin-offline": "^3.2.28",
+    "gatsby-plugin-postcss": "^2.3.12",
     "gatsby-plugin-robots-txt": "^1.5.2",
     "gatsby-plugin-sass": "^2.3.12",
     "gatsby-plugin-sharp": "^2.6.27",
@@ -35,13 +37,11 @@
     "i18next": "^19.6.3",
     "lodash.merge": "^4.6.2",
     "node-sass": "^4.14.1",
-    "postcss-preset-env": "^6.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.7.0",
     "react-rating": "^2.0.5",
-    "sass": "^1.26.10",
     "typeface-lato": "^0.0.75",
     "typeface-montserrat": "^0.0.75"
   },
@@ -54,5 +54,9 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not ie 10"
+  ]
 }

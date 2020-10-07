@@ -8,6 +8,7 @@ import "./gallery.scss"
 const Index = ({ images }) => {
   const { t } = useTranslation("translation")
 
+  const [firstImageID, setFirstImageID] = useState(images[0].node.id)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [mainViewportRef, embla] = useEmblaCarousel()
   const [thumbViewportRef, emblaThumbs] = useEmblaCarousel({
@@ -31,9 +32,13 @@ const Index = ({ images }) => {
 
   useEffect(() => {
     if (!embla) return
+    else if (firstImageID !== images[0].node.id) {
+      setFirstImageID(images[0].node.id)
+      embla.scrollTo(0)
+    }
     onSelect()
     embla.on("select", onSelect)
-  }, [embla, onSelect])
+  }, [embla, onSelect, firstImageID, images, setFirstImageID])
 
   return (
     <>
@@ -67,7 +72,7 @@ const Index = ({ images }) => {
                   onClick={() => onThumbClick(index)}
                   selected={index === selectedIndex}
                   imgSrc={image.node.childImageSharp.fixed}
-                  key={index}
+                  key={image.node.id}
                 />
               )
             })}

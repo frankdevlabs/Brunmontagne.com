@@ -31,7 +31,6 @@ export const preProcessProductData = ({ productPage }) => {
       return [...options, ...newOptions]
     }, [])
   }
-
   const options = getOptions(productPage.data.variable_products)
   const strapOptions = options.filter(e => e.inventory_type === "STRAP")
   const caseOptions = options.filter(e => e.inventory_type === "CASE")

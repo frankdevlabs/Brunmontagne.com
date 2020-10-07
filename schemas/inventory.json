@@ -35,7 +35,8 @@
       "config": {
         "options": [
           "LEATHER",
-          "STEEL"
+          "STEEL",
+          "RUBBER"
         ],
         "default_value": "LEATHER",
         "label": "Material"

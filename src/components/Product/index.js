@@ -14,7 +14,6 @@ import { withTranslation } from "react-i18next"
 class Product extends React.Component {
   render() {
     const { t } = this.props
-
     return (
       <ProductContext.Consumer>
         {value => {
@@ -28,12 +27,36 @@ class Product extends React.Component {
             },
           } = value
 
-          console.log(value)
-
-          const { price, discountPrice, discountActive, images } =
+          const { price, discountPrice, discountActive } =
             value.variableProductsUIDs.length > 0
               ? variableProducts[value.activeVariableProduct]
               : value.product
+
+          const images =
+            value.variableProductsUIDs.length > 0
+              ? value.variableProductsUIDs.reduce((cur, val) => {
+                  if (val !== value.activeVariableProduct) {
+                    const newImages = []
+                    const indices = cur.map(i => i.node.id)
+
+                    for (
+                      let i = 0;
+                      i < variableProducts[val].images.length;
+                      i++
+                    ) {
+                      if (
+                        indices.indexOf(
+                          variableProducts[val].images[i].node.id
+                        ) === -1
+                      )
+                        newImages.push(variableProducts[val].images[i])
+                    }
+
+                    return [...cur, ...newImages]
+                  }
+                  return cur
+                }, [])
+              : value.product.images
 
           const { id, uid, options } =
             value.variableProductsUIDs.length > 0
@@ -59,6 +82,10 @@ class Product extends React.Component {
             return Math.round((avg + Number.EPSILON) * 10) / 10
           }
 
+          const productSubTitle = `${t("product.movement")}: ${
+            options.case.public_name
+          } | ${t("product.watchStrap")}: ${options.strap.public_name}`
+
           return (
             <div className="product columns is-tablet is-multiline">
               <div className="product__header column is-full">
@@ -80,7 +107,12 @@ class Product extends React.Component {
                 </div>
               </div>
               <div className="product__gallery column is-half-tablet">
-                <ImageGallery images={images} />
+                <ImageGallery
+                  images={[
+                    ...variableProducts[value.activeVariableProduct].images,
+                    ...images,
+                  ]}
+                />
               </div>
               <div className="product__content column is-half-tablet">
                 <Price
@@ -99,6 +131,7 @@ class Product extends React.Component {
                     slug={slug}
                     name={name}
                     image={images[0].node.childImageSharp.fluid.src}
+                    productSubTitle={productSubTitle}
                   />
                 </div>
                 <Description content={description.html} />

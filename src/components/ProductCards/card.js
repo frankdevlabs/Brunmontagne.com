@@ -5,22 +5,59 @@ import Link from "../Link"
 import "./card.scss"
 import { useTranslation } from "react-i18next"
 
-const Card = ({ data, options }) => {
+const Card = ({ data }) => {
   const { t } = useTranslation("translation")
 
+  const options = [
+    ...new Set(
+      data.variable_products.reduce((allOptions, cur) => {
+        const product = cur.product.document.data
+        const components = product.inventory_components.reduce(
+          (allComponents, cur) => {
+            const indexOf = allOptions.findIndex(
+              i => i.id === cur.component.document.id
+            )
+            if (indexOf === -1)
+              return [
+                ...allComponents,
+                {
+                  id: cur.component.document.id,
+                  ...cur.component.document.data,
+                },
+              ]
+            else return allComponents
+          },
+          []
+        )
+
+        return [...allOptions, ...components]
+      }, [])
+    ),
+  ]
   const strapLeatherOptions = options.filter(
     e => e.inventory_type === "STRAP" && e.material === "LEATHER"
   )
   const strapSteelOptions = options.filter(
     e => e.inventory_type === "STRAP" && e.material === "STEEL"
   )
+  const strapRubberOptions = options.filter(
+    e => e.inventory_type === "STRAP" && e.material === "RUBBER"
+  )
   const caseOptions = options.filter(e => e.inventory_type === "CASE")
 
+  const price =
+    data.variable_products.length > 0
+      ? data.variable_products[0].product.document.data.price
+      : data.price
+
   return (
-    <div className="card column is-one-quarter is-half-touch is-full-mobile">
+    <div className="card column is-one-quarter is-half-touch">
       <div className="card__container">
         <div className="card__image-overlay"></div>
-        <div className="card__image" style={{ maxWidth: "285px" }}>
+        <div
+          className="card__image"
+          style={{ maxWidth: "285px", minHeight: "24rem" }}
+        >
           <div className="card__image--1 active">
             <Img fluid={data.images[0].node.childImageSharp.fluid} />
           </div>
@@ -44,8 +81,8 @@ const Card = ({ data, options }) => {
               <h3 className="card__heading heading-3">{data.title.text}</h3>
               <p className="card__sub-title">{data.subtitle.text}</p>
             </div>
-            <div className="card__price column">
-              <p className="price">&euro; 249,-</p>
+            <div className="card__price column is-narrow">
+              <span className="price">&euro; {price},-</span>
             </div>
           </div>
           <div className="card__information-bottom is-mobile is-multiline columns">
@@ -81,16 +118,34 @@ const Card = ({ data, options }) => {
                 </ul>
               </div>
             ) : null}
-            <div className="card__option-item column">
-              <strong className="card__option-header">
-                {t("productCards.movement")}
-              </strong>
-              <ul className="card__options">
-                {caseOptions.map(option => (
-                  <li className="card__option">{option.public_name}</li>
-                ))}
-              </ul>
-            </div>
+            {strapRubberOptions.length > 0 ? (
+              <div className="card__option-item column">
+                <strong className="card__option-header">
+                  {t("productCards.rubberStraps")}:
+                </strong>
+                <ul className="card__options">
+                  {strapRubberOptions.map(option => (
+                    <li
+                      key={option.id}
+                      className="card__option-color"
+                      style={{ background: `${option.color}` }}
+                    ></li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {strapRubberOptions.length > 0 ? (
+              <div className="card__option-item column is-full">
+                <strong className="card__option-header">
+                  {t("productCards.movement")}
+                </strong>
+                <ul className="card__options">
+                  {caseOptions.map(option => (
+                    <li className="card__option">{option.public_name}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

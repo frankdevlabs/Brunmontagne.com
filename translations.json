@@ -9,8 +9,7 @@
       "home": {
         "pageTitle": "Represents you",
         "collection-section-title": "Collection",
-        "collection-section-description": "Take a look at the Representor. A great superior watch.",
-        "collection-section-collection-btn": "To our collection"
+        "collection-section-collection-btn": "View more"
       },
       "navigation": {
         "watches": {
@@ -45,6 +44,7 @@
       "productCards" : {
         "leatherStraps": "Leather straps",
         "steelStraps":"Steel straps",
+        "rubberStraps":"Rubber straps",
         "movement": "Movement"
       },
       "contactForm": {
@@ -73,8 +73,7 @@
         "pageTitle": "Represents you",
         "greeting": "test vertaling",
         "collection-section-title": "Collectie",
-        "collection-section-description": "Bekijk onze Representor. Een tijdloos, kwalitatief en uniek horloge.",
-        "collection-section-collection-btn": "Bekijk de collectie"
+        "collection-section-collection-btn": "Meer bekijken"
       },
       "navigation": {
         "watches": {
@@ -110,6 +109,7 @@
       "productCards" : {
         "leatherStraps": "Leren banden",
         "steelStraps":"Stalen banden",
+        "rubberStraps":"Rubber banden",
         "movement": "Uurwerk"
       },
       "contactForm": {

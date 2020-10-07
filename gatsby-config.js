@@ -5,12 +5,13 @@
  */
 
 const path = require("path")
+const autoprefixer = require("autoprefixer")
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-module.exports = {
+const config = {
   /* Your site config here */
   siteMetadata: {
     title: `Brunmontagne`,
@@ -54,15 +55,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        implementation: require("sass"),
         data: `@import "${__dirname}/src/scss/abstracts/_variables.scss";
         @import "${__dirname}/src/scss/abstracts/_mixins.scss";
         `,
-        postCssPlugins: [
-          require(`postcss-preset-env`)({
-            stage: 2,
-          }),
-        ],
+        precision: 8,
       },
     },
     {
@@ -123,3 +119,13 @@ module.exports = {
     `gatsby-plugin-robots-txt`,
   ],
 }
+
+if (process.env.NODE_ENV === "production")
+  config.plugins.push({
+    resolve: `gatsby-plugin-postcss`,
+    options: {
+      postCssPlugins: [autoprefixer],
+    },
+  })
+
+module.exports = config

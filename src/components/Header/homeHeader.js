@@ -34,16 +34,6 @@ const HomeHeader = () => {
             <div className="header-home__category column is-full-mobile">
               <Button
                 to={`/${t("navigation.product-category")}/${t(
-                  "navigation.pre-orders.slug"
-                )}`}
-                className="btn btn--secondary btn--cta"
-              >
-                {t("navigation.pre-orders.term")}
-              </Button>
-            </div>
-            <div className="header-home__category column is-full-mobile">
-              <Button
-                to={`/${t("navigation.product-category")}/${t(
                   "navigation.watch-straps.slug"
                 )}`}
                 className="btn btn--secondary btn--cta"

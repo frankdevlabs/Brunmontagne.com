@@ -4,9 +4,13 @@ import Navigation from "../Navigation"
 import Header from "../Header"
 import Footer from "../Footer"
 
-const Layout = props => {
-  const { seoTitle, seoPageTitle, seoDescription, headerMode } = props
-
+const Layout = ({
+  seoTitle,
+  seoPageTitle,
+  seoDescription,
+  headerMode,
+  children,
+}) => {
   return (
     <>
       <SEO
@@ -17,7 +21,7 @@ const Layout = props => {
       <div className="container">
         <Navigation />
         <Header mode={headerMode} />
-        <main className="main-container">{props.children}</main>
+        <main className="main-container">{children}</main>
         <Footer />
       </div>
     </>
