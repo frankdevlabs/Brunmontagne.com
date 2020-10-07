@@ -109,7 +109,9 @@ class Product extends React.Component {
               <div className="product__gallery column is-half-tablet">
                 <ImageGallery
                   images={[
-                    ...variableProducts[value.activeVariableProduct].images,
+                    ...(variableProducts[value.activeVariableProduct]
+                      ? variableProducts[value.activeVariableProduct].images
+                      : []),
                     ...images,
                   ]}
                 />
