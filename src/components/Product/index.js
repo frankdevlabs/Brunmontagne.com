@@ -34,28 +34,31 @@ class Product extends React.Component {
 
           const images =
             value.variableProductsUIDs.length > 0
-              ? value.variableProductsUIDs.reduce((cur, val) => {
-                  if (val !== value.activeVariableProduct) {
-                    const newImages = []
-                    const indices = cur.map(i => i.node.id)
+              ? [
+                  ...variableProducts[value.activeVariableProduct].images,
+                  ...value.variableProductsUIDs.reduce((cur, val) => {
+                    if (val !== value.activeVariableProduct) {
+                      const newImages = []
+                      const indices = cur.map(i => i.node.id)
 
-                    for (
-                      let i = 0;
-                      i < variableProducts[val].images.length;
-                      i++
-                    ) {
-                      if (
-                        indices.indexOf(
-                          variableProducts[val].images[i].node.id
-                        ) === -1
-                      )
-                        newImages.push(variableProducts[val].images[i])
+                      for (
+                        let i = 0;
+                        i < variableProducts[val].images.length;
+                        i++
+                      ) {
+                        if (
+                          indices.indexOf(
+                            variableProducts[val].images[i].node.id
+                          ) === -1
+                        )
+                          newImages.push(variableProducts[val].images[i])
+                      }
+
+                      return [...cur, ...newImages]
                     }
-
-                    return [...cur, ...newImages]
-                  }
-                  return cur
-                }, [])
+                    return cur
+                  }, []),
+                ]
               : value.product.images
 
           const { id, uid, options } =
@@ -107,14 +110,7 @@ class Product extends React.Component {
                 </div>
               </div>
               <div className="product__gallery column is-half-tablet">
-                <ImageGallery
-                  images={[
-                    ...(variableProducts[value.activeVariableProduct]
-                      ? variableProducts[value.activeVariableProduct].images
-                      : []),
-                    ...images,
-                  ]}
-                />
+                <ImageGallery images={images} />
               </div>
               <div className="product__content column is-half-tablet">
                 <Price

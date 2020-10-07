@@ -8,6 +8,7 @@ import "./productPage.scss"
 
 const ProductPage = props => {
   const { data, location } = props
+  console.log(data)
   const StrapCards = data.watchStraps.edges.reduce(
     (acc, cur) => [
       ...acc,
@@ -37,11 +38,11 @@ const ProductPage = props => {
       </section>
       <section className="section-product-strap-suggestions">
         <div className="section-product-strap-suggestions__straps">
-          <h3 className="heading-3">Combineert goed samen met:</h3>
+          <h3 className="heading-3">Bekijk onze ook onze banden</h3>
           <ProductCards cards={StrapCards} />
         </div>
         <div className="section-product-strap-suggestions__watches">
-          <h3 className="heading-3">Of... bekijk onze andere modellen</h3>
+          <h3 className="heading-3">Of... bekijk onze modellen</h3>
           <ProductCards cards={WatchCards} />
         </div>
       </section>
