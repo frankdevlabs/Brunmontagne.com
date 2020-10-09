@@ -99,7 +99,9 @@ const IndexPage = ({ data }) => {
                   <ExtLink
                     to="https://www.horlogeforum.nl/t/show-je-brunmontagne/224660"
                     mode="primary"
-                  ></ExtLink>{" "}
+                  >
+                    Horlogeforum.nl
+                  </ExtLink>
                   In het "Show je Brunmontagne" topic delen echte fans hun
                   ongezouten (veelal positieve!) mening.
                 </p>
