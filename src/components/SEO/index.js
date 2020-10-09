@@ -41,7 +41,7 @@ const SEO = ({ title, pageTitle, description }) => {
         const supportedLangCanonicalUrl =
           supportedLang === defaultLanguage
             ? `${siteUrl}${originalPath}`
-            : `${siteUrl}/${lang}${originalPath}`
+            : `${siteUrl}/${supportedLang}${originalPath}`
 
         return (
           <link

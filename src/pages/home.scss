@@ -9,12 +9,6 @@
     padding: 4rem 2%;
   }
 
-  &__btn {
-    justify-content: center;
-    display: flex;
-    margin-top: 2rem;
-  }
-
   &__container {
     max-width: $vp-lg;
     margin: 0 auto;
@@ -27,6 +21,14 @@
       max-width: none;
       margin-bottom: 1rem;
     }
+  }
+}
+
+.section-collection, .section-story {
+  &__btn {
+    justify-content: center;
+    display: flex;
+    margin-top: 2rem;
   }
 }
 
@@ -63,6 +65,7 @@
     overflow: hidden;
     height: 0;
     padding-bottom: 56.25%;
+    margin-right: 1%;
 
     & iframe,
     & object,
@@ -108,7 +111,6 @@
       margin-top:1em;
     }
   }
-
 }
 
 .section-media {
@@ -124,13 +126,38 @@
 
   &__container {
     max-width: $vp-lg;
-    margin: 0 auto;
+    margin: 0 1%;
   }
 
-  &__text {
+  &__stores, &__horlogeforum {
     & .heading-3 {
       text-transform: initial;
       text-align: center;
+      margin-bottom: 1rem;
     }
+
+    & .long-paragraph {
+      margin-top: 1rem;
+    }
+  }
+
+  &__horlogeforum {
+    @include respond($vp-md) {
+      margin-top: 4rem;
+    }
+  }
+
+  &__stores-text, &__horlogeforum-text {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  &__horlogeforum-text {
+    margin: 2rem auto;
+  }
+
+  &__image-wrapper {
+    margin: 0 auto;
+    max-width: 400px;
   }
 }

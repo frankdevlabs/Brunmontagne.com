@@ -4,25 +4,13 @@ import Layout from "../components/Layout"
 import Product from "../components/Product"
 import Reviews from "../components/Reviews"
 import ProductCards from "../components/ProductCards"
+import ParseImageData from "../utils/parseImageData"
 import "./productPage.scss"
 
 const ProductPage = props => {
   const { data, location } = props
-  console.log(data)
-  const StrapCards = data.watchStraps.edges.reduce(
-    (acc, cur) => [
-      ...acc,
-      { id: cur.node.id, uid: cur.node.uid, ...cur.node.data },
-    ],
-    []
-  )
-  const WatchCards = data.watches.edges.reduce(
-    (acc, cur) => [
-      ...acc,
-      { id: cur.node.id, uid: cur.node.uid, ...cur.node.data },
-    ],
-    []
-  )
+  const StrapCards = ParseImageData(data.watchStraps.edges)
+  const WatchCards = ParseImageData(data.watches.edges)
   return (
     <Layout
       seoDescription={data.productPage.data.seo.text}

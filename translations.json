@@ -8,8 +8,9 @@
       },
       "home": {
         "pageTitle": "Represents you",
-        "collection-section-title": "Collection",
-        "collection-section-collection-btn": "View more"
+        "section-collection-title": "Collection",
+        "section-collection-btn": "View more",
+        "section-story-btn": "Read the full story"
       },
       "navigation": {
         "watches": {
@@ -72,8 +73,9 @@
       "home": {
         "pageTitle": "Represents you",
         "greeting": "test vertaling",
-        "collection-section-title": "Collectie",
-        "collection-section-collection-btn": "Meer bekijken"
+        "section-collection-title": "Collectie",
+        "section-collection-btn": "Meer bekijken",
+        "section-story-btn": "Lees ons verhaal"
       },
       "navigation": {
         "watches": {

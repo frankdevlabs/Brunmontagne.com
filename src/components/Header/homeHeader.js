@@ -1,16 +1,16 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 import Slider from "./slider"
-import TV from "./tv"
+// import TV from "./tv"
 import Button from "../Button"
-import { isMobile as _isMobile } from "../../utils/isMobile"
+// import { isMobile as _isMobile } from "../../utils/isMobile"
 
 const HomeHeader = () => {
-  const [isMobile, setIsMobile] = React.useState(true)
-
-  React.useEffect(() => {
-    setIsMobile(_isMobile())
-  }, [])
+  // const [isMobile, setIsMobile] = React.useState(true)
+  //
+  // React.useEffect(() => {
+  //   setIsMobile(_isMobile())
+  // }, [])
 
   const { t } = useTranslation()
 
@@ -43,9 +43,10 @@ const HomeHeader = () => {
             </div>
           </div>
         </div>
-        {isMobile ? <Slider /> : null}
+        <Slider />
+        {/*{isMobile ? <Slider /> : null}*/}
       </div>
-      {!isMobile ? <TV /> : null}
+      {/*{!isMobile ? <TV /> : null}*/}
     </>
   )
 }

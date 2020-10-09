@@ -35,14 +35,14 @@ export default props => {
             </a>
             <span className="navigation__cart--notification">0</span>
           </div>
-          <div className="navigation__logo column is-one-quarter is-half-mobile">
+          <div className="navigation__logo column is-one-quarter-desktop is-half-mobile">
             <a href="/" className="navigation__logo-home">
               <svg className="navigation__img">
                 <use xlinkHref="/svg/main.svg#logo"></use>
               </svg>
             </a>
           </div>
-          <div className="navigation__main is-narrow-tablet is-three-quarters-desktop column">
+          <div className="navigation__main is-narrow-tablet column">
             <div className="navigation__columns columns">
               <div className="navigation__menu column">
                 <NavList items={props.items} mode="default" />

@@ -17,12 +17,12 @@ export default () => {
         subMenu: [
           {
             content: "Horloges",
-            to: "/collectie#watches",
+            to: "/collection#watches",
             subMenu: [],
           },
           {
             content: "Banden",
-            to: "/collectie#watch-straps",
+            to: "/collection#watch-straps",
             subMenu: [],
           },
         ],
@@ -56,12 +56,12 @@ export default () => {
         subMenu: [
           {
             content: "Watches",
-            to: "/en/collectie#watches",
+            to: "/en/collection#watches",
             subMenu: [],
           },
           {
             content: "Watch straps",
-            to: "/en/collectie#watch-straps",
+            to: "/en/collection#watch-straps",
             subMenu: [],
           },
         ],

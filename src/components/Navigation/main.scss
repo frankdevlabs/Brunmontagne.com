@@ -39,6 +39,7 @@
 
   &__container {
     width: $vp-lg;
+    justify-content: center;
 
     @include respond($vp-lg) {
       max-width: $vp-lg;

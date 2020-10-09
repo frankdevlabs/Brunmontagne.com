@@ -1,7 +1,7 @@
 .section-watches, .section-watch-straps, .section-collection-media {
   padding: 8rem 2%;
   margin: 0 auto;
-  height: 50vh;
+  min-height: 50vh;
 
   @include respond($vp-xs) {
     margin: 0 2%;
@@ -11,4 +11,9 @@
     max-width: $vp-lg;
     margin: 0 auto;
   }
+}
+
+.section-collection-media {
+  background-color: $grey-light-2;
+
 }

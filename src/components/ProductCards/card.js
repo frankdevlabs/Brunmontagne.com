@@ -134,14 +134,16 @@ const Card = ({ data }) => {
                 </ul>
               </div>
             ) : null}
-            {strapRubberOptions.length > 0 ? (
+            {caseOptions.length > 0 ? (
               <div className="card__option-item column is-full">
                 <strong className="card__option-header">
                   {t("productCards.movement")}
                 </strong>
                 <ul className="card__options">
                   {caseOptions.map(option => (
-                    <li className="card__option">{option.public_name}</li>
+                    <li key={option.id} className="card__option">
+                      {option.public_name}
+                    </li>
                   ))}
                 </ul>
               </div>
