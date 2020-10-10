@@ -10,7 +10,9 @@
         "pageTitle": "Represents you",
         "section-collection-title": "Collection",
         "section-collection-btn": "View more",
-        "section-story-btn": "Read the full story"
+        "section-story-btn": "Read the full story",
+        "section-lookbook-text": "Want to see more?",
+        "section-lookbook-btn": "View our Lookbook"
       },
       "navigation": {
         "watches": {
@@ -75,7 +77,10 @@
         "greeting": "test vertaling",
         "section-collection-title": "Collectie",
         "section-collection-btn": "Meer bekijken",
-        "section-story-btn": "Lees ons verhaal"
+        "section-story-btn": "Lees ons verhaal",
+        "section-lookbook-text": "Benieuwd naar meer foto's?",
+        "section-lookbook-btn": "Bekijk ons Lookbook",
+        "section-contact-btn": "Ons Contactformulier"
       },
       "navigation": {
         "watches": {

@@ -7,6 +7,7 @@ import ExtLink from "../components/ExternalLink"
 import "./home.scss"
 import { graphql } from "gatsby"
 import Blockquote from "../components/Blockquote"
+import Lookbook from "../components/Lookbook"
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
@@ -102,7 +103,7 @@ const IndexPage = ({ data }) => {
                   >
                     Horlogeforum.nl
                   </ExtLink>
-                  In het "Show je Brunmontagne" topic delen echte fans hun
+                  . In het "Show je Brunmontagne" topic delen echte fans hun
                   ongezouten (veelal positieve!) mening.
                 </p>
                 <Blockquote size="base">
@@ -112,6 +113,50 @@ const IndexPage = ({ data }) => {
                 </Blockquote>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-lookbook-home">
+        <div className="section-lookbook-home__container">
+          <Lookbook items={data.grams.edges} />
+          <div className="section-lookbook-home__text">
+            <p className="long-paragraph">{t("home.section-lookbook-text")}</p>
+            <a href="/lookbook/" className="btn btn--secondary btn">
+              {t("home.section-lookbook-btn")}
+            </a>
+          </div>
+        </div>
+      </section>
+      <section className="section-contact-home">
+        <div className="section-contact-home__container">
+          <div className="section-contact-home__text">
+            <h3 className="heading-3">Contact?</h3>
+            <p className="long-paragraph">
+              Heb je een vraag, opmerking of ben je als retailer zakelijk
+              benieuwd naar de collectie? Neem dan contact met ons op. We zijn
+              bereikbaar via:
+            </p>
+            <ul className="section-contact-home__list">
+              <li className="section-contact-home__item">
+                WhatsApp (085 0074449)
+              </li>
+              <li className="section-contact-home__item">
+                Email (
+                <ExtLink
+                  to="mailto:info@brunmontagne.com"
+                  targetBlank={false}
+                  mode="primary"
+                >
+                  info@brunmontagne.com
+                </ExtLink>
+                )
+              </li>
+              <li className="section-contact-home__item">
+                <a href="/lookbook/" className="btn btn--secondary btn">
+                  {t("home.section-contact-btn")}
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -155,6 +200,43 @@ export const pageQuery = graphql`
       childImageSharp {
         fluid(maxWidth: 400) {
           ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    grams: allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 8) {
+      edges {
+        node {
+          id
+          username
+          likes
+          caption
+          comments
+          hashtags
+          timestamp
+          permalink
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 520) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          carouselImages {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 520) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          linkedProducts(locale: $locale) {
+            id
+            uid
+            data {
+              name
+            }
+          }
         }
       }
     }

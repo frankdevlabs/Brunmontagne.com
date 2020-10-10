@@ -126,7 +126,7 @@
 
   &__container {
     max-width: $vp-lg;
-    margin: 0 1%;
+    margin: 0 auto;
   }
 
   &__stores, &__horlogeforum {
@@ -159,5 +159,46 @@
   &__image-wrapper {
     margin: 0 auto;
     max-width: 400px;
+  }
+}
+
+.section-lookbook-home {
+  padding: 5rem 0 8rem;
+  background: $grey-light-2;
+
+  &__container {
+    max-width: $vp-lg;
+    margin: 0 auto;
+    padding: 0 1%;
+  }
+
+  &__text {
+    margin-top: 3rem;
+    text-align: center;
+    width: 100%;
+
+    & > p {
+      max-width: unset;
+    }
+  }
+}
+
+.section-contact-home {
+  padding: 5rem 0 8rem;
+
+  &__container {
+    max-width: $vp-lg;
+    margin: 0 auto;
+    padding: 0 1%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__text > ul {
+    list-style: none;
+  }
+
+  &__item {
+    margin-top: 1rem;
   }
 }
