@@ -2,7 +2,7 @@ import React from "react"
 import NavMain from "./main"
 import { usePageContext } from "../../../pageContext"
 
-export default () => {
+export default ({ sticky }) => {
   const { lang } = usePageContext()
   const items = {
     nl: [
@@ -84,5 +84,5 @@ export default () => {
     ],
   }
 
-  return <NavMain lang={lang} items={items[lang]} />
+  return <NavMain sticky={sticky} lang={lang} items={items[lang]} />
 }

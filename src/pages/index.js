@@ -18,7 +18,6 @@ const IndexPage = ({ data }) => {
     ],
     []
   )
-  console.log(data)
   return (
     <Layout
       seoPageTitle={t("home.pageTitle")}
@@ -138,18 +137,22 @@ const IndexPage = ({ data }) => {
             </p>
             <ul className="section-contact-home__list">
               <li className="section-contact-home__item">
-                WhatsApp (085 0074449)
+                <ExtLink
+                  to="https://wa.me/31850074449"
+                  targetBlank={false}
+                  mode="primary"
+                >
+                  WhatsApp
+                </ExtLink>
               </li>
               <li className="section-contact-home__item">
-                Email (
                 <ExtLink
                   to="mailto:info@brunmontagne.com"
                   targetBlank={false}
                   mode="primary"
                 >
-                  info@brunmontagne.com
+                  Email (info@brunmontagne.com)
                 </ExtLink>
-                )
               </li>
               <li className="section-contact-home__item">
                 <a href="/lookbook/" className="btn btn--secondary btn">

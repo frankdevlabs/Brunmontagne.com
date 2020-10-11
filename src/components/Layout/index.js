@@ -3,6 +3,7 @@ import SEO from "../SEO"
 import Navigation from "../Navigation"
 import Header from "../Header"
 import Footer from "../Footer"
+import useSticky from "../../hooks/useSticky"
 
 const Layout = ({
   seoTitle,
@@ -11,6 +12,7 @@ const Layout = ({
   headerMode,
   children,
 }) => {
+  const { isSticky, element } = useSticky()
   return (
     <>
       <SEO
@@ -19,10 +21,17 @@ const Layout = ({
         description={seoDescription}
       />
       <div className="container">
-        <Navigation />
+        <Navigation sticky={isSticky} />
         <Header mode={headerMode} />
-        <main className="main-container">{children}</main>
-        <Footer />
+        <main
+          ref={element}
+          className={`main-container ${
+            isSticky ? " main-container__sticky-nav" : ""
+          }`}
+        >
+          {children}
+        </main>
+        <Footer stickyNav={isSticky} />
       </div>
     </>
   )

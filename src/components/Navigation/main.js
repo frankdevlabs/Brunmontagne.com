@@ -7,7 +7,12 @@ import "./main.scss"
 export default props => {
   return (
     <>
-      <nav className="navigation-mobile" role="navigation">
+      <nav
+        className={`navigation-mobile ${
+          props.sticky ? " navigation-mobile__sticky" : ""
+        }`}
+        role="navigation"
+      >
         <div className="navigation-mobile__menu">
           <input
             className="navigation-mobile__checkbox "
@@ -22,7 +27,10 @@ export default props => {
           <NavList languageItem={true} mode="mobile" items={props.items} />
         </div>
       </nav>
-      <nav className="navigation" role="navigation">
+      <nav
+        className={`navigation ${props.sticky ? " navigation__sticky" : ""}`}
+        role="navigation"
+      >
         <div className="navigation__container columns is-variable is-8">
           <div className="navigation__ghost-item navigation__cart column is-narrow">
             <a

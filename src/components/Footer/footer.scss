@@ -15,6 +15,18 @@
     justify-content: center;
     margin-top: 2rem;
   }
+
+  &__sticky-nav {
+    top: 12rem;
+    position: relative;
+
+    @include respond($tablet) {
+      top: 9rem;
+    }
+    @include respond($vp-md) {
+      top: 9rem;
+    }
+  }
 }
 
 .footer-nav {

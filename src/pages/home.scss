@@ -138,6 +138,7 @@
 
     & .long-paragraph {
       margin-top: 1rem;
+      margin-bottom: 2rem;
     }
   }
 
@@ -196,6 +197,7 @@
 
   &__text > ul {
     list-style: none;
+    margin-left: 1rem;
   }
 
   &__item {

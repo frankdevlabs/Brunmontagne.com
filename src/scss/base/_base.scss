@@ -29,6 +29,19 @@ body {
 .main-container {
   text-align: left;
 }
+
+.main-container__sticky-nav {
+  position: relative;
+  top: 12rem;
+
+  @include respond($tablet) {
+    top: 9rem;
+  }
+  @include respond($vp-md) {
+    top: 9rem;
+  }
+}
+
 select {
   outline: 0;
 }

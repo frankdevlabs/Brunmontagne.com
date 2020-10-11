@@ -23,9 +23,7 @@ const HomeHeader = () => {
           <div className="header-home__categories columns">
             <div className="header-home__category column is-full-mobile">
               <Button
-                to={`/${t("navigation.product-category")}/${t(
-                  "navigation.watches.slug"
-                )}`}
+                to="/collection#watches"
                 className="btn btn--secondary btn--cta"
               >
                 {t("navigation.watches.term")}
@@ -33,9 +31,7 @@ const HomeHeader = () => {
             </div>
             <div className="header-home__category column is-full-mobile">
               <Button
-                to={`/${t("navigation.product-category")}/${t(
-                  "navigation.watch-straps.slug"
-                )}`}
+                to="/collection#watch-straps"
                 className="btn btn--secondary btn--cta"
               >
                 {t("navigation.watch-straps.term")}

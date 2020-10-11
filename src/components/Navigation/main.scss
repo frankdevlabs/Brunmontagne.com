@@ -1,9 +1,27 @@
+@keyframes moveDown {
+  from {
+    transform: translateY(-5rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}
+
 .navigation {
   border-bottom: 1px solid $grey-dark-2;
   background-color: $white;
   align-items: center;
   display: flex;
   justify-content: center;
+
+  &__sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 300;
+    animation: moveDown 0.2s ease-in-out;
+    box-shadow: 0 1rem 2rem rgba($black, 0.5);
+  }
 
   &__ghost-item.navigation__cart {
     opacity: 0;
@@ -273,6 +291,11 @@
     flex-direction: column;
     left: 2.5rem;
     width: 4.1rem;
+  }
+
+  &__sticky &__checkbox, &__sticky &__container, &__sticky &__list {
+    position: fixed;
+    z-index: 300;
   }
 
   & .hamburger {

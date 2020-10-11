@@ -3,11 +3,13 @@ import ExtLink from "../ExternalLink"
 import "./footer.scss"
 import Link from "../Link"
 import { usePageContext } from "../../../pageContext"
+import { useTranslation } from "react-i18next"
 
-const Footer = () => {
+const Footer = ({ stickyNav }) => {
+  const { t } = useTranslation()
   const { lang } = usePageContext()
   return (
-    <footer className="footer">
+    <footer className={`footer${stickyNav ? " footer__sticky-nav" : ""}`}>
       <div className="footer__social">
         <ul className="social__list">
           <li className="social__item">
@@ -47,7 +49,9 @@ const Footer = () => {
           >
             info@brunmontagne.com
           </ExtLink>
-          <p className="contact__phone url url-secondary">085 0074449</p>
+          <p className="contact__phone url url-secondary">
+            {t("common.phone-number")}
+          </p>
         </div>
         <div className="footer-nav">
           <ul className="footer-nav__legal columns is-centered">

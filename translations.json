@@ -6,13 +6,17 @@
         "pageTitle": "Represents you",
         "description": "Brunmontagne. Een horloge wat je draagt wat gezien mag worden, niet iets wat probeert om gezien te worden. Tijdloos, kwalitatief en uniek."
       },
+      "common": {
+        "phone-number": "+31 (0)85 0074449"
+      },
       "home": {
         "pageTitle": "Represents you",
         "section-collection-title": "Collection",
         "section-collection-btn": "View more",
         "section-story-btn": "Read the full story",
         "section-lookbook-text": "Want to see more?",
-        "section-lookbook-btn": "View our Lookbook"
+        "section-lookbook-btn": "View our Lookbook",
+        "section-contact-btn": "Contactform"
       },
       "navigation": {
         "watches": {
@@ -71,6 +75,9 @@
         "title": "Brunmontagne",
         "pageTitle": "Represents you",
         "description": "Brunmontagne. Een horloge wat je draagt wat gezien mag worden, niet iets wat probeert om gezien te worden. Tijdloos, kwalitatief en uniek."
+      },
+      "common": {
+        "phone-number": "085 0074449"
       },
       "home": {
         "pageTitle": "Represents you",
