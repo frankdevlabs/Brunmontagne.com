@@ -17,7 +17,6 @@ const setClasses = (mode, isSubMenu) => {
 
 export default props => {
   const classes = setClasses(props.mode, props.isSubMenu)
-
   return (
     <ul className={classes}>
       {props.items.map(item => {

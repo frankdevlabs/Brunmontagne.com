@@ -1,7 +1,7 @@
 import React from "react"
 import "./accordion.scss"
 
-const Accordion = ({ head, children }) => {
+const Accordion = ({ head, children, bold }) => {
   const [expanded, setExpanded] = React.useState(false)
 
   const onClickFn = () => setExpanded(!expanded)
@@ -13,7 +13,11 @@ const Accordion = ({ head, children }) => {
         className="accordion__btn"
         aria-expanded={expanded}
       >
-        <span className="accordion__title">{head}</span>
+        <span
+          className={`accordion__title${bold ? " accordion__title--bold" : ""}`}
+        >
+          {head}
+        </span>
         <span className="accordion__icon-wrapper">
           <svg className="accordion__icon">
             <use

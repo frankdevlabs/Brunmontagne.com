@@ -9,6 +9,12 @@
       "common": {
         "phone-number": "+31 (0)85 0074449"
       },
+      "404": {
+        "pageTitle": "Page not found, please try again...",
+        "description": "The page you are looking for does not exist",
+        "msg": "Is this our mistake? Please let use know:",
+        "btn": "Back to the homepage"
+      },
       "home": {
         "pageTitle": "Represents you",
         "section-collection-title": "Collection",
@@ -33,6 +39,15 @@
         "product-category":"product-category"
       },
       "product": {
+        "isWatchStrap": {
+          "strapSuggestionsTitle": "View our other straps",
+          "watchSuggestionsTitle": "Or... view our models"
+        },
+        "isWatch": {
+          "strapSuggestionsTitle": "View our perfectly fitting straps",
+          "watchSuggestionsTitle": "Or... view our other models"
+        },
+        "noReviewMsg": "Submit a review",
         "inBasket": "Add to basket",
         "movement": "Movement",
         "watchStrap": "Watch strap",
@@ -79,6 +94,12 @@
       "common": {
         "phone-number": "085 0074449"
       },
+      "404": {
+        "pageTitle": "Pagina niet gevonden, probeer het nog keer ...",
+        "description": "De pagina die je probeert te vinden bestaat niet.",
+        "msg": "We stellen het op prijs als je ons hiervan op de hoogte brengt via ",
+        "btn": "Terug naar de homepage"
+      },
       "home": {
         "pageTitle": "Represents you",
         "greeting": "test vertaling",
@@ -105,6 +126,15 @@
         "product-category":"product-categorie"
       },
       "product": {
+        "isWatchStrap": {
+          "strapSuggestionsTitle": "Bekijk onze andere banden",
+          "watchSuggestionsTitle": "Of... bekijk onze modellen"
+        },
+        "isWatch": {
+          "strapSuggestionsTitle": "Bekijk onze bijpassende banden",
+          "watchSuggestionsTitle": "Of... bekijk onze andere modellen"
+        },
+        "noReviewMsg": "Review delen",
         "inBasket": "In winkelmand",
         "movement": "Uurwerk",
         "watchStrap": "Band",

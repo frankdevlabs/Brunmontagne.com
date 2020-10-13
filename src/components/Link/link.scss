@@ -6,16 +6,19 @@
     transition: all 0.2;
   }
 
-  &-primary {
-    &:active, &:hover  {
+  &__primary {
+    &:link, &:visited {
       color: $purple-dark;
+      text-decoration: underline;
     }
   }
 
-  &-secondary {
-    &:active, &:hover  {
-      color: $yellow-1;
-    }
+  &__primary:active, &__primary:hover {
+    color: $purple-light-2;
+  }
+
+  &__secondary:active, &__secondary:hover {
+    color: $yellow-1;
   }
 
   &__border {

@@ -3,14 +3,31 @@ import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Product from "../components/Product"
 import Reviews from "../components/Reviews"
+import ReviewForm from "../components/ReviewForm"
 import ProductCards from "../components/ProductCards"
 import ParseImageData from "../utils/parseImageData"
 import "./productPage.scss"
+import { useTranslation } from "react-i18next"
 
 const ProductPage = props => {
+  const { t } = useTranslation()
   const { data, location } = props
   const StrapCards = ParseImageData(data.watchStraps.edges)
   const WatchCards = ParseImageData(data.watches.edges)
+  const isWatchStrap =
+    data.productPage.data.categories.filter(
+      i => i.category.document.uid === "watch-strap"
+    ).length > 0
+      ? true
+      : false
+
+  const strapSuggestionsTitle = isWatchStrap
+    ? t("product.isWatchStrap.strapSuggestionsTitle")
+    : t("product.isWatch.strapSuggestionsTitle")
+  const watchSuggestionsTitle = isWatchStrap
+    ? t("product.isWatchStrap.watchSuggestionsTitle")
+    : t("product.isWatch.watchSuggestionsTitle")
+
   return (
     <Layout
       seoDescription={data.productPage.data.seo.text}
@@ -19,18 +36,19 @@ const ProductPage = props => {
       crumbLabel={data.productPage.data.name}
     >
       <section className="section-product">
-        <Product />
+        <Product isWatchStrap={isWatchStrap} />
       </section>
-      <section className="section-reviews">
+      <section id="reviews" className="section-reviews">
         <Reviews reviews={data.productPage.data.reviews} />
+        <ReviewForm uid={data.productPage.uid} />
       </section>
       <section className="section-product-strap-suggestions">
         <div className="section-product-strap-suggestions__straps">
-          <h3 className="heading-3">Bekijk onze ook onze banden</h3>
+          <h3 className="heading-3">{strapSuggestionsTitle}</h3>
           <ProductCards cards={StrapCards} />
         </div>
         <div className="section-product-strap-suggestions__watches">
-          <h3 className="heading-3">Of... bekijk onze modellen</h3>
+          <h3 className="heading-3">{watchSuggestionsTitle}</h3>
           <ProductCards cards={WatchCards} />
         </div>
       </section>
@@ -206,6 +224,7 @@ export const pageQuery = graphql`
         category {
           document {
             ... on PrismicCategory {
+              uid
               data {
                 name
                 description {

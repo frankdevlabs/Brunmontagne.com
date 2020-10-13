@@ -10,6 +10,7 @@ import Accordion from "../Accordion"
 import ProductContext from "./context"
 import "./product.scss"
 import { withTranslation } from "react-i18next"
+import Link from "../Link"
 
 class Product extends React.Component {
   render() {
@@ -88,16 +89,27 @@ class Product extends React.Component {
           const productSubTitle = `${t("product.movement")}: ${
             options.case.public_name
           } | ${t("product.watchStrap")}: ${options.strap.public_name}`
-
+          console.log(options)
           return (
             <div className="product columns is-tablet is-multiline">
               <div className="product__header column is-full">
                 <h2 className="heading-2">{name}</h2>
                 <div className="product__header-meta">
                   <div className="product__header-meta-option">
-                    <Rating value={avgRating()} votes={reviews.length} />
+                    {reviews.length > 0 ? (
+                      <Rating value={avgRating()} votes={reviews.length} />
+                    ) : (
+                      <span>
+                        <Link
+                          className="link__primary"
+                          to={`/products/${value.product.uid}#reviews`}
+                        >
+                          {t("product.noReviewMsg")}
+                        </Link>
+                      </span>
+                    )}
                   </div>
-                  {options ? (
+                  {!this.props.isWatchStrap ? (
                     <>
                       <div className="product__header-meta-option">
                         {t("product.movement")}: {options.case.public_name}

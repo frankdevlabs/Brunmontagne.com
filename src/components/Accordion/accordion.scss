@@ -25,6 +25,10 @@
   &__title {
     font-size: $default-font-size;
     font-weight: 500;
+
+    &--bold {
+      font-width: 700;
+    }
   }
 
   &__icon {

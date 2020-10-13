@@ -298,6 +298,10 @@
     z-index: 300;
   }
 
+  &__sticky &__checkbox {
+    z-index: 301;
+  }
+
   & .hamburger {
     display: block;
     width: 33px;

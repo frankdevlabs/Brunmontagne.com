@@ -17,7 +17,6 @@ exports.DEFAULT_OPTIONS = {
   // gatsby would do by default)
   excludedPages: [
     `/dev-404-page/`,
-    `/404/`,
     `/404.html`,
     `/offline-plugin-app-shell-fallback/`,
   ],
