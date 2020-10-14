@@ -8,6 +8,8 @@ import "./home.scss"
 import { graphql } from "gatsby"
 import Blockquote from "../components/Blockquote"
 import Lookbook from "../components/Lookbook"
+import Link from "../components/Link"
+import Button from "../components/Button"
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
@@ -29,9 +31,9 @@ const IndexPage = ({ data }) => {
           <h2 className="heading-2">{t("home.section-collection-title")}</h2>
           <ProductCards cards={Cards} />
           <div className="section-collection__btn">
-            <a href="/shop/" className="btn btn--secondary btn">
+            <Button to="/shop/" className="btn btn--secondary">
               {t("home.section-collection-btn")}
-            </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -61,9 +63,9 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
           <div className="section-story__btn">
-            <a href="/shop/" className="btn btn--secondary btn">
+            <Button to="/about-us/" className="btn btn--secondary">
               {t("home.section-story-btn")}
-            </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -120,9 +122,9 @@ const IndexPage = ({ data }) => {
           <Lookbook items={data.grams.edges} />
           <div className="section-lookbook-home__text">
             <p className="long-paragraph">{t("home.section-lookbook-text")}</p>
-            <a href="/lookbook/" className="btn btn--secondary btn">
+            <Button to="/lookbook/" className="btn btn--secondary">
               {t("home.section-lookbook-btn")}
-            </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -155,9 +157,9 @@ const IndexPage = ({ data }) => {
                 </ExtLink>
               </li>
               <li className="section-contact-home__item">
-                <a href="/lookbook/" className="btn btn--secondary btn">
+                <Link to="/contact/" className="link link__primary">
                   {t("home.section-contact-btn")}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

@@ -12,8 +12,12 @@ const BackToTopButton = () => {
       setShowScroll(false)
     }
   }
-
-  window.addEventListener("scroll", checkScrollTop)
+  React.useEffect(() => {
+    window.addEventListener("scroll", checkScrollTop)
+    return () => {
+      window.removeEventListener("scroll", () => checkScrollTop)
+    }
+  })
 
   return (
     <div className={`to-top-btn${showScroll ? "" : "to-top-btn--invisible"}`}>
