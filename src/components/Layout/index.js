@@ -3,6 +3,7 @@ import SEO from "../SEO"
 import Navigation from "../Navigation"
 import Header from "../Header"
 import Footer from "../Footer"
+import BackToTopButton from "../BackToTopButton"
 import useSticky from "../../hooks/useSticky"
 
 const Layout = ({
@@ -32,6 +33,7 @@ const Layout = ({
           {children}
         </main>
         <Footer stickyNav={isSticky} />
+        <BackToTopButton />
       </div>
     </>
   )

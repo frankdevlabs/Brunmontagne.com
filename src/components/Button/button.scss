@@ -87,6 +87,10 @@
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
   }
+
+  &--square {
+    padding: 1rem;
+  }
   &-text:link,
   &-text:visited {
     font-size: 1.6rem;

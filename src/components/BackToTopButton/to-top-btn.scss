@@ -1,0 +1,32 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.to-top-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 400;
+  opacity: 0.8;
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &--invisible {
+    z-index: 0;
+    opacity: 0;
+  }
+
+  &__icon {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
