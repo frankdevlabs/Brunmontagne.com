@@ -1,4 +1,14 @@
 .review-form {
   margin-top: 3.3rem;
   max-width: 60rem;
+
+  &__btn {
+    margin-top: 4rem;
+  }
+
+  &__rating {
+    margin: 1rem 0;
+    font-size: 1.6rem;
+    color: #3c3c3c;
+  }
 }

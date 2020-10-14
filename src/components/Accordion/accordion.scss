@@ -44,7 +44,7 @@
 
   &__btn[aria-expanded="true"] + &__content{
       opacity: 1;
-      max-height: 50rem;
+      max-height: 100rem;
       transition: all 1500ms linear;
       will-change: opacity, max-height;
   }

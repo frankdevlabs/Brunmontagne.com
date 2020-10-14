@@ -89,7 +89,7 @@ class Product extends React.Component {
           const productSubTitle = `${t("product.movement")}: ${
             options.case.public_name
           } | ${t("product.watchStrap")}: ${options.strap.public_name}`
-          console.log(options)
+
           return (
             <div className="product columns is-tablet is-multiline">
               <div className="product__header column is-full">

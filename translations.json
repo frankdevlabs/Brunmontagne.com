@@ -165,6 +165,16 @@
         "messageFieldLabel": "Bericht",
         "buttonLabel": "Verstuur"
       },
+      "reviewForm": {
+        "header": "Schrijf een review",
+        "information": "Velden die gemarkeerd zijn met een * zijn verplichte velden.",
+        "nameFieldLabel": "Naam",
+        "emailFieldLabel": "Email",
+        "titleFieldLabel": "Titel van je review",
+        "messageFieldLabel": "Wat vind je ervan?",
+        "messageFieldPlaceholder": "Beschrijf je ervaring met de aankoop.",
+        "buttonLabel": "Verstuur"
+      },
       "lookbook": {
         "viewIG": "Bekijk op IG",
         "viewProduct": "Bekijken"

@@ -4,7 +4,12 @@ import "./rating.scss"
 
 const Icon = props => {
   return (
-    <svg className={`rating__icon rating__${props.icon}`} pointerEvents="none">
+    <svg
+      className={`rating__icon${
+        props.size === "xl" ? " rating__icon--xl" : ""
+      } rating__${props.icon}`}
+      pointerEvents="none"
+    >
       <use xlinkHref={`/svg/main.svg#${props.icon}`}></use>
     </svg>
   )
@@ -15,16 +20,20 @@ const CustomRating = ({
   showVotes = true,
   value = 4.7,
   votes = 99,
+  onClick = function () {},
+  size = "sm",
+  fractions = 2,
 }) => {
   return (
     <div className="rating">
       <div className="rating__stars">
         <Rating
-          emptySymbol={<Icon icon="star-empty" />}
-          fullSymbol={<Icon icon="star-full" />}
-          fractions={2}
+          emptySymbol={<Icon icon="star-empty" size={size} />}
+          fullSymbol={<Icon icon="star-full" size={size} />}
+          fractions={fractions}
           initialRating={value}
           readonly={readonly}
+          onClick={onClick}
         />
       </div>
       {showVotes ? (
