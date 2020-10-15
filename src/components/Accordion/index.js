@@ -10,14 +10,10 @@ const Accordion = ({ head, children, bold }) => {
     <div className="accordion">
       <button
         onClick={onClickFn}
-        className="accordion__btn"
+        className={`accordion__btn${bold ? " accordion__btn--bold" : ""}`}
         aria-expanded={expanded}
       >
-        <span
-          className={`accordion__title${bold ? " accordion__title--bold" : ""}`}
-        >
-          {head}
-        </span>
+        <span className="accordion__title">{head}</span>
         <span className="accordion__icon-wrapper">
           <svg className="accordion__icon">
             <use

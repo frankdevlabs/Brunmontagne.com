@@ -3,6 +3,7 @@ import NavList from "./list"
 import Cart from "./cart"
 import LanguagePicker from "../LanguagePicker"
 import "./main.scss"
+import Link from "../Link"
 
 export default props => {
   return (
@@ -44,11 +45,11 @@ export default props => {
             <span className="navigation__cart--notification">0</span>
           </div>
           <div className="navigation__logo column is-one-quarter-desktop is-half-mobile">
-            <a href="/" className="navigation__logo-home">
+            <Link to="/" className="navigation__logo-home">
               <svg className="navigation__img">
                 <use xlinkHref="/svg/main.svg#logo"></use>
               </svg>
-            </a>
+            </Link>
           </div>
           <div className="navigation__main is-narrow-tablet column">
             <div className="navigation__columns columns">

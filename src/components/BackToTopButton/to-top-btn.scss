@@ -12,13 +12,9 @@
   bottom: 1rem;
   right: 1rem;
   z-index: 400;
-  opacity: 0.8;
+  opacity: 1;
   animation: fadeIn 0.3s;
   transition: opacity 0.4s;
-
-  &:hover {
-    opacity: 1;
-  }
 
   &--invisible {
     z-index: 0;

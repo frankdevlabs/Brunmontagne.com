@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout
       seoPageTitle={t("home.pageTitle")}
-      seoDescription={t("home.description")}
+      seoDescription={t("siteMetadata.description")}
       headerMode="home"
     >
       <section className="section-collection">
@@ -31,7 +31,7 @@ const IndexPage = ({ data }) => {
           <h2 className="heading-2">{t("home.section-collection-title")}</h2>
           <ProductCards cards={Cards} />
           <div className="section-collection__btn">
-            <Button to="/shop/" className="btn btn--secondary">
+            <Button to="/collection/" className="btn btn--secondary">
               {t("home.section-collection-btn")}
             </Button>
           </div>
@@ -73,7 +73,9 @@ const IndexPage = ({ data }) => {
         <div className="section-media__container">
           <div className="section-media__columns columns is-desktop">
             <div className="section-media__stores column">
-              <h3 className="heading-3">Brunmontagne in de winkel</h3>
+              <h3 className="heading-3">
+                {t("home.section-media-stores-title")}
+              </h3>
               <div className="section-media__image-wrapper">
                 <Img
                   fluid={data.popmaImage.childImageSharp.fluid}
@@ -82,13 +84,13 @@ const IndexPage = ({ data }) => {
               </div>
               <div className="section-media__stores-text">
                 <p className="long-paragraph">
-                  <strong>Exclusief</strong> bij Popma & Popma Juweliers in
-                  Heerenveen, gevestigd aan de Dracht 37.{" "}
+                  <strong>{t("home.section-media-stores-exclusive")}</strong>{" "}
+                  {t("home.section-media-stores-text")}
                   <ExtLink
                     to="https://goo.gl/maps/Kw55SPLgdsSRNN588"
                     mode="primary"
                   >
-                    Hoe kom ik daar?
+                    {t("home.section-media-stores-directions")}
                   </ExtLink>
                 </p>
               </div>
@@ -131,12 +133,8 @@ const IndexPage = ({ data }) => {
       <section className="section-contact-home">
         <div className="section-contact-home__container">
           <div className="section-contact-home__text">
-            <h3 className="heading-3">Contact?</h3>
-            <p className="long-paragraph">
-              Heb je een vraag, opmerking of ben je als retailer zakelijk
-              benieuwd naar de collectie? Neem dan contact met ons op. We zijn
-              bereikbaar via:
-            </p>
+            <h3 className="heading-3"> {t("home.section-contact-title")}</h3>
+            <p className="long-paragraph">{t("home.section-contact-text")}</p>
             <ul className="section-contact-home__list">
               <li className="section-contact-home__item">
                 <ExtLink

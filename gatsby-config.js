@@ -102,6 +102,7 @@ const config = {
         start_url: `/`,
         background_color: `#f1f1f1`,
         theme_color: `#130f40`,
+        legacy: true,
         cache_busting_mode: "none",
         localize: [
           {

@@ -3,14 +3,20 @@ import Layout from "../components/Layout"
 import Lookbook from "../components/Lookbook"
 import "./lookbook.scss"
 import { graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
 
 const LookbookPage = ({
   data: {
     allInstaNode: { edges },
   },
 }) => {
+  const { t } = useTranslation()
+
   return (
-    <Layout>
+    <Layout
+      seoPageTitle={t("lookbookPage.pageTitle")}
+      seoDescription={t("lookbookPage.description")}
+    >
       <section className="section-lookbook">
         <div className="section-lookbook__headline">
           <svg className="section-lookbook__icon">

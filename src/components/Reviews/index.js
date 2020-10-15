@@ -77,6 +77,7 @@ const Reviews = ({ reviews }) => {
                 const date = new Date(
                   item.review.document.first_publication_date
                 )
+
                 return (
                   <div className="reviews__slide" key={data.name}>
                     <div className="reviews__slide__inner">

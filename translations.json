@@ -22,7 +22,25 @@
         "section-story-btn": "Read the full story",
         "section-lookbook-text": "Want to see more?",
         "section-lookbook-btn": "View our Lookbook",
-        "section-contact-btn": "Contactform"
+        "section-contact-btn": "Contactform",
+        "section-media-stores-title": "Brunmontagne in store",
+        "section-media-stores-exclusive": "Available at ",
+        "section-media-stores-text": "Popma & Popma Jewelry in Heerenveen (the Netherlands) situated at the Dracht 37. ",
+        "section-media-stores-directions": "How do i get there?",
+        "section-contact-title": "Contact?",
+        "section-contact-text": "Do you have question or remark? Or maybe curious about our b2b opportunities? Get in contact using one of the below methods:"
+      },
+      "collection": {
+        "pageTitle": "Collection",
+        "description": "Take a look at the Brunmontagne its Representor and straps."
+      },
+      "lookbookPage": {
+        "pageTitle": "Lookbook",
+        "description": "View the inspirational Instagram lookbook of Brunmontagne."
+      },
+      "contact": {
+        "pageTitle": "Contact",
+        "description": "Do you have question or remark? Call, mail or fill in the contact form. We will get back to you as soon as possible!"
       },
       "navigation": {
         "watches": {
@@ -33,7 +51,7 @@
           "slug": "pre-orders"
         },
         "watch-straps": {
-          "term": "Watch straps",
+          "term": "Straps",
           "slug": "watch-straps"
         },
         "product-category":"product-category"
@@ -78,6 +96,16 @@
         "messageFieldLabel": "Message",
         "buttonLabel": "Send"
       },
+      "reviewForm": {
+        "header": "Write a review",
+        "information": "Fields marked with an * are required.",
+        "nameFieldLabel": "Name",
+        "emailFieldLabel": "Email",
+        "titleFieldLabel": "Title of your review",
+        "messageFieldLabel": "Share your thoughts",
+        "messageFieldPlaceholder": "Describe your experience with our product.",
+        "buttonLabel": "Send"
+      },
       "lookbook": {
         "viewIG": "View on IG",
         "viewProduct": "View"
@@ -108,7 +136,25 @@
         "section-story-btn": "Lees ons verhaal",
         "section-lookbook-text": "Benieuwd naar meer foto's?",
         "section-lookbook-btn": "Bekijk ons Lookbook",
-        "section-contact-btn": "Ons Contactformulier"
+        "section-contact-btn": "Ons Contactformulier",
+        "section-media-stores-title": "Brunmontagne in de winkel",
+        "section-media-stores-exclusive": "Exclusief ",
+        "section-media-stores-text": "bij Popma & Popma Juweliers in Heerenveen, gevestigd aan de Dracht 37. ",
+        "section-media-stores-directions": "Hoe kom ik daar?",
+        "section-contact-title": "Contact?",
+        "section-contact-text": "Heb je een vraag, opmerking of ben je als retailer zakelijk benieuwd naar de collectie? Neem dan contact met ons op. We zijn bereikbaar via:"
+      },
+      "collection": {
+        "pageTitle": "Collectie",
+        "description": "Bekijk de Representor en banden van Brunmontagne. Een extra horlogeband van Brunmontagne sluit uiteraard perfect aan op de sluiting van de Representor."
+      },
+      "lookbookPage": {
+        "pageTitle": "Lookbook",
+        "description": "Bekijk het Instagram lookbook van Brunmontagne voor inspiratie voor je look."
+      },
+      "contact": {
+        "pageTitle": "Contact",
+        "description": "Heb je een vraag of een opmerking? Bel, mail of vul het contactformulier in. We nemen snel contact met je op!"
       },
       "navigation": {
         "watches": {

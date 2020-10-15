@@ -5,6 +5,7 @@ import Product from "../components/Product"
 import Reviews from "../components/Reviews"
 import ReviewForm from "../components/ReviewForm"
 import ProductCards from "../components/ProductCards"
+import BackgroundImage from "../components/BackgroundImage"
 import ParseImageData from "../utils/parseImageData"
 import "./productPage.scss"
 import { useTranslation } from "react-i18next"
@@ -20,6 +21,15 @@ const ProductPage = props => {
     ).length > 0
       ? true
       : false
+
+  const image = [
+    `linear-gradient(
+                      to right bottom,
+                      rgba(255, 255, 255, 0.85),
+                      rgba(255, 255, 255, 0.88)
+      )`,
+    data.backgroundProductPage.childImageSharp.fluid,
+  ]
 
   const strapSuggestionsTitle = isWatchStrap
     ? t("product.isWatchStrap.strapSuggestionsTitle")
@@ -38,10 +48,12 @@ const ProductPage = props => {
       <section className="section-product">
         <Product isWatchStrap={isWatchStrap} />
       </section>
-      <section id="reviews" className="section-reviews">
+      <BackgroundImage className="section-reviews" image={image} tag="section">
+        {/*<section id="reviews" className="section-reviews">*/}
         <Reviews reviews={data.productPage.data.reviews} />
         <ReviewForm uid={data.productPage.uid} />
-      </section>
+        {/*</section>*/}
+      </BackgroundImage>
       <section className="section-product-strap-suggestions">
         <div className="section-product-strap-suggestions__straps">
           <h3 className="heading-3">{strapSuggestionsTitle}</h3>
@@ -126,6 +138,13 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    backgroundProductPage: file(relativePath: { eq: "Adjustments.jpeg" }) {
+      childImageSharp {
+        fluid(maxWidth: 878) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

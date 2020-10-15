@@ -6,12 +6,18 @@ import ParseImageData from "../utils/parseImageData"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image-es5"
 import Blockquote from "../components/Blockquote"
+import { useTranslation } from "react-i18next"
 
 const CollectionPage = ({ data }) => {
+  const { t } = useTranslation()
+
   const StrapCards = ParseImageData(data.watchStraps.edges)
   const WatchCards = ParseImageData(data.watches.edges)
   return (
-    <Layout>
+    <Layout
+      seoPageTitle={t("collection.pageTitle")}
+      seoDescription={t("collection.description")}
+    >
       <section id="watches" className="section-watches">
         <div className="section-watches__container">
           <h3 className="heading-3">Horloges</h3>
