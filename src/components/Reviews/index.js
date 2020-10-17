@@ -3,12 +3,10 @@ import { useEmblaCarousel } from "embla-carousel/react"
 import { useRecursiveTimeout } from "./useRecursiveTimeout"
 import { DotButton, PrevButton, NextButton } from "./buttons"
 import Rating from "../Rating"
-import { usePageContext } from "../../../pageContext"
 import "./reviews.scss"
+import moment from "moment"
 
 const Reviews = ({ reviews }) => {
-  const { locale } = usePageContext()
-
   const [viewportRef, embla] = useEmblaCarousel()
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
@@ -74,9 +72,10 @@ const Reviews = ({ reviews }) => {
             {reviews.map(item => {
               if (item && item.review && item.review.document) {
                 const data = item.review.document.data
-                const date = new Date(
-                  item.review.document.first_publication_date
-                )
+                const monthYear = moment(
+                  item.review.document.first_publication_date,
+                  "YYYY-MM-DD"
+                ).format("MMMM YYYY")
 
                 return (
                   <div className="reviews__slide" key={data.name}>
@@ -111,10 +110,7 @@ const Reviews = ({ reviews }) => {
                                 </div>
                               </div>
                               <div className="reviews__article-meta-item">
-                                {date.toLocaleDateString(locale, {
-                                  year: "numeric",
-                                  month: "long",
-                                })}
+                                {monthYear}
                               </div>
                             </div>
                           </div>
