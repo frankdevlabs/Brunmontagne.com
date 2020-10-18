@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { Link as GatsbyLink } from "gatsby"
+import { SnipcartContext } from "gatsby-plugin-snipcart-advanced/context"
 import { usePageContext } from "../../../pageContext"
 import { DEFAULT_OPTIONS } from "../../../constants"
 import "./languagePicker.scss"
@@ -16,7 +17,22 @@ const LanguagePicker = props => {
   const { originalPath, lang } = usePageContext()
   const langID = languageID(lang)
   const { defaultLanguage, supportedLanguages } = DEFAULT_OPTIONS
+  const { changeLanguage } = useContext(SnipcartContext)
 
+  const [initialLang] = useState(lang)
+  const [initialLoad, setInitialLoad] = useState(true)
+
+  const onClickFn = () => {
+    const setLangTo = lang === "en" ? "nl" : "en"
+    changeLanguage(setLangTo)
+  }
+
+  useEffect(() => {
+    if (initialLang === "en" && initialLoad) {
+      changeLanguage("en")
+      setInitialLoad(false)
+    }
+  }, [initialLang, changeLanguage, initialLoad, setInitialLoad])
   return (
     <>
       {props.mode === "flat" ? (
@@ -34,6 +50,7 @@ const LanguagePicker = props => {
                 lang === "en" ? "dutch" : "english"
               }`}
               to={path}
+              onClick={onClickFn}
             >
               <svg className="language-picker__icon">
                 <use xlinkHref={`/svg/main.svg#${_langID.current}`}></use>
@@ -54,6 +71,7 @@ const LanguagePicker = props => {
                 lang === "en" ? "dutch" : "english"
               }`}
               to={`${lang === "en" ? "" : "/en"}${originalPath}`}
+              onClick={onClickFn}
             >
               <svg className="language-picker__icon">
                 <use xlinkHref={`/svg/main.svg#${langID.inActive}`}></use>

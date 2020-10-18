@@ -81,11 +81,8 @@ const config = {
         currency: "eur",
         openCartOnAdd: true,
         locales: {
-          nl: {
-            actions: {
-              checkout: "Valider le panier",
-            },
-          },
+          nl: {},
+          en: {},
         },
       },
     },

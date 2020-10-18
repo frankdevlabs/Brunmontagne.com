@@ -336,7 +336,7 @@
   }
 
   &__checkbox:checked ~ div .hamburger:nth-last-child(2) {
-    transform: rotate(45deg) translate(2px, -6px);
+    transform: rotate(45deg) translate(2px, -7px);
   }
 
   &__checkbox:checked ~ ul {

@@ -52,3 +52,7 @@ button,
 [type='submit'] {
   -webkit-appearance: button;
 }
+
+.snipcart-cart--opened .snipcart-modal__container {
+  z-index: 2502;
+}

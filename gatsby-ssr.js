@@ -49,7 +49,6 @@ export const wrapPageElement = ({ element, props }) => {
   // fallback has to do with the handling of non-localized pages (i.e. the original ones),
   // which exist only if `deleteOriginalPages` is `false`
   i18next.changeLanguage(props.pageContext.lang || defaultLanguage)
-
   // *******************
 
   const ProductStore = ({ props, element }) => {
