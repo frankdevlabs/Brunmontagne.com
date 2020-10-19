@@ -29,7 +29,7 @@ const IndexPage = ({ data }) => {
       <section className="section-collection">
         <div className="section-collection__container ">
           <h2 className="heading-2">{t("home.section-collection-title")}</h2>
-          <ProductCards cards={Cards} />
+          <ProductCards cards={Cards} list="Home Page" />
           <div className="section-collection__btn">
             <Button to="/collection/" className="btn btn--secondary">
               {t("home.section-collection-btn")}

@@ -57,11 +57,11 @@ const ProductPage = props => {
       <section className="section-product-strap-suggestions">
         <div className="section-product-strap-suggestions__straps">
           <h3 className="heading-3">{strapSuggestionsTitle}</h3>
-          <ProductCards cards={StrapCards} />
+          <ProductCards cards={StrapCards} list="Strap Suggestions" />
         </div>
         <div className="section-product-strap-suggestions__watches">
           <h3 className="heading-3">{watchSuggestionsTitle}</h3>
-          <ProductCards cards={WatchCards} />
+          <ProductCards cards={WatchCards} list="Watch Suggestions" />
         </div>
       </section>
     </Layout>

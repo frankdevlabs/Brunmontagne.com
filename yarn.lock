@@ -6460,6 +6460,13 @@ gatsby-page-utils@^0.2.24:
     lodash "^4.17.20"
     micromatch "^3.1.10"
 
+gatsby-plugin-google-tagmanager@^2.3.16:
+  version "2.3.16"
+  resolved "https://registry.npmjs.org/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-2.3.16.tgz#bdf01614b815bf4772eb18ccc3c64a8c04fd4568"
+  integrity sha512-AGtTW+kxD8TbkyJsXwdvKem3U0ylp3AGZs3/Q7H0MebYyRRW33vZu/eMFfMFt1bY36Z86kNzo1nOZ1LRrxTv7A==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+
 gatsby-plugin-imgix@^0.8.1:
   version "0.8.2"
   resolved "https://registry.npmjs.org/gatsby-plugin-imgix/-/gatsby-plugin-imgix-0.8.2.tgz#f742c1889739f3c5b5c3e84a39bd66fa6426b0bc"

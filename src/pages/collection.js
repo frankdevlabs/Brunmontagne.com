@@ -21,7 +21,7 @@ const CollectionPage = ({ data }) => {
       <section id="watches" className="section-watches">
         <div className="section-watches__container">
           <h3 className="heading-3">Horloges</h3>
-          <ProductCards cards={WatchCards} />
+          <ProductCards cards={WatchCards} list="Collection - Watch" />
         </div>
       </section>
       <section className="section-collection-media">
@@ -41,7 +41,7 @@ const CollectionPage = ({ data }) => {
       <section id="watch-straps" className="section-watch-straps">
         <div className="section-watch-straps__container">
           <h3 className="heading-3">Losse banden bij de Representor</h3>
-          <ProductCards cards={StrapCards} />
+          <ProductCards cards={StrapCards} list="Collection - Straps" />
         </div>
       </section>
     </Layout>

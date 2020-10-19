@@ -5,7 +5,7 @@ import Link from "../Link"
 import "./card.scss"
 import { useTranslation } from "react-i18next"
 
-const Card = ({ data }) => {
+const Card = ({ data, position, list }) => {
   const { t } = useTranslation("translation")
 
   const options = [
@@ -50,6 +50,27 @@ const Card = ({ data }) => {
       ? data.variable_products[0].product.document.data.price
       : data.price
 
+  const dataLayer = JSON.stringify({
+    event: "snipcartEvent",
+    eventCategory: "Product Click",
+    eventAction: "Clicked " + data.name,
+    ecommerce: {
+      click: {
+        actionField: { list: list }, // Optional list property.
+        products: [
+          {
+            name: data.name, // Name or ID is required.
+            id: data.id,
+            price: price,
+            brand: "Representor",
+            category: data.categories[0].category.document.data.name,
+            position: position,
+          },
+        ],
+      },
+    },
+  })
+
   return (
     <div className="card column is-one-quarter is-half-touch">
       <div className="card__container">
@@ -67,10 +88,18 @@ const Card = ({ data }) => {
         </div>
         <div className="card__btn">
           <div className="card__btn--inner">
-            <Link to={`/products/${data.uid}`} className="btn btn--secondary">
+            <Link
+              to={`/products/${data.uid}`}
+              data={dataLayer}
+              className="btn btn--secondary"
+            >
               Bekijk
             </Link>
-            <Button to={`/products/${data.uid}`} className="btn btn--primary">
+            <Button
+              to={`/products/${data.uid}`}
+              data={dataLayer}
+              className="btn btn--primary"
+            >
               Bekijk
             </Button>
           </div>
