@@ -50,25 +50,37 @@ const Card = ({ data, position, list }) => {
       ? data.variable_products[0].product.document.data.price
       : data.price
 
+  const firstStrapOption =
+    data.variable_products.length > 0
+      ? data.variable_products[0].product.document.data.inventory_components.filter(
+          i => {
+            return i.component.document.data.inventory_type === "STRAP"
+          }
+        )[0].component.document.data.public_name
+      : ""
+
+  const firstCaseOption =
+    data.variable_products.length > 0
+      ? data.variable_products[0].product.document.data.inventory_components.filter(
+          i => {
+            return i.component.document.data.inventory_type === "CASE"
+          }
+        )[0].component.document.data.public_name
+      : ""
+
+  const productSubTitle =
+    data.variable_products.length > 0
+      ? `${t("product.movement")}: ${firstCaseOption} | ${t(
+          "product.watchStrap"
+        )}: ${firstStrapOption}`
+      : ""
+
   const dataLayer = JSON.stringify({
-    event: "snipcartEvent",
     eventCategory: "Product Click",
-    eventAction: "Clicked " + data.name,
-    ecommerce: {
-      click: {
-        actionField: { list: list }, // Optional list property.
-        products: [
-          {
-            name: data.name, // Name or ID is required.
-            id: data.id,
-            price: price,
-            brand: "Representor",
-            category: data.categories[0].category.document.data.name,
-            position: position,
-          },
-        ],
-      },
-    },
+    list: list,
+    position: position,
+    variant: productSubTitle,
+    product: data,
   })
 
   return (
@@ -90,14 +102,14 @@ const Card = ({ data, position, list }) => {
           <div className="card__btn--inner">
             <Link
               to={`/products/${data.uid}`}
-              data={dataLayer}
+              data-product={dataLayer}
               className="btn btn--secondary"
             >
               Bekijk
             </Link>
             <Button
               to={`/products/${data.uid}`}
-              data={dataLayer}
+              data-product={dataLayer}
               className="btn btn--primary"
             >
               Bekijk

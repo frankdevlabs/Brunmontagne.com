@@ -36,29 +36,30 @@ class Product extends React.Component {
           const images =
             value.variableProductsUIDs.length > 0
               ? [
-                  ...variableProducts[value.activeVariableProduct].images,
-                  ...value.variableProductsUIDs.reduce((cur, val) => {
-                    if (val !== value.activeVariableProduct) {
-                      const newImages = []
-                      const indices = cur.map(i => i.node.id)
+                  ...value.variableProductsUIDs.reduce(
+                    (cur, val) => {
+                      if (val !== value.activeVariableProduct) {
+                        const newImages = []
+                        const indices = cur.map(i => i.node.id)
+                        for (
+                          let i = 0;
+                          i < variableProducts[val].images.length;
+                          i++
+                        ) {
+                          if (
+                            indices.indexOf(
+                              variableProducts[val].images[i].node.id
+                            ) === -1
+                          )
+                            newImages.push(variableProducts[val].images[i])
+                        }
 
-                      for (
-                        let i = 0;
-                        i < variableProducts[val].images.length;
-                        i++
-                      ) {
-                        if (
-                          indices.indexOf(
-                            variableProducts[val].images[i].node.id
-                          ) === -1
-                        )
-                          newImages.push(variableProducts[val].images[i])
+                        return [...cur, ...newImages]
                       }
-
-                      return [...cur, ...newImages]
-                    }
-                    return cur
-                  }, []),
+                      return cur
+                    },
+                    [...variableProducts[value.activeVariableProduct].images]
+                  ),
                 ]
               : value.product.images
 
@@ -86,9 +87,12 @@ class Product extends React.Component {
             return Math.round((avg + Number.EPSILON) * 10) / 10
           }
 
-          const productSubTitle = `${t("product.movement")}: ${
-            options.case.public_name
-          } | ${t("product.watchStrap")}: ${options.strap.public_name}`
+          const productSubTitle =
+            value.variableProductsUIDs.length > 0
+              ? `${t("product.movement")}: ${options.case.public_name} | ${t(
+                  "product.watchStrap"
+                )}: ${options.strap.public_name}`
+              : ""
 
           return (
             <div className="product columns is-tablet is-multiline">

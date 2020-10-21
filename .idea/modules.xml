@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/brunmontagne.com_3.0.iml" filepath="$PROJECT_DIR$/.idea/brunmontagne.com_3.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tags-brunmontagne.com/.idea/tags-brunmontagne.com.iml" filepath="$PROJECT_DIR$/../tags-brunmontagne.com/.idea/tags-brunmontagne.com.iml" />
     </modules>
   </component>
 </project>
