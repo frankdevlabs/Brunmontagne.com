@@ -1,7 +1,7 @@
 import React from "react"
 import "./externalLink.scss"
 
-const ExternalLink = ({ children, mode, border, to, targetBlank = true }) => {
+const ExternalLink = ({ id, children, mode, border, to, targetBlank = true }) => {
   const linkMode =
     mode === "secondary" ? "ext-link__secondary" : "ext-link__primary"
 
@@ -13,6 +13,7 @@ const ExternalLink = ({ children, mode, border, to, targetBlank = true }) => {
       href={to}
       target={targetBlank ? "_blank" : "_self"}
       rel="noreferrer"
+      id={id}
     >
       {children}
     </a>

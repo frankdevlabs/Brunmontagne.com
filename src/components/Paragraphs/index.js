@@ -5,17 +5,17 @@ import "./paragraphs.scss"
 const Parapgraphs = ({ data }) => {
   return (
     <div className="paragraphs">
-      {data.map(element => {
+      {data.map((element, index) => {
         switch (element.paragraphType) {
           case "paragraph":
             return (
-              <div className="paragraphs__text">
+              <div key={index} className="paragraphs__text">
                 <p className="long-paragraph">{element.content.text}</p>
               </div>
             )
           case "embed":
             return (
-              <div className="paragraphs__embed">
+              <div key={index} className="paragraphs__embed">
                 <div
                   dangerouslySetInnerHTML={{ __html: element.content.html }}
                 />
@@ -23,7 +23,7 @@ const Parapgraphs = ({ data }) => {
             )
           case "image":
             return (
-              <div className="paragraphs__image">
+              <div key={index} className="paragraphs__image">
                 <div
                   className="paragraphs__image-inner"
                   style={{ maxWidth: "216px" }}

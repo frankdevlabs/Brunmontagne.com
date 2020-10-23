@@ -89,6 +89,7 @@ const IndexPage = ({ data }) => {
                   <ExtLink
                     to="https://goo.gl/maps/Kw55SPLgdsSRNN588"
                     mode="primary"
+                    targetBlank={true}
                   >
                     {t("home.section-media-stores-directions")}
                   </ExtLink>
@@ -139,8 +140,9 @@ const IndexPage = ({ data }) => {
               <li className="section-contact-home__item">
                 <ExtLink
                   to="https://wa.me/31850074449"
-                  targetBlank={false}
+                  targetBlank={true}
                   mode="primary"
+                  id="whatsapp"
                 >
                   WhatsApp
                 </ExtLink>
@@ -148,14 +150,15 @@ const IndexPage = ({ data }) => {
               <li className="section-contact-home__item">
                 <ExtLink
                   to="mailto:info@brunmontagne.com"
-                  targetBlank={false}
+                  targetBlank={true}
                   mode="primary"
+                  id="email"
                 >
                   Email (info@brunmontagne.com)
                 </ExtLink>
               </li>
               <li className="section-contact-home__item">
-                <Link to="/contact/" className="link link__primary">
+                <Link to="/contact" className="link link__primary" id="contact-form">
                   {t("home.section-contact-btn")}
                 </Link>
               </li>
