@@ -10,7 +10,7 @@ import Blockquote from "../components/Blockquote"
 import Lookbook from "../components/Lookbook"
 import Link from "../components/Link"
 import Button from "../components/Button"
-import "lite-youtube-embed/src/lite-yt-embed.css"
+import { LiteYouTubeEmbed } from "react-lite-youtube-embed";
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
@@ -21,10 +21,6 @@ const IndexPage = ({ data }) => {
     ],
     []
   )
-
-  useEffect(() => {
-    import "lite-youtube-embed/src/lite-yt-embed.js;
-  }, []);
 
   return (
     <Layout
@@ -56,10 +52,14 @@ const IndexPage = ({ data }) => {
             </div>
             <div className="section-story__video column">
               <div className="section-story__video-container">
-                <div dangerouslySetInnerHTML={{__html: `<lite-youtube videoid="BOKKEjAn0Xc"
-                                                            style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
-                  <button type="button" className="lty-playbtn" title="Passie"></button>
-                </lite-youtube>`}} />
+                <LiteYouTubeEmbed
+                  id="BOKKEjAn0Xc" // Default none, id of the video or playlist
+                  adNetwork={false} // Default true, to preconnect or not to doubleclick addresses called by YouTube iframe (the adnetwork from Google)
+                  playlist={false} // Use  true when your ID be from a playlist
+                  poster="hqdefault" // Defines the image size to call on first render as poster image. Possible values are "default","mqdefault",  "hqdefault", "sddefault" and "maxresdefault". Default value for this prop is "hqdefault". Please be aware that "sddefault" and "maxresdefault", high resolution images are not always avaialble for every video. See: https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api
+                  title="Tijdloze Passie" // a11y, always provide a title for iFrames: https://dequeuniversity.com/tips/provide-iframe-titles Help the web be accessible ;)
+                  noCookie={true} //Default false, connect to YouTube via the Privacy-Enhanced Mode using https://www.youtube-nocookie.com
+                />
               </div>
             </div>
           </div>
