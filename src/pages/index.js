@@ -11,7 +11,6 @@ import Lookbook from "../components/Lookbook"
 import Link from "../components/Link"
 import Button from "../components/Button"
 import "lite-youtube-embed/src/lite-yt-embed.css"
-import "lite-youtube-embed/src/lite-yt-embed.js"
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
@@ -22,6 +21,11 @@ const IndexPage = ({ data }) => {
     ],
     []
   )
+
+  useEffect(() => {
+    import "lite-youtube-embed/src/lite-yt-embed.js;
+  }, []);
+
   return (
     <Layout
       seoPageTitle={t("home.pageTitle")}
