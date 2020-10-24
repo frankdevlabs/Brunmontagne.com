@@ -10,6 +10,8 @@ import Blockquote from "../components/Blockquote"
 import Lookbook from "../components/Lookbook"
 import Link from "../components/Link"
 import Button from "../components/Button"
+import "lite-youtube-embed/src/lite-yt-embed.css"
+import "lite-youtube-embed/src/lite-yt-embed.js"
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
@@ -50,15 +52,10 @@ const IndexPage = ({ data }) => {
             </div>
             <div className="section-story__video column">
               <div className="section-story__video-container">
-                <iframe
-                  title="Passie"
-                  width="560"
-                  height="315"
-                  src="https://www.youtube-nocookie.com/embed/BOKKEjAn0Xc"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                <div dangerouslySetInnerHTML={{__html: `<lite-youtube videoid="BOKKEjAn0Xc"
+                                                            style="background-image: url('https://i.ytimg.com/vi/ogfYd705cRs/hqdefault.jpg');">
+                  <button type="button" className="lty-playbtn" title="Passie"></button>
+                </lite-youtube>`}} />
               </div>
             </div>
           </div>
@@ -222,7 +219,7 @@ export const pageQuery = graphql`
           permalink
           localFile {
             childImageSharp {
-              fluid(maxWidth: 520) {
+              fluid(maxWidth: 310) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -230,7 +227,7 @@ export const pageQuery = graphql`
           carouselImages {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 520) {
+                fluid(maxWidth: 310) {
                   ...GatsbyImageSharpFluid
                 }
               }
