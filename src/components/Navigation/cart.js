@@ -14,8 +14,9 @@ const Cart = () => {
         <svg className="navigation__cart--icon">
           <use xlinkHref="/svg/main.svg#cart"></use>
         </svg>
+        <span className="navigation__cart--notification">{cartQuantity}</span>
+
       </button>
-      <span className="navigation__cart--notification">{cartQuantity}</span>
     </>
   )
 }

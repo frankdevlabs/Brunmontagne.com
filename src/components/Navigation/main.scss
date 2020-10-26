@@ -14,6 +14,10 @@
   display: flex;
   justify-content: center;
 
+  &__columns{
+    justify-content: flex-end;
+  }
+
   &__sticky {
     position: fixed;
     top: 0;
@@ -44,7 +48,8 @@
   &__main,
   &__list,
   &__menu,
-  &__cart {
+  &__cart,
+  &__auth {
     min-height: 12rem;
     @include respond($tablet) {
       min-height: 9rem;
@@ -57,7 +62,7 @@
 
   &__container {
     width: $vp-lg;
-    justify-content: center;
+    justify-content: space-between;
 
     @include respond($vp-lg) {
       max-width: $vp-lg;
@@ -102,28 +107,44 @@
     }
   }
 
-  &__cart {
-    min-width: 10rem;
-
+  &__cart, &__auth {
+    min-width: unset;
     @include respond($tablet) {
       justify-content: flex-end;
+      min-width: 6rem;
     }
     @include respond($vp-md) {
       justify-content: flex-end;
+      min-width: 6rem;
     }
 
     &--icon {
-      margint-right:3rem;
       max-height: 4rem;
       max-width: 4rem;
+
+      @include respond(470px) {
+        max-height: 2.5rem;
+        max-width: 2.5rem;
+      }
     }
 
     &--link {
-      margin-right: 3.4rem;
+      min-width: unset;
+      padding: 0 1rem;
       outline: none;
       border: none;
       background: transparent;
       cursor: pointer;
+      @include respond($tablet) {
+        min-width: 6rem;
+      }
+      @include respond($vp-md) {
+        min-width: 6rem;
+      }
+
+      @include respond(470px) {
+        min-width: unset;
+      }
 
       &:link,
       &:visited {
@@ -144,9 +165,19 @@
       }
     }
 
+    &__auth {
+      margin-right: 1rem;
+      @include respond($tablet) {
+        justify-content: flex-end;
+      }
+      @include respond($vp-md) {
+        justify-content: flex-end;
+      }
+    }
+
     &--notification {
       position: absolute;
-      right: 2.5rem;
+      right: -0.5rem;
       top: 3rem;
       font-size: 0.8em;
       height: 1.75rem;
@@ -159,12 +190,18 @@
       align-items: center;
 
       @include respond($tablet) {
-        top: 1.5rem;
-        right:1.5rem;
+        font-size: 0.6em;
+        height: 1.35rem;
+        width: 1.35rem;
+        top: 2.3rem;
+        right: -0.3rem;
       }
       @include respond($vp-md) {
-        top: 1.5rem;
-        right:1.5rem;
+        font-size: 0.6em;
+        height: 1.35rem;
+        width: 1.35rem;
+        top: 2.3rem;
+        right: -0.3rem;
       }
     }
   }
@@ -185,13 +222,14 @@
   &__logo,
   &__img {
     max-height: 12rem;
-    max-width: 25rem;
     width: 100%;
 
     @include respond($tablet) {
+      max-width: unset;
       max-height: 9rem;
     }
     @include respond($vp-md) {
+      max-width: unset;
       max-height: 9rem;
     }
   }
@@ -204,6 +242,18 @@
     &-home {
       display: flex;
       justify-content: center;
+      max-width: 25rem;
+
+      @include respond(470px) {
+        max-width: 20rem;
+      }
+    }
+
+    @include respond($tablet) {
+      position: absolute;
+    }
+    @include respond($vp-md) {
+      position: absolute;
     }
   }
 
@@ -215,7 +265,8 @@
 
   &__cart,
   &__item,
-  &__language {
+  &__language,
+  &__auth {
     display: flex;
     justify-self: center;
     align-items: center;

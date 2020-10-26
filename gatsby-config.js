@@ -98,7 +98,7 @@ const config = {
         // datalayer to be set before GTM is loaded
         // should be an object or a function that is executed in the browser
         // Defaults to null
-        defaultDataLayer: { platform: "gatsby" },
+        defaultDataLayer: { platform: "gatsby", ecommerce: {} },
 
         // Name of the event that is triggered
         // on every Gatsby route change.

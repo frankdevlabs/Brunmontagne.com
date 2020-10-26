@@ -32,7 +32,7 @@ export default props => {
         className={`navigation ${props.sticky ? " navigation__sticky" : ""}`}
         role="navigation"
       >
-        <div className="navigation__container columns is-variable is-8">
+        <div className="navigation__container columns is-variable">
           <div className="navigation__ghost-item navigation__cart column is-narrow">
             <a
               className="navigation__cart--link"
@@ -44,7 +44,7 @@ export default props => {
             </a>
             <span className="navigation__cart--notification">0</span>
           </div>
-          <div className="navigation__logo column is-one-quarter-desktop is-half-mobile">
+          <div className="navigation__logo column is-one-quarter-desktop">
             <Link to="/" className="navigation__logo-home">
               <svg className="navigation__img">
                 <use xlinkHref="/svg/main.svg#logo"></use>
@@ -52,12 +52,22 @@ export default props => {
             </Link>
           </div>
           <div className="navigation__main is-narrow-tablet column">
-            <div className="navigation__columns columns">
+            <div className="navigation__columns columns is-mobile">
               <div className="navigation__menu column">
                 <NavList items={props.items} mode="default" />
               </div>
-              <div className="navigation__cart column is-narrow">
+              <div className="navigation__cart column is-narrow-mobile">
                 <Cart />
+              </div>
+              <div className="navigation__auth column is-narrow-mobile">
+                <button
+                  className="navigation__auth--link snipcart-customer-signin"
+                  aria-label="cart-button"
+                >
+                  <svg className="navigation__auth--icon">
+                    <use xlinkHref="/svg/main.svg#person"></use>
+                  </svg>
+                </button>
               </div>
               <div className="navigation__language column is-narrow">
                 <LanguagePicker />

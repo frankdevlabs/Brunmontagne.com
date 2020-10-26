@@ -60,6 +60,7 @@ const LanguagePicker = props => {
         })
       ) : (
         <div className="language-picker">
+          <span></span>
           <button className="language-picker--active">
             <svg className="language-picker__icon">
               <use xlinkHref={`/svg/main.svg#${langID.current}`}></use>
