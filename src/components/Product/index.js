@@ -28,7 +28,7 @@ class Product extends React.Component {
             },
           } = value
 
-          const { price, discountPrice, discountActive } =
+          const { price, discountPrice, discountActive, sku } =
             value.variableProductsUIDs.length > 0
               ? variableProducts[value.activeVariableProduct]
               : value.product
@@ -138,7 +138,7 @@ class Product extends React.Component {
                 {value.variableProductsUIDs.length > 0 ? <Options /> : null}
                 <div className="product__add-to-cart-button">
                   <AddToCartButton
-                    id={uid}
+                    id={sku}
                     sale={discountActive}
                     salePrice={discountPrice}
                     price={price}

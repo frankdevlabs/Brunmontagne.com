@@ -138,7 +138,9 @@ const Card = ({ data, position, list }) => {
                       key={option.id}
                       className="card__option-color"
                       style={{ background: `${option.color}` }}
-                    ></li>
+                    >
+                      {""}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -154,7 +156,9 @@ const Card = ({ data, position, list }) => {
                       key={option.id}
                       className="card__option-color"
                       style={{ background: `${option.color}` }}
-                    ></li>
+                    >
+                      {""}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -170,7 +174,9 @@ const Card = ({ data, position, list }) => {
                       key={option.id}
                       className="card__option-color"
                       style={{ background: `${option.color}` }}
-                    ></li>
+                    >
+                      {""}
+                    </li>
                   ))}
                 </ul>
               </div>
