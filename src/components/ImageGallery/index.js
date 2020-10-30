@@ -39,7 +39,7 @@ const Index = ({ images }) => {
     onSelect()
     embla.on("select", onSelect)
   }, [embla, onSelect, firstImageID, images, setFirstImageID])
-
+  console.log(images)
   return (
     <>
       <div className="gallery">

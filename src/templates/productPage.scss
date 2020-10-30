@@ -16,14 +16,13 @@
 }
 
 .section-reviews {
-  //background-color: $grey-light-2;
   min-height: 15vh;
 }
 
 .section-product-strap-suggestions {
 
   & > div {
-    max-width: $vp-xl;
+    max-width: $section;
     padding: 3rem 0;
     & > h3 {
       text-align: center;

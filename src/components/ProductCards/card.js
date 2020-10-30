@@ -89,7 +89,7 @@ const Card = ({ data, position, list }) => {
         <div className="card__image-overlay"></div>
         <div
           className="card__image"
-          style={{ maxWidth: "285px", minHeight: "24rem" }}
+          style={{ maxWidth: "340px", minHeight: "24rem" }}
         >
           <div className="card__image--1 active">
             <Img fluid={data.images[0].node.childImageSharp.fluid} />

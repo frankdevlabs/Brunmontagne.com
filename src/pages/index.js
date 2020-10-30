@@ -10,7 +10,7 @@ import Blockquote from "../components/Blockquote"
 import Lookbook from "../components/Lookbook"
 import Link from "../components/Link"
 import Button from "../components/Button"
-import { LiteYouTubeEmbed } from "react-lite-youtube-embed";
+import { LiteYouTubeEmbed } from "react-lite-youtube-embed"
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
@@ -159,7 +159,11 @@ const IndexPage = ({ data }) => {
                 </ExtLink>
               </li>
               <li className="section-contact-home__item">
-                <Link to="/contact" className="link link__primary" id="contact-form">
+                <Link
+                  to="/contact"
+                  className="link link__primary"
+                  id="contact-form"
+                >
                   {t("home.section-contact-btn")}
                 </Link>
               </li>
@@ -187,13 +191,13 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          ...ProductFields
+          ...ProductPageFields
           data {
             variable_products {
               product {
                 document {
                   ... on PrismicProduct {
-                    ...ProductFields
+                    ...ProductPageFields
                   }
                 }
               }
@@ -242,6 +246,133 @@ export const pageQuery = graphql`
             uid
             data {
               name
+            }
+          }
+        }
+      }
+    }
+  }
+
+  fragment ProductPageFields on PrismicProduct {
+    id
+    uid
+    lang
+    data {
+      title {
+        text
+      }
+      subtitle {
+        text
+      }
+      collection {
+        document {
+          ... on PrismicCollection {
+            data {
+              name
+              description {
+                html
+              }
+            }
+          }
+        }
+      }
+      images {
+        alt
+        node {
+          id
+          childImageSharp {
+            fluid(maxWidth: 430) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+            fixed(width: 74) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+      name
+      seo {
+        text
+      }
+      description {
+        html
+      }
+      specifications {
+        specification {
+          document {
+            ... on PrismicSpecification {
+              data {
+                key
+                value
+              }
+            }
+          }
+        }
+      }
+      variable_product
+      price
+      discount_price
+      discount_active
+      sku
+      inventory_components {
+        component {
+          document {
+            ... on PrismicInventory {
+              id
+              data {
+                name
+                public_name
+                stock
+                inventory_type
+                color
+                material
+                images {
+                  alt
+                  node {
+                    id
+                    childImageSharp {
+                      fixed(width: 74) {
+                        ...GatsbyImageSharpFixed
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      categories {
+        category {
+          document {
+            ... on PrismicCategory {
+              uid
+              data {
+                name
+                description {
+                  html
+                }
+              }
+            }
+          }
+        }
+      }
+      reviews {
+        review {
+          document {
+            ... on PrismicReview {
+              first_publication_date
+              data {
+                name
+                email
+                headline {
+                  text
+                }
+                message {
+                  text
+                }
+                rating
+              }
             }
           }
         }
