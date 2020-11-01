@@ -103,7 +103,7 @@ exports.createResolvers = async ({
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
   const productPages = await graphql(`
     {
       allPrismicProduct(filter: { data: { variable_product: { eq: false } } }) {
@@ -199,6 +199,19 @@ exports.createPages = async ({ graphql, actions }) => {
         originalPath: `${basePath}`,
         lang: sanitzedLang,
       },
+    })
+  })
+
+  const { legacyRedirects } = DEFAULT_OPTIONS
+  const isEnvDevelopment = process.env.NODE_ENV === "development"
+  legacyRedirects.forEach(({ fromPath, toPath, isPermanent, statusCode }) => {
+    createRedirect({
+      fromPath: fromPath,
+      toPath: toPath,
+      isPermanent: isPermanent,
+      force: true,
+      statusCode: statusCode,
+      redirectInBrowser: isEnvDevelopment,
     })
   })
 }
