@@ -5,8 +5,9 @@ import { DotButton, PrevButton, NextButton } from "./buttons"
 import Rating from "../Rating"
 import "./reviews.scss"
 import moment from "moment"
+import Quote from "./quote"
 
-const Reviews = ({ reviews }) => {
+const Reviews = ({ reviews, lines }) => {
   const [viewportRef, embla] = useEmblaCarousel()
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false)
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false)
@@ -72,10 +73,9 @@ const Reviews = ({ reviews }) => {
             {reviews.map(item => {
               if (item && item.review && item.review.document) {
                 const data = item.review.document.data
-                const monthYear = moment(
-                  item.review.document.first_publication_date,
-                  "YYYY-MM-DD"
-                ).format("MMMM YYYY")
+                const monthYear = moment(data.date, "YYYY-MM-DD").format(
+                  "MMMM YYYY"
+                )
 
                 return (
                   <div className="reviews__slide" key={data.name}>
@@ -92,9 +92,14 @@ const Reviews = ({ reviews }) => {
                               <h4 className="heading-5">
                                 {data.headline.text}
                               </h4>
-                              <blockquote className="reviews__article-blockquote">
-                                {data.message.text}
-                              </blockquote>
+                              <div className="reviews__article-quote-wrapper">
+                                <Quote
+                                  lines={lines}
+                                  stopCarousel={() => stop()}
+                                >
+                                  {data.message.text}
+                                </Quote>
+                              </div>
                             </cite>
                             <div className="reviews__article-meta">
                               <div className="reviews__article-meta-item">

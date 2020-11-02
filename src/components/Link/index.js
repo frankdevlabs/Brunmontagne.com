@@ -5,9 +5,17 @@ import { usePageContext } from "../../../pageContext"
 import { DEFAULT_OPTIONS } from "../../../constants"
 import "./link.scss"
 
-const Link = React.forwardRef(({ to, children, ...rest }, ref) => {
+const Link = React.forwardRef(({ mode, to, children, ...rest }, ref) => {
   const { lang } = usePageContext()
   const { defaultLanguage } = DEFAULT_OPTIONS
+
+  if (mode === "button") {
+    return (
+      <button ref={ref} {...rest}>
+        {children}
+      </button>
+    )
+  }
 
   return (
     <GatsbyLink

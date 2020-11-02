@@ -43,6 +43,7 @@ const config = {
           about_page: require("./schemas/about_page.json"),
           category: require("./schemas/category.json"),
           collection: require("./schemas/collection.json"),
+          home_page: require("./schemas/home_page.json"),
           inventory: require("./schemas/inventory.json"),
           page: require("./schemas/page.json"),
           product: require("./schemas/product.json"),
@@ -93,7 +94,7 @@ const config = {
 
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: true,
+        includeInDevelopment: false,
 
         // datalayer to be set before GTM is loaded
         // should be an object or a function that is executed in the browser

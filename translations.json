@@ -25,8 +25,8 @@
         "section-contact-btn": "Contactform",
         "section-media-stores-title": "Brunmontagne in store",
         "section-media-stores-exclusive": "Available at ",
-        "section-media-stores-text": "Popma & Popma Jewelry in Heerenveen (the Netherlands) situated at the Dracht 37. ",
-        "section-media-stores-directions": "How do i get there?",
+        "section-media-stores-text": "Popma & Popma Jewelry in Heerenveen (the Netherlands). ",
+        "section-media-stores-directions": "Route",
         "section-contact-title": "Contact?",
         "section-contact-text": "Do you have question or remark? Or maybe curious about our b2b opportunities? Get in contact using one of the below methods:"
       },
@@ -57,6 +57,8 @@
         "product-category":"product-category"
       },
       "product": {
+        "readMore": "Read more",
+        "readLess": "Read less",
         "isWatchStrap": {
           "strapSuggestionsTitle": "View our other straps",
           "watchSuggestionsTitle": "Or... view our models"
@@ -139,8 +141,8 @@
         "section-contact-btn": "Ons Contactformulier",
         "section-media-stores-title": "Brunmontagne in de winkel",
         "section-media-stores-exclusive": "Exclusief ",
-        "section-media-stores-text": "bij Popma & Popma Juweliers in Heerenveen, gevestigd aan de Dracht 37. ",
-        "section-media-stores-directions": "Hoe kom ik daar?",
+        "section-media-stores-text": "verkrijgbaar bij Popma & Popma Juweliers te Heerenveen. ",
+        "section-media-stores-directions": "Routebeschrijving",
         "section-contact-title": "Contact?",
         "section-contact-text": "Heb je een vraag, opmerking of ben je als retailer zakelijk benieuwd naar de collectie? Neem dan contact met ons op. We zijn bereikbaar via:"
       },
@@ -172,6 +174,8 @@
         "product-category":"product-categorie"
       },
       "product": {
+        "readMore": "Meer lezen",
+        "readLess": "Minder lezen",
         "isWatchStrap": {
           "strapSuggestionsTitle": "Bekijk onze andere banden",
           "watchSuggestionsTitle": "Of... bekijk onze modellen"

@@ -29,7 +29,7 @@
   &__btn {
     justify-content: center;
     display: flex;
-    margin-top: 2rem;
+    margin-top: 3.5rem;
   }
 }
 
@@ -59,7 +59,7 @@
   &__video {
     width: 100%;
     max-width: 48rem;
-    margin: auto 0;
+    margin: auto;
   }
 
   &__video-container {
@@ -69,6 +69,10 @@
     padding-bottom: 56.25%;
     margin-right: 1%;
     max-width: 48rem;
+
+    @include respond(768px) {
+      margin: 4rem 0;
+    }
 
     & iframe,
     & object,
@@ -161,7 +165,7 @@
   }
 
   &__image-wrapper {
-    margin: 0 auto;
+    margin: 4rem auto;
     max-width: 400px;
   }
 }

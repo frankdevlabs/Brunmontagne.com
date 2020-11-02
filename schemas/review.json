@@ -1,42 +1,60 @@
 {
-  "Main" : {
-    "name" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Name"
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name"
       }
     },
-    "email" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Email"
+    "email": {
+      "type": "Text",
+      "config": {
+        "label": "Email"
       }
     },
-    "headline" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading5",
-        "label" : "Headline"
+    "headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading5",
+        "label": "Headline"
       }
     },
-    "message" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "paragraph",
-        "label" : "Message"
+    "message": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Message"
       }
     },
-    "rating" : {
-      "type" : "Number",
-      "config" : {
-        "label" : "Rating"
+    "rating": {
+      "type": "Number",
+      "config": {
+        "label": "Rating"
       }
     },
-    "verified_buyer" : {
-      "type" : "Boolean",
-      "config" : {
-        "default_value" : false,
-        "label" : "Verified buyer"
+    "name_external_source": {
+      "type": "Text",
+      "config": {
+        "label": "Name external source"
+      }
+    },
+    "link_external_source": {
+      "type": "Text",
+      "config": {
+        "label": "Link external_source"
+      }
+    },
+    "date": {
+      "type": "Date",
+      "config": {
+        "label": "Date"
+      }
+    },
+    "verified_buyer": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Verified buyer"
       }
     }
   }

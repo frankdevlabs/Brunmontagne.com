@@ -11,6 +11,7 @@ import Lookbook from "../components/Lookbook"
 import Link from "../components/Link"
 import Button from "../components/Button"
 import { LiteYouTubeEmbed } from "react-lite-youtube-embed"
+import Reviews from "../components/Reviews"
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
@@ -21,6 +22,8 @@ const IndexPage = ({ data }) => {
     ],
     []
   )
+
+  console.log(data)
 
   return (
     <Layout
@@ -98,24 +101,9 @@ const IndexPage = ({ data }) => {
               </div>
             </div>
             <div className="section-media__horlogeforum column">
-              <h3 className="heading-3">Geliefd door horlogefanaten</h3>
+              <h3 className="heading-3">Geliefd bij kenners</h3>
               <div className="section-media__horlogeforum-text">
-                <p className="long-paragraph">
-                  Bekijk de opinie van echte liefhebbers op{" "}
-                  <ExtLink
-                    to="https://www.horlogeforum.nl/t/show-je-brunmontagne/224660"
-                    mode="primary"
-                  >
-                    Horlogeforum.nl
-                  </ExtLink>
-                  . In het "Show je Brunmontagne" topic delen echte fans hun
-                  ongezouten (veelal positieve!) mening.
-                </p>
-                <Blockquote size="base">
-                  Het is idd een veelzijdig horloge, sportief, casual, zakelijk,
-                  alles kan met de verschillende kleuren en banden.
-                  <span>Valentijn</span>
-                </Blockquote>
+                <Reviews lines={4} reviews={data.reviews.data.reviews} />
               </div>
             </div>
           </div>
@@ -246,6 +234,30 @@ export const pageQuery = graphql`
             uid
             data {
               name
+            }
+          }
+        }
+      }
+    }
+    reviews: prismicHomePage {
+      data {
+        reviews {
+          review {
+            document {
+              ... on PrismicReview {
+                data {
+                  name
+                  date
+                  headline {
+                    text
+                  }
+                  message {
+                    text
+                  }
+                  name_external_source
+                  link_external_source
+                }
+              }
             }
           }
         }

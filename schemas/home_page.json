@@ -1,0 +1,27 @@
+{
+  "Main" : {
+    "name" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Name",
+        "placeholder" : "Home page"
+      }
+    },
+    "reviews" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "review" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "document",
+              "customtypes" : [ "review" ],
+              "label" : "Review"
+            }
+          }
+        },
+        "label" : "Reviews"
+      }
+    }
+  }
+}

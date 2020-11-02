@@ -49,10 +49,8 @@ const ProductPage = props => {
         <Product isWatchStrap={isWatchStrap} />
       </section>
       <BackgroundImage className="section-reviews" image={image} tag="section">
-        {/*<section id="reviews" className="section-reviews">*/}
         <Reviews reviews={data.productPage.data.reviews} />
         <ReviewForm uid={data.productPage.uid} />
-        {/*</section>*/}
       </BackgroundImage>
       <section className="section-product-strap-suggestions">
         <div className="section-product-strap-suggestions__straps">
@@ -262,6 +260,7 @@ export const pageQuery = graphql`
               data {
                 name
                 email
+                date
                 headline {
                   text
                 }

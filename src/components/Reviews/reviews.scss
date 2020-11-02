@@ -30,7 +30,7 @@
   &__slide {
     position: relative;
     min-width: 100%;
-    padding: 4rem;
+    padding: 1rem 4rem 3rem 4rem
   }
 
   &__slide.is-selected &__slide__inner {
@@ -156,6 +156,10 @@
     height: 5rem;
     display: block;
     margin: 0 auto;
+  }
+
+  &__article-quote-wrapper {
+    text-align: left;
   }
 
   &__article-blockquote {
