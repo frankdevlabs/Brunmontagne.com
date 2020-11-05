@@ -47,7 +47,7 @@
 
   &__container {
     max-width: $section;
-    margin: 0 1% 0 auto;
+    margin: 0 auto;
   }
 
   & embed,
@@ -156,9 +156,15 @@
   }
 
   &__stores-text, &__horlogeforum-text {
-    max-width: 500px;
     margin: 0 auto;
+
+    & > p {
+      text-align: center;
+      margin: 0 auto;
+    }
   }
+
+
 
   &__horlogeforum-text {
     margin: 2rem auto;

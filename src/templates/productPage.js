@@ -7,6 +7,7 @@ import ReviewForm from "../components/ReviewForm"
 import ProductCards from "../components/ProductCards"
 import BackgroundImage from "../components/BackgroundImage"
 import ParseImageData from "../utils/parseImageData"
+import ProductSpecifications from "../components/ProductSpecifications"
 import "./productPage.scss"
 import { useTranslation } from "react-i18next"
 
@@ -47,6 +48,11 @@ const ProductPage = props => {
     >
       <section className="section-product">
         <Product isWatchStrap={isWatchStrap} />
+      </section>
+      <section className="section-specifications">
+        <div className="section-specifications__container">
+          <ProductSpecifications image={data.sketchImage} />
+        </div>
       </section>
       <BackgroundImage className="section-reviews" image={image} tag="section">
         <Reviews reviews={data.productPage.data.reviews} />
@@ -146,6 +152,13 @@ export const pageQuery = graphql`
         }
       }
     }
+    sketchImage: file(relativePath: { eq: "representor-product-sketch.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 850) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
   }
 
   fragment ProductFields on PrismicProduct {
@@ -220,6 +233,8 @@ export const pageQuery = graphql`
                 stock
                 inventory_type
                 color
+                in_backorder
+                backorder_expected_date_available
                 material
                 images {
                   alt

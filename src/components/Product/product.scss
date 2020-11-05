@@ -25,11 +25,6 @@
 
   &__add-to-cart-button {
     margin: 2rem 0;
-  }
-
-  & .heading-3 {
-    text-transform: revert;
-    color: #3c3c3c;
-    font-size: 1.6rem;
+    max-width: 37rem;
   }
 }

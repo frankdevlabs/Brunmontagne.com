@@ -6,6 +6,7 @@ import Rating from "../Rating"
 import "./reviews.scss"
 import moment from "moment"
 import Quote from "./quote"
+import ExtLink from "../ExternalLink"
 
 const Reviews = ({ reviews, lines }) => {
   const [viewportRef, embla] = useEmblaCarousel()
@@ -105,15 +106,30 @@ const Reviews = ({ reviews, lines }) => {
                               <div className="reviews__article-meta-item">
                                 {data.name}
                               </div>
-                              <div className="reviews__article-meta-item">
-                                <div>
-                                  <Rating
-                                    readonly={true}
-                                    showVotes={false}
-                                    value={data.rating}
-                                  />
+                              {data.rating ? (
+                                <div className="reviews__article-meta-item">
+                                  <div>
+                                    <Rating
+                                      readonly={true}
+                                      showVotes={false}
+                                      value={data.rating}
+                                    />
+                                  </div>
                                 </div>
-                              </div>
+                              ) : null}
+                              {data.name_external_source ? (
+                                <div className="reviews__article-meta-item">
+                                  <div>
+                                    <ExtLink
+                                      to={data.link_external_source}
+                                      mode="primary"
+                                      targetBlank={true}
+                                    >
+                                      {data.name_external_source}
+                                    </ExtLink>
+                                  </div>
+                                </div>
+                              ) : null}
                               <div className="reviews__article-meta-item">
                                 {monthYear}
                               </div>

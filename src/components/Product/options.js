@@ -41,7 +41,7 @@ const Options = () => {
                 <button
                   className="options__btn"
                   onClick={() => setActiveVariableProduct(uid)}
-                  disabled={active}
+                  disabled={active || !uid}
                 >
                   {option.public_name}
                 </button>
@@ -81,7 +81,7 @@ const Options = () => {
                 <button
                   className="options__btn"
                   onClick={() => setActiveVariableProduct(uid)}
-                  disabled={active}
+                  disabled={active || !uid}
                 >
                   {option.public_name}
                 </button>

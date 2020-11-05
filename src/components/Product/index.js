@@ -6,7 +6,6 @@ import AddToCartButton from "./add-to-cart-btn"
 import Description from "./description"
 import Rating from "../Rating"
 import Options from "./options"
-import Accordion from "../Accordion"
 import ProductContext from "./context"
 import "./product.scss"
 import { withTranslation } from "react-i18next"
@@ -15,17 +14,12 @@ import Link from "../Link"
 class Product extends React.Component {
   render() {
     const { t } = this.props
+    // const productSpecification = t("product.productSpecification")
     return (
       <ProductContext.Consumer>
         {value => {
           const {
-            product: {
-              name,
-              description,
-              variableProducts = [],
-              reviews,
-              specifications,
-            },
+            product: { name, description, variableProducts = [], reviews },
           } = value
 
           const { price, discountPrice, discountActive, sku } =
@@ -72,6 +66,13 @@ class Product extends React.Component {
             value.variableProductsUIDs.length > 0
               ? Math.min(options.case.stock, options.strap.stock)
               : options.case.stock || options.strap.stock
+
+          const isBackorder =
+            options.case.in_backorder || options.strap.in_backorder
+          const backorderDate = isBackorder
+            ? options.case.backorder_expected_date_available ||
+              options.strap.backorder_expected_date_available
+            : "1970-01-01"
 
           const slug =
             value.variableProductsUIDs.length > 0
@@ -134,7 +135,10 @@ class Product extends React.Component {
                   salePrice={discountPrice}
                   sale={discountActive}
                 />
-                <Stock stock={stock} />
+                <Stock
+                  stock={stock}
+                  backorder={{ state: isBackorder, expected: backorderDate }}
+                />
                 {value.variableProductsUIDs.length > 0 ? <Options /> : null}
                 <div className="product__add-to-cart-button">
                   <AddToCartButton
@@ -149,19 +153,19 @@ class Product extends React.Component {
                   />
                 </div>
                 <Description content={description.html} />
-                {specifications.length > 0 ? (
-                  <div className="product__specifications">
-                    <Accordion head="Productspecifcaties">
-                      {specifications.map(spec => {
-                        return (
-                          <p className="long-paragraph" key={spec.key}>
-                            {spec.key} &mdash; {spec.value}
-                          </p>
-                        )
-                      })}
-                    </Accordion>
-                  </div>
-                ) : null}
+                {/*{specifications.length > 0 ? (*/}
+                {/*  <div className="product__specifications">*/}
+                {/*    <Accordion head={productSpecification}>*/}
+                {/*      {specifications.map(spec => {*/}
+                {/*        return (*/}
+                {/*          <p className="long-paragraph" key={spec.key}>*/}
+                {/*            {spec.key} &mdash; {spec.value}*/}
+                {/*          </p>*/}
+                {/*        )*/}
+                {/*      })}*/}
+                {/*    </Accordion>*/}
+                {/*  </div>*/}
+                {/*) : null}*/}
               </div>
             </div>
           )

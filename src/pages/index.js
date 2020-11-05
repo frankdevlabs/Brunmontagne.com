@@ -23,8 +23,6 @@ const IndexPage = ({ data }) => {
     []
   )
 
-  console.log(data)
-
   return (
     <Layout
       seoPageTitle={t("home.pageTitle")}
@@ -47,10 +45,9 @@ const IndexPage = ({ data }) => {
           <div className="section-story__columns columns">
             <div className="section-story__text column">
               <Blockquote>
-                Opvallen, zonder hierin te overdrijven en geschikt voor iedere
-                gelegenheid. <br /> <br /> Dat is de filosofie achter de
-                horloges van Brunmontagne. Uniek, stijlvol en tijdloos.
-                <span>Pascal Bruinenberg, oprichter Brunmontagne</span>
+                {t("home.section-story-quote-1")}
+                <br /> <br /> {t("home.section-story-quote-2")}
+                <span>{t("home.section-story-pascal")}</span>
               </Blockquote>
             </div>
             <div className="section-story__video column">
@@ -101,7 +98,9 @@ const IndexPage = ({ data }) => {
               </div>
             </div>
             <div className="section-media__horlogeforum column">
-              <h3 className="heading-3">Geliefd bij kenners</h3>
+              <h3 className="heading-3">
+                {t("home.section-media-horlogeforum-title")}
+              </h3>
               <div className="section-media__horlogeforum-text">
                 <Reviews lines={4} reviews={data.reviews.data.reviews} />
               </div>

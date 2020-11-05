@@ -1,6 +1,6 @@
 .product-stock {
   margin-bottom: 1rem;
-  &__available {
+  &__available, &__backorder{
     padding: 0.5rem;
     border: 1px solid $green-1;
     display: inline;
@@ -20,5 +20,9 @@
     color: $green-1;
     font-size: 1.4rem;
     margin-top:0.5rem;
+
+    &--not-available {
+      color: $grey-dark-3;
+    }
   }
 }

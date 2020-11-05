@@ -105,14 +105,14 @@ const Card = ({ data, position, list }) => {
               data-product={dataLayer}
               className="btn btn--secondary"
             >
-              Bekijk
+              {t("productCards.btn")}
             </Link>
             <Button
               to={`/products/${data.uid}`}
               data-product={dataLayer}
               className="btn btn--primary"
             >
-              Bekijk
+              {t("productCards.btn")}
             </Button>
           </div>
         </div>

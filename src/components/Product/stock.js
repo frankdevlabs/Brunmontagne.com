@@ -2,11 +2,23 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import "./stock.scss"
 
-const Stock = ({ stock }) => {
+const Stock = ({ stock, backorder }) => {
   const { t } = useTranslation("translation")
   return (
     <div className="product-stock">
-      {stock > 0 ? (
+      {backorder.state ? (
+        <>
+          <div className="product-stock__backorder">
+            {t("product.notBackorderIcon")}
+          </div>
+          <div className="product-stock__info product-stock__info--backorder">
+            <span>
+              {t("product.notBackorderMsg")}
+              {backorder.expected}.
+            </span>
+          </div>
+        </>
+      ) : stock > 0 ? (
         <>
           <div className="product-stock__available">
             {t("product.availableIcon")}

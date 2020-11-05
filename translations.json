@@ -19,6 +19,9 @@
         "pageTitle": "Represents you",
         "section-collection-title": "Collection",
         "section-collection-btn": "View more",
+        "section-story-quote-1": "“Stand out without exaggerating and suitable for any occasion.",
+        "section-story-quote-2": "That is the philosophy behind Brunmontagne watches. Unique, stylish and timeless.",
+        "section-story-pascal": "Pascal Bruinenberg, founder of Brunmontagne",
         "section-story-btn": "Read the full story",
         "section-lookbook-text": "Want to see more?",
         "section-lookbook-btn": "View our Lookbook",
@@ -27,6 +30,7 @@
         "section-media-stores-exclusive": "Available at ",
         "section-media-stores-text": "Popma & Popma Jewelry in Heerenveen (the Netherlands). ",
         "section-media-stores-directions": "Route",
+        "section-media-horlogeforum-title": "Loved by connoisseurs",
         "section-contact-title": "Contact?",
         "section-contact-text": "Do you have question or remark? Or maybe curious about our b2b opportunities? Get in contact using one of the below methods:"
       },
@@ -57,6 +61,7 @@
         "product-category":"product-category"
       },
       "product": {
+        "productSpecification": "Specification",
         "readMore": "Read more",
         "readLess": "Read less",
         "isWatchStrap": {
@@ -77,17 +82,18 @@
         "of": "of",
         "regularPrice": "Regular price",
         "youSave": "You safe",
-        "availableIcon": "Op vooraad",
+        "availableIcon": "In stock",
         "availableStockMsg": "available",
-        "availableMsg": "Shipped within 4 days!",
-        "notAvailableIcon": "Not available",
-        "notAvailableMsg": "Expected in december 2020. Pre-order now!"
+        "availableMsg": "",
+        "notAvailableIcon": "Currently not available",
+        "notAvailableMsg": "See Product description for more details"
       },
       "productCards" : {
         "leatherStraps": "Leather straps",
         "steelStraps":"Steel straps",
         "rubberStraps":"Rubber straps",
-        "movement": "Movement"
+        "movement": "Movement",
+        "btn": "View"
       },
       "contactForm": {
         "general": "Do you have question or remark? Call, mail or fill in the contact form. We will get back to you as soon as possible!",
@@ -135,6 +141,9 @@
         "greeting": "test vertaling",
         "section-collection-title": "Collectie",
         "section-collection-btn": "Meer bekijken",
+        "section-story-quote-1": "Opvallen, zonder hierin te overdrijven en geschikt voor iedere gelegenheid.",
+        "section-story-quote-2": "Dat is de filosofie achter de horloges van Brunmontagne. Uniek, stijlvol en tijdloos.",
+        "section-story-pascal": "Pascal Bruinenberg, oprichter Brunmontagne",
         "section-story-btn": "Lees ons verhaal",
         "section-lookbook-text": "Benieuwd naar meer foto's?",
         "section-lookbook-btn": "Bekijk ons Lookbook",
@@ -143,6 +152,7 @@
         "section-media-stores-exclusive": "Exclusief ",
         "section-media-stores-text": "verkrijgbaar bij Popma & Popma Juweliers te Heerenveen. ",
         "section-media-stores-directions": "Routebeschrijving",
+        "section-media-horlogeforum-title": "Geliefd bij kenners",
         "section-contact-title": "Contact?",
         "section-contact-text": "Heb je een vraag, opmerking of ben je als retailer zakelijk benieuwd naar de collectie? Neem dan contact met ons op. We zijn bereikbaar via:"
       },
@@ -174,6 +184,7 @@
         "product-category":"product-categorie"
       },
       "product": {
+        "productSpecification": "Specificaties",
         "readMore": "Meer lezen",
         "readLess": "Minder lezen",
         "isWatchStrap": {
@@ -196,15 +207,18 @@
         "youSave": "Je bespaart",
         "availableIcon": "Op vooraad",
         "availableStockMsg": "beschikbaar",
-        "availableMsg": "Maximaal 4 werkdagen levertijd!",
-        "notAvailableIcon": "Niet (direct) leverbaar",
-        "notAvailableMsg": "Verwacht in december 2020. Pre-order nu alvast!"
+        "availableMsg": "",
+        "notAvailableIcon": "Niet leverbaar",
+        "notAvailableMsg": "Het is onbekend wanneer en of dit product weer op voorraad komt.",
+        "notBackorderIcon": "Pre-order",
+        "notBackorderMsg": "Op dit moment is dit horloge uitverkocht. Verwachte beschikbaarheid op  "
       },
       "productCards" : {
         "leatherStraps": "Leren banden",
         "steelStraps":"Stalen banden",
         "rubberStraps":"Rubber banden",
-        "movement": "Uurwerk"
+        "movement": "Uurwerk",
+        "btn": "Bekijk"
       },
       "contactForm": {
         "general": "Heb je een vraag of een opmerking? Bel, mail of vul het contactformulier in. We nemen snel contact met je op!",

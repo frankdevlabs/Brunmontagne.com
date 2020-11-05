@@ -2,19 +2,13 @@
   height: 75vh;
   min-height: 47rem;
   padding: 8rem 0;
-  //background-image: linear-gradient(
-  //                to right bottom,
-  //                rgba($orange-1, 0.5),
-  //                rgba($orange-1, 0.5)
-  //),
-  //url(../img/randy-laybourne-unsplash.jpg);
   background-size: cover;
   background-position: center;
   color: $grey-light-3;
 
   &__container {
     margin: 0 auto;
-
+    max-width: 60rem;
   }
 
   &__text {

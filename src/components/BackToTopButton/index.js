@@ -20,7 +20,7 @@ const BackToTopButton = () => {
   })
 
   return (
-    <div className={`to-top-btn${showScroll ? "" : "to-top-btn--invisible"}`}>
+    <div className={`to-top-btn${showScroll ? "" : " to-top-btn--invisible"}`}>
       <Button
         mode="button"
         className="btn btn--primary btn--square"

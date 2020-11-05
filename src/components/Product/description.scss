@@ -1,4 +1,5 @@
 .product-description {
+  margin-top: 3rem;
   & p {
     color: #3c3c3c;
     font-size: 1.45rem;
@@ -10,8 +11,6 @@
   }
 
   & .heading-3 {
-    text-transform: revert;
-    color: #3c3c3c;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }

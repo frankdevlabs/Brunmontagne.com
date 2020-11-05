@@ -4,7 +4,6 @@ import { graphql } from "gatsby"
 import "./page.scss"
 
 const Page = ({ data: { page } }) => {
-  console.log(page)
   const {
     data: { title, seo_page_title, seo_description, paragraphs },
   } = page

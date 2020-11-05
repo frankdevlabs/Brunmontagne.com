@@ -1,5 +1,4 @@
 .dropdown {
-  min-width: 25rem;
   display: inline-block;
   background-color: #fff;
   border-radius: 2px;
@@ -12,10 +11,15 @@
   text-align: left;
   z-index: 2;
   outline: none;
+  min-width: 13rem;
 
   &--sm {
     min-width: unset;
     font-size: 1rem;
+  }
+
+  & span {
+    margin-right: 1rem;
   }
 }
 

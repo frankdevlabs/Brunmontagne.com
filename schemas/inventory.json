@@ -54,6 +54,19 @@
         "label": "Stock"
       }
     },
+    "in_backorder": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Backorder"
+      }
+    },
+    "backorder_expected_date_available": {
+      "type": "Date",
+      "config": {
+        "label": "Backorder expected date available"
+      }
+    },
     "images": {
       "type": "Group",
       "config": {
