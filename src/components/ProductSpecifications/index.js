@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
+import { useTranslation } from "react-i18next"
 import Img from "gatsby-image"
 import ProductContext from "../Product/context"
 import "./specifications.scss"
-import { useTranslation } from "react-i18next"
 
 const Specifications = ({ image }) => {
   const { t } = useTranslation("translation")

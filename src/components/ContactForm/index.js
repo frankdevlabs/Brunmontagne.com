@@ -1,8 +1,8 @@
 import React from "react"
-import TextField from "../TextField"
-import Button from "../Button"
-import "./contactForm.scss"
 import { useTranslation } from "react-i18next"
+import Button from "../Button"
+import TextField from "../TextField"
+import "./contactForm.scss"
 
 const ContactForm = () => {
   const { t } = useTranslation("translation")

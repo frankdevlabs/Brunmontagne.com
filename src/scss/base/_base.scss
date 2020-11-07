@@ -5,6 +5,12 @@
   padding: 0;
   box-sizing: inherit;
 }
+
+#payment-nl, #payment-en {
+  display: none;
+  visibility: hidden;
+}
+
 html {
   font-size: 62.5%;
 
@@ -14,6 +20,16 @@ html {
 
   @include respond($vp-sm) {
     font-size: 50%;
+  }
+
+  &[lang="nl-nl"] #payment-nl {
+    display: inline;
+    visibility: visible;
+  }
+
+  &[lang="en-gb"] #payment-en {
+    display: inline;
+    visibility: visible;
   }
 }
 

@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useCallback } from "react"
 import { useEmblaCarousel } from "embla-carousel/react"
-import { useRecursiveTimeout } from "./useRecursiveTimeout"
-import { DotButton, PrevButton, NextButton } from "./buttons"
-import Rating from "../Rating"
-import "./reviews.scss"
 import moment from "moment"
-import Quote from "./quote"
+import { DotButton, PrevButton, NextButton } from "./buttons"
 import ExtLink from "../ExternalLink"
+import Rating from "../Rating"
+import Quote from "./quote"
+import { useRecursiveTimeout } from "./useRecursiveTimeout"
+import "./reviews.scss"
 
 const Reviews = ({ reviews, lines }) => {
   const [viewportRef, embla] = useEmblaCarousel()

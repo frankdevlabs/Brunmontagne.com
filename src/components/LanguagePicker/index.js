@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
-import { Link as GatsbyLink } from "gatsby"
 import { SnipcartContext } from "gatsby-plugin-snipcart-advanced/context"
+import { Link as GatsbyLink } from "gatsby"
 import { usePageContext } from "../../../pageContext"
 import { DEFAULT_OPTIONS } from "../../../constants"
 import "./languagePicker.scss"

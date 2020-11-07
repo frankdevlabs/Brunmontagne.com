@@ -7,6 +7,29 @@
 const path = require("path")
 const autoprefixer = require("autoprefixer")
 
+const termsText = {
+  nl: `
+    Als je de keuze voor de betaalmethode maakt, ga je akkoord met de op jouw bestelling van toepassing zijnde`,
+  en: `
+    At the moment you choose your payment method, you also agree to our
+  `,
+}
+
+const termsAnchorText = {
+  nl: "algemene voorwaarden",
+  en: "terms and conditions",
+}
+
+const privacyText = {
+  nl: "We gebruiken je gegevens alleen zoals beschreven in ons",
+  en: "We only process your personal data as described in our",
+}
+
+const privacyAnchorText = {
+  nl: "privacy beleid",
+  en: "privacy policy",
+}
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -76,7 +99,7 @@ const config = {
     {
       resolve: `gatsby-plugin-snipcart-advanced`,
       options: {
-        version: "3.0.15",
+        version: "3.0.24",
         publicApiKey: `${process.env.GATSBY_SNIPCART_API_KEY}`,
         defaultLang: "nl",
         currency: "eur",
@@ -85,6 +108,30 @@ const config = {
           nl: {},
           en: {},
         },
+        innerHTML: `
+          <payment section="top">
+            <div class="root">
+               <span id="payment-nl">
+                  ${termsText.nl} 
+                  <a class="snipcart-featured-payment-methods__link" href="/terms" target="_blank" style="display: inline;">
+                    ${termsAnchorText.nl}</a>. 
+                  ${privacyText.nl}
+                  <a class="snipcart-featured-payment-methods__link" href="/privacy" target="_blank" style="display: inline;">
+                    ${privacyAnchorText.nl}
+                  </a>.
+               </span>
+               <span id="payment-en">
+                  ${termsText.en} 
+                  <a class="snipcart-featured-payment-methods__link" href="/en/terms" target="_blank" style="display: inline;">
+                    ${termsAnchorText.en}</a>. 
+                  ${privacyText.en}
+                  <a class="snipcart-featured-payment-methods__link" href="/en/privacy" target="_blank" style="display: inline;">
+                    ${privacyAnchorText.en}
+                  </a>.
+               </span>
+            </div>
+          </payment>
+        `,
       },
     },
     {
@@ -143,7 +190,10 @@ if (process.env.NODE_ENV === "production")
   config.plugins.push({
     resolve: `gatsby-plugin-postcss`,
     options: {
-      postCssPlugins: [autoprefixer],
+      postCssPlugins: [
+        autoprefixer,
+        require(`postcss-preset-env`)({ stage: 0 }),
+      ],
     },
   })
 

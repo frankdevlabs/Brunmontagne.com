@@ -1,9 +1,9 @@
 import React from "react"
+import { graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
 import Layout from "../components/Layout"
 import Lookbook from "../components/Lookbook"
 import "./lookbook.scss"
-import { graphql } from "gatsby"
-import { useTranslation } from "react-i18next"
 
 const LookbookPage = ({
   data: {

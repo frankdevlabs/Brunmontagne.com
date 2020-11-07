@@ -1,9 +1,9 @@
 import React from "react"
-import Layout from "../components/Layout"
-import ExtLink from "../components/ExternalLink"
-import ContactForm from "../components/ContactForm"
-import "./contact.scss"
 import { useTranslation } from "react-i18next"
+import ContactForm from "../components/ContactForm"
+import ExtLink from "../components/ExternalLink"
+import Layout from "../components/Layout"
+import "./contact.scss"
 
 const ContactPage = () => {
   const { t } = useTranslation("translation")

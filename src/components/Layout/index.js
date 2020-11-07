@@ -1,9 +1,9 @@
 import React from "react"
-import SEO from "../SEO"
-import Navigation from "../Navigation"
-import Header from "../Header"
-import Footer from "../Footer"
 import BackToTopButton from "../BackToTopButton"
+import Footer from "../Footer"
+import Header from "../Header"
+import Navigation from "../Navigation"
+import SEO from "../SEO"
 import useSticky from "../../hooks/useSticky"
 
 const Layout = ({

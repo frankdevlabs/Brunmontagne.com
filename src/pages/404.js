@@ -1,10 +1,10 @@
 import React from "react"
-import { useTranslation } from "react-i18next"
-import Layout from "../components/Layout"
-import ExtLink from "../components/ExternalLink"
-import "./404.scss"
-import BackgroundImage from "../components/BackgroundImage"
 import { graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
+import BackgroundImage from "../components/BackgroundImage"
+import ExtLink from "../components/ExternalLink"
+import Layout from "../components/Layout"
+import "./404.scss"
 
 const NotFoundPage = ({ data: { background } }) => {
   const { t } = useTranslation("translation")

@@ -1,10 +1,10 @@
 import React from "react"
-import TextField from "../TextField"
-import Button from "../Button"
 import { useTranslation } from "react-i18next"
-import "./reviewForm.scss"
 import Accordion from "../Accordion"
+import Button from "../Button"
 import Rating from "../Rating"
+import TextField from "../TextField"
+import "./reviewForm.scss"
 
 const ReviewForm = ({ uid }) => {
   const { t } = useTranslation()

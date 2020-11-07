@@ -1,9 +1,9 @@
 import React from "react"
-import NavList from "./list"
 import Cart from "./cart"
 import LanguagePicker from "../LanguagePicker"
-import "./main.scss"
 import Link from "../Link"
+import NavList from "./list"
+import "./main.scss"
 
 export default props => {
   return (

@@ -1,9 +1,9 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 import ExtLink from "../ExternalLink"
-import "./footer.scss"
 import Link from "../Link"
 import { usePageContext } from "../../../pageContext"
-import { useTranslation } from "react-i18next"
+import "./footer.scss"
 
 const Footer = ({ stickyNav }) => {
   const { t } = useTranslation()

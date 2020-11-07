@@ -1,9 +1,9 @@
 import React from "react"
 import Img from "gatsby-image"
+import { useTranslation } from "react-i18next"
 import Button from "../Button"
 import Link from "../Link"
 import "./card.scss"
-import { useTranslation } from "react-i18next"
 
 const Card = ({ data, position, list }) => {
   const { t } = useTranslation("translation")

@@ -1,15 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
+import BackgroundImage from "../components/BackgroundImage"
 import Layout from "../components/Layout"
 import Product from "../components/Product"
+import ProductCards from "../components/ProductCards"
+import ProductSpecifications from "../components/ProductSpecifications"
 import Reviews from "../components/Reviews"
 import ReviewForm from "../components/ReviewForm"
-import ProductCards from "../components/ProductCards"
-import BackgroundImage from "../components/BackgroundImage"
 import ParseImageData from "../utils/parseImageData"
-import ProductSpecifications from "../components/ProductSpecifications"
 import "./productPage.scss"
-import { useTranslation } from "react-i18next"
 
 const ProductPage = props => {
   const { t } = useTranslation()
@@ -49,11 +49,13 @@ const ProductPage = props => {
       <section className="section-product">
         <Product isWatchStrap={isWatchStrap} />
       </section>
-      <section className="section-specifications">
-        <div className="section-specifications__container">
-          <ProductSpecifications image={data.sketchImage} />
-        </div>
-      </section>
+      {isWatchStrap ? null : (
+        <section className="section-specifications">
+          <div className="section-specifications__container">
+            <ProductSpecifications image={data.sketchImage} />
+          </div>
+        </section>
+      )}
       <BackgroundImage className="section-reviews" image={image} tag="section">
         <Reviews reviews={data.productPage.data.reviews} />
         <ReviewForm uid={data.productPage.uid} />

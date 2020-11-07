@@ -1,12 +1,12 @@
 import React from "react"
+import { graphql } from "gatsby"
+import { useTranslation } from "react-i18next"
+import Blockquote from "../components/Blockquote"
+import BackgroundImage from "gatsby-background-image-es5"
 import Layout from "../components/Layout"
-import "./collection.scss"
 import ProductCards from "../components/ProductCards"
 import ParseImageData from "../utils/parseImageData"
-import { graphql } from "gatsby"
-import BackgroundImage from "gatsby-background-image-es5"
-import Blockquote from "../components/Blockquote"
-import { useTranslation } from "react-i18next"
+import "./collection.scss"
 
 const CollectionPage = ({ data }) => {
   const { t } = useTranslation()
@@ -31,9 +31,9 @@ const CollectionPage = ({ data }) => {
         >
           <div className="section-collection-media__quote">
             <Blockquote>
-              Een extra horlogeband van Brunmontagne sluit uiteraard perfect aan
-              op de sluiting van de Representor.
-              <span>Pascal Bruinenberg, oprichter Brunmontagne</span>
+              {t("home.section-story-quote-1")}
+              <br /> <br /> {t("home.section-story-quote-2")}
+              <span>{t("home.section-story-pascal")}</span>
             </Blockquote>
           </div>
         </MediaSectionContainer>

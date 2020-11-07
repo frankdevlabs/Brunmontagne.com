@@ -1,15 +1,15 @@
 import React from "react"
-import ImageGallery from "../ImageGallery"
-import Price from "./price"
-import Stock from "./stock"
+import { withTranslation } from "react-i18next"
 import AddToCartButton from "./add-to-cart-btn"
 import Description from "./description"
-import Rating from "../Rating"
+import ImageGallery from "../ImageGallery"
 import Options from "./options"
+import Price from "./price"
+import Rating from "../Rating"
+import Stock from "./stock"
+import Link from "../Link"
 import ProductContext from "./context"
 import "./product.scss"
-import { withTranslation } from "react-i18next"
-import Link from "../Link"
 
 class Product extends React.Component {
   render() {
@@ -97,7 +97,10 @@ class Product extends React.Component {
 
           return (
             <div className="product columns is-tablet is-multiline">
-              <div className="product__header column is-full">
+              <div
+                className="product__header column is-full"
+                style={{ margin: "0 1.5%" }}
+              >
                 <h2 className="heading-2">{name}</h2>
                 <div className="product__header-meta">
                   <div className="product__header-meta-option">
@@ -153,19 +156,6 @@ class Product extends React.Component {
                   />
                 </div>
                 <Description content={description.html} />
-                {/*{specifications.length > 0 ? (*/}
-                {/*  <div className="product__specifications">*/}
-                {/*    <Accordion head={productSpecification}>*/}
-                {/*      {specifications.map(spec => {*/}
-                {/*        return (*/}
-                {/*          <p className="long-paragraph" key={spec.key}>*/}
-                {/*            {spec.key} &mdash; {spec.value}*/}
-                {/*          </p>*/}
-                {/*        )*/}
-                {/*      })}*/}
-                {/*    </Accordion>*/}
-                {/*  </div>*/}
-                {/*) : null}*/}
               </div>
             </div>
           )

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react"
+import { useTranslation } from "react-i18next"
 import { useEmblaCarousel } from "embla-carousel/react"
 import Img from "gatsby-image"
 import { Thumb } from "./thumbnail"
-import { useTranslation } from "react-i18next"
 import "./gallery.scss"
 
 const Index = ({ images }) => {

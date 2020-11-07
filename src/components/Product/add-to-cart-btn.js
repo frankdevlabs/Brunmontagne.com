@@ -1,8 +1,8 @@
 import React from "react"
-import "./add-to-cart-btn.scss"
-import "../Button/button.scss"
 import { useTranslation } from "react-i18next"
 import { usePageContext } from "../../../pageContext"
+import "./add-to-cart-btn.scss"
+import "../Button/button.scss"
 
 const AddToCartButton = props => {
   const { t } = useTranslation("translation")

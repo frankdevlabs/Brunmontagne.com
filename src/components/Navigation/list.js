@@ -1,7 +1,7 @@
 import React from "react"
 import Item from "./item"
-import "./list.scss"
 import LanguagePicker from "../LanguagePicker"
+import "./list.scss"
 
 const setClasses = (mode, isSubMenu) => {
   if (mode === "default" && isSubMenu === true) {

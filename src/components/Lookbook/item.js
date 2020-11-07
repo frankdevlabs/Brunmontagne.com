@@ -1,8 +1,8 @@
 import React from "react"
 import Img from "gatsby-image"
+import Dropdown from "../Dropdown"
 import ExternalLink from "../ExternalLink"
 import Link from "../Link"
-import Dropdown from "../Dropdown"
 import { useTranslation } from "react-i18next"
 
 const LookbookItem = ({ node }) => {

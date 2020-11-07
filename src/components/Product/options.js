@@ -1,8 +1,8 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 import Dropdown from "../Dropdown"
 import ProductContext from "./context"
 import "./options.scss"
-import { useTranslation } from "react-i18next"
 
 const Options = () => {
   const { t } = useTranslation("translation")

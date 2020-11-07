@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="tags-brunmontagne.com" />
+    <orderEntry type="module" module-name="consent-brunmontagne.com" />
   </component>
 </module>

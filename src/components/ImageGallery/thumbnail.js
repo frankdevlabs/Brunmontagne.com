@@ -1,5 +1,4 @@
 import React from "react"
-
 import Img from "gatsby-image"
 
 export const Thumb = ({ selected, onClick, imgSrc }) => (

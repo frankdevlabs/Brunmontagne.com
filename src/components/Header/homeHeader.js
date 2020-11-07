@@ -1,8 +1,8 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
+import Button from "../Button"
 import Slider from "./slider"
 // import TV from "./tv"
-import Button from "../Button"
 // import { isMobile as _isMobile } from "../../utils/isMobile"
 
 const HomeHeader = () => {
