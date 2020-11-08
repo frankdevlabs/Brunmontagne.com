@@ -99,7 +99,7 @@ const config = {
     {
       resolve: `gatsby-plugin-snipcart-advanced`,
       options: {
-        version: "3.0.15",
+        version: "3.0.19",
         publicApiKey: `${process.env.GATSBY_SNIPCART_API_KEY}`,
         defaultLang: "nl",
         currency: "eur",
