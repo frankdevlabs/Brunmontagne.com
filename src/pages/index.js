@@ -44,10 +44,9 @@ const IndexPage = ({ data }) => {
         <div className="section-story__container">
           <div className="section-story__columns columns">
             <div className="section-story__text column">
-              <Blockquote>
+              <Blockquote author={t("home.section-story-pascal")}>
                 {t("home.section-story-quote-1")}
                 <br /> <br /> {t("home.section-story-quote-2")}
-                <span>{t("home.section-story-pascal")}</span>
               </Blockquote>
             </div>
             <div className="section-story__video column">
