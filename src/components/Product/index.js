@@ -65,7 +65,8 @@ class Product extends React.Component {
           const stock =
             value.variableProductsUIDs.length > 0
               ? Math.min(options.case.stock, options.strap.stock)
-              : options.case.stock || options.strap.stock
+              : value.product.inventory_components[0].component.document.data
+                  .stock
 
           const isBackorder =
             options.case.in_backorder || options.strap.in_backorder
