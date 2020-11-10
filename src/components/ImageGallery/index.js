@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { useEmblaCarousel } from "embla-carousel/react"
 import Img from "gatsby-image"
 import { Thumb } from "./thumbnail"
-import { SRLWrapper } from "simple-react-lightbox"
+// import { SRLWrapper } from "simple-react-lightbox"
 import "./gallery.scss"
 
 const Index = ({ images }) => {
@@ -42,25 +42,28 @@ const Index = ({ images }) => {
   }, [embla, onSelect, firstImageID, images, setFirstImageID])
   return (
     <>
-      <SRLWrapper>
-        <div className="gallery">
-          <div className="gallery__viewport" ref={mainViewportRef}>
-            <div className="gallery__container">
-              {images.map(image => (
-                <div className="gallery__slide" key={image.node.id}>
-                  <div className="gallery__slide__inner">
-                    <Img
-                      fluid={image.node.childImageSharp.fluid}
-                      style={{ margin: "1rem", maxHeight: "calc(50vh - 4rem)" }}
-                      imgStyle={{ objectFit: "contain" }}
-                    />
-                  </div>
+      {/*<SRLWrapper>*/}
+      <div className="gallery">
+        <div className="gallery__viewport" ref={mainViewportRef}>
+          <div className="gallery__container">
+            {images.map(image => (
+              <div className="gallery__slide" key={image.node.id}>
+                <div className="gallery__slide__inner">
+                  <Img
+                    fluid={image.node.childImageSharp.fluid}
+                    style={{
+                      margin: "1rem",
+                      maxHeight: "calc(50vh - 4rem)",
+                    }}
+                    imgStyle={{ objectFit: "contain" }}
+                  />
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
-      </SRLWrapper>
+      </div>
+      {/*</SRLWrapper>*/}
       <div className="gallery gallery--counter">
         {t("product.image")} {selectedIndex + 1} {t("product.of")}{" "}
         {images.length}
