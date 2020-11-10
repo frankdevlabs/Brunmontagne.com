@@ -76,22 +76,22 @@
     justify-content: space-between;
   }
 
-  &__overlay-inner-top {
-    border-bottom: 1px solid $grey-light-1;
+  &__overlay-inner-bottom {
+    border-top: 1px solid $grey-light-1;
     font-size: 1rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
     display: flex;
     justify-content: space-between;
   }
 
-  &__overlay-inner-bottom {
-    border-top: 1px solid $grey-light-1;
+  &__overlay-inner-top {
+    border-bottom: 1px solid $grey-light-1;
     font-size: 1.2rem;
     color: $grey-dark-6;
     letter-spacing: 0.03rem;
     display: flex;
     justify-content: space-between;
-    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     display: flex;
     align-items: center;
   }

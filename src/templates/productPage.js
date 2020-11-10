@@ -191,7 +191,7 @@ export const pageQuery = graphql`
         node {
           id
           childImageSharp {
-            fluid(maxWidth: 610) {
+            fluid(maxWidth: 1500) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
             fixed(width: 74) {

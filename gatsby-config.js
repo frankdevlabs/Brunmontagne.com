@@ -76,6 +76,7 @@ const config = {
       },
     },
     `gatsby-transformer-sharp`,
+    `simple-react-lightbox`,
     {
       resolve: `gatsby-plugin-sass`,
       options: {

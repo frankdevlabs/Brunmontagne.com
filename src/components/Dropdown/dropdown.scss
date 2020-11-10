@@ -70,7 +70,7 @@
 
 .dropdown.active .dropdown-menu {
   display: block;
-  width:100%;
+  min-width:100%;
 }
 
 .dropdown.active .select > svg {

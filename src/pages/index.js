@@ -111,7 +111,7 @@ const IndexPage = ({ data }) => {
         <div className="section-lookbook-home__container">
           <Lookbook items={data.grams.edges} />
           <div className="section-lookbook-home__text">
-            <p className="long-paragraph">{t("home.section-lookbook-text")}</p>
+            {/*<p className="long-paragraph">{t("home.section-lookbook-text")}</p>*/}
             <Button to="/lookbook/" className="btn btn--secondary">
               {t("home.section-lookbook-btn")}
             </Button>
@@ -237,7 +237,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    reviews: prismicHomePage {
+    reviews: prismicHomePage(lang: { eq: $locale }) {
       data {
         reviews {
           review {

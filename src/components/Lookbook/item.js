@@ -7,41 +7,17 @@ import { useTranslation } from "react-i18next"
 
 const LookbookItem = ({ node }) => {
   const { t } = useTranslation("translation")
-
   return (
     <div key={node.id} className="lookbook__gallery-item">
       <Img
         className="lookbook__gallery-image"
+        objectPosition="50% 50%"
         fluid={node.localFile.childImageSharp.fluid}
-        alt="person writing in a notebook beside by an iPad, laptop, printed photos, spectacles, and a cup of coffee on a saucer"
+        alt={node.caption}
       />
       <div className="lookbook__overlay">
         <div className="lookbook__overlay-inner">
           <div className="lookbook__overlay-inner-top">
-            <ExternalLink to={node.permalink} border={true}>
-              {t("lookbook.viewIG")}
-            </ExternalLink>
-            <div className="lookbook__meta">
-              <span className="lookbook__meta-item">
-                <svg className="lookbook__meta-icon">
-                  <use xlinkHref="/svg/main.svg#heart"></use>
-                </svg>
-                {node.likes}
-              </span>
-              <span className="lookbook__meta-item">
-                <svg className="lookbook__meta-icon">
-                  <use xlinkHref="/svg/main.svg#comment"></use>
-                </svg>
-                {node.comments}
-              </span>
-            </div>
-          </div>
-          <div className="lookbook__overlay-inner-middle">
-            <blockquote className="lookbook__caption">
-              {node.caption}
-            </blockquote>
-          </div>
-          <div className="lookbook__overlay-inner-bottom">
             {node.linkedProducts && node.linkedProducts.length === 1 ? (
               <>
                 <span className="lookbook__product-name">
@@ -93,6 +69,30 @@ const LookbookItem = ({ node }) => {
                 </svg>
               </div>
             ) : null}
+          </div>
+          <div className="lookbook__overlay-inner-middle">
+            <blockquote className="lookbook__caption">
+              {node.caption}
+            </blockquote>
+          </div>
+          <div className="lookbook__overlay-inner-bottom">
+            <ExternalLink to={node.permalink} border={true}>
+              {t("lookbook.viewIG")}
+            </ExternalLink>
+            <div className="lookbook__meta">
+              <span className="lookbook__meta-item">
+                <svg className="lookbook__meta-icon">
+                  <use xlinkHref="/svg/main.svg#heart"></use>
+                </svg>
+                {node.likes}
+              </span>
+              <span className="lookbook__meta-item">
+                <svg className="lookbook__meta-icon">
+                  <use xlinkHref="/svg/main.svg#comment"></use>
+                </svg>
+                {node.comments}
+              </span>
+            </div>
           </div>
         </div>
       </div>
