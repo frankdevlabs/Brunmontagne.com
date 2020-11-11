@@ -40,6 +40,7 @@ const Index = ({ images }) => {
     onSelect()
     embla.on("select", onSelect)
   }, [embla, onSelect, firstImageID, images, setFirstImageID])
+
   return (
     <>
       <SRLWrapper options={{ thumbnails: { showThumbnails: false } }}>
