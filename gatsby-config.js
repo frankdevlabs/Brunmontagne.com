@@ -52,6 +52,7 @@ const config = {
     },
     `gatsby-background-image-es5`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-prismic`,
       options: {
