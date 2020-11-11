@@ -72,3 +72,7 @@ button,
 .snipcart-cart--opened .snipcart-modal__container {
   z-index: 2502;
 }
+
+.SRLNextButton, .SRLPrevButton {
+  display: block !important;
+}
