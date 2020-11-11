@@ -219,5 +219,11 @@ exports.DEFAULT_OPTIONS = {
       isPermanent: false,
       statusCode: 301,
     },
+    {
+      fromPath: "/en/conditions/",
+      toPath: "/en/terms/",
+      isPermanent: false,
+      statusCode: 301,
+    },
   ],
 }
