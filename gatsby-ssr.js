@@ -7,15 +7,15 @@ import { DEFAULT_OPTIONS } from "./constants"
 import i18n from "./i18next"
 import { I18nextProvider } from "react-i18next"
 import { preProcessProductData } from "./src/components/Product/preProcessProductsData"
-// import SimpleReactLightbox from "simple-react-lightbox"
+import SimpleReactLightbox from "simple-react-lightbox"
 /**
  * Wrap all pages with a Translation provider and set the language on SSR time
  */
 export const wrapRootElement = ({ element }) => {
   return (
-    // <SimpleReactLightbox>
-    <I18nextProvider i18n={i18n}>{element}</I18nextProvider>
-    // </SimpleReactLightbox>
+    <SimpleReactLightbox>
+      <I18nextProvider i18n={i18n}>{element}</I18nextProvider>
+    </SimpleReactLightbox>
   )
 }
 
