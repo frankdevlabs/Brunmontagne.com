@@ -23,10 +23,9 @@ const SEO = ({ title, pageTitle, description }) => {
       htmlAttributes={{
         lang: locales[lang],
       }}
-      titleTemplate={`%s | ${metaPageTitle}`}
       defer={false}
+      title={`${metaTitle} | ${metaPageTitle}`}
     >
-      <title>{metaTitle}</title>
       <meta property="og:title" content={`${metaTitle} | ${metaPageTitle}`} />
       <meta name="description" content={metaDescription} />
       <meta property="og:description" content={metaDescription} />

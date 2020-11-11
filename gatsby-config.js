@@ -43,6 +43,7 @@ const config = {
     supportedLanguages: ["nl", "en"],
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -52,7 +53,6 @@ const config = {
     },
     `gatsby-background-image-es5`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-prismic`,
       options: {
@@ -170,7 +170,7 @@ const config = {
         background_color: `#f1f1f1`,
         theme_color: `#130f40`,
         legacy: true,
-        cache_busting_mode: "none",
+        // cache_busting_mode: "none",
         localize: [
           {
             start_url: `/en/`,

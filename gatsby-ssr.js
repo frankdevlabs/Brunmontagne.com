@@ -13,9 +13,9 @@ import SimpleReactLightbox from "simple-react-lightbox"
  */
 export const wrapRootElement = ({ element }) => {
   return (
-    <SimpleReactLightbox>
-      <I18nextProvider i18n={i18n}>{element}</I18nextProvider>
-    </SimpleReactLightbox>
+    <I18nextProvider i18n={i18n}>
+      <SimpleReactLightbox>{element}</SimpleReactLightbox>
+    </I18nextProvider>
   )
 }
 
