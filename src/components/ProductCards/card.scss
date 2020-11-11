@@ -15,6 +15,15 @@
     width: 100% !important;
   }
 
+  &__overlay-btn {
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    z-index: 302;
+    cursor: pointer;
+  }
+
   &__container {
     transition: all 450ms ease-out;
     padding: 2rem;

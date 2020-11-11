@@ -86,6 +86,7 @@ const Card = ({ data, position, list }) => {
   return (
     <div className="card column is-one-quarter is-half-touch">
       <div className="card__container">
+        <Link to={`/products/${data.uid}`} className="card__overlay-btn" />
         <div className="card__image-overlay"></div>
         <div
           className="card__image"

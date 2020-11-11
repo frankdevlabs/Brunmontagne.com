@@ -42,18 +42,24 @@ const Index = ({ images }) => {
   }, [embla, onSelect, firstImageID, images, setFirstImageID])
   return (
     <>
-      <SRLWrapper>
+      <SRLWrapper options={{ thumbnails: { showThumbnails: false } }}>
         <div className="gallery">
           <div className="gallery__viewport" ref={mainViewportRef}>
             <div className="gallery__container">
               {images.map(image => (
                 <div className="gallery__slide" key={image.node.id}>
                   <div className="gallery__slide__inner">
-                    <Img
-                      fluid={image.node.childImageSharp.fluid}
-                      style={{ margin: "1rem", maxHeight: "calc(50vh - 4rem)" }}
-                      imgStyle={{ objectFit: "contain" }}
-                    />
+                    <a href={image.node.publicURL} data-attribute="SRL">
+                      <Img
+                        fluid={image.node.childImageSharp.fluid}
+                        style={{
+                          margin: "1rem",
+                          maxHeight: "calc(50vh - 4rem)",
+                        }}
+                        imgStyle={{ objectFit: "contain" }}
+                        alt={image.alt}
+                      />
+                    </a>
                   </div>
                 </div>
               ))}

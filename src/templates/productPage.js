@@ -190,6 +190,7 @@ export const pageQuery = graphql`
         alt
         node {
           id
+          publicURL
           childImageSharp {
             fluid(maxWidth: 1500) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
