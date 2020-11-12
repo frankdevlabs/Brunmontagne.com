@@ -13,7 +13,7 @@ export default ({ sticky }) => {
       },
       {
         content: "Collectie",
-        to: "/collection",
+        to: "/collection/",
         subMenu: [
           {
             content: "Horloges",
@@ -29,30 +29,30 @@ export default ({ sticky }) => {
       },
       {
         content: "Lookbook",
-        to: "/lookbook",
+        to: "/lookbook/",
         subMenu: [],
       },
       {
         content: "Het verhaal",
-        to: "/about-us",
+        to: "/about-us/",
         subMenu: [],
       },
 
       {
         content: "Contact",
-        to: "/contact",
+        to: "/contact/",
         subMenu: [],
       },
     ],
     en: [
       {
         content: "Home",
-        to: "/en",
+        to: "/en/",
         subMenu: [],
       },
       {
         content: "Collection",
-        to: "/en/collection",
+        to: "/en/collection/",
         subMenu: [
           {
             content: "Watches",
@@ -68,17 +68,17 @@ export default ({ sticky }) => {
       },
       {
         content: "Lookbook",
-        to: "/en/lookbook",
+        to: "/en/lookbook/",
         subMenu: [],
       },
       {
         content: "The story",
-        to: "/en/about-us",
+        to: "/en/about-us/",
         subMenu: [],
       },
       {
         content: "Contact",
-        to: "/en/contact",
+        to: "/en/contact/",
         subMenu: [],
       },
     ],

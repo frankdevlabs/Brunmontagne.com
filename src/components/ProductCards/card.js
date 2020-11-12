@@ -86,7 +86,7 @@ const Card = ({ data, position, list }) => {
   return (
     <div className="card column is-one-quarter is-half-touch">
       <div className="card__container">
-        <Link to={`/products/${data.uid}`} className="card__overlay-btn" />
+        <Link to={`/products/${data.uid}/`} className="card__overlay-btn" />
         <div className="card__image-overlay"></div>
         <div
           className="card__image"
@@ -102,14 +102,14 @@ const Card = ({ data, position, list }) => {
         <div className="card__btn">
           <div className="card__btn--inner">
             <Link
-              to={`/products/${data.uid}`}
+              to={`/products/${data.uid}/`}
               data-product={dataLayer}
               className="btn btn--secondary"
             >
               {t("productCards.btn")}
             </Link>
             <Button
-              to={`/products/${data.uid}`}
+              to={`/products/${data.uid}/`}
               data-product={dataLayer}
               className="btn btn--primary"
             >

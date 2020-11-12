@@ -146,7 +146,7 @@ const IndexPage = ({ data }) => {
               </li>
               <li className="section-contact-home__item">
                 <Link
-                  to="/contact"
+                  to="/contact/"
                   className="link link__primary"
                   id="contact-form"
                 >
