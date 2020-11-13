@@ -167,14 +167,14 @@ exports.createPages = async ({ graphql, actions }) => {
       data.variable_products.forEach(({ product: { document } }) => {
         if (document)
           createPage({
-            path: `${baseURI}${basePath}/variants/${document.uid}/`,
+            path: `${baseURI}${basePath}variants/${document.uid}/`,
             component: productPageTemplate,
             context: {
               id: id,
               uid: uid,
               variant: document.uid,
               locale: lang,
-              originalPath: `/${basePath}/variants/${document.uid}/`,
+              originalPath: `/${basePath}variants/${document.uid}/`,
               lang: sanitzedLang,
             },
           })
@@ -217,7 +217,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const { legacyRedirects } = DEFAULT_OPTIONS
   const isEnvDevelopment = process.env.NODE_ENV === "development"
-
   legacyRedirects.forEach(({ fromPath, toPath, isPermanent, statusCode }) => {
     createRedirect({
       fromPath: fromPath,
