@@ -148,8 +148,8 @@ exports.createPages = async ({ graphql, actions }) => {
   productPages.data.allPrismicProduct.edges.forEach(
     ({ node: { id, uid, lang, data } }) => {
       const sanitzedLang = lang === "en-gb" ? "en" : "nl"
-      const baseURI = lang === "en-gb" ? `/en` : ""
-      const basePath = `/products/${uid}`
+      const baseURI = lang === "en-gb" ? `/en/` : "/"
+      const basePath = `products/${uid}/`
 
       createPage({
         path: `${baseURI}${basePath}`,
@@ -159,7 +159,7 @@ exports.createPages = async ({ graphql, actions }) => {
           uid: uid,
           variant: undefined,
           locale: lang,
-          originalPath: `${basePath}`,
+          originalPath: `/${basePath}`,
           lang: sanitzedLang,
         },
       })
@@ -167,14 +167,14 @@ exports.createPages = async ({ graphql, actions }) => {
       data.variable_products.forEach(({ product: { document } }) => {
         if (document)
           createPage({
-            path: `${baseURI}${basePath}/variants/${document.uid}`,
+            path: `${baseURI}${basePath}/variants/${document.uid}/`,
             component: productPageTemplate,
             context: {
               id: id,
               uid: uid,
               variant: document.uid,
               locale: lang,
-              originalPath: `${basePath}/variants/${document.uid}`,
+              originalPath: `/${basePath}/variants/${document.uid}/`,
               lang: sanitzedLang,
             },
           })
@@ -199,8 +199,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const pageTemplate = require.resolve(`./src/templates/page.js`)
   page.data.allPrismicPage.edges.forEach(({ node: { id, uid, lang } }) => {
     const sanitzedLang = lang === "en-gb" ? "en" : "nl"
-    const baseURI = lang === "en-gb" ? `/en` : ""
-    const basePath = `/${uid}`
+    const baseURI = lang === "en-gb" ? `/en/` : "/"
+    const basePath = `${uid}/`
 
     createPage({
       path: `${baseURI}${basePath}`,
@@ -209,7 +209,7 @@ exports.createPages = async ({ graphql, actions }) => {
         id: id,
         uid: uid,
         locale: lang,
-        originalPath: `${basePath}`,
+        originalPath: `/${basePath}`,
         lang: sanitzedLang,
       },
     })
@@ -217,6 +217,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const { legacyRedirects } = DEFAULT_OPTIONS
   const isEnvDevelopment = process.env.NODE_ENV === "development"
+
   legacyRedirects.forEach(({ fromPath, toPath, isPermanent, statusCode }) => {
     createRedirect({
       fromPath: fromPath,
@@ -277,7 +278,13 @@ exports.onCreatePage = async ({
   await Promise.all(
     supportedLanguages.map(async lang => {
       const localizedPath =
-        lang === defaultLanguage ? page.path : `/${lang}${page.path}`
+        lang === defaultLanguage
+          ? page.path == !"/"
+            ? `${page.path}/`
+            : page.path
+          : page.path == !"/"
+          ? `/${lang}${page.path}/`
+          : `/${lang}${page.path}`
 
       // create a redirect based on the accept-language header
       createRedirect({
@@ -306,7 +313,7 @@ exports.onCreatePage = async ({
   // Accept-Language header is missing for some reason
   createRedirect({
     fromPath: originalPath,
-    toPath: `${page.path}`,
+    toPath: page.path == !"/" ? `${page.path}/` : page.path,
     isPermanent: false,
     redirectInBrowser: isEnvDevelopment,
     statusCode: 301,
