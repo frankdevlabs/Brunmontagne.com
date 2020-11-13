@@ -39,12 +39,15 @@ const ProductPage = props => {
     ? t("product.isWatchStrap.watchSuggestionsTitle")
     : t("product.isWatch.watchSuggestionsTitle")
 
+  const noIndex = props.location.pathname.indexOf("/variants/") > 0
+
   return (
     <Layout
       seoDescription={data.productPage.data.seo.text}
       seoPageTitle={data.productPage.data.name}
       location={location}
       crumbLabel={data.productPage.data.name}
+      noIndex={noIndex}
     >
       <section className="section-product">
         <Product isWatchStrap={isWatchStrap} />

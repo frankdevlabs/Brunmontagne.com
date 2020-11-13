@@ -11,7 +11,7 @@ exports.DEFAULT_OPTIONS = {
   },
 
   // the (optional) path in which your web app redirects in case of a 404
-  notFoundPage: "/404/",
+  notFoundPage: "/404",
 
   // a list of paths, whose pages should not be processed by this plugin (i.e. delegate to whatever
   // gatsby would do by default)
@@ -179,7 +179,7 @@ exports.DEFAULT_OPTIONS = {
     },
     {
       fromPath: "/winkelmand/",
-      toPath: "/404/",
+      toPath: "/404",
       isPermanent: false,
       statusCode: 410,
     },
@@ -197,7 +197,7 @@ exports.DEFAULT_OPTIONS = {
     },
     {
       fromPath: "/en/cart/",
-      toPath: "/404/",
+      toPath: "/404",
       isPermanent: false,
       statusCode: 410,
     },

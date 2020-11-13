@@ -5,7 +5,7 @@ import useSiteMetadata from "../../hooks/useSiteMetaData"
 import { DEFAULT_OPTIONS } from "../../../constants"
 import { usePageContext } from "../../../pageContext"
 
-const SEO = ({ title, pageTitle, description }) => {
+const SEO = ({ title, pageTitle, description, noIndex }) => {
   const { siteUrl } = useSiteMetadata()
   const { supportedLanguages, defaultLanguage, locales } = DEFAULT_OPTIONS
   const { t } = useTranslation()
@@ -52,6 +52,7 @@ const SEO = ({ title, pageTitle, description }) => {
           />
         )
       })}
+      {noIndex ? <meta name="robots" content="noindex" /> : ""}
     </Helmet>
   )
 }

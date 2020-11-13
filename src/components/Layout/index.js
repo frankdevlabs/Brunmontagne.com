@@ -12,6 +12,7 @@ const Layout = ({
   seoDescription,
   headerMode,
   children,
+  noIndex,
 }) => {
   const { isSticky, element } = useSticky()
   return (
@@ -20,6 +21,7 @@ const Layout = ({
         title={seoTitle}
         pageTitle={seoPageTitle}
         description={seoDescription}
+        noIndex={noIndex}
       />
       <div className="container">
         <Navigation sticky={isSticky} />

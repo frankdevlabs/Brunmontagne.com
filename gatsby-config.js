@@ -183,7 +183,24 @@ const config = {
       },
     },
     // `gatsby-plugin-offline`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [
+          `/404`,
+          `/404.html`,
+          `/en/404`,
+          `/en/404.html`,
+          `/offline-plugin-app-shell-fallback`,
+          `/en/terms`,
+          `/terms`,
+          `/en/privacy`,
+          `/privacy`,
+          `/en/returns`,
+          `/returns`,
+        ],
+      },
+    },
     `gatsby-plugin-robots-txt`,
   ],
 }

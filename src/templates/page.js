@@ -9,7 +9,11 @@ const Page = ({ data: { page } }) => {
   } = page
 
   return (
-    <Layout seoPageTitle={seo_page_title} seoDescription={seo_description}>
+    <Layout
+      seoPageTitle={seo_page_title}
+      seoDescription={seo_description}
+      noIndex={true}
+    >
       <section className="section-page">
         <h2 className="heading-2">{title.text}</h2>
         <div className="section-page__content">
