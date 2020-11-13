@@ -198,6 +198,7 @@ const config = {
           `/privacy`,
           `/en/returns`,
           `/returns`,
+          `**/products/**/variants/*`,
         ],
       },
     },
