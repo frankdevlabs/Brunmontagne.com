@@ -21,7 +21,7 @@ const Link = React.forwardRef(({ mode, to, children, ...rest }, ref) => {
     <GatsbyLink
       {...rest}
       ref={ref}
-      to={lang !== defaultLanguage ? `/${lang}/${to}` : to}
+      to={lang !== defaultLanguage ? `/${lang}${to}` : to}
     >
       {children}
     </GatsbyLink>
