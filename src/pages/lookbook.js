@@ -22,7 +22,7 @@ const LookbookPage = ({
           <svg className="section-lookbook__icon">
             <use xlinkHref="/svg/main.svg#instagram"></use>
           </svg>{" "}
-          <h2 className="heading-2">Lookbook</h2>
+          <h1 className="heading-2">Lookbook</h1>
         </div>
         <Lookbook items={edges} />
       </section>

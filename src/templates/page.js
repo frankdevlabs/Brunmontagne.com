@@ -15,7 +15,7 @@ const Page = ({ data: { page } }) => {
       noIndex={true}
     >
       <section className="section-page">
-        <h2 className="heading-2">{title.text}</h2>
+        <h1 className="heading-2">{title.text}</h1>
         <div className="section-page__content">
           {paragraphs.map(paragraph => (
             <div dangerouslySetInnerHTML={{ __html: paragraph.content.html }} />

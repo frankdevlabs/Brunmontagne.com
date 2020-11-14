@@ -20,7 +20,7 @@ const CollectionPage = ({ data }) => {
     >
       <section id="watches" className="section-watches">
         <div className="section-watches__container">
-          <h3 className="heading-3">Horloges</h3>
+          <h1 className="heading-3">{t("collection.watchTitle")}</h1>
           <ProductCards cards={WatchCards} list="Collection - Watch" />
         </div>
       </section>
@@ -40,7 +40,7 @@ const CollectionPage = ({ data }) => {
       </section>
       <section id="watch-straps" className="section-watch-straps">
         <div className="section-watch-straps__container">
-          <h3 className="heading-3">Losse banden bij de Representor</h3>
+          <h3 className="heading-3">{t("collection.strapTitle")}</h3>
           <ProductCards cards={StrapCards} list="Collection - Straps" />
         </div>
       </section>
@@ -85,13 +85,13 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          ...ProductFields
+          ...ProductPageFields
           data {
             variable_products {
               product {
                 document {
                   ... on PrismicProduct {
-                    ...ProductFields
+                    ...ProductPageFields
                   }
                 }
               }
@@ -111,13 +111,13 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          ...ProductFields
+          ...ProductPageFields
           data {
             variable_products {
               product {
                 document {
                   ... on PrismicProduct {
-                    ...ProductFields
+                    ...ProductPageFields
                   }
                 }
               }

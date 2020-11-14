@@ -13,7 +13,7 @@ const ContactPage = () => {
     <Layout seoPageTitle="Contact">
       <section className="section-content">
         <div className="section-content__container contact-page">
-          <h2 className="heading-2 center-text margin-bottom-large">Contact</h2>
+          <h1 className="heading-2 center-text margin-bottom-large">Contact</h1>
           <div className="contact-page-sub-section__information">
             <p className="long-paragraph">{general}</p>
             <div className="contact-info">

@@ -12,7 +12,7 @@ const AboutUsPage = ({ data: { prismicAboutPage } }) => {
   return (
     <Layout seoPageTitle={title.text} seoDescription={seo_description}>
       <section className="section-about">
-        <h2 className="heading-2">{title.text}</h2>
+        <h1 className="heading-2">{title.text}</h1>
         <Parapgraphs data={paragraphs} />
       </section>
     </Layout>

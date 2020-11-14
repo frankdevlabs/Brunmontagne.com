@@ -13,7 +13,7 @@ const LookbookItem = ({ node }) => {
         className="lookbook__gallery-image"
         objectPosition="50% 50%"
         fluid={node.localFile.childImageSharp.fluid}
-        alt={node.caption}
+        alt={node.caption || node.likes}
       />
       <div className="lookbook__overlay">
         <div className="lookbook__overlay-inner">

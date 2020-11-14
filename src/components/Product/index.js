@@ -102,7 +102,7 @@ class Product extends React.Component {
                 className="product__header column is-full"
                 style={{ margin: "0 1.5%" }}
               >
-                <h2 className="heading-2">{name}</h2>
+                <h1 className="heading-2">{name}</h1>
                 <div className="product__header-meta">
                   <div className="product__header-meta-option">
                     {reviews.length > 0 ? (

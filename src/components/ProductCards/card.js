@@ -93,10 +93,16 @@ const Card = ({ data, position, list }) => {
           style={{ maxWidth: "340px", minHeight: "24rem" }}
         >
           <div className="card__image--1 active">
-            <Img fluid={data.images[0].node.childImageSharp.fluid} />
+            <Img
+              alt={data.images[0].alt}
+              fluid={data.images[0].node.childImageSharp.fluid}
+            />
           </div>
           <div className="card__image--2 inactive">
-            <Img fluid={data.images[1].node.childImageSharp.fluid} />
+            <Img
+              alt={data.images[1].alt}
+              fluid={data.images[1].node.childImageSharp.fluid}
+            />
           </div>
         </div>
         <div className="card__btn">

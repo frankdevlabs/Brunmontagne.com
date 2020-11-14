@@ -4,7 +4,7 @@
       "siteMetadata": {
         "title": "Brunmontagne",
         "pageTitle": "Represents you",
-        "description": "Brunmontagne. Een horloge wat je draagt wat gezien mag worden, niet iets wat probeert om gezien te worden. Tijdloos, kwalitatief en uniek."
+        "description": "Brunmontagne, Represents You. 'Stand out without exaggerating and suitable for any occasion', Pascal Bruinenberg, founder."
       },
       "common": {
         "phone-number": "+31 (0)85 0074449"
@@ -19,7 +19,7 @@
         "pageTitle": "Represents you",
         "section-collection-title": "Collection",
         "section-collection-btn": "View more",
-        "section-story-quote-1": "“Stand out without exaggerating and suitable for any occasion.",
+        "section-story-quote-1": "Stand out without exaggerating and suitable for any occasion.",
         "section-story-quote-2": "That is the philosophy behind Brunmontagne watches. Unique, stylish and timeless.",
         "section-story-pascal": "Pascal Bruinenberg, founder of Brunmontagne",
         "section-story-btn": "Read the full story",
@@ -36,11 +36,13 @@
       },
       "collection": {
         "pageTitle": "Collection",
-        "description": "Take a look at the Brunmontagne its Representor and straps."
+        "description": "Take a look at the Brunmontagne its Representor and straps.'Stand out without exaggerating and suitable for any occasion.'",
+        "watchTitle": "Watches",
+        "strapTitle": "Straps"
       },
       "lookbookPage": {
         "pageTitle": "Lookbook",
-        "description": "View the inspirational Instagram lookbook of Brunmontagne."
+        "description": "View the inspirational Instagram lookbook of Brunmontagne. We update our feed as frequently as possible. Check it out! And please follow us on Instagram."
       },
       "contact": {
         "pageTitle": "Contact",
@@ -125,7 +127,7 @@
       "siteMetadata": {
         "title": "Brunmontagne",
         "pageTitle": "Represents you",
-        "description": "Brunmontagne. Een horloge wat je draagt wat gezien mag worden, niet iets wat probeert om gezien te worden. Tijdloos, kwalitatief en uniek."
+        "description": "Brunmontagne, Represents you. 'Opvallen, zonder hierin te overdrijven en geschikt voor iedere gelegenheid. Dat is de filosofie', Pascal Bruinenberg, oprichter."
       },
       "common": {
         "phone-number": "085 0074449"
@@ -158,11 +160,13 @@
       },
       "collection": {
         "pageTitle": "Collectie",
-        "description": "Bekijk de Representor en banden van Brunmontagne. Een extra horlogeband van Brunmontagne sluit uiteraard perfect aan op de sluiting van de Representor."
+        "description": "Bekijk de Representor en banden van Brunmontagne. Een extra horlogeband van Brunmontagne sluit uiteraard perfect aan op de sluiting van de Representor.",
+        "watchTitle": "Horloges",
+        "strapTitle": "Losse banden bij de Representor"
       },
       "lookbookPage": {
         "pageTitle": "Lookbook",
-        "description": "Bekijk het Instagram lookbook van Brunmontagne voor inspiratie voor je look."
+        "description": "Bekijk het Instagram lookbook van Brunmontagne voor inspiratie voor je look. Vergeet ook niet ons Instagram account te volgen!"
       },
       "contact": {
         "pageTitle": "Contact",
