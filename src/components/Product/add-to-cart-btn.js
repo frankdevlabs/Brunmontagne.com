@@ -12,7 +12,9 @@ const AddToCartButton = props => {
       className="product-cart__btn snipcart-add-item btn btn--primary"
       data-item-id={props.id}
       data-item-price={props.sale ? props.salePrice : props.price}
-      data-item-url={lang === "en" ? "/en" + props.slug : props.slug}
+      data-item-url={
+        lang === "en" ? "/en" + props.slug + "/" : props.slug + "/"
+      }
       data-item-description={props.productSubTitle}
       data-item-image={props.image}
       data-item-name={props.name}
