@@ -52,6 +52,16 @@
     }
   }
 
+  &__slides {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    max-width: 1920px;
+  }
+
   &__slide {
     position: absolute;
     height: 50vh;

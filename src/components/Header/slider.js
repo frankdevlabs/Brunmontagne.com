@@ -1,59 +1,84 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image-es5"
 
 class Slider extends React.Component {
-  componentDidMount() {
-    this.slideShow()
+  constructor(props) {
+    super(props)
+    this.state = { slideIndex: 0 }
+    this.slides = []
   }
 
-  slideShow() {
-    const slides = document.getElementsByClassName("header-home__slide")
-    let slideIndex = 0
-    setTimeout(showSlide, 4000)
-
-    function showSlide() {
-      if (slides[slideIndex]) {
-        slides[slideIndex].className = slides[slideIndex].className.replace(
-          " active",
-          ""
-        )
-
-        slideIndex++
-
-        if (slideIndex === slides.length) {
-          slideIndex = 0
-        }
-
-        slides[slideIndex].className += " active"
-
-        setTimeout(showSlide, 5500)
-      }
+  componentDidMount() {
+    if (this.slides.length > 0) {
+      this.slides[this.state.slideIndex].className = this.getClass(
+        this.state.slideIndex,
+        true
+      )
+      this.timerID = setInterval(() => this.tick(), 4000)
     }
   }
 
+  componentWillUnmount() {
+    clearInterval(this.timerID)
+  }
+
+  tick() {
+    this.slides[this.state.slideIndex].className = this.getClass(
+      this.state.slideIndex,
+      false
+    )
+
+    if (this.state.slideIndex === this.slides.length - 1) {
+      this.resetIndex()
+    }
+
+    this.increaseIndex()
+
+    this.slides[this.state.slideIndex].className = this.getClass(
+      this.state.slideIndex,
+      true
+    )
+  }
+
+  increaseIndex() {
+    this.setState({ slideIndex: this.state.slideIndex + 1 })
+  }
+
+  resetIndex() {
+    this.setState({ slideIndex: -1 })
+  }
+
+  getClass(index, active) {
+    return `header-home__slide header-home__slide--${index + 1}${
+      active ? " active" : ""
+    }`
+  }
+
   render() {
-    const { hero1, hero2, hero3 } = this.props.data
+    const { slides } = this.props
+
     return (
-      <>
-        <Background
-          className={`header-home__slide header-home__slide--1 active`}
-          image={hero1.childImageSharp.fluid}
-        />
-        <Background
-          className={`header-home__slide header-home__slide--2`}
-          image={hero2.childImageSharp.fluid}
-        />
-        <Background
-          className={`header-home__slide header-home__slide--3`}
-          image={hero3.childImageSharp.fluid}
-        />
-      </>
+      <div className="header-home__slides">
+        {slides.map((slide, index) => {
+          return (
+            <div
+              className={`header-home__slide header-home__slide--${index + 1}`}
+              key={index}
+              ref={elem => (this.slides[index] = elem)}
+            >
+              <Background
+                image={slide.node.childImageSharp.fluid}
+                style={{ height: "100%", width: "100%" }}
+              />
+            </div>
+          )
+        })}
+      </div>
     )
   }
 }
 
-const Background = ({ className, image }) => {
+const Background = ({ style, image }) => {
   const backgroundFluidImageStack = [
     `linear-gradient(
                       to right bottom,
@@ -65,47 +90,11 @@ const Background = ({ className, image }) => {
   return (
     <BackgroundImage
       Tag="div"
-      className={className}
       fluid={backgroundFluidImageStack}
       preserveStackingContext={true}
-      style={{ position: "absolute", backgroundSize: "cover" }}
+      style={{ position: "absolute", backgroundSize: "cover", ...style }}
     ></BackgroundImage>
   )
 }
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query BackgroundImagesQuery {
-        hero1: file(
-          relativePath: { eq: "hero-image-brunmontagne-1920-1.jpg" }
-        ) {
-          childImageSharp {
-            fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        hero2: file(
-          relativePath: { eq: "hero-image-brunmontagne-1920-2.jpg" }
-        ) {
-          childImageSharp {
-            fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-        hero3: file(
-          relativePath: { eq: "hero-image-brunmontagne-1920-3.jpg" }
-        ) {
-          childImageSharp {
-            fluid(maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-          }
-        }
-      }
-    `}
-    render={data => <Slider data={data} {...props} />}
-  />
-)
+export default Slider

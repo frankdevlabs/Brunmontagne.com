@@ -110,6 +110,9 @@ exports.createResolvers = async ({
     PrismicInventoryImagesGroupType: {
       ...imageFields,
     },
+    PrismicHomePageSlidesGroupType: {
+      ...imageFields,
+    },
   }
 
   await createResolvers(resolvers)

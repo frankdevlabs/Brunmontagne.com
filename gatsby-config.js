@@ -156,7 +156,17 @@ const config = {
         routeChangeEventName: "route-change",
       },
     },
-    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          "/*": ["Referrer-Policy: no-referrer-when-downgrade"],
+        },
+        mergeSecurityHeaders: true, // boolean to turn off the default security headers
+        mergeLinkHeaders: false, // boolean to turn off the default gatsby js headers
+      },
+    },
+    // `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

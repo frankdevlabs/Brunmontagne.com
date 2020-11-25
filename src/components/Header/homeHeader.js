@@ -2,10 +2,8 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import Button from "../Button"
 import Slider from "./slider"
-// import TV from "./tv"
-// import { isMobile as _isMobile } from "../../utils/isMobile"
 
-const HomeHeader = () => {
+const HomeHeader = ({ slides }) => {
   // const [isMobile, setIsMobile] = React.useState(true)
   //
   // React.useEffect(() => {
@@ -13,7 +11,6 @@ const HomeHeader = () => {
   // }, [])
 
   const { t } = useTranslation()
-
   return (
     <>
       <div className="header-home__cover">
@@ -39,7 +36,7 @@ const HomeHeader = () => {
             </div>
           </div>
         </div>
-        <Slider />
+        <Slider slides={slides} />
         {/*{isMobile ? <Slider /> : null}*/}
       </div>
       {/*{!isMobile ? <TV /> : null}*/}

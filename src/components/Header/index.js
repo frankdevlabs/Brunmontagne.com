@@ -12,7 +12,7 @@ const Header = props => {
 
   return (
     <header className={classes}>
-      {props.mode === "home" ? <HomeHeader /> : null}
+      {props.mode === "home" ? <HomeHeader slides={props.slides} /> : null}
     </header>
   )
 }

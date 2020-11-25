@@ -13,6 +13,7 @@ const Layout = ({
   headerMode,
   children,
   noIndex,
+  slides,
 }) => {
   const { isSticky, element } = useSticky()
   return (
@@ -25,7 +26,7 @@ const Layout = ({
       />
       <div className="container">
         <Navigation sticky={isSticky} />
-        <Header mode={headerMode} />
+        <Header mode={headerMode} slides={slides} />
         <main
           ref={element}
           className={`main-container ${

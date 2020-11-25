@@ -1,26 +1,56 @@
 {
-  "Main" : {
-    "name" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Name",
-        "placeholder" : "Home page"
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title",
+        "placeholder": "Brunmontagne"
       }
     },
-    "reviews" : {
-      "type" : "Group",
-      "config" : {
-        "fields" : {
-          "review" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "customtypes" : [ "review" ],
-              "label" : "Review"
+    "subtitle": {
+      "type": "Text",
+      "config": {
+        "label": "Subtitle",
+        "placeholder": "Represents you"
+      }
+    },
+    "slides": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "slide": {
+            "type": "Link",
+            "config": {
+              "select": "media",
+              "label": "Slide"
+            }
+          },
+          "alt": {
+            "type": "Text",
+            "config": {
+              "label": "alt"
             }
           }
         },
-        "label" : "Reviews"
+        "label": "Slides"
+      }
+    },
+    "reviews": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "review": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": [
+                "review"
+              ],
+              "label": "Review"
+            }
+          }
+        },
+        "label": "Reviews"
       }
     }
   }
