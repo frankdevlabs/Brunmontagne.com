@@ -75,16 +75,25 @@ const Card = ({ data, position, list }) => {
         )}: ${firstStrapOption}`
       : ""
 
-  const dataLayer = JSON.stringify({
-    eventCategory: "Product Click",
-    list: list,
-    position: position,
-    variant: productSubTitle,
-    product: data,
-  })
+  const id =
+    data.variable_products.length > 0
+      ? data.variable_products[0].product.document.data.sku
+      : data.sku
 
   return (
-    <div className="card column is-one-quarter is-half-touch">
+    <div
+      data-product-id={id}
+      data-product-dl={JSON.stringify({
+        id: id,
+        name: data.name,
+        price: price,
+        category: data.categories[0].category.document.uid,
+        list: list,
+        position: position + 1,
+        ...(productSubTitle !== "" ? { variant: productSubTitle } : {}),
+      })}
+      className="card column is-one-quarter is-half-touch"
+    >
       <div className="card__container">
         <Link to={`/products/${data.uid}/`} className="card__overlay-btn" />
         <div className="card__image-overlay"></div>
@@ -107,18 +116,10 @@ const Card = ({ data, position, list }) => {
         </div>
         <div className="card__btn">
           <div className="card__btn--inner">
-            <Link
-              to={`/products/${data.uid}/`}
-              data-product={dataLayer}
-              className="btn btn--secondary"
-            >
+            <Link to={`/products/${data.uid}/`} className="btn btn--secondary">
               {t("productCards.btn")}
             </Link>
-            <Button
-              to={`/products/${data.uid}/`}
-              data-product={dataLayer}
-              className="btn btn--primary"
-            >
+            <Button to={`/products/${data.uid}/`} className="btn btn--primary">
               {t("productCards.btn")}
             </Button>
           </div>

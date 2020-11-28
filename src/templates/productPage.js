@@ -66,11 +66,17 @@ const ProductPage = props => {
       <section className="section-product-strap-suggestions">
         <div className="section-product-strap-suggestions__straps">
           <h3 className="heading-3">{strapSuggestionsTitle}</h3>
-          <ProductCards cards={StrapCards} list="Strap Suggestions" />
+          <ProductCards
+            cards={StrapCards}
+            list={`${data.productPage.data.name} - strap suggestions`}
+          />
         </div>
         <div className="section-product-strap-suggestions__watches">
           <h3 className="heading-3">{watchSuggestionsTitle}</h3>
-          <ProductCards cards={WatchCards} list="Watch Suggestions" />
+          <ProductCards
+            cards={WatchCards}
+            list={`${data.productPage.data.name} - watch suggestions`}
+          />
         </div>
       </section>
     </Layout>

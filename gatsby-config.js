@@ -143,12 +143,15 @@ const config = {
 
         // Include GTM in development.
         // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: false,
+        includeInDevelopment: true,
 
         // datalayer to be set before GTM is loaded
         // should be an object or a function that is executed in the browser
         // Defaults to null
-        defaultDataLayer: { platform: "gatsby", ecommerce: {} },
+        defaultDataLayer: {
+          platform: "gatsby",
+          ecommerce: { impressions: [] },
+        },
 
         // Name of the event that is triggered
         // on every Gatsby route change.
@@ -166,7 +169,6 @@ const config = {
         mergeLinkHeaders: false, // boolean to turn off the default gatsby js headers
       },
     },
-    // `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -213,6 +215,7 @@ const config = {
       },
     },
     `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-remove-serviceworker`,
   ],
 }
 
