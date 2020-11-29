@@ -164,6 +164,21 @@ const config = {
       options: {
         headers: {
           "/*": ["Referrer-Policy: no-referrer-when-downgrade"],
+          "/public/**/*.html": [
+            "cache-control: public",
+            "cache-control: max-age=0",
+            "cache-control: must-revalidate",
+          ],
+          "/sw.js": [
+            "cache-control: public",
+            "cache-control: max-age=0",
+            "cache-control: must-revalidate",
+          ],
+          "/public/page-data/*": [
+            "cache-control: public",
+            "cache-control: max-age=0",
+            "cache-control: must-revalidate",
+          ],
         },
         mergeSecurityHeaders: true, // boolean to turn off the default security headers
         mergeLinkHeaders: false, // boolean to turn off the default gatsby js headers
