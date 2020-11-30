@@ -4,6 +4,7 @@ import Footer from "../Footer"
 import Header from "../Header"
 import Navigation from "../Navigation"
 import SEO from "../SEO"
+// import Discount from "../Discount"
 import useSticky from "../../hooks/useSticky"
 
 const Layout = ({
@@ -25,6 +26,7 @@ const Layout = ({
         noIndex={noIndex}
       />
       <div className="container">
+        {/*<Discount />*/}
         <Navigation sticky={isSticky} />
         <Header mode={headerMode} slides={slides} />
         <main

@@ -1,0 +1,38 @@
+.discount {
+  background-color: #130f40;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+}
+
+.navigation-mobile__checkbox, .navigation-mobile__container {
+  top: 0;
+}
+
+.discount__container {
+  padding: 8px 0;
+}
+
+.discount__header {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: 'Montserrat',sans-serif,serif;
+  color: #fff;
+  letter-spacing: 0.05rem;
+}
+
+.header-home__cover {
+  top: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .discount__header {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .discount__header {
+    font-size: 10px;
+  }
+}

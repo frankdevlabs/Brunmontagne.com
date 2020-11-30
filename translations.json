@@ -6,6 +6,11 @@
         "pageTitle": "Represents you",
         "description": "Brunmontagne, Represents You. 'Stand out without exaggerating and suitable for any occasion', Pascal Bruinenberg, founder."
       },
+      "discount": {
+        "header1": "Black Friday deal:  rubberen band bij uw bestelling van de Representor.",
+        "header2": "Vergeet de rubberen band niet toe te voegen aan uw winkelmand.",
+        "header2-bold":"Let op!"
+      },
       "common": {
         "phone-number": "+31 (0)85 0074449"
       },
@@ -131,6 +136,11 @@
       },
       "common": {
         "phone-number": "085 0074449"
+      },
+      "discount": {
+        "header1": "Black Friday deal: Gratis rubberen band bij uw bestelling van de Representor.",
+        "header2": "Vergeet de rubberen band niet toe te voegen aan uw winkelmand.",
+        "header2-bold":"Let op!"
       },
       "404": {
         "pageTitle": "Pagina niet gevonden, probeer het nog keer ...",
