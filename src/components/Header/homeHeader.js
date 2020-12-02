@@ -15,8 +15,10 @@ const HomeHeader = ({ slides }) => {
     <>
       <div className="header-home__cover">
         <div className="header-home__text">
-          <h1 className="heading-1">brunmontagne</h1>
-          <p className="heading-tagline">Represents you</p>
+          <div class="header-home__text-wrapper">
+            <h1 className="heading-1">brunmontagne</h1>
+            <p className="heading-tagline">Represents you</p>
+          </div>
           <div className="header-home__categories columns">
             <div className="header-home__category column is-full-mobile">
               <Button

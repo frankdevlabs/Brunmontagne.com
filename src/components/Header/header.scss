@@ -1,5 +1,5 @@
 .header-home {
-  height: 50vh;
+  height: $hero-height;
 
   @media only screen and (orientation : landscape) {
    &, &__cover, &__slide {
@@ -12,7 +12,25 @@
     transition: opacity 0.5s ease-in;
     z-index: 1;
     color: #f7f7f7;
-    padding-top: 4rem;
+    padding: 2% 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include respond($vp-md) {
+      padding: 4% 0;
+    }
+  }
+
+  &__text-wrapper {
+    text-align: left;
+    margin-left: 2%;
+
+    @include respond($vp-md) {
+      margin-left: 4%;
+    }
   }
 
   &__cover {
@@ -25,7 +43,7 @@
     z-index: 1;
 
     width: 100%;
-    height: 50vh;
+    height: $hero-height;
 
     @include respond($vp-md) {
       top: 9rem;
@@ -64,7 +82,7 @@
 
   &__slide {
     position: absolute;
-    height: 50vh;
+    height: $hero-height;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -110,7 +128,7 @@
     z-index: 1;
 
     width: 100%;
-    height: 50vh;
+    height: $hero-height;
 
     overflow: hidden;
 
