@@ -1,6 +1,6 @@
 import React from "react"
 
-import "./price.scss"
+import * as styles from "../../scss/components/modules/product/price.module.scss"
 import { useTranslation } from "react-i18next"
 
 const formatPrice = p => {
@@ -19,15 +19,15 @@ const Price = props => {
   const { t } = useTranslation("translation")
 
   return (
-    <div className="product-price">
-      <span className="product-price__base">{formatPrice(base)}</span>
+    <div className={styles.productPrice}>
+      <span className={styles.productPrice__base}>{formatPrice(base)}</span>
       {props.sale ? (
         <div className="product-price__promo">
-          <div className="product-price__regular">
+          <div className={styles.productPrice__regular}>
             {t("product.regularPrice")}{" "}
             <del>{formatPrice(props.regularPrice)}</del>
           </div>
-          <div className="product-price__percentage">
+          <div className={styles.productPrice__percentage}>
             {t("product.youSave")}{" "}
             {discountPercentage(props.salePrice, props.regularPrice)}%
           </div>

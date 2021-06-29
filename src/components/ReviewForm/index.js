@@ -4,7 +4,7 @@ import Accordion from "../Accordion"
 import Button from "../Button"
 import Rating from "../Rating"
 import TextField from "../TextField"
-import "./reviewForm.scss"
+import * as styles from "../../scss/components/modules/reviewForm.module.scss"
 
 const ReviewForm = ({ uid }) => {
   const { t } = useTranslation()
@@ -21,17 +21,16 @@ const ReviewForm = ({ uid }) => {
   const messageFieldPlaceholder = t("reviewForm.messageFieldPlaceholder")
   const buttonLabel = t("reviewForm.buttonLabel")
   return (
-    <div className="review-form">
+    <div className={styles.reviewForm}>
       <Accordion bold={true} head={header}>
         <p className="long-paragraph">{information}</p>
         <form
-          className="review-form__form"
           method="post"
           netlify-honeypot="bot-field"
           data-netlify="true"
           name={`review - ${uid}`}
         >
-          <div className="review-form__rating">
+          <div className={styles.reviewForm__rating}>
             <span>Aantal sterren</span>
             <Rating
               onClick={onClickRating}
@@ -64,7 +63,7 @@ const ReviewForm = ({ uid }) => {
             name="message"
             mode="textarea"
           />
-          <div className="review-form__btn">
+          <div className={styles.reviewForm__btn}>
             <Button className="btn btn--secondary" type="submit" mode="button">
               {buttonLabel}
             </Button>

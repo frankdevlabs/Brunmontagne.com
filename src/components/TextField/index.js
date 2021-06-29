@@ -1,8 +1,8 @@
 import React from "react"
-import "./textfield.scss"
+import * as styles from "../../scss/components/modules/textfield.module.scss"
 
 const Required = () => {
-  return <span className="textfield__required"> *</span>
+  return <span className={styles.textfield__required}> *</span>
 }
 
 const TextField = ({
@@ -15,15 +15,15 @@ const TextField = ({
 }) => {
   if (mode === "input")
     return (
-      <div className="textfield">
-        <label htmlFor={name} className="textfield__label">
+      <div className={styles.textfield}>
+        <label htmlFor={name} className={styles.textfield__label}>
           {label}
           {required ? <Required /> : ""}
         </label>
         <input
           placeholder={placeholder}
           id={name}
-          className="textfield__input"
+          className={styles.textfield__input}
           type={type}
           name={name}
           required={required}
@@ -32,15 +32,15 @@ const TextField = ({
     )
   else if (mode === "textarea")
     return (
-      <div className="textfield">
-        <label htmlFor={name} className="textfield__label">
+      <div className={styles.textfield}>
+        <label htmlFor={name} className={styles.textfield__label}>
           {label}
           {required ? <Required /> : ""}
         </label>
         <textarea
           placeholder={placeholder}
           id={name}
-          className="textfield__textarea"
+          className={styles.textfield__textarea}
           name={name}
           required={required}
         />

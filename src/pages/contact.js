@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import ContactForm from "../components/ContactForm"
 import ExtLink from "../components/ExternalLink"
 import Layout from "../components/Layout"
-import "./contact.scss"
+import "../scss/pages/contact.scss"
 
 const ContactPage = () => {
   const { t } = useTranslation("translation")

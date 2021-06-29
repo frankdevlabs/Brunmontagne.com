@@ -9,7 +9,7 @@ import ProductSpecifications from "../components/ProductSpecifications"
 import Reviews from "../components/Reviews"
 import ReviewForm from "../components/ReviewForm"
 import ParseImageData from "../utils/parseImageData"
-import "./productPage.scss"
+import "../scss/templates/productPage.scss"
 
 const ProductPage = props => {
   const { t } = useTranslation()
@@ -29,7 +29,7 @@ const ProductPage = props => {
                       rgba(255, 255, 255, 0.85),
                       rgba(255, 255, 255, 0.88)
       )`,
-    data.backgroundProductPage.childImageSharp.fluid,
+    data.backgroundProductPage.childImageSharp.gatsbyImageData,
   ]
 
   const strapSuggestionsTitle = isWatchStrap
@@ -158,16 +158,12 @@ export const pageQuery = graphql`
     }
     backgroundProductPage: file(relativePath: { eq: "Adjustments.jpeg" }) {
       childImageSharp {
-        fluid(maxWidth: 878) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(width: 878, quality: 50)
       }
     }
     sketchImage: file(relativePath: { eq: "representor-product-sketch.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 850) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(width: 850, quality: 50)
       }
     }
   }
@@ -201,12 +197,11 @@ export const pageQuery = graphql`
           id
           publicURL
           childImageSharp {
-            fluid(maxWidth: 1500) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
-            fixed(width: 74) {
-              ...GatsbyImageSharpFixed
-            }
+            gatsbyImageData(
+              placeholder: TRACED_SVG
+              quality: 50
+              breakpoints: [100, 500, 750, 1500]
+            )
           }
         }
       }
@@ -253,9 +248,7 @@ export const pageQuery = graphql`
                   node {
                     id
                     childImageSharp {
-                      fixed(width: 74) {
-                        ...GatsbyImageSharpFixed
-                      }
+                      gatsbyImageData(width: 74, layout: FIXED)
                     }
                   }
                 }

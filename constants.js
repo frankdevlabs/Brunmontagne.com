@@ -11,7 +11,7 @@ exports.DEFAULT_OPTIONS = {
   },
 
   // the (optional) path in which your web app redirects in case of a 404
-  notFoundPage: "/404",
+  notFoundPage: "/404/",
 
   // a list of paths, whose pages should not be processed by this plugin (i.e. delegate to whatever
   // gatsby would do by default)
@@ -23,7 +23,7 @@ exports.DEFAULT_OPTIONS = {
   legacyRedirects: [
     {
       fromPath: "/product-categorie/horloges/",
-      toPath: "/collection#watches/",
+      toPath: "/nl/collection#watches/",
       isPermanent: false,
       statusCode: 301,
     },
@@ -35,19 +35,19 @@ exports.DEFAULT_OPTIONS = {
     },
     {
       fromPath: "/shop/",
-      toPath: "/collection/",
+      toPath: "/nl/collection/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/product/representor-staal-zwart/",
-      toPath: "/products/representor-steel-black/",
+      toPath: "/nl/products/representor-steel-black/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/product-categorie/horlogebanden/",
-      toPath: "/collection#watch-straps/",
+      toPath: "/nl/collection#watch-straps/",
       isPermanent: false,
       statusCode: 301,
     },
@@ -59,31 +59,31 @@ exports.DEFAULT_OPTIONS = {
     },
     {
       fromPath: "/over-ons/",
-      toPath: "/about-us/",
+      toPath: "/nl/about-us/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/product/representor-rose-goud-blauw/",
-      toPath: "/products/representor-gold-blue/",
+      toPath: "/nl/products/representor-gold-blue/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/product/representor-staal-groen/",
-      toPath: "/products/representor-steel-green/",
+      toPath: "/nl/products/representor-steel-green/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/product/representor-staal-blauw/",
-      toPath: "/products/representor-steel-blue/",
+      toPath: "/nl/products/representor-steel-blue/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/product/representor-staal-blauw/",
-      toPath: "/products/representor-steel-blue/",
+      toPath: "/nl/products/representor-steel-blue/",
       isPermanent: false,
       statusCode: 301,
     },
@@ -95,13 +95,13 @@ exports.DEFAULT_OPTIONS = {
     },
     {
       fromPath: "/product/representor-zwart-zwart/",
-      toPath: "/products/representor-black-black/",
+      toPath: "/nl/products/representor-black-black/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/product/representor-rose-goud-groen/",
-      toPath: "/products/representor-gold-green/",
+      toPath: "/nl/products/representor-gold-green/",
       isPermanent: false,
       statusCode: 301,
     },
@@ -149,13 +149,13 @@ exports.DEFAULT_OPTIONS = {
     },
     {
       fromPath: "/product/stalen-band-voor-representor-zwart/",
-      toPath: "/products/watch-strap-black-steel/",
+      toPath: "/nl/products/watch-strap-black-steel/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/product/stalen-band-voor-representor-rose-goud/",
-      toPath: "/products/watch-strap-rosegold-steel/",
+      toPath: "/nl/products/watch-strap-rosegold-steel/",
       isPermanent: false,
       statusCode: 301,
     },
@@ -167,19 +167,19 @@ exports.DEFAULT_OPTIONS = {
     },
     {
       fromPath: "/product/rubberen-band-voor-representor/",
-      toPath: "/products/watch-strap-black-rubber/",
+      toPath: "/nl/products/watch-strap-black-rubber/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/product/stalen-band-voor-representor/",
-      toPath: "/products/watch-strap-silver-steel/",
+      toPath: "/nl/products/watch-strap-silver-steel/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/winkelmand/",
-      toPath: "/404",
+      toPath: "/nl/404",
       isPermanent: false,
       statusCode: 410,
     },
@@ -191,13 +191,13 @@ exports.DEFAULT_OPTIONS = {
     },
     {
       fromPath: "/garantie/",
-      toPath: "/returns/",
+      toPath: "/nl/returns/",
       isPermanent: false,
       statusCode: 301,
     },
     {
       fromPath: "/en/cart/",
-      toPath: "/404",
+      toPath: "/nl/404",
       isPermanent: false,
       statusCode: 410,
     },
@@ -215,7 +215,7 @@ exports.DEFAULT_OPTIONS = {
     },
     {
       fromPath: "/product/brunmontagne-representor-groen-staal/",
-      toPath: "/products/representor-steel-green/",
+      toPath: "/nl/products/representor-steel-green/",
       isPermanent: false,
       statusCode: 301,
     },

@@ -1,17 +1,17 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import "./stock.scss"
+import * as styles from "../../scss/components/modules/product/stock.module.scss"
 
 const Stock = ({ stock, backorder }) => {
   const { t } = useTranslation("translation")
   return (
-    <div className="product-stock">
+    <div className={styles.productStock}>
       {backorder.state ? (
         <>
-          <div className="product-stock__backorder">
+          <div className={styles.productStock__backorder}>
             {t("product.notBackorderIcon")}
           </div>
-          <div className="product-stock__info product-stock__info--backorder">
+          <div className={styles.productStock__info}>
             <span>
               {t("product.notBackorderMsg")}
               {backorder.expected}.
@@ -20,10 +20,10 @@ const Stock = ({ stock, backorder }) => {
         </>
       ) : stock > 0 ? (
         <>
-          <div className="product-stock__available">
+          <div className={styles.productStock__available}>
             {t("product.availableIcon")}
           </div>
-          <div className="product-stock__info">
+          <div className={styles.productStock__info}>
             <span>
               {stock} {t("product.availableStockMsg")}.{" "}
             </span>
@@ -32,10 +32,12 @@ const Stock = ({ stock, backorder }) => {
         </>
       ) : (
         <>
-          <div className="product-stock__not-available">
+          <div className={styles.productStock__notAvailable}>
             {t("product.notAvailableIcon")}
           </div>
-          <div className="product-stock__info product-stock__info--not-available">
+          <div
+            className={`${styles.productStock__info} ${styles.productStock__infoNotAvailable}`}
+          >
             <span>{t("product.notAvailableMsg")}</span>
           </div>
         </>

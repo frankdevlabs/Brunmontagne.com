@@ -1,13 +1,12 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { useTranslation } from "react-i18next"
 import Button from "../Button"
 import Link from "../Link"
-import "./card.scss"
+import * as styles from "../../scss/components/modules/productCard/card.module.scss"
 
 const Card = ({ data, position, list }) => {
   const { t } = useTranslation("translation")
-
   const options = [
     ...new Set(
       data.variable_products.reduce((allOptions, cur) => {
@@ -92,59 +91,74 @@ const Card = ({ data, position, list }) => {
         position: position + 1,
         ...(productSubTitle !== "" ? { variant: productSubTitle } : {}),
       })}
-      className="card column is-one-quarter is-half-touch"
+      className={styles.card + " column is-one-quarter is-half-touch"}
     >
-      <div className="card__container">
-        <Link to={`/products/${data.uid}/`} className="card__overlay-btn" />
-        <div className="card__image-overlay"></div>
+      <div className={styles.card__container}>
+        <Link
+          to={`/products/${data.uid}/`}
+          className={styles.card__overlayBtn}
+        />
+        <div className={styles.card__imageOverlay}>{""}</div>
         <div
-          className="card__image"
+          className={styles.card__image}
           style={{ maxWidth: "340px", minHeight: "24rem" }}
         >
-          <div className="card__image--1 active">
-            <Img
+          <div className={styles.card__image1 + " active"}>
+            <GatsbyImage
+              image={data.images[0].node.childImageSharp.gatsbyImageData}
               alt={data.images[0].alt}
-              fluid={data.images[0].node.childImageSharp.fluid}
             />
           </div>
-          <div className="card__image--2 inactive">
-            <Img
+          <div className={styles.card__image2 + " inactive"}>
+            <GatsbyImage
+              image={data.images[1].node.childImageSharp.gatsbyImageData}
               alt={data.images[1].alt}
-              fluid={data.images[1].node.childImageSharp.fluid}
             />
           </div>
         </div>
-        <div className="card__btn">
-          <div className="card__btn--inner">
-            <Link to={`/products/${data.uid}/`} className="btn btn--secondary">
+        <div className={styles.card__btn}>
+          <div className={styles.card__btnInner}>
+            <Link
+              to={`/products/${data.uid}/`}
+              className={"btn btn--secondary " + styles.btnSecondary}
+            >
               {t("productCards.btn")}
             </Link>
-            <Button to={`/products/${data.uid}/`} className="btn btn--primary">
+            <Button
+              to={`/products/${data.uid}/`}
+              className={"btn btn--primary " + styles.btnPrimary}
+            >
               {t("productCards.btn")}
             </Button>
           </div>
         </div>
-        <div className="card__information">
-          <div className="card__information-top is-mobile columns">
-            <div className="card__header column">
-              <h3 className="card__heading heading-3">{data.title.text}</h3>
-              <p className="card__sub-title">{data.subtitle.text}</p>
+        <div className={styles.card__information}>
+          <div className="is-mobile columns">
+            <div className="column">
+              <h3 className={styles.card__heading + " heading-3"}>
+                {data.title.text}
+              </h3>
+              <p className={styles.card__subTitle}>{data.subtitle.text}</p>
             </div>
-            <div className="card__price column is-narrow">
+            <div className={styles.card__price + " column is-narrow"}>
               <span className="price">&euro; {price},-</span>
             </div>
           </div>
-          <div className="card__information-bottom is-mobile is-multiline columns">
+          <div
+            className={
+              styles.card__informationBottom + " is-mobile is-multiline columns"
+            }
+          >
             {strapLeatherOptions.length > 0 ? (
-              <div className="card__option-item column">
-                <strong className="card__option-header">
+              <div className="column">
+                <strong className={styles.card__optionHeader}>
                   {t("productCards.leatherStraps")}:
                 </strong>
-                <ul className="card__options">
+                <ul className={styles.card__options}>
                   {strapLeatherOptions.map(option => (
                     <li
                       key={option.id}
-                      className="card__option-color"
+                      className={styles.card__optionColor}
                       style={{ background: `${option.color}` }}
                     >
                       {""}
@@ -154,15 +168,15 @@ const Card = ({ data, position, list }) => {
               </div>
             ) : null}
             {strapSteelOptions.length > 0 ? (
-              <div className="card__option-item column">
-                <strong className="card__option-header">
+              <div className="column">
+                <strong className={styles.card__optionHeader}>
                   {t("productCards.steelStraps")}
                 </strong>
-                <ul className="card__options">
+                <ul className={styles.card__options}>
                   {strapSteelOptions.map(option => (
                     <li
                       key={option.id}
-                      className="card__option-color"
+                      className={styles.card__optionColor}
                       style={{ background: `${option.color}` }}
                     >
                       {""}
@@ -172,15 +186,15 @@ const Card = ({ data, position, list }) => {
               </div>
             ) : null}
             {strapRubberOptions.length > 0 ? (
-              <div className="card__option-item column">
-                <strong className="card__option-header">
+              <div className="column">
+                <strong className={styles.card__optionHeader}>
                   {t("productCards.rubberStraps")}:
                 </strong>
-                <ul className="card__options">
+                <ul className={styles.card__options}>
                   {strapRubberOptions.map(option => (
                     <li
                       key={option.id}
-                      className="card__option-color"
+                      className={styles.card__optionColor}
                       style={{ background: `${option.color}` }}
                     >
                       {""}
@@ -190,13 +204,13 @@ const Card = ({ data, position, list }) => {
               </div>
             ) : null}
             {caseOptions.length > 0 ? (
-              <div className="card__option-item column is-full">
-                <strong className="card__option-header">
+              <div className="column is-full">
+                <strong className={styles.card__optionHeader}>
                   {t("productCards.movement")}
                 </strong>
-                <ul className="card__options">
+                <ul className={styles.card__options}>
                   {caseOptions.map(option => (
-                    <li key={option.id} className="card__option">
+                    <li key={option.id} className={styles.card__option}>
                       {option.public_name}
                     </li>
                   ))}

@@ -1,18 +1,20 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
+import { getImage } from "gatsby-plugin-image"
 import Blockquote from "../components/Blockquote"
-import BackgroundImage from "gatsby-background-image-es5"
+import BackgroundImage from "../components/BackgroundImage"
 import Layout from "../components/Layout"
 import ProductCards from "../components/ProductCards"
 import ParseImageData from "../utils/parseImageData"
-import "./collection.scss"
+import "../scss/pages/collection.scss"
 
 const CollectionPage = ({ data }) => {
   const { t } = useTranslation()
 
   const StrapCards = ParseImageData(data.watchStraps.edges)
   const WatchCards = ParseImageData(data.watches.edges)
+
   return (
     <Layout
       seoPageTitle={t("collection.pageTitle")}
@@ -27,7 +29,7 @@ const CollectionPage = ({ data }) => {
       <section className="section-collection-media">
         <MediaSectionContainer
           className={`section-collection-media__container`}
-          image={data.backgroundImageMediaSection.childImageSharp.fluid}
+          image={data.backgroundImageMediaSection}
         >
           <div className="section-collection-media__quote">
             <Blockquote>
@@ -49,22 +51,16 @@ const CollectionPage = ({ data }) => {
 }
 
 const MediaSectionContainer = ({ className, image, children }) => {
-  const backgroundFluidImageStack = [
+  const sectionImage = [
     `linear-gradient(
                       to right bottom,
                       rgba(255, 255, 255, 0.7),
                       rgba(255, 255, 255, 0.7)
       )`,
-    image,
+    getImage(image),
   ]
   return (
-    <BackgroundImage
-      Tag="div"
-      className={className}
-      fluid={backgroundFluidImageStack}
-      preserveStackingContext={true}
-      style={{ backgroundSize: "cover" }}
-    >
+    <BackgroundImage className={className} image={sectionImage}>
       {children}
     </BackgroundImage>
   )
@@ -130,9 +126,7 @@ export const pageQuery = graphql`
       relativePath: { eq: "Adjustments.jpeg" }
     ) {
       childImageSharp {
-        fluid(maxWidth: 878) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(width: 878, quality: 70, webpOptions: { quality: 70 })
       }
     }
   }

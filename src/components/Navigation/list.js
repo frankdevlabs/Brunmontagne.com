@@ -1,7 +1,6 @@
 import React from "react"
 import Item from "./item"
 import LanguagePicker from "../LanguagePicker"
-import "./list.scss"
 
 const setClasses = (mode, isSubMenu) => {
   if (mode === "default" && isSubMenu === true) {
@@ -15,7 +14,7 @@ const setClasses = (mode, isSubMenu) => {
   }
 }
 
-export default props => {
+const NavigationList = props => {
   const classes = setClasses(props.mode, props.isSubMenu)
   return (
     <ul className={classes}>
@@ -39,3 +38,5 @@ export default props => {
     </ul>
   )
 }
+
+export default NavigationList

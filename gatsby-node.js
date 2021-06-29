@@ -151,7 +151,7 @@ exports.createPages = async ({ graphql, actions }) => {
   productPages.data.allPrismicProduct.edges.forEach(
     ({ node: { id, uid, lang, data } }) => {
       const sanitzedLang = lang === "en-gb" ? "en" : "nl"
-      const baseURI = lang === "en-gb" ? `/en/` : "/"
+      const baseURI = lang === "en-gb" ? `/en/` : "/nl/"
       const basePath = `products/${uid}/`
 
       createPage({
@@ -202,7 +202,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const pageTemplate = require.resolve(`./src/templates/page.js`)
   page.data.allPrismicPage.edges.forEach(({ node: { id, uid, lang } }) => {
     const sanitzedLang = lang === "en-gb" ? "en" : "nl"
-    const baseURI = lang === "en-gb" ? `/en/` : "/"
+    const baseURI = lang === "en-gb" ? `/en/` : "/nl/"
     const basePath = `${uid}/`
 
     createPage({
@@ -279,14 +279,7 @@ exports.onCreatePage = async ({
 
   await Promise.all(
     supportedLanguages.map(async lang => {
-      const localizedPath =
-        lang === defaultLanguage
-          ? page.path == !"/"
-            ? `${page.path}/`
-            : page.path
-          : page.path == !"/"
-          ? `/${lang}${page.path}/`
-          : `/${lang}${page.path}`
+      const localizedPath = `/${lang}${page.path}`
 
       // create a redirect based on the accept-language header
       createRedirect({
@@ -315,7 +308,7 @@ exports.onCreatePage = async ({
   // Accept-Language header is missing for some reason
   createRedirect({
     fromPath: originalPath,
-    toPath: page.path == !"/" ? `${page.path}/` : page.path,
+    toPath: `/${defaultLanguage}${page.path}`,
     isPermanent: false,
     redirectInBrowser: isEnvDevelopment,
     statusCode: 301,

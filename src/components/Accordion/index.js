@@ -1,5 +1,5 @@
 import React from "react"
-import "./accordion.scss"
+import * as styles from "../../scss/components/modules/accordion.module.scss"
 
 const Accordion = ({ head, children, bold }) => {
   const [expanded, setExpanded] = React.useState(false)
@@ -7,15 +7,17 @@ const Accordion = ({ head, children, bold }) => {
   const onClickFn = () => setExpanded(!expanded)
 
   return (
-    <div className="accordion">
+    <div>
       <button
         onClick={onClickFn}
-        className={`accordion__btn${bold ? " accordion__btn--bold" : ""}`}
+        className={`${styles.accordion__btn} ${
+          bold ? styles.accordion__btnBold : ""
+        }`}
         aria-expanded={expanded}
       >
-        <span className="accordion__title">{head}</span>
-        <span className="accordion__icon-wrapper">
-          <svg className="accordion__icon">
+        <span className={styles.accordion__title}>{head}</span>
+        <span className={styles.accordion__iconWrapper}>
+          <svg className={styles.accordion__icon}>
             <use
               xlinkHref={`/svg/main.svg#${
                 expanded ? "minus-round" : "plus-round"
@@ -24,7 +26,7 @@ const Accordion = ({ head, children, bold }) => {
           </svg>
         </span>
       </button>
-      <div className="accordion__content">{children}</div>
+      <div className={styles.accordion__content}>{children}</div>
     </div>
   )
 }

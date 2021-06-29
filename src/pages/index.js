@@ -1,8 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
-import { LiteYouTubeEmbed } from "react-lite-youtube-embed"
-import Img from "gatsby-image"
+import LiteYouTubeEmbed from "react-lite-youtube-embed"
+import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Blockquote from "../components/Blockquote"
 import Button from "../components/Button"
 import ExtLink from "../components/ExternalLink"
@@ -11,7 +12,7 @@ import Link from "../components/Link"
 import Lookbook from "../components/Lookbook"
 import ProductCards from "../components/ProductCards"
 import Reviews from "../components/Reviews"
-import "./home.scss"
+import "../scss/pages/index.scss"
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
@@ -78,8 +79,8 @@ const IndexPage = ({ data }) => {
                 {t("home.section-media-stores-title")}
               </h3>
               <div className="section-media__image-wrapper">
-                <Img
-                  fluid={data.popmaImage.childImageSharp.fluid}
+                <GatsbyImage
+                  image={data.popmaImage.childImageSharp.gatsbyImageData}
                   alt={data.popmaImage.name}
                 />
               </div>
@@ -196,9 +197,7 @@ export const pageQuery = graphql`
     popmaImage: file(relativePath: { eq: "Popma-en-Popma-juweliers.png" }) {
       name
       childImageSharp {
-        fluid(maxWidth: 400) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(width: 400, layout: CONSTRAINED)
       }
     }
     grams: allInstaNode(sort: { fields: timestamp, order: DESC }, limit: 8) {
@@ -214,17 +213,13 @@ export const pageQuery = graphql`
           permalink
           localFile {
             childImageSharp {
-              fluid(maxWidth: 310) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(width: 310, layout: CONSTRAINED)
             }
           }
           carouselImages {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 310) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 310, layout: CONSTRAINED)
               }
             }
           }
@@ -244,9 +239,11 @@ export const pageQuery = graphql`
           alt
           node {
             childImageSharp {
-              fluid(maxWidth: 1920) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+              gatsbyImageData(
+                width: 1920
+                quality: 70
+                webpOptions: { quality: 70 }
+              )
             }
           }
         }
@@ -302,9 +299,11 @@ export const pageQuery = graphql`
         node {
           id
           childImageSharp {
-            fluid(maxWidth: 430) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            }
+            gatsbyImageData(
+              width: 430
+              placeholder: TRACED_SVG
+              layout: CONSTRAINED
+            )
             fixed(width: 74) {
               ...GatsbyImageSharpFixed
             }
@@ -352,9 +351,7 @@ export const pageQuery = graphql`
                   node {
                     id
                     childImageSharp {
-                      fixed(width: 74) {
-                        ...GatsbyImageSharpFixed
-                      }
+                      gatsbyImageData(width: 74, layout: FIXED)
                     }
                   }
                 }

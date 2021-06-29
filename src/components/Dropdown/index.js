@@ -1,5 +1,5 @@
 import React from "react"
-import "./dropdown.scss"
+import * as styles from "../../scss/components/modules/dropdown.module.scss"
 
 class Dropdown extends React.Component {
   constructor(props) {
@@ -27,17 +27,19 @@ class Dropdown extends React.Component {
         ref={this.dropdown}
         onClick={this.onToggleDropdown}
         onKeyDown={this.onToggleDropdown}
-        className={`dropdown${this.state.open ? " active" : ""} ${
-          this.props.small ? " dropdown--sm" : ""
-        }`}
+        className={`
+          ${styles.dropdown} 
+          ${this.state.open ? styles.active : ""} 
+          ${this.props.small ? styles.dropdownSm : ""}
+        `}
       >
-        <div className="select">
+        <div className={styles.select}>
           <span>{this.props.activeOption}</span>
-          <svg className="select__icon">
+          <svg>
             <use xlinkHref="/svg/main.svg#arrow-down"></use>
           </svg>
         </div>
-        <ul className="dropdown-menu">{this.props.children}</ul>
+        <ul className={styles.dropdownMenu}>{this.props.children}</ul>
       </div>
     )
   }

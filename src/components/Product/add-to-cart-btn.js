@@ -1,15 +1,14 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
 import { usePageContext } from "../../../pageContext"
-import "./add-to-cart-btn.scss"
-import "../Button/button.scss"
+import * as styles from "../../scss/components/modules/product/add-to-cart-btn.module.scss"
 
 const AddToCartButton = props => {
   const { t } = useTranslation("translation")
   const { lang } = usePageContext()
   return (
     <button
-      className="product-cart__btn snipcart-add-item btn btn--primary"
+      className={`${styles.productCart__btn} snipcart-add-item btn btn--primary`}
       data-item-id={props.id}
       data-item-price={props.sale ? props.salePrice : props.price}
       data-item-url={
@@ -20,7 +19,7 @@ const AddToCartButton = props => {
       data-item-name={props.name}
       data-item-has-taxes-included="true"
     >
-      <svg className="product-cart__icon">
+      <svg className={styles.productCart__icon}>
         <use xlinkHref="/svg/main.svg#plus"></use>
       </svg>
       {t("product.inBasket")}

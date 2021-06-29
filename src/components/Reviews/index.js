@@ -6,7 +6,6 @@ import ExtLink from "../ExternalLink"
 import Rating from "../Rating"
 import Quote from "./quote"
 import { useRecursiveTimeout } from "./useRecursiveTimeout"
-import "./reviews.scss"
 
 const Reviews = ({ reviews, lines }) => {
   const [viewportRef, embla] = useEmblaCarousel()

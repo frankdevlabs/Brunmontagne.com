@@ -2,45 +2,45 @@ import React from "react"
 import NavMain from "./main"
 import { usePageContext } from "../../../pageContext"
 
-export default ({ sticky }) => {
+const Navigation = ({ sticky }) => {
   const { lang } = usePageContext()
   const items = {
     nl: [
       {
         content: "Home",
-        to: "/",
+        to: "/nl/",
         subMenu: [],
       },
       {
         content: "Collectie",
-        to: "/collection/",
+        to: "/nl/collection/",
         subMenu: [
           {
             content: "Horloges",
-            to: "/collection#watches",
+            to: "/nl/collection#watches",
             subMenu: [],
           },
           {
             content: "Banden",
-            to: "/collection#watch-straps",
+            to: "/nl/collection#watch-straps",
             subMenu: [],
           },
         ],
       },
       {
         content: "Lookbook",
-        to: "/lookbook/",
+        to: "/nl/lookbook/",
         subMenu: [],
       },
       {
         content: "Het verhaal",
-        to: "/about-us/",
+        to: "/nl/about-us/",
         subMenu: [],
       },
 
       {
         content: "Contact",
-        to: "/contact/",
+        to: "/nl/contact/",
         subMenu: [],
       },
     ],
@@ -86,3 +86,5 @@ export default ({ sticky }) => {
 
   return <NavMain sticky={sticky} lang={lang} items={items[lang]} />
 }
+
+export default Navigation

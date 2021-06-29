@@ -1,17 +1,11 @@
 import React from "react"
-import BackgroundImage from "gatsby-background-image-es5"
+import { BgImage } from "gbimage-bridge"
 
-const BackgroundImageWrapper = ({ className, tag, image, children }) => {
+const BackgroundImageWrapper = ({ className, image, children }) => {
   return (
-    <BackgroundImage
-      Tag={tag}
-      className={className}
-      fluid={image}
-      preserveStackingContext={true}
-      style={{ backgroundSize: "cover" }}
-    >
+    <BgImage image={image} className={className}>
       {children}
-    </BackgroundImage>
+    </BgImage>
   )
 }
 

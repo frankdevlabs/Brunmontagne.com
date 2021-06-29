@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import NavList from "./list"
-import "./item.scss"
 
 const setClasses = (mode, items) => {
   if (mode === "default" && items.length > 0) {
@@ -15,7 +14,7 @@ const setClasses = (mode, items) => {
   }
 }
 
-export default props => {
+const NavigationItem = props => {
   const classes = setClasses(props.mode, props.items)
 
   return (
@@ -45,3 +44,5 @@ export default props => {
     </li>
   )
 }
+
+export default NavigationItem

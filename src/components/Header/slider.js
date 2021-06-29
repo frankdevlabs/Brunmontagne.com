@@ -1,5 +1,6 @@
 import React from "react"
-import BackgroundImage from "gatsby-background-image-es5"
+import { getImage } from "gatsby-plugin-image"
+import { BgImage } from "gbimage-bridge"
 
 class Slider extends React.Component {
   constructor(props) {
@@ -56,7 +57,6 @@ class Slider extends React.Component {
 
   render() {
     const { slides } = this.props
-
     return (
       <div className="header-home__slides">
         {slides.map((slide, index) => {
@@ -66,10 +66,7 @@ class Slider extends React.Component {
               key={index}
               ref={elem => (this.slides[index] = elem)}
             >
-              <Background
-                image={slide.node.childImageSharp.fluid}
-                style={{ height: "100%", width: "100%" }}
-              />
+              <Background image={slide.node} />
             </div>
           )
         })}
@@ -78,22 +75,19 @@ class Slider extends React.Component {
   }
 }
 
-const Background = ({ style, image }) => {
-  const backgroundFluidImageStack = [
-    `linear-gradient(
+const Background = ({ image }) => {
+  const pluginImage = getImage(image)
+  const gradient = `linear-gradient(
                       to right bottom,
                       rgba(60, 60, 60, 0.3),
                       rgba(60, 60, 60, 0.3)
-      )`,
-    image,
-  ]
+      )`
+
+  const bgImage = [gradient, pluginImage]
   return (
-    <BackgroundImage
-      Tag="div"
-      fluid={backgroundFluidImageStack}
-      preserveStackingContext={true}
-      style={{ position: "absolute", backgroundSize: "cover", ...style }}
-    ></BackgroundImage>
+    <BgImage image={bgImage} style={{ height: "80vh" }}>
+      {""}
+    </BgImage>
   )
 }
 

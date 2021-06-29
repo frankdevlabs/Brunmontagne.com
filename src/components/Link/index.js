@@ -2,12 +2,11 @@
 import React from "react"
 import { Link as GatsbyLink } from "gatsby"
 import { usePageContext } from "../../../pageContext"
-import { DEFAULT_OPTIONS } from "../../../constants"
-import "./link.scss"
+// import { DEFAULT_OPTIONS } from "../../../constants"
 
 const Link = React.forwardRef(({ mode, to, children, ...rest }, ref) => {
   const { lang } = usePageContext()
-  const { defaultLanguage } = DEFAULT_OPTIONS
+  // const { defaultLanguage } = DEFAULT_OPTIONS
 
   if (mode === "button") {
     return (
@@ -18,11 +17,7 @@ const Link = React.forwardRef(({ mode, to, children, ...rest }, ref) => {
   }
 
   return (
-    <GatsbyLink
-      {...rest}
-      ref={ref}
-      to={lang !== defaultLanguage ? `/${lang}${to}` : to}
-    >
+    <GatsbyLink {...rest} ref={ref} to={`/${lang}${to}`}>
       {children}
     </GatsbyLink>
   )

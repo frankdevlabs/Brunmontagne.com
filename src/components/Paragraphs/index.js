@@ -1,21 +1,21 @@
 import React from "react"
-import Img from "gatsby-image"
-import "./paragraphs.scss"
+import { GatsbyImage } from "gatsby-plugin-image";
+import * as styles from "../../scss/components/modules/paragraphs.module.scss"
 
 const Parapgraphs = ({ data }) => {
   return (
-    <div className="paragraphs">
+    <div className={styles.paragraphs}>
       {data.map((element, index) => {
         switch (element.paragraphType) {
           case "paragraph":
             return (
-              <div key={index} className="paragraphs__text">
+              <div key={index}>
                 <p className="long-paragraph">{element.content.text}</p>
               </div>
             )
           case "embed":
             return (
-              <div key={index} className="paragraphs__embed">
+              <div key={index} className={styles.paragraphs__embed}>
                 <div
                   dangerouslySetInnerHTML={{ __html: element.content.html }}
                 />
@@ -23,26 +23,27 @@ const Parapgraphs = ({ data }) => {
             )
           case "image":
             return (
-              <div key={index} className="paragraphs__image">
+              <div key={index} className={styles.paragraphs__image}>
                 <div
-                  className="paragraphs__image-inner"
+                  className={styles.paragraphs__imageInner}
                   style={{ maxWidth: "216px" }}
                 >
-                  <Img
-                    fluid={element.image.childImageSharp.fluid}
+                  <GatsbyImage
+                    image={element.image.childImageSharp.gatsbyImageData}
                     imgStyle={{ objectFit: "contain" }}
-                    alt={element.alt}
-                  />
+                    alt={element.alt} />
                 </div>
-                <div className="paragraphs__image-caption">{element.alt}</div>
+                <div className={styles.paragraphs__imageCaption}>
+                  {element.alt}
+                </div>
               </div>
-            )
+            );
           default:
             return <></>
         }
       })}
     </div>
-  )
+  );
 }
 
 export default Parapgraphs

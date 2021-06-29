@@ -1,10 +1,10 @@
 import React from "react"
 import LookbookItem from "./item"
-import "./lookbook.scss"
+import * as styles from "../../scss/components/modules/lookbook.module.scss"
 
 const Lookbook = ({ items }) => {
   return (
-    <div className="lookbook__gallery">
+    <div className={styles.lookbook__gallery}>
       {items.map(({ node }) => {
         return <LookbookItem key={node.id} node={node} />
       })}

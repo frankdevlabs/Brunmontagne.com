@@ -1,6 +1,5 @@
 import React from "react"
 import HomeHeader from "./homeHeader"
-import "./header.scss"
 
 const Header = props => {
   const setClasses = mode => {

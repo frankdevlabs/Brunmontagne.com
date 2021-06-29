@@ -2,7 +2,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import Dropdown from "../Dropdown"
 import ProductContext from "./context"
-import "./options.scss"
+import * as styles from "../../scss/components/modules/product/options.module.scss"
 
 const Options = () => {
   const { t } = useTranslation("translation")
@@ -20,7 +20,7 @@ const Options = () => {
   const activeCaseOption = activeProduct.options.case
   const StrapOptions = () => {
     return (
-      <div className="options__item">
+      <div className={styles.options__item}>
         <h5 className="heading-5">{t("product.watchStrap")}: </h5>
         <Dropdown activeOption={activeStrapOption.public_name}>
           {straps.map(option => {
@@ -39,7 +39,7 @@ const Options = () => {
             return (
               <li key={option.name} className={`${!active ? "" : "disabled"}`}>
                 <button
-                  className="options__btn"
+                  className={styles.options__btn}
                   onClick={() => setActiveVariableProduct(uid)}
                   disabled={active || !uid}
                 >
@@ -55,9 +55,9 @@ const Options = () => {
 
   const CaseOptions = () => {
     return (
-      <div className="options__item">
+      <div className={styles.options__item}>
         <h5 className="heading-5">{t("product.movement")}: </h5>
-        <ul className="options__list">
+        <ul className={styles.options__list}>
           {cases.map(option => {
             const active = activeCaseOption.name === option.name
             let uid
@@ -79,7 +79,7 @@ const Options = () => {
                 }`}
               >
                 <button
-                  className="options__btn"
+                  className={styles.options__btn}
                   onClick={() => setActiveVariableProduct(uid)}
                   disabled={active || !uid}
                 >
@@ -94,7 +94,7 @@ const Options = () => {
   }
 
   return (
-    <div className="options">
+    <div className={styles.options}>
       <h3 className="heading-3">{t("product.options")}</h3>
       <CaseOptions />
       <StrapOptions />

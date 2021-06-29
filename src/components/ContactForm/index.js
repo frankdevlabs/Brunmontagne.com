@@ -2,7 +2,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import Button from "../Button"
 import TextField from "../TextField"
-import "./contactForm.scss"
+import * as styles from "../../scss/components/modules/contactForm.module.scss"
 
 const ContactForm = () => {
   const { t } = useTranslation("translation")
@@ -15,10 +15,10 @@ const ContactForm = () => {
   const buttonLabel = t("contactForm.buttonLabel")
 
   return (
-    <div className="contact-form">
+    <div>
       <p className="long-paragraph">{information}</p>
       <form
-        className="contact-form__form"
+        className={styles.contactForm__form}
         method="post"
         netlify-honeypot="bot-field"
         data-netlify="true"
@@ -35,7 +35,7 @@ const ContactForm = () => {
           required={false}
         />
         <TextField label={messageFieldLabel} name="message" mode="textarea" />
-        <div className="contact-form__btn">
+        <div className={styles.contactForm__btn}>
           <Button className="btn btn--secondary" type="submit" mode="button">
             {buttonLabel}
           </Button>

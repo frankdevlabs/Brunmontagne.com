@@ -1,7 +1,13 @@
 import React from "react"
-import "./externalLink.scss"
 
-const ExternalLink = ({ id, children, mode, border, to, targetBlank = true }) => {
+const ExternalLink = ({
+  id,
+  children,
+  mode,
+  border,
+  to,
+  targetBlank = true,
+}) => {
   const linkMode =
     mode === "secondary" ? "ext-link__secondary" : "ext-link__primary"
 

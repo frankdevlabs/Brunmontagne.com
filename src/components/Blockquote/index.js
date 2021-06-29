@@ -1,13 +1,15 @@
 import React from "react"
-import "./blockquote.scss"
+import * as styles from "../../scss/components/modules/blockquote.module.scss"
 
 const Blockquote = ({ children, author, size }) => {
   return (
     <blockquote
-      className={`blockquote ${size === "base" ? " blockquote--base" : ""}`}
+      className={`${styles.blockquote} ${
+        size === "base" ? styles.blockquoteBase : ""
+      }`}
     >
-      <span className="blockquote__text">{children}</span>
-      <span className="blockquote__author">{author}</span>
+      <span className={styles.blockquote__text}>{children}</span>
+      <span className={styles.blockquote__author}>{author}</span>
     </blockquote>
   )
 }

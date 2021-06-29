@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useEmblaCarousel } from "embla-carousel/react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Thumb } from "./thumbnail"
 import { SRLWrapper } from "simple-react-lightbox"
-import "./gallery.scss"
 
 const Index = ({ images }) => {
   const { t } = useTranslation("translation")
@@ -40,7 +39,6 @@ const Index = ({ images }) => {
     onSelect()
     embla.on("select", onSelect)
   }, [embla, onSelect, firstImageID, images, setFirstImageID])
-
   return (
     <>
       <SRLWrapper options={{ thumbnails: { showThumbnails: false } }}>
@@ -51,8 +49,8 @@ const Index = ({ images }) => {
                 <div className="gallery__slide" key={image.node.id}>
                   <div className="gallery__slide__inner">
                     <a href={image.node.publicURL} data-attribute="SRL">
-                      <Img
-                        fluid={image.node.childImageSharp.fluid}
+                      <GatsbyImage
+                        image={image.node.childImageSharp.gatsbyImageData}
                         style={{
                           margin: "1rem",
                           maxHeight: "calc(50vh - 4rem)",
@@ -74,13 +72,14 @@ const Index = ({ images }) => {
       </div>
       <div className="gallery gallery--thumb">
         <div className="gallery__viewport" ref={thumbViewportRef}>
-          <div className="gallery__container gallery__container--thumb">
+          <div className="gallery__container gallery--thumb">
             {images.map((image, index) => {
               return (
                 <Thumb
                   onClick={() => onThumbClick(index)}
                   selected={index === selectedIndex}
-                  imgSrc={image.node.childImageSharp.fixed}
+                  imgSrc={image.node.childImageSharp.gatsbyImageData}
+                  imgAlt={image.alt}
                   key={image.node.id}
                 />
               )

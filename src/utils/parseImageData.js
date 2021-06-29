@@ -1,4 +1,4 @@
-export default nodes => {
+const ParseImageData = nodes => {
   return nodes.reduce(
     (acc, cur) => [
       ...acc,
@@ -7,3 +7,5 @@ export default nodes => {
     []
   )
 }
+
+export default ParseImageData

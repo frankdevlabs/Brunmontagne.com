@@ -3,7 +3,6 @@ import React from "react"
 import { Link as GatsbyLink } from "gatsby"
 import { usePageContext } from "../../../pageContext"
 import { DEFAULT_OPTIONS } from "../../../constants"
-import "./button.scss"
 
 const Button = props => {
   if (props.mode === "button") {

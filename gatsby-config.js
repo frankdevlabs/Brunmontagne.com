@@ -6,6 +6,7 @@
 
 const path = require("path")
 const autoprefixer = require("autoprefixer")
+const postcssPresetEnv = require(`postcss-preset-env`)
 
 const termsText = {
   nl: `
@@ -51,14 +52,18 @@ const config = {
         path: path.join(__dirname, `src`, `assets`, `img`),
       },
     },
-    `gatsby-background-image-es5`,
+    `gatsby-plugin-image`,
+    `gatsby-background-image`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: `Brunmontagne-CMS`,
         accessToken: `${process.env.API_KEY}`,
-        linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
+        linkResolver:
+          ({ node, key, value }) =>
+          post =>
+            `/${post.uid}`,
         shouldDownloadImage: ({ node, key, value }) => {
           // Return true to download the image or false to skip.
           return true
@@ -81,10 +86,15 @@ const config = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        data: `@import "${__dirname}/src/scss/abstracts/_variables.scss";
-        @import "${__dirname}/src/scss/abstracts/_mixins.scss";
-        `,
-        precision: 8,
+        implementation: require("node-sass"),
+        additionalData: `
+                  @import "${__dirname}/src/scss/abstracts/_variables.scss";
+                  @import "${__dirname}/src/scss/abstracts/_mixins.scss";`,
+        postCssPlugins: [autoprefixer, postcssPresetEnv({ stage: 0 })],
+        sassOptions: {
+          precision: 8,
+          includePaths: [`${__dirname}src/scss/abstracts/`],
+        },
       },
     },
     {
@@ -101,7 +111,7 @@ const config = {
     {
       resolve: `gatsby-plugin-snipcart-advanced`,
       options: {
-        version: "3.0.19",
+        version: `${process.env.GATSBY_SNIPCART_VERSION}`,
         publicApiKey: `${process.env.GATSBY_SNIPCART_API_KEY}`,
         defaultLang: "nl",
         currency: "eur",
@@ -137,26 +147,15 @@ const config = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: "gatsby-plugin-preconnect",
       options: {
-        id: `${process.env.GTM_ID}`,
-
-        // Include GTM in development.
-        // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: true,
-
-        // datalayer to be set before GTM is loaded
-        // should be an object or a function that is executed in the browser
-        // Defaults to null
-        defaultDataLayer: {
-          platform: "gatsby",
-          ecommerce: { impressions: [] },
-        },
-
-        // Name of the event that is triggered
-        // on every Gatsby route change.
-        // Defaults to gatsby-route-change
-        routeChangeEventName: "route-change",
+        domains: [
+          { domain: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+          {
+            domain: `${process.env.GATSBY_TAG_CONTAINER_URL}`,
+            crossOrigin: "anonymous",
+          },
+        ],
       },
     },
     {
@@ -193,7 +192,7 @@ const config = {
         lang: `nl`,
         display: `standalone`,
         icon: `src/assets/icon/icon.png`,
-        start_url: `/`,
+        start_url: `/nl/`,
         background_color: `#f1f1f1`,
         theme_color: `#130f40`,
         legacy: true,
@@ -213,18 +212,20 @@ const config = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: [
+        excludes: [
           `/404`,
+          `/nl/404`,
           `/404.html`,
+          `/nl/404.html`,
           `/en/404`,
           `/en/404.html`,
           `/offline-plugin-app-shell-fallback`,
           `/en/terms`,
-          `/terms`,
+          `/nl/terms`,
           `/en/privacy`,
-          `/privacy`,
+          `/nl/privacy`,
           `/en/returns`,
-          `/returns`,
+          `/nl/returns`,
           `**/products/**/variants/*`,
         ],
       },
@@ -233,16 +234,5 @@ const config = {
     `gatsby-plugin-remove-serviceworker`,
   ],
 }
-
-if (process.env.NODE_ENV === "production")
-  config.plugins.push({
-    resolve: `gatsby-plugin-postcss`,
-    options: {
-      postCssPlugins: [
-        autoprefixer,
-        require(`postcss-preset-env`)({ stage: 0 }),
-      ],
-    },
-  })
 
 module.exports = config

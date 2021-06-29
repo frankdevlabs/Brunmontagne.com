@@ -3,9 +3,8 @@ import Cart from "./cart"
 import LanguagePicker from "../LanguagePicker"
 import Link from "../Link"
 import NavList from "./list"
-import "./main.scss"
 
-export default props => {
+const NavigationMain = props => {
   return (
     <>
       <nav
@@ -79,3 +78,5 @@ export default props => {
     </>
   )
 }
+
+export default NavigationMain

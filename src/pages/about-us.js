@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import Parapgraphs from "../components/Paragraphs"
-import "./about-us.scss"
+import "../scss/pages/about-us.scss"
 
 const AboutUsPage = ({ data: { prismicAboutPage } }) => {
   const {
@@ -21,32 +21,29 @@ const AboutUsPage = ({ data: { prismicAboutPage } }) => {
 
 export default AboutUsPage
 
-export const pageQuery = graphql`
-  query AboutUsPageQuery($locale: String!) {
-    prismicAboutPage(lang: { eq: $locale }) {
-      id
-      uid
-      data {
-        seo_description
-        title {
-          text
+export const pageQuery = graphql`query AboutUsPageQuery($locale: String!) {
+  prismicAboutPage(lang: {eq: $locale}) {
+    id
+    uid
+    data {
+      seo_description
+      title {
+        text
+      }
+      paragraphs {
+        paragraphType
+        alt
+        image {
+          childImageSharp {
+            gatsbyImageData(width: 215, layout: CONSTRAINED)
+          }
         }
-        paragraphs {
-          paragraphType
-          alt
-          image {
-            childImageSharp {
-              fluid(maxWidth: 215) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          content {
-            html
-            text
-          }
+        content {
+          html
+          text
         }
       }
     }
   }
+}
 `

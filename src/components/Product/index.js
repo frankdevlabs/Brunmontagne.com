@@ -7,9 +7,9 @@ import Options from "./options"
 import Price from "./price"
 import Rating from "../Rating"
 import Stock from "./stock"
-import Link from "../Link"
 import ProductContext from "./context"
-import "./product.scss"
+import * as styles from "../../scss/components/modules/product/product.module.scss"
+import Link from "../Link"
 
 class Product extends React.Component {
   render() {
@@ -97,14 +97,11 @@ class Product extends React.Component {
               : ""
 
           return (
-            <div className="product columns is-tablet is-multiline">
-              <div
-                className="product__header column is-full"
-                style={{ margin: "0 1.5%" }}
-              >
+            <div className={styles.product + " columns is-tablet is-multiline"}>
+              <div className="column is-full" style={{ margin: "0 1.5%" }}>
                 <h1 className="heading-2">{name}</h1>
-                <div className="product__header-meta">
-                  <div className="product__header-meta-option">
+                <div className={styles.product__headerMeta}>
+                  <div className={styles.product__headerMetaOption}>
                     {reviews.length > 0 ? (
                       <Rating value={avgRating()} votes={reviews.length} />
                     ) : (
@@ -120,20 +117,20 @@ class Product extends React.Component {
                   </div>
                   {!this.props.isWatchStrap ? (
                     <>
-                      <div className="product__header-meta-option">
+                      <div className={styles.product__headerMetaOption}>
                         {t("product.movement")}: {options.case.public_name}
                       </div>
-                      <div className="product__header-meta-option">
+                      <div className={styles.product__headerMetaOption}>
                         {t("product.watchStrap")}: {options.strap.public_name}
                       </div>
                     </>
                   ) : null}
                 </div>
               </div>
-              <div className="product__gallery column is-half-tablet">
+              <div className="column is-half-tablet">
                 <ImageGallery images={images} />
               </div>
-              <div className="product__content column is-half-tablet">
+              <div className="column is-half-tablet">
                 <Price
                   regularPrice={price}
                   salePrice={discountPrice}
@@ -144,7 +141,7 @@ class Product extends React.Component {
                   backorder={{ state: isBackorder, expected: backorderDate }}
                 />
                 {value.variableProductsUIDs.length > 0 ? <Options /> : null}
-                <div className="product__add-to-cart-button">
+                <div className={styles.product__addToCartButton}>
                   <AddToCartButton
                     id={sku}
                     sale={discountActive}
@@ -152,7 +149,7 @@ class Product extends React.Component {
                     price={price}
                     slug={slug}
                     name={name}
-                    image={images[0].node.childImageSharp.fluid.src}
+                    image={images[0].node.childImageSharp.gatsbyImageData.src}
                     productSubTitle={productSubTitle}
                   />
                 </div>

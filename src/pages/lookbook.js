@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
 import Layout from "../components/Layout"
 import Lookbook from "../components/Lookbook"
-import "./lookbook.scss"
+import "../scss/pages/lookbook.scss"
 
 const LookbookPage = ({
   data: {
@@ -45,17 +45,13 @@ export const pageQuery = graphql`
           permalink
           localFile {
             childImageSharp {
-              fluid(maxWidth: 520) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(width: 520, layout: CONSTRAINED)
             }
           }
           carouselImages {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 520) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(width: 520, layout: CONSTRAINED)
               }
             }
           }

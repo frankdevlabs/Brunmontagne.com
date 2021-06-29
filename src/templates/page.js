@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import "./page.scss"
+import "../scss/templates/page.scss"
 
 const Page = ({ data: { page } }) => {
   const {

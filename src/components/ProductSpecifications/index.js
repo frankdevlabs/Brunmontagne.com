@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import { useTranslation } from "react-i18next"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import ProductContext from "../Product/context"
-import "./specifications.scss"
+import * as styles from "../../scss/components/modules/productSpecifications.module.scss"
 
 const Specifications = ({ image }) => {
   const { t } = useTranslation("translation")
@@ -11,26 +11,27 @@ const Specifications = ({ image }) => {
     product: { specifications },
   } = useContext(ProductContext)
   return (
-    <>
-      <div className="specifications columns">
-        <div className="specifications__list column is-narrow">
-          <h3 className="heading-3">{productSpecification}</h3>
-          {specifications.map(spec => {
-            return (
-              <div className="specifications__item">
-                <div className="specifications__title">{spec.key}</div>
-                <div className="specifications__value">{spec.value}</div>
-              </div>
-            )
-          })}
-        </div>
-        <div className="specifications__img-container column">
-          <div className="specifications__img">
-            <Img fluid={image.childImageSharp.fluid} />
-          </div>
+    <div className={styles.specifications + " columns"}>
+      <div className={styles.specifications__list + " column is-narrow"}>
+        <h3 className="heading-3">{productSpecification}</h3>
+        {specifications.map(spec => {
+          return (
+            <div key={spec.key} className={styles.specifications__item}>
+              <div className={styles.specifications__title}>{spec.key}</div>
+              <div>{spec.value}</div>
+            </div>
+          )
+        })}
+      </div>
+      <div className="column">
+        <div className={styles.specifications__img}>
+          <GatsbyImage
+            image={image.childImageSharp.gatsbyImageData}
+            alt="sketch image"
+          />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

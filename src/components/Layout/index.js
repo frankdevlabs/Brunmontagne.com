@@ -3,7 +3,7 @@ import BackToTopButton from "../BackToTopButton"
 import Footer from "../Footer"
 import Header from "../Header"
 import Navigation from "../Navigation"
-import SEO from "../SEO"
+import Seo from "../SEO"
 // import Discount from "../Discount"
 import useSticky from "../../hooks/useSticky"
 
@@ -19,7 +19,7 @@ const Layout = ({
   const { isSticky, element } = useSticky()
   return (
     <>
-      <SEO
+      <Seo
         title={seoTitle}
         pageTitle={seoPageTitle}
         description={seoDescription}

@@ -1,6 +1,5 @@
 import React from "react"
 import Rating from "react-rating"
-import "./rating.scss"
 
 const Icon = props => {
   return (

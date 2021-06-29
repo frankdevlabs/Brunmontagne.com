@@ -1,7 +1,7 @@
 import React from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-export const Thumb = ({ selected, onClick, imgSrc }) => (
+export const Thumb = ({ selected, onClick, imgSrc, imgAlt }) => (
   <div
     className={`gallery__slide gallery__slide--thumb ${
       selected ? "is-selected" : ""
@@ -12,7 +12,12 @@ export const Thumb = ({ selected, onClick, imgSrc }) => (
       className="gallery__slide__inner gallery__slide__inner--thumb"
       type="button"
     >
-      <Img className="gallery__slide__thumbnail" fixed={imgSrc} />
+      <GatsbyImage
+        width={74}
+        image={imgSrc}
+        className="gallery__slide__thumbnail"
+        alt={imgAlt}
+      />
     </button>
   </div>
 )
