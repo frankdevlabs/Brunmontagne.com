@@ -1,14 +1,14 @@
 {
-  "name": "Brunmontagne",
+  "name": "brunmontagne",
   "private": true,
-  "description": "Brunmontagne e-commerce website",
+  "description": "brunmontagne e-commerce website",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
     "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "yarn develop",
+    "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
@@ -51,9 +51,7 @@
     "react-lite-youtube-embed": "^2.0.3",
     "react-rating": "^2.0.5",
     "react-truncate": "^2.4.0",
-    "simple-react-lightbox": "^3.6.6",
-    "typeface-lato": "^1.1.13",
-    "typeface-montserrat": "^1.1.13"
+    "simple-react-lightbox": "^3.6.6"
   },
   "devDependencies": {
     "prettier": "2.3.2"

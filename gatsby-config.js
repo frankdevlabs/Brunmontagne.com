@@ -150,6 +150,7 @@ const config = {
       resolve: "gatsby-plugin-preconnect",
       options: {
         domains: [
+          { domain: "https://fonts.googleapis.com", crossOrigin: "anonymous" },
           { domain: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
           {
             domain: `${process.env.GATSBY_TAG_CONTAINER_URL}`,
