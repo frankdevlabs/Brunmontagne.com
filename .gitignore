@@ -64,8 +64,10 @@ public
 
 # Yarn
 yarn-error.log
+.idea
 .pnp/
 .pnp.js
+.yarn
 .yarn/*
 !.yarn/cache
 !.yarn/patches
