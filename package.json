@@ -59,5 +59,8 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:Passadoh/Brunmontagne.com.git"
-  }
+  },
+  "browserslist": [
+    "defaults"
+  ]
 }

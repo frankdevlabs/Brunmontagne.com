@@ -304,9 +304,6 @@ export const pageQuery = graphql`
               placeholder: TRACED_SVG
               layout: CONSTRAINED
             )
-            fixed(width: 74) {
-              ...GatsbyImageSharpFixed
-            }
           }
         }
       }
