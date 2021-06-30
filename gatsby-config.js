@@ -150,6 +150,28 @@ const config = {
       resolve: "gatsby-plugin-preconnect",
       options: {
         domains: [
+          { domain: "https://app.snipcart.com", crossOrigin: "anonymous" },
+          { domain: "https://www.google.nl", crossOrigin: "anonymous" },
+          {
+            domain: "https://www.google-analytics.com",
+            crossOrigin: "anonymous",
+          },
+          {
+            domain: "https://stats.g.doubleclick.net",
+            crossOrigin: "anonymous",
+          },
+          {
+            domain: "https://consent-brunmontagne.netlify.app",
+            crossOrigin: "anonymous",
+          },
+          {
+            domain: "https://tags-brunmontagne.netlify.app",
+            crossOrigin: "anonymous",
+          },
+          {
+            domain: "https://rec.smartlook.com",
+            crossOrigin: "anonymous",
+          },
           { domain: "https://fonts.googleapis.com", crossOrigin: "anonymous" },
           { domain: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
           {
