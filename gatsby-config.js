@@ -79,6 +79,12 @@ const config = {
           review: require("./schemas/review.json"),
           specification: require("./schemas/specification.json"),
         },
+        imageImgixParams: {
+          auto: "compress,format",
+          fit: "crop",
+          q: 90,
+          ["max-h"]: 2000,
+        },
       },
     },
     `gatsby-transformer-sharp`,
