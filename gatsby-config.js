@@ -66,7 +66,7 @@ const config = {
             `/${post.uid}`,
         shouldDownloadImage: ({ node, key, value }) => {
           // Return true to download the image or false to skip.
-          return true
+          return false
         },
         schemas: {
           about_page: require("./schemas/about_page.json"),
@@ -78,12 +78,6 @@ const config = {
           product: require("./schemas/product.json"),
           review: require("./schemas/review.json"),
           specification: require("./schemas/specification.json"),
-        },
-        imageImgixParams: {
-          auto: "compress,format",
-          fit: "crop",
-          q: 90,
-          ["max-h"]: 2000,
         },
       },
     },
