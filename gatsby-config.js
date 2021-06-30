@@ -66,7 +66,7 @@ const config = {
             `/${post.uid}`,
         shouldDownloadImage: ({ node, key, value }) => {
           // Return true to download the image or false to skip.
-          return false
+          return true
         },
         schemas: {
           about_page: require("./schemas/about_page.json"),
