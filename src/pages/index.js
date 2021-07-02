@@ -16,25 +16,17 @@ import "../scss/pages/index.scss"
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
-  const Cards = data.landingPage.edges.reduce(
-    (acc, cur) => [
-      ...acc,
-      { id: cur.node.id, uid: cur.node.uid, ...cur.node.data },
-    ],
-    []
-  )
-
   return (
     <Layout
       seoPageTitle={t("home.pageTitle")}
       seoDescription={t("siteMetadata.description")}
       headerMode="home"
-      slides={data.reviews.data.slides}
+      slides={data.reviews.data.images}
     >
       <section className="section-collection">
         <div className="section-collection__container ">
           <h2 className="heading-2">{t("home.section-collection-title")}</h2>
-          <ProductCards cards={Cards} list="Home Page" />
+          <ProductCards cards={data.landingPage.edges} list="Home Page" />
           <div className="section-collection__btn">
             <Button to="/collection/" className="btn btn--secondary">
               {t("home.section-collection-btn")}
@@ -235,18 +227,20 @@ export const pageQuery = graphql`
     }
     reviews: prismicHomePage(lang: { eq: $locale }) {
       data {
-        slides {
-          alt
-          node {
-            childImageSharp {
-              gatsbyImageData(
-                width: 1920
-                quality: 70
-                webpOptions: { quality: 70 }
-              )
+        images {
+          slide {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 1920
+                  quality: 70
+                  webpOptions: { quality: 70 }
+                )
+              }
             }
           }
         }
+
         reviews {
           review {
             document {
@@ -296,14 +290,15 @@ export const pageQuery = graphql`
       }
       images {
         alt
-        node {
-          id
-          childImageSharp {
-            gatsbyImageData(
-              width: 430
-              placeholder: TRACED_SVG
-              layout: CONSTRAINED
-            )
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                width: 430
+                placeholder: TRACED_SVG
+                layout: CONSTRAINED
+              )
+            }
           }
         }
       }
@@ -345,10 +340,11 @@ export const pageQuery = graphql`
                 material
                 images {
                   alt
-                  node {
-                    id
-                    childImageSharp {
-                      gatsbyImageData(width: 74, layout: FIXED)
+                  image {
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData(width: 74, layout: FIXED)
+                      }
                     }
                   }
                 }

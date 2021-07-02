@@ -1,56 +1,73 @@
 {
-  "Main": {
-    "title": {
-      "type": "Text",
-      "config": {
-        "label": "Title",
-        "placeholder": "Brunmontagne"
+  "Main" : {
+    "title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Title",
+        "placeholder" : "Brunmontagne"
       }
     },
-    "subtitle": {
-      "type": "Text",
-      "config": {
-        "label": "Subtitle",
-        "placeholder": "Represents you"
+    "subtitle" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Subtitle",
+        "placeholder" : "Represents you"
       }
     },
-    "slides": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "slide": {
-            "type": "Link",
-            "config": {
-              "select": "media",
-              "label": "Slide"
+    "slides" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "image" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "media",
+              "label" : "Slide"
             }
           },
-          "alt": {
-            "type": "Text",
-            "config": {
-              "label": "alt"
+          "alt" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "alt"
             }
           }
         },
-        "label": "Slides"
+        "label" : "Slides"
       }
     },
-    "reviews": {
-      "type": "Group",
-      "config": {
-        "fields": {
-          "review": {
-            "type": "Link",
-            "config": {
-              "select": "document",
-              "customtypes": [
-                "review"
-              ],
-              "label": "Review"
+    "images" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "slide" : {
+            "type" : "Image",
+            "config" : {
+              "constraint" : {
+                "width" : 1920,
+                "height" : null
+              },
+              "thumbnails" : [ ],
+              "label" : "slide"
             }
           }
         },
-        "label": "Reviews"
+        "label" : "images"
+      }
+    },
+    "reviews" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "review" : {
+            "type" : "Link",
+            "config" : {
+              "select" : "document",
+              "customtypes" : [ "review" ],
+              "label" : "Review"
+            }
+          }
+        },
+        "label" : "Reviews"
       }
     }
   }

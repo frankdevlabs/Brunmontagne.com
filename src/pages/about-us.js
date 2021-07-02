@@ -21,29 +21,30 @@ const AboutUsPage = ({ data: { prismicAboutPage } }) => {
 
 export default AboutUsPage
 
-export const pageQuery = graphql`query AboutUsPageQuery($locale: String!) {
-  prismicAboutPage(lang: {eq: $locale}) {
-    id
-    uid
-    data {
-      seo_description
-      title {
-        text
-      }
-      paragraphs {
-        paragraphType
-        alt
-        image {
-          childImageSharp {
-            gatsbyImageData(width: 215, layout: CONSTRAINED)
-          }
-        }
-        content {
-          html
+export const pageQuery = graphql`
+  query AboutUsPageQuery($locale: String!) {
+    prismicAboutPage(lang: { eq: $locale }) {
+      id
+      uid
+      data {
+        seo_description
+        title {
           text
+        }
+        paragraphs {
+          content {
+            paragraphType
+            html
+            text
+            imageAlt
+            imageSrc {
+              childImageSharp {
+                gatsbyImageData(width: 215, layout: CONSTRAINED)
+              }
+            }
+          }
         }
       }
     }
   }
-}
 `

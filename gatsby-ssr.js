@@ -41,12 +41,16 @@ export const onRenderBody = ({ setPreBodyComponents, setHeadComponents }) => {
         height="0"
         width="0"
         style={{ display: "none", visibility: "hidden" }}
-      ></iframe>
+      >
+        {""}
+      </iframe>
     </noscript>
   )
 
-  setHeadComponents([gtmHeadScript])
-  setPreBodyComponents([gtmBodyScript])
+  if (process.env.NODE_ENV !== "development") {
+    setHeadComponents([gtmHeadScript])
+    setPreBodyComponents([gtmBodyScript])
+  }
 }
 
 /**

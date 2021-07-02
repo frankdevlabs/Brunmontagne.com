@@ -59,14 +59,14 @@ class Slider extends React.Component {
     const { slides } = this.props
     return (
       <div className="header-home__slides">
-        {slides.map((slide, index) => {
+        {slides.map(({ slide }, index) => {
           return (
             <div
               className={`header-home__slide header-home__slide--${index + 1}`}
               key={index}
               ref={elem => (this.slides[index] = elem)}
             >
-              <Background image={slide.node} />
+              <Background image={slide.localFile} />
             </div>
           )
         })}

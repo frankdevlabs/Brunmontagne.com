@@ -5,7 +5,7 @@ import Button from "../Button"
 import Link from "../Link"
 import * as styles from "../../scss/components/modules/productCard/card.module.scss"
 
-const Card = ({ data, position, list }) => {
+const Card = ({ data: { uid, data }, position, list }) => {
   const { t } = useTranslation("translation")
   const options = [
     ...new Set(
@@ -33,6 +33,7 @@ const Card = ({ data, position, list }) => {
       }, [])
     ),
   ]
+
   const strapLeatherOptions = options.filter(
     e => e.inventory_type === "STRAP" && e.material === "LEATHER"
   )
@@ -94,10 +95,7 @@ const Card = ({ data, position, list }) => {
       className={styles.card + " column is-one-quarter is-half-touch"}
     >
       <div className={styles.card__container}>
-        <Link
-          to={`/products/${data.uid}/`}
-          className={styles.card__overlayBtn}
-        />
+        <Link to={`/products/${uid}/`} className={styles.card__overlayBtn} />
         <div className={styles.card__imageOverlay}>{""}</div>
         <div
           className={styles.card__image}
@@ -105,13 +103,17 @@ const Card = ({ data, position, list }) => {
         >
           <div className={styles.card__image1 + " active"}>
             <GatsbyImage
-              image={data.images[0].node.childImageSharp.gatsbyImageData}
+              image={
+                data.images[0].image.localFile.childImageSharp.gatsbyImageData
+              }
               alt={data.images[0].alt}
             />
           </div>
           <div className={styles.card__image2 + " inactive"}>
             <GatsbyImage
-              image={data.images[1].node.childImageSharp.gatsbyImageData}
+              image={
+                data.images[1].image.localFile.childImageSharp.gatsbyImageData
+              }
               alt={data.images[1].alt}
             />
           </div>
@@ -119,13 +121,13 @@ const Card = ({ data, position, list }) => {
         <div className={styles.card__btn}>
           <div className={styles.card__btnInner}>
             <Link
-              to={`/products/${data.uid}/`}
+              to={`/products/${uid}/`}
               className={"btn btn--secondary " + styles.btnSecondary}
             >
               {t("productCards.btn")}
             </Link>
             <Button
-              to={`/products/${data.uid}/`}
+              to={`/products/${uid}/`}
               className={"btn btn--primary " + styles.btnPrimary}
             >
               {t("productCards.btn")}

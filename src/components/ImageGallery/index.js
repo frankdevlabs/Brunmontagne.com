@@ -8,7 +8,7 @@ import { SRLWrapper } from "simple-react-lightbox"
 const Index = ({ images }) => {
   const { t } = useTranslation("translation")
 
-  const [firstImageID, setFirstImageID] = useState(images[0].node.id)
+  const [firstImageID, setFirstImageID] = useState(images[0].image.localFile.id)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [mainViewportRef, embla] = useEmblaCarousel()
   const [thumbViewportRef, emblaThumbs] = useEmblaCarousel({
@@ -32,8 +32,8 @@ const Index = ({ images }) => {
 
   useEffect(() => {
     if (!embla) return
-    else if (firstImageID !== images[0].node.id) {
-      setFirstImageID(images[0].node.id)
+    else if (firstImageID !== images[0].image.id) {
+      setFirstImageID(images[0].image.id)
       embla.scrollTo(0)
     }
     onSelect()
@@ -45,23 +45,27 @@ const Index = ({ images }) => {
         <div className="gallery">
           <div className="gallery__viewport" ref={mainViewportRef}>
             <div className="gallery__container">
-              {images.map(image => (
-                <div className="gallery__slide" key={image.node.id}>
-                  <div className="gallery__slide__inner">
-                    <a href={image.node.publicURL} data-attribute="SRL">
-                      <GatsbyImage
-                        image={image.node.childImageSharp.gatsbyImageData}
-                        style={{
-                          margin: "1rem",
-                          maxHeight: "calc(50vh - 4rem)",
-                        }}
-                        imgStyle={{ objectFit: "contain" }}
-                        alt={image.alt}
-                      />
-                    </a>
+              {images.map(({ image, alt }) => {
+                return (
+                  <div className="gallery__slide" key={image.localFile.id}>
+                    <div className="gallery__slide__inner">
+                      <a href={image.localFile.publicURL} data-attribute="SRL">
+                        <GatsbyImage
+                          image={
+                            image.localFile.childImageSharp.gatsbyImageData
+                          }
+                          style={{
+                            margin: "1rem",
+                            maxHeight: "calc(50vh - 4rem)",
+                          }}
+                          imgStyle={{ objectFit: "contain" }}
+                          alt={alt}
+                        />
+                      </a>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>
@@ -73,14 +77,14 @@ const Index = ({ images }) => {
       <div className="gallery gallery--thumb">
         <div className="gallery__viewport" ref={thumbViewportRef}>
           <div className="gallery__container gallery--thumb">
-            {images.map((image, index) => {
+            {images.map(({ image, alt }, index) => {
               return (
                 <Thumb
                   onClick={() => onThumbClick(index)}
                   selected={index === selectedIndex}
-                  imgSrc={image.node.childImageSharp.gatsbyImageData}
-                  imgAlt={image.alt}
-                  key={image.node.id}
+                  imgSrc={image.localFile.childImageSharp.gatsbyImageData}
+                  imgAlt={alt}
+                  key={image.localFile.id}
                 />
               )
             })}

@@ -60,14 +60,7 @@ const config = {
       options: {
         repositoryName: `Brunmontagne-CMS`,
         accessToken: `${process.env.API_KEY}`,
-        linkResolver:
-          ({ node, key, value }) =>
-          post =>
-            `/${post.uid}`,
-        shouldDownloadImage: ({ node, key, value }) => {
-          // Return true to download the image or false to skip.
-          return true
-        },
+        linkResolver: post => `/${post.uid}`,
         schemas: {
           about_page: require("./schemas/about_page.json"),
           category: require("./schemas/category.json"),

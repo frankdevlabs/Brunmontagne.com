@@ -17,9 +17,16 @@ const Cards = ({ cards, list }) => {
       data-product-list={list}
       className={`${styles.cards} columns is-centered is-multiline`}
     >
-      {cards.map((card, index) => (
-        <Card key={card.id} data={card} position={index} list={list} />
-      ))}
+      {cards.map((card, index) => {
+        return (
+          <Card
+            key={card.node.id}
+            data={card.node}
+            position={index}
+            list={list}
+          />
+        )
+      })}
       {fillerCards}
     </div>
   )

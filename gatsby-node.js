@@ -1,19 +1,6 @@
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
 const DEFAULT_OPTIONS = require("./constants").DEFAULT_OPTIONS
 
-exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
-  if (stage === "build-javascript") {
-    const config = getConfig()
-    const miniCssExtractPlugin = config.plugins.find(
-      plugin => plugin.constructor.name === "MiniCssExtractPlugin"
-    )
-    if (miniCssExtractPlugin) {
-      miniCssExtractPlugin.options.ignoreOrder = true
-    }
-    actions.replaceWebpackConfig(config)
-  }
-}
-
 exports.createResolvers = async ({
   actions: { createNode },
   cache,
@@ -22,24 +9,24 @@ exports.createResolvers = async ({
   store,
   reporter,
 }) => {
-  const imageFields = {
-    node: {
-      type: `File`,
-      resolve: ({ image: { url } }, args, context, info) => {
-        if (url !== "")
-          return createRemoteFileNode({
-            url,
-            store,
-            cache,
-            createNode,
-            createNodeId,
-            reporter,
-          })
-
-        return
-      },
-    },
-  }
+  // const imageFields = {
+  //   node: {
+  //     type: `File`,
+  //     resolve: ({ image: { url } }, args, context, info) => {
+  //       if (url !== "")
+  //         return createRemoteFileNode({
+  //           url,
+  //           store,
+  //           cache,
+  //           createNode,
+  //           createNodeId,
+  //           reporter,
+  //         })
+  //
+  //       return
+  //     },
+  //   },
+  // }
 
   const resolvers = {
     InstaNode: {
@@ -49,70 +36,71 @@ exports.createResolvers = async ({
           locale: "String!",
         },
         resolve: (source, args, context, info) => {
-          // const arg = source.hashtags
-
-          return (
-            context.nodeModel.runQuery({
-              query: {
-                filter: {
-                  data: {
-                    hashtags: {
-                      elemMatch: { hashtag: { in: source.hashtags } },
-                    },
+          const result = context.nodeModel.runQuery({
+            query: {
+              filter: {
+                data: {
+                  hashtags: {
+                    elemMatch: { hashtag: { in: source.hashtags } },
                   },
-                  lang: { eq: args.locale || "nl-nl" },
                 },
+                lang: { eq: args.locale || "nl-nl" },
               },
-              type: "PrismicProduct",
-              firstOnly: false,
-            }) || []
-          )
+            },
+            type: "PrismicProduct",
+            firstOnly: false,
+          })
+          if (result.length === 0) {
+            throw new Error("Not found!")
+          }
+          return result
         },
       },
     },
-    PrismicAboutPageParagraphsGroupType: {
+    PrismicStructuredTextType: {
       paragraphType: {
         type: `String`,
         resolve: (source, args, context, info) => {
-          return source.content.raw[0].type
+          return source[0].type
         },
       },
-      alt: {
+      imageAlt: {
         type: `String`,
         resolve: (source, args, context, info) => {
-          return source.content.raw[0].alt
+          if (source[0] && source[0].type === "image") return source[0].alt
+
+          return null
         },
       },
-      image: {
+      imageSrc: {
         type: `File`,
         resolve: (source, args, context, info) => {
-          const url =
-            source.content.raw[0].type === "image"
-              ? source.content.raw[0].url
-              : ""
-          if (url !== "")
-            return createRemoteFileNode({
-              url,
-              store,
-              cache,
-              createNode,
-              createNodeId,
-              reporter,
-            })
-
-          return
+          console.log(source)
+          if (source[0]) {
+            const url = source[0].type === "image" ? source[0].url : ""
+            if (url !== "")
+              return createRemoteFileNode({
+                url,
+                store,
+                cache,
+                createNode,
+                createNodeId,
+                reporter,
+              })
+          }
+          return null
         },
       },
     },
-    PrismicProductImagesGroupType: {
-      ...imageFields,
-    },
-    PrismicInventoryImagesGroupType: {
-      ...imageFields,
-    },
-    PrismicHomePageSlidesGroupType: {
-      ...imageFields,
-    },
+    // PrismicProductImagesGroupType: {
+    //   ...imageFields,
+    // },
+    // PrismicInventoryImagesGroupType: {
+    //   ...imageFields,
+    // },
+    // PrismicHomePageSlidesGroupType: {
+    //   ...imageFields,
+    // },
   }
 
   await createResolvers(resolvers)
@@ -147,6 +135,23 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  const staticImages = await graphql(`
+    query {
+      backgroundProductPage: file(relativePath: { eq: "Adjustments.jpeg" }) {
+        childImageSharp {
+          gatsbyImageData(width: 878, quality: 70, webpOptions: { quality: 70 })
+        }
+      }
+      sketchImage: file(
+        relativePath: { eq: "representor-product-sketch.jpg" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(width: 850, quality: 50, webpOptions: { quality: 70 })
+        }
+      }
+    }
+  `)
+
   const productPageTemplate = require.resolve(`./src/templates/productPage.js`)
   productPages.data.allPrismicProduct.edges.forEach(
     ({ node: { id, uid, lang, data } }) => {
@@ -164,6 +169,7 @@ exports.createPages = async ({ graphql, actions }) => {
           locale: lang,
           originalPath: `/${basePath}`,
           lang: sanitzedLang,
+          images: staticImages,
         },
       })
 
@@ -179,6 +185,7 @@ exports.createPages = async ({ graphql, actions }) => {
               locale: lang,
               originalPath: `/${basePath}variants/${document.uid}/`,
               lang: sanitzedLang,
+              images: staticImages,
             },
           })
       })
