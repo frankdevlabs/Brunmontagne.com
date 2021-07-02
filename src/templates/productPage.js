@@ -23,8 +23,6 @@ const ProductPage = props => {
     data.productPage.data.categories.filter(
       i => i.category.document.uid === "watch-strap"
     ).length > 0
-      ? true
-      : false
   const pluginImage = getImage(
     images.data.backgroundProductPage.childImageSharp.gatsbyImageData
   )
@@ -62,12 +60,8 @@ const ProductPage = props => {
           </div>
         </section>
       )}
-      <section>
-        <BackgroundImage
-          className="section-reviews"
-          image={bgImage}
-          tag="section"
-        >
+      <section className="section-reviews">
+        <BackgroundImage image={bgImage} className="section-reviews">
           <Reviews reviews={data.productPage.data.reviews} />
           <ReviewForm uid={data.productPage.uid} />
         </BackgroundImage>

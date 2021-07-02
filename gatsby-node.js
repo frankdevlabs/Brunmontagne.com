@@ -9,25 +9,6 @@ exports.createResolvers = async ({
   store,
   reporter,
 }) => {
-  // const imageFields = {
-  //   node: {
-  //     type: `File`,
-  //     resolve: ({ image: { url } }, args, context, info) => {
-  //       if (url !== "")
-  //         return createRemoteFileNode({
-  //           url,
-  //           store,
-  //           cache,
-  //           createNode,
-  //           createNodeId,
-  //           reporter,
-  //         })
-  //
-  //       return
-  //     },
-  //   },
-  // }
-
   const resolvers = {
     InstaNode: {
       linkedProducts: {
@@ -75,7 +56,6 @@ exports.createResolvers = async ({
       imageSrc: {
         type: `File`,
         resolve: (source, args, context, info) => {
-          console.log(source)
           if (source[0]) {
             const url = source[0].type === "image" ? source[0].url : ""
             if (url !== "")
@@ -92,15 +72,6 @@ exports.createResolvers = async ({
         },
       },
     },
-    // PrismicProductImagesGroupType: {
-    //   ...imageFields,
-    // },
-    // PrismicInventoryImagesGroupType: {
-    //   ...imageFields,
-    // },
-    // PrismicHomePageSlidesGroupType: {
-    //   ...imageFields,
-    // },
   }
 
   await createResolvers(resolvers)

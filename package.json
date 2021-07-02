@@ -19,7 +19,7 @@
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "embla-carousel": "^4.5.3",
-    "gatsby": "^3.3.1",
+    "gatsby": "^3.8.1",
     "gatsby-background-image": "^1.5.3",
     "gatsby-image": "^3.8.0",
     "gatsby-plugin-image": "^1.8.0",
