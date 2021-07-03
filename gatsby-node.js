@@ -272,6 +272,7 @@ exports.onCreatePage = async ({
       await createPage({
         ...page,
         path: localizedPath,
+        matchPath: page.matchPath ? `/${lang}${page.matchPath}` : undefined,
         context: {
           ...page.context,
           originalPath,
@@ -283,14 +284,17 @@ exports.onCreatePage = async ({
   )
 
   // Create a fallback redirect if the language is not supported or the
-  // Accept-Language header is missing for some reason
-  createRedirect({
-    fromPath: originalPath,
-    toPath: `/${defaultLanguage}${page.path}`,
-    isPermanent: false,
-    redirectInBrowser: isEnvDevelopment,
-    statusCode: 301,
-  })
+  // Accept-Language header is missing for some reason.
+  // We only do that if the originalPath is not present anymore (i.e. the original page was deleted)
+  if (deleteOriginalPages) {
+    createRedirect({
+      fromPath: originalPath,
+      toPath: `/${defaultLanguage}${page.path}`,
+      isPermanent: false,
+      redirectInBrowser: isEnvDevelopment,
+      statusCode: is404 ? 404 : 301,
+    })
+  }
 }
 
 exports.onPreBuild = async ({ actions: { createRedirect } }) => {
