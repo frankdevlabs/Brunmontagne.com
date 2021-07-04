@@ -9,7 +9,7 @@ const SEO = ({ title, pageTitle, description, noIndex }) => {
   const GOOGLE_FONTS_PATH =
     "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;300;400;700&display=swap"
   const { siteUrl } = useSiteMetadata()
-  const { supportedLanguages, locales } = DEFAULT_OPTIONS
+  const { supportedLanguages } = DEFAULT_OPTIONS
   const { t } = useTranslation()
   const { lang, originalPath } = usePageContext()
   const metaDescription = description || t("siteMetadata.description")
@@ -20,7 +20,7 @@ const SEO = ({ title, pageTitle, description, noIndex }) => {
   return (
     <Helmet
       htmlAttributes={{
-        lang: locales[lang],
+        lang: lang,
       }}
       defer={false}
       title={`${metaTitle} | ${metaPageTitle}`}
@@ -44,7 +44,7 @@ const SEO = ({ title, pageTitle, description, noIndex }) => {
           return {
             rel: "alternate",
             href: supportedLangCanonicalUrl,
-            hrefLang: locales[supportedLang],
+            hrefLang: lang,
           }
         })
       )}

@@ -250,7 +250,7 @@ exports.onCreatePage = async ({
         ...page.context,
         originalPath,
         lang: defaultLanguage,
-        locale: locales[defaultLanguage],
+        locale: defaultLanguage,
       },
     })
   }
