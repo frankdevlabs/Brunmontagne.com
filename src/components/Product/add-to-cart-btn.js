@@ -12,7 +12,7 @@ const AddToCartButton = props => {
       data-item-id={props.id}
       data-item-price={props.sale ? props.salePrice : props.price}
       data-item-url={
-        lang === "en" ? "/en" + props.slug + "/" : props.slug + "/"
+        lang === "en" ? "/en" + props.slug + "/" : "/nl" + props.slug + "/"
       }
       data-item-description={props.productSubTitle}
       data-item-image={props.image}
