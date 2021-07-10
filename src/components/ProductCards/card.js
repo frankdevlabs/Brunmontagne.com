@@ -1,12 +1,14 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { useTranslation } from "react-i18next"
 import Button from "../Button"
 import Link from "../Link"
 import * as styles from "../../scss/components/modules/productCard/card.module.scss"
+import useInView from "../../hooks/useInView"
 
 const Card = ({ data: { uid, data }, position, list }) => {
   const { t } = useTranslation("translation")
+
   const options = [
     ...new Set(
       data.variable_products.reduce((allOptions, cur) => {
@@ -80,18 +82,46 @@ const Card = ({ data: { uid, data }, position, list }) => {
       ? data.variable_products[0].product.document.data.sku
       : data.sku
 
+  const DataLayerValue = useMemo(() => {
+    return {
+      item_name: data.name,
+      item_id: id,
+      item_variant: productSubTitle,
+      item_brand: "Brunmontagne",
+      item_category: data.categories[0].category.document.uid,
+      item_list_name: list, // If associated with a list selection.
+      item_list_id: list, // If associated with a list selection.
+      index: position + 1, // If associated with a list selection.
+      quantity: 1,
+      ...(productSubTitle !== "" ? { item_variant: productSubTitle } : {}),
+      price: price,
+    }
+  }, [id, data, price, list, position, productSubTitle])
+
+  const [containerRef, isVisible] = useInView(
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    },
+    () => {
+      if (isVisible) {
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({
+          event: "viewed_list_item",
+          item: DataLayerValue,
+          element: containerRef,
+        })
+      }
+    },
+    true
+  )
+
   return (
     <div
+      ref={containerRef}
       data-product-id={id}
-      data-product-dl={JSON.stringify({
-        id: id,
-        name: data.name,
-        price: price,
-        category: data.categories[0].category.document.uid,
-        list: list,
-        position: position + 1,
-        ...(productSubTitle !== "" ? { variant: productSubTitle } : {}),
-      })}
+      data-product-dl={JSON.stringify(DataLayerValue)}
       className={styles.card + " column is-one-quarter is-half-touch"}
     >
       <div className={styles.card__container}>
