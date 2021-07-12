@@ -278,6 +278,7 @@ export const pageQuery = graphql`
                 gatsbyImageData(
                   width: 1920
                   quality: 70
+                  placeholder: BLURRED
                   webpOptions: { quality: 70 }
                 )
               }
