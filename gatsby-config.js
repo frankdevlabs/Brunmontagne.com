@@ -141,6 +141,15 @@ const config = {
       },
     },
     {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: "#130f40",
+        // Disable the loading spinner.
+        // showSpinner: false,
+      },
+    },
+    {
       resolve: "gatsby-plugin-preconnect",
       options: {
         domains: [
@@ -156,10 +165,6 @@ const config = {
           },
           {
             domain: "https://consent-brunmontagne.netlify.app",
-            crossOrigin: "anonymous",
-          },
-          {
-            domain: "https://tags-brunmontagne.netlify.app",
             crossOrigin: "anonymous",
           },
           {

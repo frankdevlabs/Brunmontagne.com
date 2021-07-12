@@ -16,6 +16,43 @@ import "../scss/pages/index.scss"
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
+
+  const onClickSendContactEventToFacebookBTN = method => {
+    const cart = window.Snipcart.store.getState().cart
+    const { items } = cart.items
+
+    let payload = {
+      content_ids: [],
+      content_type: "product",
+      contents: [],
+      currency: "EUR",
+      num_items: 0,
+      value: 0,
+    }
+
+    for (let i = 0; i < items.length; i++) {
+      payload.content_ids.push(items[i].id)
+      payload.contents.push({
+        id: items[i].id,
+        quantity: items[i].quantity,
+      })
+      payload.num_items = payload.num_items + items[i].quantity
+      payload.value = payload.value + items[i].quantity * items[i].price
+    }
+
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ pixel: null })
+    window.dataLayer.push({
+      event: "facebookEvent",
+      pixel: {
+        payload: payload,
+        event: "Contact",
+        email: cart.email,
+        action: method,
+      },
+    })
+  }
+
   return (
     <Layout
       seoPageTitle={t("home.pageTitle")}
@@ -124,6 +161,9 @@ const IndexPage = ({ data }) => {
                   targetBlank={true}
                   mode="primary"
                   id="whatsapp"
+                  onClick={() =>
+                    onClickSendContactEventToFacebookBTN("Whatsapp")
+                  }
                 >
                   WhatsApp
                 </ExtLink>
@@ -134,6 +174,7 @@ const IndexPage = ({ data }) => {
                   targetBlank={true}
                   mode="primary"
                   id="email"
+                  onClick={() => onClickSendContactEventToFacebookBTN("Email")}
                 >
                   Email (info@brunmontagne.com)
                 </ExtLink>
@@ -143,6 +184,9 @@ const IndexPage = ({ data }) => {
                   to="/contact/"
                   className="link link__primary"
                   id="contact-form"
+                  onClick={() =>
+                    onClickSendContactEventToFacebookBTN("Contact Form")
+                  }
                 >
                   {t("home.section-contact-btn")}
                 </Link>
