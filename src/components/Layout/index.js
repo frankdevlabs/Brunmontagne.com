@@ -28,7 +28,7 @@ const Layout = ({
       <div className="container">
         {/*<Discount />*/}
         <Navigation sticky={isSticky} />
-        <Header mode={headerMode} slides={slides} />
+        <Header mode={headerMode} />
         <main
           ref={element}
           className={`main-container ${

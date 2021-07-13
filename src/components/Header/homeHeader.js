@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import Button from "../Button"
 import Slider from "./slider"
 
-const HomeHeader = ({ slides }) => {
+const HomeHeader = () => {
   // const [isMobile, setIsMobile] = React.useState(true)
   //
   // React.useEffect(() => {
@@ -38,7 +38,7 @@ const HomeHeader = ({ slides }) => {
             </div>
           </div>
         </div>
-        <Slider slides={slides} />
+        <Slider />
         {/*{isMobile ? <Slider /> : null}*/}
       </div>
       {/*{!isMobile ? <TV /> : null}*/}

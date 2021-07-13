@@ -58,7 +58,6 @@ const IndexPage = ({ data }) => {
       seoPageTitle={t("home.pageTitle")}
       seoDescription={t("siteMetadata.description")}
       headerMode="home"
-      slides={data.reviews.data.images}
     >
       <section className="section-collection">
         <div className="section-collection__container ">
@@ -271,21 +270,6 @@ export const pageQuery = graphql`
     }
     reviews: prismicHomePage(lang: { eq: $locale }) {
       data {
-        images {
-          slide {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  width: 1920
-                  quality: 70
-                  placeholder: BLURRED
-                  webpOptions: { quality: 70 }
-                )
-              }
-            }
-          }
-        }
-
         reviews {
           review {
             document {
