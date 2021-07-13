@@ -3,13 +3,24 @@ import { useTranslation } from "react-i18next"
 import { GatsbyImage } from "gatsby-plugin-image"
 import ProductContext from "../Product/context"
 import * as styles from "../../scss/components/modules/productSpecifications.module.scss"
+import { graphql, useStaticQuery } from "gatsby"
 
-const Specifications = ({ image }) => {
+const Specifications = () => {
   const { t } = useTranslation("translation")
   const productSpecification = t("product.productSpecification")
   const {
     product: { specifications },
   } = useContext(ProductContext)
+  const image = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "representor-product-sketch.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(width: 850, quality: 50, webpOptions: { quality: 70 })
+        }
+      }
+    }
+  `)
+
   return (
     <div className={styles.specifications + " columns"}>
       <div className={styles.specifications__list + " column is-narrow"}>
@@ -26,7 +37,7 @@ const Specifications = ({ image }) => {
       <div className="column">
         <div className={styles.specifications__img}>
           <GatsbyImage
-            image={image.childImageSharp.gatsbyImageData}
+            image={image.file.childImageSharp.gatsbyImageData}
             alt="sketch image"
           />
         </div>

@@ -93,7 +93,9 @@ class Slider extends React.Component {
                   <div
                     className={`header-home__slide header-home__slide--${
                       index + 1
-                    }`}
+                    }
+                      ${index === 0 ? " active" : ""}
+                    `}
                     key={index}
                     ref={elem => (this.slides[index] = elem)}
                   >

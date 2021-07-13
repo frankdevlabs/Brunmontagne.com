@@ -106,23 +106,6 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const staticImages = await graphql(`
-    query {
-      backgroundProductPage: file(relativePath: { eq: "Adjustments.jpeg" }) {
-        childImageSharp {
-          gatsbyImageData(width: 878, quality: 70, webpOptions: { quality: 70 })
-        }
-      }
-      sketchImage: file(
-        relativePath: { eq: "representor-product-sketch.jpg" }
-      ) {
-        childImageSharp {
-          gatsbyImageData(width: 850, quality: 50, webpOptions: { quality: 70 })
-        }
-      }
-    }
-  `)
-
   const productPageTemplate = require.resolve(`./src/templates/productPage.js`)
   productPages.data.allPrismicProduct.edges.forEach(
     ({ node: { id, uid, lang, data } }) => {
@@ -140,7 +123,6 @@ exports.createPages = async ({ graphql, actions }) => {
           locale: lang,
           originalPath: `/${basePath}`,
           lang: sanitzedLang,
-          images: staticImages,
         },
       })
 
@@ -156,7 +138,6 @@ exports.createPages = async ({ graphql, actions }) => {
               locale: lang,
               originalPath: `/${basePath}variants/${document.uid}/`,
               lang: sanitzedLang,
-              images: staticImages,
             },
           })
       })

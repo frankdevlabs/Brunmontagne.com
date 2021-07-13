@@ -1,37 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { useTranslation } from "react-i18next"
-import { getImage } from "gatsby-plugin-image"
-import BackgroundImage from "../components/BackgroundImage"
 import Layout from "../components/Layout"
 import Product from "../components/Product"
 import ProductSpecifications from "../components/ProductSpecifications"
-import Reviews from "../components/Reviews"
-import ReviewForm from "../components/ReviewForm"
 import "../scss/templates/productPage.scss"
 import ProductSuggestions from "../components/ProductSuggestions"
+import ProductReviews from "../components/ProductReviews"
 
 const ProductPage = props => {
   const { t } = useTranslation()
-  const {
-    data,
-    location,
-    pageContext: { images },
-  } = props
+  const { data, location } = props
 
   const isWatchStrap =
     data.productPage.data.categories.filter(
       i => i.category.document.uid === "watch-strap"
     ).length > 0
-  const pluginImage = getImage(
-    images.data.backgroundProductPage.childImageSharp.gatsbyImageData
-  )
-  const gradient = `linear-gradient(
-                      to right bottom,
-                      rgba(255, 255, 255, 0.85),
-                      rgba(255, 255, 255, 0.88)
-      )`
-  const bgImage = [gradient, pluginImage]
 
   const strapSuggestionsTitle = isWatchStrap
     ? t("product.isWatchStrap.strapSuggestionsTitle")
@@ -56,15 +40,15 @@ const ProductPage = props => {
       {isWatchStrap ? null : (
         <section className="section-specifications">
           <div className="section-specifications__container">
-            <ProductSpecifications image={images.data.sketchImage} />
+            <ProductSpecifications />
           </div>
         </section>
       )}
       <section className="section-reviews">
-        <BackgroundImage image={bgImage} className="section-reviews">
-          <Reviews reviews={data.productPage.data.reviews} />
-          <ReviewForm uid={data.productPage.uid} />
-        </BackgroundImage>
+        <ProductReviews
+          reviews={data.productPage.data.reviews}
+          uid={data.productPage.uid}
+        />
       </section>
       <ProductSuggestions
         lang="nl"
