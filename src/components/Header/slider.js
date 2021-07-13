@@ -1,4 +1,5 @@
 import React from "react"
+import { graphql, StaticQuery } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 import { BgImage } from "gbimage-bridge"
 
@@ -17,6 +18,10 @@ class Slider extends React.Component {
       )
       this.timerID = setInterval(() => this.tick(), 4000)
     }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return false
   }
 
   componentWillUnmount() {
@@ -56,21 +61,52 @@ class Slider extends React.Component {
   }
 
   render() {
-    const { slides } = this.props
     return (
-      <div className="header-home__slides">
-        {slides.map((slide, index) => {
+      <StaticQuery
+        query={graphql`
+          query {
+            prismicHomePage(lang: { eq: "nl-nl" }) {
+              data {
+                images {
+                  slide {
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData(
+                          width: 1920
+                          quality: 70
+                          placeholder: BLURRED
+                          webpOptions: { quality: 70 }
+                        )
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `}
+        render={({ prismicHomePage: { data } }) => {
           return (
-            <div
-              className={`header-home__slide header-home__slide--${index + 1}`}
-              key={index}
-              ref={elem => (this.slides[index] = elem)}
-            >
-              <Background image={slide.node} />
+            <div className="header-home__slides">
+              {data.images.map(({ slide }, index) => {
+                return (
+                  <div
+                    className={`header-home__slide header-home__slide--${
+                      index + 1
+                    }
+                      ${index === 0 ? " active" : ""}
+                    `}
+                    key={index}
+                    ref={elem => (this.slides[index] = elem)}
+                  >
+                    <Background image={slide.localFile} />
+                  </div>
+                )
+              })}
             </div>
           )
-        })}
-      </div>
+        }}
+      />
     )
   }
 }

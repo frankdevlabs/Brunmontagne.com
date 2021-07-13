@@ -43,6 +43,7 @@ const config = {
     description: `Represents you`,
     supportedLanguages: ["nl", "en"],
   },
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -60,14 +61,7 @@ const config = {
       options: {
         repositoryName: `Brunmontagne-CMS`,
         accessToken: `${process.env.API_KEY}`,
-        linkResolver:
-          ({ node, key, value }) =>
-          post =>
-            `/${post.uid}`,
-        shouldDownloadImage: ({ node, key, value }) => {
-          // Return true to download the image or false to skip.
-          return true
-        },
+        linkResolver: post => `/${post.uid}`,
         schemas: {
           about_page: require("./schemas/about_page.json"),
           category: require("./schemas/category.json"),
@@ -147,9 +141,37 @@ const config = {
       },
     },
     {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: "#130f40",
+        // Disable the loading spinner.
+        // showSpinner: false,
+      },
+    },
+    {
       resolve: "gatsby-plugin-preconnect",
       options: {
         domains: [
+          { domain: "https://app.snipcart.com", crossOrigin: "anonymous" },
+          { domain: "https://www.google.nl", crossOrigin: "anonymous" },
+          {
+            domain: "https://www.google-analytics.com",
+            crossOrigin: "anonymous",
+          },
+          {
+            domain: "https://stats.g.doubleclick.net",
+            crossOrigin: "anonymous",
+          },
+          {
+            domain: "https://consent-brunmontagne.netlify.app",
+            crossOrigin: "anonymous",
+          },
+          {
+            domain: "https://rec.smartlook.com",
+            crossOrigin: "anonymous",
+          },
+          { domain: "https://fonts.googleapis.com", crossOrigin: "anonymous" },
           { domain: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
           {
             domain: `${process.env.GATSBY_TAG_CONTAINER_URL}`,

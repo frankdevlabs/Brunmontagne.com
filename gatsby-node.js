@@ -1,19 +1,6 @@
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
 const DEFAULT_OPTIONS = require("./constants").DEFAULT_OPTIONS
 
-exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
-  if (stage === "build-javascript") {
-    const config = getConfig()
-    const miniCssExtractPlugin = config.plugins.find(
-      plugin => plugin.constructor.name === "MiniCssExtractPlugin"
-    )
-    if (miniCssExtractPlugin) {
-      miniCssExtractPlugin.options.ignoreOrder = true
-    }
-    actions.replaceWebpackConfig(config)
-  }
-}
-
 exports.createResolvers = async ({
   actions: { createNode },
   cache,
@@ -22,25 +9,6 @@ exports.createResolvers = async ({
   store,
   reporter,
 }) => {
-  const imageFields = {
-    node: {
-      type: `File`,
-      resolve: ({ image: { url } }, args, context, info) => {
-        if (url !== "")
-          return createRemoteFileNode({
-            url,
-            store,
-            cache,
-            createNode,
-            createNodeId,
-            reporter,
-          })
-
-        return
-      },
-    },
-  }
-
   const resolvers = {
     InstaNode: {
       linkedProducts: {
@@ -49,69 +17,60 @@ exports.createResolvers = async ({
           locale: "String!",
         },
         resolve: (source, args, context, info) => {
-          // const arg = source.hashtags
-
-          return (
-            context.nodeModel.runQuery({
-              query: {
-                filter: {
-                  data: {
-                    hashtags: {
-                      elemMatch: { hashtag: { in: source.hashtags } },
-                    },
+          const result = context.nodeModel.runQuery({
+            query: {
+              filter: {
+                data: {
+                  hashtags: {
+                    elemMatch: { hashtag: { in: source.hashtags } },
                   },
-                  lang: { eq: args.locale || "nl-nl" },
                 },
+                lang: { eq: args.locale || "nl-nl" },
               },
-              type: "PrismicProduct",
-              firstOnly: false,
-            }) || []
-          )
+            },
+            type: "PrismicProduct",
+            firstOnly: false,
+          })
+          if (result.length === 0) {
+            throw new Error("Not found!")
+          }
+          return result
         },
       },
     },
-    PrismicAboutPageParagraphsGroupType: {
+    PrismicStructuredTextType: {
       paragraphType: {
         type: `String`,
         resolve: (source, args, context, info) => {
-          return source.content.raw[0].type
+          return source[0].type
         },
       },
-      alt: {
+      imageAlt: {
         type: `String`,
         resolve: (source, args, context, info) => {
-          return source.content.raw[0].alt
+          if (source[0] && source[0].type === "image") return source[0].alt
+
+          return null
         },
       },
-      image: {
+      imageSrc: {
         type: `File`,
         resolve: (source, args, context, info) => {
-          const url =
-            source.content.raw[0].type === "image"
-              ? source.content.raw[0].url
-              : ""
-          if (url !== "")
-            return createRemoteFileNode({
-              url,
-              store,
-              cache,
-              createNode,
-              createNodeId,
-              reporter,
-            })
-
-          return
+          if (source[0]) {
+            const url = source[0].type === "image" ? source[0].url : ""
+            if (url !== "")
+              return createRemoteFileNode({
+                url,
+                store,
+                cache,
+                createNode,
+                createNodeId,
+                reporter,
+              })
+          }
+          return null
         },
       },
-    },
-    PrismicProductImagesGroupType: {
-      ...imageFields,
-    },
-    PrismicInventoryImagesGroupType: {
-      ...imageFields,
-    },
-    PrismicHomePageSlidesGroupType: {
-      ...imageFields,
     },
   }
 
@@ -272,7 +231,7 @@ exports.onCreatePage = async ({
         ...page.context,
         originalPath,
         lang: defaultLanguage,
-        locale: locales[defaultLanguage],
+        locale: defaultLanguage,
       },
     })
   }
@@ -294,6 +253,7 @@ exports.onCreatePage = async ({
       await createPage({
         ...page,
         path: localizedPath,
+        matchPath: page.matchPath ? `/${lang}${page.matchPath}` : undefined,
         context: {
           ...page.context,
           originalPath,
@@ -305,14 +265,17 @@ exports.onCreatePage = async ({
   )
 
   // Create a fallback redirect if the language is not supported or the
-  // Accept-Language header is missing for some reason
-  createRedirect({
-    fromPath: originalPath,
-    toPath: `/${defaultLanguage}${page.path}`,
-    isPermanent: false,
-    redirectInBrowser: isEnvDevelopment,
-    statusCode: 301,
-  })
+  // Accept-Language header is missing for some reason.
+  // We only do that if the originalPath is not present anymore (i.e. the original page was deleted)
+  if (deleteOriginalPages) {
+    createRedirect({
+      fromPath: originalPath,
+      toPath: `/${defaultLanguage}${page.path}`,
+      isPermanent: false,
+      redirectInBrowser: isEnvDevelopment,
+      statusCode: is404 ? 404 : 301,
+    })
+  }
 }
 
 exports.onPreBuild = async ({ actions: { createRedirect } }) => {

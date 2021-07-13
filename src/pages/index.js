@@ -16,25 +16,53 @@ import "../scss/pages/index.scss"
 
 const IndexPage = ({ data }) => {
   const { t } = useTranslation()
-  const Cards = data.landingPage.edges.reduce(
-    (acc, cur) => [
-      ...acc,
-      { id: cur.node.id, uid: cur.node.uid, ...cur.node.data },
-    ],
-    []
-  )
+
+  const onClickSendContactEventToFacebookBTN = method => {
+    const cart = window.Snipcart.store.getState().cart
+    const { items } = cart.items
+
+    let payload = {
+      content_ids: [],
+      content_type: "product",
+      contents: [],
+      currency: "EUR",
+      num_items: 0,
+      value: 0,
+    }
+
+    for (let i = 0; i < items.length; i++) {
+      payload.content_ids.push(items[i].id)
+      payload.contents.push({
+        id: items[i].id,
+        quantity: items[i].quantity,
+      })
+      payload.num_items = payload.num_items + items[i].quantity
+      payload.value = payload.value + items[i].quantity * items[i].price
+    }
+
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ pixel: null })
+    window.dataLayer.push({
+      event: "facebookEvent",
+      pixel: {
+        payload: payload,
+        event: "Contact",
+        email: cart.email,
+        action: method,
+      },
+    })
+  }
 
   return (
     <Layout
       seoPageTitle={t("home.pageTitle")}
       seoDescription={t("siteMetadata.description")}
       headerMode="home"
-      slides={data.reviews.data.slides}
     >
       <section className="section-collection">
         <div className="section-collection__container ">
           <h2 className="heading-2">{t("home.section-collection-title")}</h2>
-          <ProductCards cards={Cards} list="Home Page" />
+          <ProductCards cards={data.landingPage.edges} list="Home Page" />
           <div className="section-collection__btn">
             <Button to="/collection/" className="btn btn--secondary">
               {t("home.section-collection-btn")}
@@ -132,6 +160,9 @@ const IndexPage = ({ data }) => {
                   targetBlank={true}
                   mode="primary"
                   id="whatsapp"
+                  onClick={() =>
+                    onClickSendContactEventToFacebookBTN("Whatsapp")
+                  }
                 >
                   WhatsApp
                 </ExtLink>
@@ -142,6 +173,7 @@ const IndexPage = ({ data }) => {
                   targetBlank={true}
                   mode="primary"
                   id="email"
+                  onClick={() => onClickSendContactEventToFacebookBTN("Email")}
                 >
                   Email (info@brunmontagne.com)
                 </ExtLink>
@@ -151,6 +183,9 @@ const IndexPage = ({ data }) => {
                   to="/contact/"
                   className="link link__primary"
                   id="contact-form"
+                  onClick={() =>
+                    onClickSendContactEventToFacebookBTN("Contact Form")
+                  }
                 >
                   {t("home.section-contact-btn")}
                 </Link>
@@ -235,18 +270,6 @@ export const pageQuery = graphql`
     }
     reviews: prismicHomePage(lang: { eq: $locale }) {
       data {
-        slides {
-          alt
-          node {
-            childImageSharp {
-              gatsbyImageData(
-                width: 1920
-                quality: 70
-                webpOptions: { quality: 70 }
-              )
-            }
-          }
-        }
         reviews {
           review {
             document {
@@ -296,16 +319,14 @@ export const pageQuery = graphql`
       }
       images {
         alt
-        node {
-          id
-          childImageSharp {
-            gatsbyImageData(
-              width: 430
-              placeholder: TRACED_SVG
-              layout: CONSTRAINED
-            )
-            fixed(width: 74) {
-              ...GatsbyImageSharpFixed
+        image {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(
+                width: 430
+                placeholder: TRACED_SVG
+                layout: CONSTRAINED
+              )
             }
           }
         }
@@ -348,10 +369,11 @@ export const pageQuery = graphql`
                 material
                 images {
                   alt
-                  node {
-                    id
-                    childImageSharp {
-                      gatsbyImageData(width: 74, layout: FIXED)
+                  image {
+                    localFile {
+                      childImageSharp {
+                        gatsbyImageData(width: 74, layout: FIXED)
+                      }
                     }
                   }
                 }

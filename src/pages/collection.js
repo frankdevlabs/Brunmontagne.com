@@ -6,14 +6,10 @@ import Blockquote from "../components/Blockquote"
 import BackgroundImage from "../components/BackgroundImage"
 import Layout from "../components/Layout"
 import ProductCards from "../components/ProductCards"
-import ParseImageData from "../utils/parseImageData"
 import "../scss/pages/collection.scss"
 
 const CollectionPage = ({ data }) => {
   const { t } = useTranslation()
-
-  const StrapCards = ParseImageData(data.watchStraps.edges)
-  const WatchCards = ParseImageData(data.watches.edges)
 
   return (
     <Layout
@@ -23,7 +19,7 @@ const CollectionPage = ({ data }) => {
       <section id="watches" className="section-watches">
         <div className="section-watches__container">
           <h1 className="heading-3">{t("collection.watchTitle")}</h1>
-          <ProductCards cards={WatchCards} list="Collection - Watch" />
+          <ProductCards cards={data.watches.edges} list="Collection - Watch" />
         </div>
       </section>
       <section className="section-collection-media">
@@ -43,7 +39,10 @@ const CollectionPage = ({ data }) => {
       <section id="watch-straps" className="section-watch-straps">
         <div className="section-watch-straps__container">
           <h3 className="heading-3">{t("collection.strapTitle")}</h3>
-          <ProductCards cards={StrapCards} list="Collection - Straps" />
+          <ProductCards
+            cards={data.watchStraps.edges}
+            list="Collection - Straps"
+          />
         </div>
       </section>
     </Layout>

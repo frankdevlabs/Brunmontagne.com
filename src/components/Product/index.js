@@ -34,7 +34,9 @@ class Product extends React.Component {
                     (cur, val) => {
                       if (val !== value.activeVariableProduct) {
                         const newImages = []
-                        const indices = cur.map(i => i.node.id)
+                        const indices = cur.map(i => {
+                          return i.image.localFile.id
+                        })
                         for (
                           let i = 0;
                           i < variableProducts[val].images.length;
@@ -42,7 +44,7 @@ class Product extends React.Component {
                         ) {
                           if (
                             indices.indexOf(
-                              variableProducts[val].images[i].node.id
+                              variableProducts[val].images[i].image.localFile.id
                             ) === -1
                           )
                             newImages.push(variableProducts[val].images[i])
@@ -149,7 +151,7 @@ class Product extends React.Component {
                     price={price}
                     slug={slug}
                     name={name}
-                    image={images[0].node.childImageSharp.gatsbyImageData.src}
+                    image={images[0].image.localFile.publicURL}
                     productSubTitle={productSubTitle}
                   />
                 </div>

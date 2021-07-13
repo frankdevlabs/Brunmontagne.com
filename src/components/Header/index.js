@@ -11,7 +11,7 @@ const Header = props => {
 
   return (
     <header className={classes}>
-      {props.mode === "home" ? <HomeHeader slides={props.slides} /> : null}
+      {props.mode === "home" ? <HomeHeader /> : null}
     </header>
   )
 }

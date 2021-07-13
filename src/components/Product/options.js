@@ -74,9 +74,9 @@ const Options = () => {
             return (
               <li
                 key={option.name}
-                className={`options__item-uurwerk ${
-                  active ? " options__item-uurwerk--active" : ""
-                }`}
+                className={`
+                  ${styles.options__itemUurwerk} 
+                  ${active ? styles.options__itemUurwerkActive : ""}`}
               >
                 <button
                   className={styles.options__btn}

@@ -67,7 +67,6 @@ yarn-error.log
 .idea
 .pnp/
 .pnp.js
-.yarn
 .yarn/*
 !.yarn/cache
 !.yarn/patches
@@ -77,3 +76,7 @@ yarn-error.log
 !.yarn/versions
 # Yarn Integrity file
 .yarn-integrity
+
+# graphql
+.graphqlconfig
+schema.graphql
