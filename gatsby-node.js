@@ -112,6 +112,16 @@ exports.createPages = async ({ graphql, actions }) => {
       const sanitzedLang = lang === "en-gb" ? "en" : "nl"
       const baseURI = lang === "en-gb" ? `/en/` : "/nl/"
       const basePath = `products/${uid}/`
+      const isEnvDevelopment = process.env.NODE_ENV === "development"
+
+      createRedirect({
+        fromPath: `/${basePath}`,
+        toPath: `${baseURI}${basePath}`,
+        Language: lang,
+        isPermanent: false,
+        redirectInBrowser: isEnvDevelopment,
+        statusCode: 301,
+      })
 
       createPage({
         path: `${baseURI}${basePath}`,
@@ -128,18 +138,28 @@ exports.createPages = async ({ graphql, actions }) => {
 
       data.variable_products.forEach(({ product: { document } }) => {
         if (document)
-          createPage({
-            path: `${baseURI}${basePath}variants/${document.uid}/`,
-            component: productPageTemplate,
-            context: {
-              id: id,
-              uid: uid,
-              variant: document.uid,
-              locale: lang,
-              originalPath: `/${basePath}variants/${document.uid}/`,
-              lang: sanitzedLang,
-            },
+          // create a redirect based on the accept-language header
+          createRedirect({
+            fromPath: `/${basePath}variants/${document.uid}/`,
+            toPath: `${baseURI}${basePath}variants/${document.uid}/`,
+            Language: lang,
+            isPermanent: false,
+            redirectInBrowser: isEnvDevelopment,
+            statusCode: 301,
           })
+
+        createPage({
+          path: `${baseURI}${basePath}variants/${document.uid}/`,
+          component: productPageTemplate,
+          context: {
+            id: id,
+            uid: uid,
+            variant: document.uid,
+            locale: lang,
+            originalPath: `/${basePath}variants/${document.uid}/`,
+            lang: sanitzedLang,
+          },
+        })
       })
     }
   )
@@ -163,6 +183,17 @@ exports.createPages = async ({ graphql, actions }) => {
     const sanitzedLang = lang === "en-gb" ? "en" : "nl"
     const baseURI = lang === "en-gb" ? `/en/` : "/nl/"
     const basePath = `${uid}/`
+    const isEnvDevelopment = process.env.NODE_ENV === "development"
+
+    // create a redirect based on the accept-language header
+    createRedirect({
+      fromPath: `/${basePath}`,
+      toPath: `${baseURI}${basePath}`,
+      Language: lang,
+      isPermanent: false,
+      redirectInBrowser: isEnvDevelopment,
+      statusCode: 301,
+    })
 
     createPage({
       path: `${baseURI}${basePath}`,
