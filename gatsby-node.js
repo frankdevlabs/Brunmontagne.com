@@ -117,7 +117,7 @@ exports.createPages = async ({ graphql, actions }) => {
       createRedirect({
         fromPath: `/${basePath}`,
         toPath: `${baseURI}${basePath}`,
-        Language: lang,
+        Language: sanitzedLang,
         isPermanent: false,
         redirectInBrowser: isEnvDevelopment,
         statusCode: 301,
@@ -142,7 +142,7 @@ exports.createPages = async ({ graphql, actions }) => {
           createRedirect({
             fromPath: `/${basePath}variants/${document.uid}/`,
             toPath: `${baseURI}${basePath}variants/${document.uid}/`,
-            Language: lang,
+            Language: sanitzedLang,
             isPermanent: false,
             redirectInBrowser: isEnvDevelopment,
             statusCode: 301,
@@ -189,7 +189,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: `/${basePath}`,
       toPath: `${baseURI}${basePath}`,
-      Language: lang,
+      Language: sanitzedLang,
       isPermanent: false,
       redirectInBrowser: isEnvDevelopment,
       statusCode: 301,
