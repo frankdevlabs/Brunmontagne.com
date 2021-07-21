@@ -118,9 +118,9 @@ exports.createPages = async ({ graphql, actions }) => {
         fromPath: `/${basePath}`,
         toPath: `${baseURI}${basePath}`,
         Language: sanitzedLang,
-        isPermanent: false,
+        isPermanent: true,
         redirectInBrowser: isEnvDevelopment,
-        statusCode: 301,
+        statusCode: 302,
       })
 
       createPage({
@@ -143,9 +143,9 @@ exports.createPages = async ({ graphql, actions }) => {
             fromPath: `/${basePath}variants/${document.uid}/`,
             toPath: `${baseURI}${basePath}variants/${document.uid}/`,
             Language: sanitzedLang,
-            isPermanent: false,
+            isPermanent: true,
             redirectInBrowser: isEnvDevelopment,
-            statusCode: 301,
+            statusCode: 302,
           })
 
         createPage({
@@ -190,9 +190,9 @@ exports.createPages = async ({ graphql, actions }) => {
       fromPath: `/${basePath}`,
       toPath: `${baseURI}${basePath}`,
       Language: sanitzedLang,
-      isPermanent: false,
+      isPermanent: true,
       redirectInBrowser: isEnvDevelopment,
-      statusCode: 301,
+      statusCode: 302,
     })
 
     createPage({
