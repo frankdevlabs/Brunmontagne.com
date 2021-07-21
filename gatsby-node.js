@@ -119,6 +119,7 @@ exports.createPages = async ({ graphql, actions }) => {
         toPath: `${baseURI}${basePath}`,
         Language: sanitzedLang,
         isPermanent: true,
+        force: true,
         redirectInBrowser: isEnvDevelopment,
         statusCode: 302,
       })
@@ -144,6 +145,7 @@ exports.createPages = async ({ graphql, actions }) => {
             toPath: `${baseURI}${basePath}variants/${document.uid}/`,
             Language: sanitzedLang,
             isPermanent: true,
+            force: true,
             redirectInBrowser: isEnvDevelopment,
             statusCode: 302,
           })
@@ -185,12 +187,24 @@ exports.createPages = async ({ graphql, actions }) => {
     const basePath = `${uid}/`
     const isEnvDevelopment = process.env.NODE_ENV === "development"
 
+    if (sanitzedLang === "nl") {
+      createRedirect({
+        fromPath: `/${basePath}`,
+        toPath: `${baseURI}${basePath}`,
+        isPermanent: true,
+        force: true,
+        redirectInBrowser: isEnvDevelopment,
+        statusCode: 302,
+      })
+    }
+
     // create a redirect based on the accept-language header
     createRedirect({
       fromPath: `/${basePath}`,
       toPath: `${baseURI}${basePath}`,
       Language: sanitzedLang,
       isPermanent: true,
+      force: true,
       redirectInBrowser: isEnvDevelopment,
       statusCode: 302,
     })
