@@ -118,11 +118,20 @@ exports.createPages = async ({ graphql, actions }) => {
         fromPath: `/${basePath}`,
         toPath: `${baseURI}${basePath}`,
         Language: sanitzedLang,
-        isPermanent: true,
-        force: true,
+        isPermanent: false,
         redirectInBrowser: isEnvDevelopment,
         statusCode: 302,
       })
+
+      if (sanitzedLang === "nl") {
+        createRedirect({
+          fromPath: `/${basePath}`,
+          toPath: `${baseURI}${basePath}`,
+          isPermanent: false,
+          redirectInBrowser: isEnvDevelopment,
+          statusCode: 301,
+        })
+      }
 
       createPage({
         path: `${baseURI}${basePath}`,
@@ -138,30 +147,40 @@ exports.createPages = async ({ graphql, actions }) => {
       })
 
       data.variable_products.forEach(({ product: { document } }) => {
-        if (document)
+        if (document) {
           // create a redirect based on the accept-language header
           createRedirect({
             fromPath: `/${basePath}variants/${document.uid}/`,
             toPath: `${baseURI}${basePath}variants/${document.uid}/`,
             Language: sanitzedLang,
-            isPermanent: true,
-            force: true,
+            isPermanent: false,
             redirectInBrowser: isEnvDevelopment,
-            statusCode: 302,
+            statusCode: 301,
           })
 
-        createPage({
-          path: `${baseURI}${basePath}variants/${document.uid}/`,
-          component: productPageTemplate,
-          context: {
-            id: id,
-            uid: uid,
-            variant: document.uid,
-            locale: lang,
-            originalPath: `/${basePath}variants/${document.uid}/`,
-            lang: sanitzedLang,
-          },
-        })
+          if (sanitzedLang === "nl") {
+            createRedirect({
+              fromPath: `/${basePath}variants/${document.uid}/`,
+              toPath: `${baseURI}${basePath}variants/${document.uid}/`,
+              isPermanent: false,
+              redirectInBrowser: isEnvDevelopment,
+              statusCode: 301,
+            })
+          }
+
+          createPage({
+            path: `${baseURI}${basePath}variants/${document.uid}/`,
+            component: productPageTemplate,
+            context: {
+              id: id,
+              uid: uid,
+              variant: document.uid,
+              locale: lang,
+              originalPath: `/${basePath}variants/${document.uid}/`,
+              lang: sanitzedLang,
+            },
+          })
+        }
       })
     }
   )
@@ -187,27 +206,25 @@ exports.createPages = async ({ graphql, actions }) => {
     const basePath = `${uid}/`
     const isEnvDevelopment = process.env.NODE_ENV === "development"
 
-    if (sanitzedLang === "nl") {
-      createRedirect({
-        fromPath: `/${basePath}`,
-        toPath: `${baseURI}${basePath}`,
-        isPermanent: true,
-        force: true,
-        redirectInBrowser: isEnvDevelopment,
-        statusCode: 302,
-      })
-    }
-
     // create a redirect based on the accept-language header
     createRedirect({
       fromPath: `/${basePath}`,
       toPath: `${baseURI}${basePath}`,
       Language: sanitzedLang,
-      isPermanent: true,
-      force: true,
+      isPermanent: false,
       redirectInBrowser: isEnvDevelopment,
-      statusCode: 302,
+      statusCode: 301,
     })
+
+    if (sanitzedLang === "nl") {
+      createRedirect({
+        fromPath: `/${basePath}`,
+        toPath: `${baseURI}${basePath}`,
+        isPermanent: false,
+        redirectInBrowser: isEnvDevelopment,
+        statusCode: 301,
+      })
+    }
 
     createPage({
       path: `${baseURI}${basePath}`,
