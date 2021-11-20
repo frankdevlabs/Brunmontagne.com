@@ -61,6 +61,13 @@
           "term": "Pre-orders",
           "slug": "pre-orders"
         },
+        "promo-fall-2021" : {
+          "term": "Discover",
+          "slug": "discover",
+          "tagline": "Special offer",
+          "fall": "Our Fall",
+          "promotion": "Promotion"
+        },
         "watch-straps": {
           "term": "Straps",
           "slug": "watch-straps"
@@ -189,6 +196,13 @@
         }, "pre-orders": {
           "term": "Pre-orders",
           "slug": "pre-orders"
+        },
+        "promo-fall-2021" : {
+          "term": "Ontdekken",
+          "slug": "ontdekken",
+          "tagline": "Speciale aanbieding",
+          "fall": "Najaar",
+          "promotion": "Promotie"
         },
         "watch-straps": {
           "term": "Horlogebanden",

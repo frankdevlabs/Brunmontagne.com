@@ -29,8 +29,37 @@
     text-align: left;
     margin-left: 2%;
 
+    // promo fall 2021 modal styling
+    position: absolute;
+    max-width: 379px;
+    max-height: 252px;
+    left: 5%;
+    background-color: rgba(5, 5, 5, 0.46);
+    padding: 2rem 5.2rem 2rem 3rem;
+    bottom: 10%;
+
+    @include respond($vp-sm) {
+      left: 0;
+      right: 0;
+      max-width: unset;
+      max-height: unset;
+      margin-left: auto;
+      margin-right: auto;
+      width: 280px;
+    }
+
+    & > a {
+      margin-top: 4.2rem;
+      text-align: center;
+      display: block !important;
+    }
+
     @include respond($vp-md) {
       margin-left: 4%;
+    }
+
+    @include respond($vp-sm) {
+      margin-left: auto;
     }
   }
 
@@ -117,6 +146,43 @@
 
     &.active {
       opacity: 1;
+    }
+  }
+
+  &__promo-poly-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: $hero-height;
+    width: 100%;
+    clip-path: polygon(89% 0, 100% 0, 100% 100%, 75% 100%);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.5);
+
+    @include respond($vp-sm) {
+      display: none;
+      visibility: hidden;
+    }
+
+    & > h3 {
+      bottom: 10%;
+      position: absolute;
+      z-index: 13;
+      right: 2rem;
+      text-transform: uppercase;
+      text-align: left;
+      max-width: 17%;
+
+      @include respond($vp-lg) {
+        font-size: 2.5rem;
+        line-height: 4.2rem;
+      }
+
+      @include respond($vp-md) {
+        font-size: 2rem;
+        line-height: 3.8rem;
+      }
+
     }
   }
 
