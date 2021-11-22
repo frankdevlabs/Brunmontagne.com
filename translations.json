@@ -94,7 +94,7 @@
         "description": "Product description",
         "image": "Image",
         "of": "of",
-        "regularPrice": "Regular price",
+        "regularPrice": "Discounted",
         "youSave": "You safe",
         "availableIcon": "In stock",
         "availableStockMsg": "available",

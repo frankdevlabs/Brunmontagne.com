@@ -52,6 +52,16 @@ const Card = ({ data: { uid, data }, position, list }) => {
       ? data.variable_products[0].product.document.data.price
       : data.price
 
+  const isDiscounted =
+    data.variable_products.length > 0
+      ? data.variable_products[0].product.document.data.discount_active
+      : data.discount_active
+
+  const discountPrice =
+    data.variable_products.length > 0
+      ? data.variable_products[0].product.document.data.discount_price
+      : data.discount_price
+
   const firstStrapOption =
     data.variable_products.length > 0
       ? data.variable_products[0].product.document.data.inventory_components.filter(
@@ -173,7 +183,8 @@ const Card = ({ data: { uid, data }, position, list }) => {
               <p className={styles.card__subTitle}>{data.subtitle.text}</p>
             </div>
             <div className={styles.card__price + " column is-narrow"}>
-              <span className="price">&euro; {price},-</span>
+              <span className={styles.card__priceRegular}>&euro; {isDiscounted ? discountPrice : price},-</span>
+              {isDiscounted ? <span className={styles.card__priceDiscount}>{t("product.regularPrice")}: &euro;<del>{price}</del></span> : null}
             </div>
           </div>
           <div
