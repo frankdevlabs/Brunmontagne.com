@@ -65,8 +65,9 @@
           "term": "Discover",
           "slug": "discover",
           "tagline": "Special offer",
-          "fall": "Our Fall",
-          "promotion": "Promotion"
+          "fall": "15% Discount!",
+          "promotion": "Use the code",
+          "code": "BLACKFRIDAY"
         },
         "watch-straps": {
           "term": "Straps",
@@ -198,11 +199,12 @@
           "slug": "pre-orders"
         },
         "promo-fall-2021" : {
-          "term": "Ontdekken",
-          "slug": "ontdekken",
+          "term": "Bekijken",
+          "slug": "bekijken",
           "tagline": "Speciale aanbieding",
-          "fall": "Najaar",
-          "promotion": "Promotie"
+          "fall": "15% Korting!",
+          "promotion": "Gebruik de code",
+          "code": "BLACKFRIDAY"
         },
         "watch-straps": {
           "term": "Horlogebanden",

@@ -21,7 +21,10 @@ const HomeHeader = () => {
           <div className="header-home__text-wrapper">
             <h1 className="heading-1">brunmontagne</h1>
             <p className="heading-tagline">Represents you</p>
-            <h2 className="promo-font">{t("navigation.promo-fall-2021.fall")} <br/> {t("navigation.promo-fall-2021.promotion")}</h2>
+            <h2 className="promo-font">{t("navigation.promo-fall-2021.fall")}</h2>
+            <span className="promo-font-tagline">{t("navigation.promo-fall-2021.promotion")}{" "}
+              <u className="promo-font-tagline-innner">{t("navigation.promo-fall-2021.code")}</u>
+            </span>
             <Button
               to="/collection#watches"
               className="btn btn--secondary btn--cta"
