@@ -1,0 +1,22 @@
+{
+  "name": "brunmontagne.com-with-shopify-storefront-api",
+  "version": "0.0.1",
+  "description": "Gatsby ecommerce website with Shopify Storefront API",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankdevlabs/Brunmontagne.com.git"
+  },
+  "keywords": [
+    "gatsby",
+    "shopify"
+  ],
+  "author": "Frank de Vries",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frankdevlabs/Brunmontagne.com/issues"
+  },
+  "homepage": "https://github.com/frankdevlabs/Brunmontagne.com#readme"
+}
