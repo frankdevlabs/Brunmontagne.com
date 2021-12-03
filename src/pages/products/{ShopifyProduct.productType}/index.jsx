@@ -1,0 +1,33 @@
+import * as React from "react"
+import { graphql } from "gatsby"
+import ProductListing from "../../../components/product-listing"
+// import slugify from "@sindresorhus/slugify"
+
+export default function ProductTypeIndex({
+  data: { products },
+  pageContext: { productType },
+}) {
+  return (
+    <div>
+      <h1>{productType}</h1>
+      <ProductListing products={products.nodes} />
+    </div>
+  )
+}
+
+export const query = graphql`
+  query ($productType: String!) {
+    products: allShopifyProduct(
+      filter: { productType: { eq: $productType } }
+      sort: { fields: publishedAt, order: ASC }
+      limit: 24
+    ) {
+      nodes {
+        ...ProductCard
+      }
+      pageInfo {
+        hasNextPage
+      }
+    }
+  }
+`
