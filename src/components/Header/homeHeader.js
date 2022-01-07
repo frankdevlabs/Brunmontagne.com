@@ -33,7 +33,7 @@ const HomeHeader = () => {
               {/*</u>*/}
             </span>
             <Button
-              to="/products/representor-steel-green/"
+              to="/products/representor-steel-silver/"
               className="btn btn--secondary btn--cta"
             >
               {t("navigation.promo-fall-2021.term")}
