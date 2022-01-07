@@ -15,18 +15,25 @@ const HomeHeader = () => {
     <>
       <div className="header-home__cover">
         <div className="header-home__promo-poly-modal">
-          <h3 className="promo-font-side">{t("navigation.promo-fall-2021.tagline")}</h3>
+          <h3 className="promo-font-side">
+            {t("navigation.promo-fall-2021.tagline")}
+          </h3>
         </div>
         <div className="header-home__text">
           <div className="header-home__text-wrapper">
             <h1 className="heading-1">brunmontagne</h1>
             <p className="heading-tagline">Represents you</p>
-            <h2 className="promo-font">{t("navigation.promo-fall-2021.fall")}</h2>
-            <span className="promo-font-tagline">{t("navigation.promo-fall-2021.promotion")}{" "}
-              <u className="promo-font-tagline-innner">{t("navigation.promo-fall-2021.code")}</u>
+            <h2 className="promo-font">
+              {t("navigation.promo-fall-2021.fall")}
+            </h2>
+            <span className="promo-font-tagline">
+              {t("navigation.promo-fall-2021.promotion")}{" "}
+              {/*<u className="promo-font-tagline-innner">*/}
+              {/*  {t("navigation.promo-fall-2021.code")}*/}
+              {/*</u>*/}
             </span>
             <Button
-              to="/collection#watches"
+              to="/products/representor-steel-green/"
               className="btn btn--secondary btn--cta"
             >
               {t("navigation.promo-fall-2021.term")}

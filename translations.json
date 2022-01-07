@@ -64,10 +64,10 @@
         "promo-fall-2021" : {
           "term": "Discover",
           "slug": "discover",
-          "tagline": "Special offer",
-          "fall": "Holiday prices!",
-          "promotion": "Use the code",
-          "code": "HOLIDAYS2021"
+          "tagline": "",
+          "fall": "Representor 40mm",
+          "promotion": "Newest model. Pre-order now.",
+          "code": ""
         },
         "watch-straps": {
           "term": "Straps",
@@ -199,12 +199,12 @@
           "slug": "pre-orders"
         },
         "promo-fall-2021" : {
-          "term": "Bekijken",
-          "slug": "bekijken",
-          "tagline": "Speciale aanbieding",
-          "fall": "Feestdagen actie!",
-          "promotion": "Gebruik de code",
-          "code": "HOLIDAYS2021"
+          "term": "Ontdekken",
+          "slug": "ontdekken",
+          "tagline": "",
+          "fall": "Representor 40mm",
+          "promotion": "Nieuw model. Pre-order 'm gelijk.",
+          "code": ""
         },
         "watch-straps": {
           "term": "Horlogebanden",
