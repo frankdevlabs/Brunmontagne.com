@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react" // eslint-disable-line no-unused-vars
 import fetch from "isomorphic-fetch"
 import Client from "shopify-buy"
 

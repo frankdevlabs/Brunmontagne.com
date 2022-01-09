@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react" // eslint-disable-line no-unused-vars
 import { graphql } from "gatsby"
 // import { GatsbyImage } from "gatsby-plugin-image"
 // import { getShopifyImage } from "gatsby-source-shopify"

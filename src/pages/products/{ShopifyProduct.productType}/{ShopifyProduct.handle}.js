@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react" // eslint-disable-line no-unused-vars
 import { graphql } from "gatsby"
 // import isEqual from "lodash.isequal"
 // import { GatsbyImage, getSrc } from "gatsby-plugin-image"

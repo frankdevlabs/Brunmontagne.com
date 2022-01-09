@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: process.env.GATSBY_SITE_URL,
     hrefLang: "nl",
     siteDescription: "Represents you.",
-    siteImage: "/op-brand-image.jpg",
+    siteImage: "/placeholder-image.jpg",
   },
   flags: {
     FAST_DEV: true,
@@ -30,6 +30,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/locales`,
         name: `locale`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/assets`,
+        name: `assets`,
       },
     },
     {

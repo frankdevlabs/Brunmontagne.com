@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react" // eslint-disable-line no-unused-vars
 import ProductCard from "./product-card"
 
 // To optimize LCP we mark the first product card as eager so the image gets loaded faster
