@@ -1,6 +1,15 @@
-import * as React from "react"
-import { StoreProvider } from "./src/context/store-context"
+import React from "react" // eslint-disable-line no-unused-vars
 
-export const wrapRootElement = ({ element }) => (
-  <StoreProvider>{element}</StoreProvider>
-)
+import App from "./src/app"
+
+export const onClientEntry = () => {
+  // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
+  if (!(`IntersectionObserver` in window)) {
+    import(`intersection-observer`)
+    console.log(`# IntersectionObserver is polyfilled!`)
+  }
+}
+
+export const wrapRootElement = ({ element }) => {
+  return <App>{element}</App>
+}

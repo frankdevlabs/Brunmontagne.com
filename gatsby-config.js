@@ -14,6 +14,7 @@ module.exports = {
     FAST_DEV: true,
   },
   plugins: [
+    "gatsby-plugin-emotion",
     {
       resolve: "gatsby-source-shopify",
       options: {
@@ -40,6 +41,14 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /vectors/,
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
@@ -52,7 +61,6 @@ module.exports = {
           interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
           },
-          keySeparator: false,
           nsSeparator: false,
         },
         // To ignore pages, see: https://github.com/microapps/gatsby-plugin-react-i18next/blob/master/example/gatsby-config.js

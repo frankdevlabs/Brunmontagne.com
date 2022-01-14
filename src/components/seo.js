@@ -4,8 +4,12 @@ import { useTranslation } from "gatsby-plugin-react-i18next"
 
 function Seo(props) {
   const { description, lang, keywords, title, image, type, path } = props
+  /*
+   Google Fonts share link (used to adjust settings):
+   https://fonts.google.com/share?selection.family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,700%7CRokkitt:wght@400;700
+   */
   const GOOGLE_FONTS_PATH =
-    "https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700|Raleway:300,400,400i,700&display=swap"
+    "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,700&family=Rokkitt:wght@400;700&display=swap"
 
   const { t } = useTranslation()
   const metaDescription = description || t("description") || ""

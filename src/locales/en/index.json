@@ -1,5 +1,12 @@
 {
   "title": "Brunmontagne",
   "pageTitle": "Represents you",
-  "description": "Brunmontagne, Represents You. 'Stand out without exaggerating and suitable for any occasion', Pascal Bruinenberg, founder."
+  "description": "Brunmontagne, Represents You. 'Stand out without exaggerating and suitable for any occasion', Pascal Bruinenberg, founder.",
+  "hero" : {
+    "subtitle": "The Representor of",
+    "title-including": "With",
+    "title-automatic": "automatic",
+    "title-movement-of": "movement of",
+    "button-link": "Collection"
+  }
 }

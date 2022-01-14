@@ -1,0 +1,16 @@
+{
+  "menu": [
+    {
+      "label": "Collectie",
+      "to": "/collection"
+    },
+    {
+      "label": "Ons verhaal",
+      "to": "/our-story"
+    },
+    {
+      "label": "Contact",
+      "to": "#contact"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "menu": [
+    {
+      "label": "Collection",
+      "to": "/collection/"
+    },
+    {
+      "label": "Our story",
+      "to": "/our-story/"
+    },
+    {
+      "label": "Contact",
+      "to": "#contact"
+    }
+  ]
+}

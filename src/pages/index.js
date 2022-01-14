@@ -3,6 +3,7 @@ import { useTranslation } from "gatsby-plugin-react-i18next"
 import { graphql } from "gatsby"
 import ProductListing from "../components/product-listing"
 import LayoutContainer from "../containers/layout-container"
+import HeroSection from "../sections/index/hero"
 
 export const query = graphql`
   query ($language: String!) {
@@ -23,22 +24,22 @@ export const query = graphql`
   }
 `
 
-const IndexPage = ({ data, pageContext }) => {
-  console.log(pageContext)
+const IndexPage = ({ data, pageContext, location }) => {
   const { t } = useTranslation()
   const description = t("description")
   const title = t("pageTitle")
-  console.log(description, title)
+
   return (
     <LayoutContainer
       title={title}
       description={description}
-      path="/"
+      path={location.pathname}
       type="website"
       lang={pageContext.i18n.language}
     >
-      <h1>{t("title")}</h1>
-      <ProductListing products={data?.collection?.products} />
+      <HeroSection />
+      {/*<h1>{t("title")}</h1>*/}
+      {/*<ProductListing products={data?.collection?.products} />*/}
     </LayoutContainer>
   )
 }
