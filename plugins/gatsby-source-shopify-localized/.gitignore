@@ -52,8 +52,7 @@ typings/
 *.tgz
 
 # dotenv environment variable files
-.env.development
-.env.production
+.env*
 
 # gatsby files
 .cache/
@@ -64,19 +63,7 @@ public
 
 # Yarn
 yarn-error.log
-.idea
 .pnp/
 .pnp.js
-.yarn/*
-!.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
 # Yarn Integrity file
 .yarn-integrity
-
-# graphql
-.graphqlconfig
-schema.graphql

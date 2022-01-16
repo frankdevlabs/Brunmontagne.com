@@ -1,6 +1,6 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -15,6 +15,16 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-emotion",
+    {
+      resolve: "gatsby-source-shopify-localized",
+      options: {
+        password: process.env.SHOPIFY_SHOP_PASSWORD,
+        storeUrl: process.env.GATSBY_SHOPIFY_STORE_URL,
+        shopifyConnections: ["collections"],
+        translatedLangs: ["en"],
+        defaultLanguage: "nl",
+      },
+    },
     {
       resolve: "gatsby-source-shopify",
       options: {
@@ -73,4 +83,4 @@ module.exports = {
       },
     },
   ].filter(Boolean),
-}
+};

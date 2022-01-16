@@ -4,6 +4,7 @@
   "description": "Gatsby ecommerce website with Shopify Storefront API",
   "scripts": {
     "develop": "gatsby develop",
+    "debug": "gatsby clean && node $NODE_DEBUG_OPTION ./node_modules/.bin/gatsby develop -p 5555",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
@@ -37,6 +38,7 @@
     "gatsby-plugin-sharp": "^4.4.0",
     "gatsby-source-filesystem": "^4.4.0",
     "gatsby-source-shopify": "^6.4.0",
+    "gatsby-source-shopify-localized": "file:plugins/gatsby-source-shopify-localized",
     "gatsby-transformer-sharp": "^4.4.0",
     "gbimage-bridge": "^0.2.1",
     "i18next": "^21.6.5",

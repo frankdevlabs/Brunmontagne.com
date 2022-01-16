@@ -1,0 +1,20 @@
+{
+  "name": "gatsby-source-shopify-localized",
+  "version": "1.0.0",
+  "description": "An localization extension of the gatsby-source-shopify plugin.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"No build script setup\""
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-source-shopify-localized"
+  ],
+  "author": "Frank de Vries",
+  "license": "MIT",
+  "dependencies": {
+    "gatsby-plugin-utils": "^2.5.0",
+    "gatsby-source-shopify": "^6.5.1"
+  }
+}
