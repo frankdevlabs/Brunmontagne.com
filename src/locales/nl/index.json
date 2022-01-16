@@ -8,5 +8,9 @@
     "title-automatic": "automatisch",
     "title-movement-of": "uurwerk van",
     "button-link": "Collectie"
+  },
+  "product": {
+    "variant": "Variant",
+    "variants": "Varianten"
   }
 }

@@ -2,11 +2,11 @@
   "menu": [
     {
       "label": "Collectie",
-      "to": "/collection"
+      "to": "/collection/"
     },
     {
       "label": "Ons verhaal",
-      "to": "/our-story"
+      "to": "/our-story/"
     },
     {
       "label": "Contact",

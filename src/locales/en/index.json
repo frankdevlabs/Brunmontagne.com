@@ -8,5 +8,9 @@
     "title-automatic": "automatic",
     "title-movement-of": "movement of",
     "button-link": "Collection"
+  },
+  "product": {
+    "variant": "Variant",
+    "variants": "Variants"
   }
 }

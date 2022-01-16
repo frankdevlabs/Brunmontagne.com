@@ -73,8 +73,14 @@ const ThemeProvider = ({ children }) => {
               justifyContent: "space-between",
               alignItems: "center",
             },
+            ".flexbox.grid": {
+              flexWrap: "wrap",
+            },
             ".flexbox.justifyEnd": {
               justifyContent: "flex-end",
+            },
+            ".flexbox.alignBaseline": {
+              alignItems: "baseline",
             },
             ".flexbox.col-margin": {
               margin: "0 -15px",
@@ -85,6 +91,9 @@ const ThemeProvider = ({ children }) => {
             },
             ".flexbox .col.third": {
               flex: "0 1 33.3%",
+            },
+            ".flexbox .col.fourth": {
+              flex: "0 1 25%",
             },
           })}
         />
