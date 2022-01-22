@@ -1,9 +1,9 @@
-import React from "react" // eslint-disable-line no-unused-vars
-import SectionTitle from "../../components/section-title"
-import ProductListing from "../../components/product-listing"
+import React from "react"; // eslint-disable-line no-unused-vars
+import SectionTitle from "../../components/section-title";
+import ProductListing from "../../components/product-listing";
 
-const Collection = props => {
-  const { products } = props
+const Collection = (props) => {
+  const { products } = props;
   return (
     <section>
       <div className="container">
@@ -20,7 +20,7 @@ const Collection = props => {
         <ProductListing products={products} />
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Collection
+export default Collection;

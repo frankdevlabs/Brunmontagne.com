@@ -1,4 +1,4 @@
-import React from "react" // eslint-disable-line no-unused-vars
+import React from "react"; // eslint-disable-line no-unused-vars
 
 const SectionTitle = ({ children }) => (
   <h2
@@ -13,6 +13,6 @@ const SectionTitle = ({ children }) => (
   >
     {children}
   </h2>
-)
+);
 
-export default SectionTitle
+export default SectionTitle;

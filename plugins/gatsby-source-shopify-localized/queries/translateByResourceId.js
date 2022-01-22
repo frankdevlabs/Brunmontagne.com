@@ -15,4 +15,4 @@ query TRANSLATE_BY_RESOURCE_ID($resourceId: ID!, $locale: String = "en") {
         }
       }
     }
-`
+`;

@@ -4,17 +4,17 @@ const bp = {
   lg: 992,
   xl: 1200,
   xxl: 1600,
-}
+};
 
-const mq = n => {
-  const bpArray = Object.keys(bp).map(key => [key, bp[key]])
+const mq = (n) => {
+  const bpArray = Object.keys(bp).map((key) => [key, bp[key]]);
 
   const [result] = bpArray.reduce((acc, [name, size]) => {
-    if (n === name) return [...acc, `@media (max-width: ${size}px)`]
-    return acc
-  }, [])
+    if (n === name) return [...acc, `@media (max-width: ${size}px)`];
+    return acc;
+  }, []);
 
-  return result
-}
+  return result;
+};
 
-export default mq
+export default mq;

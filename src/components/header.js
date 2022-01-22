@@ -1,25 +1,25 @@
-import React from "react" // eslint-disable-line no-unused-vars
+import React from "react"; // eslint-disable-line no-unused-vars
 import {
   useTranslation,
   useI18next,
   Link as I18NextLink,
-} from "gatsby-plugin-react-i18next"
-import { useTheme } from "@emotion/react"
-import mq from "../theme/media-queries"
-import BMLogo from "../assets/vectors/bm-logo-vector.svg"
-import ShoppingCart from "../assets/vectors/shopping-cart.svg"
-import User from "../assets/vectors/user.svg"
+} from "gatsby-plugin-react-i18next";
+import { useTheme } from "@emotion/react";
+import mq from "../theme/media-queries";
+import BMLogo from "../assets/vectors/bm-logo-vector.svg";
+import ShoppingCart from "../assets/vectors/shopping-cart.svg";
+import User from "../assets/vectors/user.svg";
 
 const NavList = ({ lang }) => {
-  const { t } = useTranslation()
-  const NavItems = t("menu", { returnObjects: true })
+  const { t } = useTranslation();
+  const NavItems = t("menu", { returnObjects: true });
 
   return NavItems.map((i, n) => (
     <NavItem key={n} to={i.to} lang={lang}>
       {i.label}
     </NavItem>
-  ))
-}
+  ));
+};
 
 const NavItem = ({ to, children, lang }) => (
   <I18NextLink
@@ -41,11 +41,11 @@ const NavItem = ({ to, children, lang }) => (
   >
     {children}
   </I18NextLink>
-)
+);
 
 const Header = () => {
-  const theme = useTheme()
-  const { lang } = useI18next()
+  const theme = useTheme();
+  const { lang } = useI18next();
   return (
     <header
       css={{
@@ -105,7 +105,7 @@ const Header = () => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

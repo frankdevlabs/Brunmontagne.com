@@ -5,7 +5,7 @@ const paddingStyles = {
     MD: "2.5rem",
     XL: "4.5rem",
   },
-}
+};
 
 const darkThemeColors = {
   colors: {
@@ -17,11 +17,11 @@ const darkThemeColors = {
     GREEN: "#33DBC4",
     YELLOW: "#DCD40E",
   },
-}
+};
 
 export const useTheme = () => {
   return {
     ...darkThemeColors,
     ...paddingStyles,
-  }
-}
+  };
+};

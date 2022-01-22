@@ -1,30 +1,30 @@
-import React from "react" // eslint-disable-line no-unused-vars
-import { Helmet } from "react-helmet"
-import { useTranslation } from "gatsby-plugin-react-i18next"
+import React from "react"; // eslint-disable-line no-unused-vars
+import { Helmet } from "react-helmet";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 function Seo(props) {
-  const { description, lang, keywords, title, image, type, path } = props
+  const { description, lang, keywords, title, image, type, path } = props;
   /*
    Google Fonts share link (used to adjust settings):
    https://fonts.google.com/share?selection.family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,700%7CRokkitt:wght@400;700
    */
   const GOOGLE_FONTS_PATH =
-    "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,700&family=Rokkitt:wght@400;700&display=swap"
+    "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,700&family=Rokkitt:wght@400;700&display=swap";
 
-  const { t } = useTranslation()
-  const metaDescription = description || t("description") || ""
-  const siteTitle = t("title") || ""
+  const { t } = useTranslation();
+  const metaDescription = description || t("description") || "";
+  const siteTitle = t("title") || "";
   const metaImage =
     image && image.asset
       ? image.asset.src
-      : `${process.env.GATSBY_HOME_PAGE}/op-brand-image.jpg`
-  const metaImageAlt = (image && image.alt) || "Brunmontagne.com"
+      : `${process.env.GATSBY_HOME_PAGE}/op-brand-image.jpg`;
+  const metaImageAlt = (image && image.alt) || "Brunmontagne.com";
   const canonicalUrl = `${process.env.GATSBY_HOME_PAGE}${
     lang === "nl" ? "" : "/en/"
-  }${path}`
+  }${path}`;
   const nonCanonicalUrl = `${process.env.GATSBY_HOME_PAGE}${
     lang !== "nl" ? "" : "/en"
-  }${path}`
+  }${path}`;
 
   return (
     <Helmet
@@ -120,7 +120,7 @@ function Seo(props) {
         {` < link href=${GOOGLE_FONTS_PATH} rel="stylesheet" type="text/css" />`}
       </noscript>
     </Helmet>
-  )
+  );
 }
 
-export default Seo
+export default Seo;

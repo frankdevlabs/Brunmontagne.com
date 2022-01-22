@@ -1,9 +1,9 @@
-import React from "react" // eslint-disable-line no-unused-vars
-import { useTheme } from "@emotion/react"
-import mq from "../theme/media-queries"
+import React from "react"; // eslint-disable-line no-unused-vars
+import { useTheme } from "@emotion/react";
+import mq from "../theme/media-queries";
 
 const Footer = () => {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <footer
       css={{
@@ -21,7 +21,7 @@ const Footer = () => {
     >
       footer placeholder
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

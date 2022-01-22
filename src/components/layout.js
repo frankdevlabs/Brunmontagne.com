@@ -1,12 +1,12 @@
-import React from "react" // eslint-disable-line no-unused-vars
+import React from "react"; // eslint-disable-line no-unused-vars
 // import { SkipNavContent, SkipNavLink } from "./skip-nav"
-import Header from "./header"
+import Header from "./header";
 // import { Footer } from "./footer"
-import Seo from "./seo"
+import Seo from "./seo";
 
 function Layout(props) {
-  const { children } = props
-  console.log(props.path)
+  const { children } = props;
+  console.log(props.path);
   return (
     <div
       css={{
@@ -30,7 +30,7 @@ function Layout(props) {
       </main>
       {/*<Footer />*/}
     </div>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

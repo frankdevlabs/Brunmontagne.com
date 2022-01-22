@@ -1,11 +1,11 @@
-import React from "react" // eslint-disable-line no-unused-vars
-import { graphql, useStaticQuery } from "gatsby"
-import { getImage } from "gatsby-plugin-image"
-import { useTranslation } from "gatsby-plugin-react-i18next"
-import { convertToBgImage } from "gbimage-bridge"
-import BackgroundImage from "gatsby-background-image"
-import HeroToMainOverlay from "../../assets/vectors/hero-to-main-overlay.svg"
-import Link from "../../components/link"
+import React from "react"; // eslint-disable-line no-unused-vars
+import { graphql, useStaticQuery } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
+import { useTranslation } from "gatsby-plugin-react-i18next";
+import { convertToBgImage } from "gbimage-bridge";
+import BackgroundImage from "gatsby-background-image";
+import HeroToMainOverlay from "../../assets/vectors/hero-to-main-overlay.svg";
+import Link from "../../components/link";
 
 const SectionWithBackgroundImage = ({ children }) => {
   const { placeholderImage } = useStaticQuery(
@@ -24,9 +24,9 @@ const SectionWithBackgroundImage = ({ children }) => {
         }
       }
     `
-  )
-  const image = getImage(placeholderImage)
-  const bgImage = convertToBgImage(image)
+  );
+  const image = getImage(placeholderImage);
+  const bgImage = convertToBgImage(image);
   return (
     <BackgroundImage
       Tag="section"
@@ -43,11 +43,11 @@ const SectionWithBackgroundImage = ({ children }) => {
     >
       {children}
     </BackgroundImage>
-  )
-}
+  );
+};
 
 const Hero = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <>
       <SectionWithBackgroundImage>
@@ -98,7 +98,7 @@ const Hero = () => {
         <HeroToMainOverlay />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

@@ -1,17 +1,17 @@
-import React from "react" // eslint-disable-line no-unused-vars
+import React from "react"; // eslint-disable-line no-unused-vars
 import {
   Global,
   css,
   ThemeProvider as EmotionThemeProvider,
-} from "@emotion/react"
+} from "@emotion/react";
 
-import ThemeContext from "./context"
-import { useTheme } from "./theme"
+import ThemeContext from "./context";
+import { useTheme } from "./theme";
 
-import mq from "./media-queries"
+import mq from "./media-queries";
 
 const ThemeProvider = ({ children }) => {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <ThemeContext.Provider value={{ theme }}>
       <EmotionThemeProvider theme={theme}>
@@ -135,7 +135,7 @@ const ThemeProvider = ({ children }) => {
         <div className="theme-wrapper">{children}</div>
       </EmotionThemeProvider>
     </ThemeContext.Provider>
-  )
-}
+  );
+};
 
-export default ThemeProvider
+export default ThemeProvider;

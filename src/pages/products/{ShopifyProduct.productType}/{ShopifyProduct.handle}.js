@@ -1,10 +1,10 @@
-import React from "react" // eslint-disable-line no-unused-vars
-import { graphql } from "gatsby"
+import React from "react"; // eslint-disable-line no-unused-vars
+import { graphql } from "gatsby";
 // import isEqual from "lodash.isequal"
 // import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 // import { StoreContext } from "../../../context/store-context"
 
-const Product = data => <div>{JSON.stringify(data, null, 2)}</div>
+const Product = (data) => <div>{JSON.stringify(data, null, 2)}</div>;
 
 export const query = graphql`
   query ($id: String!, $productType: String!) {
@@ -57,6 +57,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default Product
+export default Product;

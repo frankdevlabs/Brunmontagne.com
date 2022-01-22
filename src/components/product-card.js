@@ -1,11 +1,11 @@
-import React from "react" // eslint-disable-line no-unused-vars
-import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import { getShopifyImage } from "gatsby-source-shopify"
-import { useTheme } from "@emotion/react"
-import { useTranslation } from "gatsby-plugin-react-i18next"
-import Link from "./link"
-import { formatPrice } from "../utils/format-price"
+import React from "react"; // eslint-disable-line no-unused-vars
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { getShopifyImage } from "gatsby-source-shopify";
+import { useTheme } from "@emotion/react";
+import { useTranslation } from "gatsby-plugin-react-i18next";
+import Link from "./link";
+import { formatPrice } from "../utils/format-price";
 
 const ProductCard = ({ product, eager }) => {
   const {
@@ -16,35 +16,35 @@ const ProductCard = ({ product, eager }) => {
     vendor,
     storefrontImages,
     totalVariants,
-  } = product
+  } = product;
 
   const price = formatPrice(
     priceRangeV2.minVariantPrice.currencyCode,
     priceRangeV2.minVariantPrice.amount
-  )
+  );
 
-  const defaultImageHeight = 200
-  const defaultImageWidth = 200
-  let storefrontImageData = {}
+  const defaultImageHeight = 200;
+  const defaultImageWidth = 200;
+  let storefrontImageData = {};
   if (storefrontImages) {
-    const storefrontImage = storefrontImages.edges[0].node
+    const storefrontImage = storefrontImages.edges[0].node;
     try {
       storefrontImageData = getShopifyImage({
         image: storefrontImage,
         layout: "fixed",
         width: defaultImageWidth,
         height: defaultImageHeight,
-      })
+      });
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
   }
 
   const hasImage =
-    firstImage || Object.getOwnPropertyNames(storefrontImageData || {}).length
+    firstImage || Object.getOwnPropertyNames(storefrontImageData || {}).length;
 
-  const theme = useTheme()
-  const { t } = useTranslation()
+  const theme = useTheme();
+  const { t } = useTranslation();
 
   console.log({
     title,
@@ -55,7 +55,7 @@ const ProductCard = ({ product, eager }) => {
     storefrontImages,
     storefrontImageData,
     hasImage,
-  })
+  });
   return (
     <div className="col fourth">
       <Link
@@ -109,8 +109,8 @@ const ProductCard = ({ product, eager }) => {
         </div>
       </Link>
     </div>
-  )
-}
+  );
+};
 
 export const query = graphql`
   fragment ProductCard on ShopifyProduct {
@@ -133,6 +133,6 @@ export const query = graphql`
     vendor
     totalVariants
   }
-`
+`;
 
-export default ProductCard
+export default ProductCard;
