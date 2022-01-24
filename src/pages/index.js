@@ -3,8 +3,8 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 import { graphql } from "gatsby";
 import ProductListing from "../components/product-listing";
 import LayoutContainer from "../containers/layout-container";
-import HeroSection from "../sections/index/hero";
-import CollectionSection from "../sections/index/collection";
+import HeroSection from "./_landing/_hero-section";
+import CollectionSection from "./_landing/_collection-section";
 
 export const query = graphql`
   query ($language: String!) {

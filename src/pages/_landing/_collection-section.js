@@ -2,7 +2,7 @@ import React from "react"; // eslint-disable-line no-unused-vars
 import SectionTitle from "../../components/section-title";
 import ProductListing from "../../components/product-listing";
 
-const Collection = (props) => {
+const _collectionSection = (props) => {
   const { products } = props;
   return (
     <section>
@@ -23,4 +23,4 @@ const Collection = (props) => {
   );
 };
 
-export default Collection;
+export default _collectionSection;

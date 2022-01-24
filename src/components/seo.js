@@ -15,8 +15,8 @@ function Seo(props) {
   const metaDescription = description || t("description") || "";
   const siteTitle = t("title") || "";
   const metaImage =
-    image && image.asset
-      ? image.asset.src
+    image && image.gatsbyImageData
+      ? image.gatsbyImageData.images.fallback.src
       : `${process.env.GATSBY_HOME_PAGE}/op-brand-image.jpg`;
   const metaImageAlt = (image && image.alt) || "Brunmontagne.com";
   const canonicalUrl = `${process.env.GATSBY_HOME_PAGE}${

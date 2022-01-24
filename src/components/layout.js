@@ -6,7 +6,6 @@ import Seo from "./seo";
 
 function Layout(props) {
   const { children } = props;
-  console.log(props.path);
   return (
     <div
       css={{

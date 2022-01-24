@@ -3,10 +3,12 @@ import { graphql } from "gatsby";
 import ProductListing from "../../../components/product-listing";
 // import slugify from "@sindresorhus/slugify"
 
-export default function ProductTypeIndex({
-  data: { products },
-  pageContext: { productType },
-}) {
+export default function ProductTypeIndex(props) {
+  console.log(props);
+  const {
+    data: { products },
+    pageContext: { productType },
+  } = props;
   return (
     <div>
       <h1>{productType}</h1>
