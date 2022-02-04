@@ -1,0 +1,92 @@
+[
+  {
+    "nl": {
+      "key": "Type uurwerk",
+      "value": "Automaat"
+    },
+    "en": {
+      "key": "Movement",
+      "value": "Automatic"
+    }
+  },
+  {
+    "nl": {
+      "key": "Materiaal kast",
+      "value": "316L roestvast staal"
+    },
+    "en": {
+      "key": "Material watch case",
+      "value": "316L stainless steel"
+    }
+  },
+  {
+    "nl": {
+      "key": "Materiaal horlogeband",
+      "value": "Italiaans leer of massief staal"
+    },
+    "en": {
+      "key": "Material watch strap",
+      "value": "Italian leather of solid steel"
+    }
+  },
+  {
+    "nl": {
+      "key": "Diameter horlogekast",
+      "value": "42mm"
+    },
+    "en": {
+      "key": "Diameter watch case",
+      "value": "42mm"
+    }
+  },
+  {
+    "nl": {
+      "key": "Dikte horlogekast",
+      "value": "11mm"
+    },
+    "en": {
+      "key": "Thickness watch case",
+      "value": "11mm"
+    }
+  },
+  {
+    "nl": {
+      "key": "Waterdichtheid",
+      "value": "10 ATM (Zwemmen- & snorkelen)"
+    },
+    "en": {
+      "key": "",
+      "value": ""
+    }
+  },
+  {
+    "nl": {
+      "key": "Materiaal glas",
+      "value": "Saffier"
+    },
+    "en": {
+      "key": "Atmosphere",
+      "value": "10 ATM (swimming and snorkeling)"
+    }
+  },
+  {
+    "nl": {
+      "key": "Materiaal glas",
+      "value": "Saffier"
+    },
+    "en": {
+      "key": "Material glas",
+      "value": "Sapphire"
+    }
+  },
+  {
+    "nl": {
+      "key": "Wijzerplaat",
+      "value": "Groene Sunburst"
+    },
+    "en": {
+      "key": "Dial",
+      "value": "Green Sunburst"
+    }
+  }
+]

@@ -10,11 +10,13 @@ const paddingStyles = {
 const darkThemeColors = {
   colors: {
     PRIMARY: "#000",
-    PRIMARY_LIGHT: "#09192B",
+    PRIMARY_LIGHT: "#181B1D",
     SECONDARY: "#fff",
     SECONDARY_LIGHT: "#f1f1f1",
-    TETIATERY: "#C33E39",
+    SECONDARY_LIGHT_60: "rgba(255, 255, 255, 0.6)",
+    TERTIARY: "#C33E39",
     GREEN: "#33DBC4",
+    GREEN_LIGHT: "#34FBE0",
     YELLOW: "#DCD40E",
   },
 };

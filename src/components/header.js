@@ -14,11 +14,15 @@ const NavList = ({ lang }) => {
   const { t } = useTranslation();
   const NavItems = t("menu", { returnObjects: true });
 
-  return NavItems.map((i, n) => (
-    <NavItem key={n} to={i.to} lang={lang}>
-      {i.label}
-    </NavItem>
-  ));
+  return (
+    <div>
+      {NavItems.map((i, n) => (
+        <NavItem key={n} to={i.to} lang={lang}>
+          {i.label}
+        </NavItem>
+      ))}
+    </div>
+  );
 };
 
 const NavItem = ({ to, children, lang }) => (
@@ -31,9 +35,13 @@ const NavItem = ({ to, children, lang }) => (
       lineHeight: "19px",
       letterSpacing: "0.01em",
       paddingTop: "11px",
-      marginRight: "30px",
       whiteSpace: "nowrap",
-
+      "&:not(:last-of-type)": {
+        marginRight: "30px",
+      },
+      [mq("xl")]: {
+        fontSize: "1.4rem",
+      },
       [mq("sm")]: {
         paddingTop: "0",
       },
@@ -52,7 +60,7 @@ const Header = () => {
         position: "relative",
         zIndex: 1,
         padding: `3.2rem ${theme.padding.DEFAULT} 0 ${theme.padding.DEFAULT}`,
-        [mq("lg")]: {
+        [mq("xl")]: {
           padding: `3.2rem ${theme.padding.XL} 0 ${theme.padding.XL}`,
         },
         [mq("md")]: {
@@ -63,9 +71,61 @@ const Header = () => {
         },
       }}
     >
+      <div
+        className="container"
+        css={{
+          display: "none",
+          visibility: "hidden",
+          [mq("lg")]: {
+            visibility: "visible",
+            display: "flex",
+            justifyContent: "center",
+            "& > a > svg": {
+              width: "16rem",
+            },
+          },
+        }}
+      >
+        <I18NextLink aria-label="home-button" to="/" language={lang}>
+          <BMLogo />
+        </I18NextLink>
+      </div>
       <div className="container">
-        <div className="flexbox col-margin">
-          <div className="col third">
+        <div
+          className="flexbox col-margin"
+          css={{
+            "& > *:first-of-type": {
+              marginLeft: "2rem",
+            },
+            "& > *:last-child": {
+              marginRight: "2rem",
+            },
+            [mq("xxl")]: {
+              "& > *:first-of-type, & > *:last-child": {
+                margin: "0",
+                [mq("sm")]: {
+                  margin: " 0 2rem !important",
+                },
+              },
+            },
+            [mq("sm")]: {
+              margin: "0",
+              "& > div.col.third": {
+                padding: "0",
+              },
+            },
+          }}
+        >
+          <div
+            className="col third"
+            css={{
+              [mq("lg")]: {
+                "&.col.third": {
+                  flex: "0 1 50%",
+                },
+              },
+            }}
+          >
             <div
               css={{
                 display: "flex",
@@ -80,6 +140,10 @@ const Header = () => {
               css={{
                 marginTop: "1rem",
                 textAlign: "center",
+                [mq("lg")]: {
+                  display: "none",
+                  visibility: "hidden",
+                },
               }}
             >
               <I18NextLink aria-label="home-button" to="/" language={lang}>
@@ -87,10 +151,30 @@ const Header = () => {
               </I18NextLink>
             </div>
           </div>
-          <div className="col third">
+          <div
+            className="col third"
+            css={{
+              [mq("lg")]: {
+                "&.col.third": {
+                  flex: "0 1 50%",
+                },
+              },
+            }}
+          >
             <div
               css={{
-                margin: "2.1rem 15px -1.5rem 15px",
+                margin: "2.1rem 0 -1.5rem 0",
+                [mq("xl")]: {
+                  "& > div > svg": {
+                    height: "24px",
+                    width: "24px",
+                  },
+                },
+                [mq("sm")]: {
+                  "& > .col": {
+                    padding: "0",
+                  },
+                },
               }}
               className="flexbox justifyEnd"
             >

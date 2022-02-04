@@ -3,7 +3,7 @@ import Rating from "react-rating";
 import Star from "../assets/vectors/star.svg";
 import { useTheme } from "@emotion/react";
 
-const StarWithProps = ({ filled }) => {
+const StarWithProps = ({ filled, size }) => {
   const theme = useTheme();
   const { YELLOW, OFF_SECONDARY } = theme.colors;
   return (
@@ -12,6 +12,9 @@ const StarWithProps = ({ filled }) => {
         display: "inline-block",
         marginRight: "0.3rem",
         color: filled ? YELLOW : OFF_SECONDARY,
+        ...(size === "sm"
+          ? { "& > svg": { height: "12px", width: "12px" } }
+          : {}),
       }}
     >
       <Star />
@@ -26,6 +29,7 @@ const CustomRating = ({
   votes = 99,
   onClick = function () {},
   fractions = 2,
+  size = "lg",
 }) => {
   return (
     <div
@@ -43,8 +47,8 @@ const CustomRating = ({
         }}
       >
         <Rating
-          emptySymbol={<StarWithProps />}
-          fullSymbol={<StarWithProps filled />}
+          emptySymbol={<StarWithProps size={size} />}
+          fullSymbol={<StarWithProps size={size} filled />}
           fractions={fractions}
           initialRating={value}
           readonly={readonly}

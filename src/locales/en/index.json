@@ -10,7 +10,8 @@
     "button-link": "Collection"
   },
   "product": {
-    "variant": "Variant",
-    "variants": "Variants"
+    "variant": "variant",
+    "variants": "variants",
+    "available-in": "Available in"
   }
 }

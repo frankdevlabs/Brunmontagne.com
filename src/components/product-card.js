@@ -1,111 +1,104 @@
 import React from "react"; // eslint-disable-line no-unused-vars
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { getShopifyImage } from "gatsby-source-shopify";
 import { useTheme } from "@emotion/react";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import Link from "./link";
-import { formatPrice } from "../utils/format-price";
 
-const ProductCard = ({ product, eager }) => {
+const ProductCard = ({ product, eager, size, lang }) => {
   const {
-    title,
-    priceRangeV2,
+    fields,
     slug,
     images: [firstImage],
-    vendor,
-    storefrontImages,
     totalVariants,
   } = product;
 
-  const price = formatPrice(
-    priceRangeV2.minVariantPrice.currencyCode,
-    priceRangeV2.minVariantPrice.amount
-  );
+  const title = fields[`${lang}_locale`].title;
 
   const defaultImageHeight = 200;
-  const defaultImageWidth = 200;
-  let storefrontImageData = {};
-  if (storefrontImages) {
-    const storefrontImage = storefrontImages.edges[0].node;
-    try {
-      storefrontImageData = getShopifyImage({
-        image: storefrontImage,
-        layout: "fixed",
-        width: defaultImageWidth,
-        height: defaultImageHeight,
-      });
-    } catch (e) {
-      console.error(e);
-    }
-  }
+  const defaultImageWidth = 190;
 
-  const hasImage =
-    firstImage || Object.getOwnPropertyNames(storefrontImageData || {}).length;
+  const hasImage = firstImage;
 
   const theme = useTheme();
   const { t } = useTranslation();
-
-  console.log({
-    title,
-    priceRangeV2,
-    slug,
-    images: [firstImage],
-    vendor,
-    storefrontImages,
-    storefrontImageData,
-    hasImage,
-  });
   return (
-    <div className="col fourth">
+    <div
+      className={`col ${size ? size : "fourth"}`}
+      css={{ maxWidth: "27rem" }}
+    >
       <Link
-        // className={productCardStyle}
         to={slug}
         ariaLabel={`View ${title} product page`}
         ui="custom"
         customStyle={{
-          color: "blue",
-          backgroundColor: theme.colors.PRIMARY_LIGHT,
           display: "block",
-          borderRadius: "8px",
-          minHeight: "42rem",
+          borderRadius: "1px",
+          border: `1px solid ${theme.colors.SECONDARY_LIGHT}`,
+          height: "42rem",
+          padding: "2px 0px 2px 2px",
+          margin: "5px 1px 3px 0px",
+          transition: "all 0.30s ease-in-out",
+          "&:hover": {
+            padding: "2px 0px 2px 2px",
+            margin: "5px 1px 3px 0px",
+            border: "2px solid white",
+            color: theme.colors.YELLOW,
+          },
         }}
       >
-        {hasImage ? (
-          <div
-            css={{ maxWidth: "27rem", padding: "4%", paddingTop: "3.5rem" }}
-            data-name="product-image-box"
-          >
-            <GatsbyImage
-              css={{ borderRadius: "2px" }}
-              alt={firstImage?.altText ?? title}
-              image={firstImage?.gatsbyImageData ?? storefrontImageData}
-              loading={eager ? "eager" : "lazy"}
-            />
-          </div>
-        ) : (
-          <div
-            style={{ height: defaultImageHeight, width: defaultImageWidth }}
-          />
-        )}
         <div
-          css={{ padding: "4%" }}
-          // className={productDetailsStyle}
+          css={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            height: "100%",
+            padding: "3.5rem 4%",
+          }}
         >
-          <span
-            css={{
-              textAlign: "center",
-              display: "block",
-              marginTop: "4.2rem",
-              marginBottom: "3.2rem",
-              fontWeight: "bold",
-              fontSize: "1.6rem",
-              lineHeight: "22px",
-            }}
-          >
-            {totalVariants}{" "}
-            {totalVariants > 1 ? t("product.variants") : t("product.variant")}
-          </span>
+          <div>
+            <h3
+              css={{
+                fontWeight: "bold",
+                fontSize: "1.6rem",
+                lineHeight: "19px",
+                textAlign: "center",
+              }}
+            >
+              {title}
+            </h3>
+          </div>
+          {hasImage ? (
+            <div
+              css={{ marginLeft: "auto", marginRight: "auto" }}
+              data-name="product-image-box"
+            >
+              <GatsbyImage
+                css={{ borderRadius: "2px" }}
+                alt={firstImage?.altText ?? title}
+                image={firstImage?.gatsbyImageData}
+                loading={eager ? "eager" : "lazy"}
+              />
+            </div>
+          ) : (
+            <div
+              style={{ height: defaultImageHeight, width: defaultImageWidth }}
+            />
+          )}
+          <div css={{ padding: "4%" }}>
+            <span
+              css={{
+                textAlign: "center",
+                display: "block",
+                lineHeight: "17px",
+                fontWeight: "300",
+                fontSize: "1.4rem",
+              }}
+            >
+              {t("product.available-in")} {totalVariants}{" "}
+              {totalVariants > 1 ? t("product.variants") : t("product.variant")}
+            </span>
+          </div>
         </div>
       </Link>
     </div>
@@ -122,12 +115,14 @@ export const query = graphql`
     images {
       id
       altText
-      gatsbyImageData(aspectRatio: 1, width: 640)
+      gatsbyImageData(aspectRatio: 1.25, width: 270)
     }
-    priceRangeV2 {
-      minVariantPrice {
-        amount
-        currencyCode
+    fields {
+      nl_locale {
+        title
+      }
+      en_locale {
+        title
       }
     }
     vendor

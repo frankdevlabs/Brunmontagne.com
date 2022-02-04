@@ -3,7 +3,7 @@ import SectionTitle from "../../components/section-title";
 import ProductListing from "../../components/product-listing";
 
 const _collectionSection = (props) => {
-  const { products } = props;
+  const { products, lang } = props;
   return (
     <section>
       <div className="container">
@@ -17,7 +17,7 @@ const _collectionSection = (props) => {
             Bekijk onze <strong>stijlvolle</strong> collectie
           </SectionTitle>
         </div>
-        <ProductListing products={products} />
+        <ProductListing products={products} lang={lang} position="justifyEnd" />
       </div>
     </section>
   );

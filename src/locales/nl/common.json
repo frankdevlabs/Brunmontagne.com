@@ -12,5 +12,22 @@
       "label": "Contact",
       "to": "#contact"
     }
-  ]
+  ],
+
+  "buttons": {
+    "read-more": "Lees meer",
+    "read-less": "Lees minder",
+    "add-to-cart": "Bestellen",
+    "out-of-stock": "Niet beschikbaar",
+    "out-of-stock-option": "niet op voorraad"
+  },
+  "titles": {
+    "specs-section": "Eigenschappen",
+    "reviews-section": "Reviews",
+    "suggestions-section": "Suggesties",
+    "description-section": "Beschrijving"
+  },
+  "return-policy": "We verzenden wereldwijd | Retourneren mag altijd binnen 30 dagen",
+  "options-text": "Opties",
+  "average-rating": "Gemiddelde beoordeling"
 }

@@ -6,6 +6,8 @@ import { convertToBgImage } from "gbimage-bridge";
 import BackgroundImage from "gatsby-background-image";
 import HeroToMainOverlay from "../../assets/vectors/hero-to-main-overlay.svg";
 import Link from "../../components/link";
+import mq from "../../theme/media-queries";
+import { useTheme } from "@emotion/react";
 
 const SectionWithBackgroundImage = ({ children }) => {
   const { placeholderImage } = useStaticQuery(
@@ -29,7 +31,7 @@ const SectionWithBackgroundImage = ({ children }) => {
   const bgImage = convertToBgImage(image);
   return (
     <BackgroundImage
-      Tag="section"
+      Tag="div"
       css={{
         height: "80vh",
         minHeight: "40rem",
@@ -37,6 +39,7 @@ const SectionWithBackgroundImage = ({ children }) => {
         maxWidth: "1440px",
         marginLeft: "auto",
         marginRight: "auto",
+        padding: 0,
       }}
       {...bgImage}
       preserveStackingContext
@@ -48,11 +51,52 @@ const SectionWithBackgroundImage = ({ children }) => {
 
 const Hero = () => {
   const { t } = useTranslation();
+  const theme = useTheme();
   return (
     <>
       <SectionWithBackgroundImage>
-        <div className="container" css={{ marginTop: "20rem" }}>
-          <div css={{ maxWidth: "539px" }}>
+        <div
+          css={{
+            position: "absolute",
+            bottom: "-3rem",
+            width: "100%",
+            [mq("lg")]: {
+              bottom: "-6rem",
+            },
+            [mq("sm")]: {
+              bottom: "-9rem",
+            },
+          }}
+        >
+          <HeroToMainOverlay />
+        </div>
+      </SectionWithBackgroundImage>
+      <div
+        css={{
+          padding: `3.2rem ${theme.padding.DEFAULT} 0 ${theme.padding.DEFAULT}`,
+          [mq("xl")]: {
+            padding: `3.2rem ${theme.padding.XL} 0 ${theme.padding.XL}`,
+          },
+          [mq("md")]: {
+            padding: `3.2rem ${theme.padding.MD} 0 ${theme.padding.MD}`,
+          },
+          [mq("sm")]: {
+            padding: `3.2rem ${theme.padding.SM} 0 ${theme.padding.SM}`,
+          },
+        }}
+      >
+        <div className="container">
+          <div
+            css={{
+              maxWidth: "539px",
+              position: "absolute",
+              top: "20rem",
+              marginLeft: "2rem",
+              [mq("xxl")]: {
+                marginLeft: "0",
+              },
+            }}
+          >
             <h2
               css={{
                 fontFamily: "Lato, sans-serif",
@@ -87,15 +131,6 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </SectionWithBackgroundImage>
-      <div
-        css={{
-          position: "absolute",
-          bottom: "-3rem",
-          width: "100%",
-        }}
-      >
-        <HeroToMainOverlay />
       </div>
     </>
   );

@@ -1,7 +1,6 @@
 import React from "react"; // eslint-disable-line no-unused-vars
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import { graphql } from "gatsby";
-import ProductListing from "../components/product-listing";
 import LayoutContainer from "../containers/layout-container";
 import HeroSection from "./_landing/_hero-section";
 import CollectionSection from "./_landing/_collection-section";
@@ -29,6 +28,7 @@ const IndexPage = ({ data, pageContext, location }) => {
   const { t } = useTranslation();
   const description = t("description");
   const title = t("pageTitle");
+  const lang = pageContext.i18n.language;
 
   return (
     <LayoutContainer
@@ -36,12 +36,10 @@ const IndexPage = ({ data, pageContext, location }) => {
       description={description}
       path={location.pathname}
       type="website"
-      lang={pageContext.i18n.language}
+      lang={lang}
     >
       <HeroSection />
-      <CollectionSection products={data?.collection?.products} />
-      {/*<h1>{t("title")}</h1>*/}
-      {/*<ProductListing products={data?.collection?.products} />*/}
+      <CollectionSection products={data?.collection?.products} lang={lang} />
     </LayoutContainer>
   );
 };

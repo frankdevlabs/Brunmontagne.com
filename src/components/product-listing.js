@@ -2,10 +2,20 @@ import React from "react"; // eslint-disable-line no-unused-vars
 import ProductCard from "./product-card";
 
 // To optimize LCP we mark the first product card as eager so the image gets loaded faster
-const ProductListing = ({ products = [] }) => (
-  <div className="flexbox col-margin alignBaseline grid">
+const ProductListing = ({ products = [], size, position, lang }) => (
+  <div
+    className={`flexbox col-margin alignBaseline grid${
+      position ? " " + position : ""
+    }`}
+  >
     {products.map((p, index) => (
-      <ProductCard product={p} key={p.id} eager={index === 0} />
+      <ProductCard
+        size={size}
+        product={p}
+        key={p.id}
+        eager={index === 0}
+        lang={lang}
+      />
     ))}
   </div>
 );

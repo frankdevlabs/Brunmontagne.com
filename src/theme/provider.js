@@ -53,7 +53,7 @@ const ThemeProvider = ({ children }) => {
             },
             section: {
               padding: `35px ${theme.padding.DEFAULT}`,
-              [mq("lg")]: {
+              [mq("xl")]: {
                 padding: `35px ${theme.padding.XL}`,
               },
               [mq("md")]: {
@@ -64,7 +64,7 @@ const ThemeProvider = ({ children }) => {
               },
             },
             ".container": {
-              maxWidth: "1160px",
+              maxWidth: "1440px",
               marginRight: "auto",
               marginLeft: "auto",
             },
@@ -84,6 +84,7 @@ const ThemeProvider = ({ children }) => {
             },
             ".flexbox.col-margin": {
               margin: "0 -15px",
+              rowGap: "30px",
             },
             ".flexbox .col": {
               paddingRight: "15px",
@@ -107,6 +108,7 @@ const ThemeProvider = ({ children }) => {
               fontWeight: "400",
               fontStyle: "normal",
               textRendering: "optimizeLegibility",
+              color: theme.colors.SECONDARY_LIGHT,
             },
             "h1,h2,h3,h4,h5,h6": {
               fontFamily: "Rokkitt, serif",
@@ -127,7 +129,7 @@ const ThemeProvider = ({ children }) => {
                 cursor: "pointer",
               },
               "&:hover, &:active": {
-                color: theme.colors.TETIATERY,
+                color: theme.colors.TERTIARY,
               },
             },
           })}

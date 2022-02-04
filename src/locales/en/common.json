@@ -12,5 +12,21 @@
       "label": "Contact",
       "to": "#contact"
     }
-  ]
+  ],
+  "buttons": {
+    "read-more": "Read more",
+    "read-less": "Read less",
+    "add-to-cart": "Add to cart",
+    "out-of-stock": "Out of stock",
+    "out-of-stock-option": "not available"
+  },
+  "titles": {
+    "specs-section": "Specifications",
+    "reviews-section": "Reviews",
+    "suggestions-section": "Suggestions",
+    "description-section": "Description"
+  },
+  "return-policy": "We ship our products worldwide | 30 day return policy",
+  "options-text": "Options",
+  "average-rating": "Average rating"
 }

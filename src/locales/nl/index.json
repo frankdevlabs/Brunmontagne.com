@@ -10,7 +10,8 @@
     "button-link": "Collectie"
   },
   "product": {
-    "variant": "Variant",
-    "variants": "Varianten"
+    "variant": "variant",
+    "variants": "varianten",
+    "available-in": "Beschikbaar in"
   }
 }

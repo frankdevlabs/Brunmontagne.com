@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"; // eslint-disable-line no-unused-vars
 import Rating from "../../../components/rating";
 
-const Title = ({ title }) => {
+const Title = ({ title, averageAllReviews, votes }) => {
   return (
-    <section>
+    <section css={{ paddingBottom: "1rem" }}>
       <div className="container">
         <div
           css={{
@@ -30,7 +30,7 @@ const Title = ({ title }) => {
             {title}
           </div>
           <div>
-            <Rating />
+            <Rating votes={votes} value={averageAllReviews.average} />
           </div>
         </div>
       </div>

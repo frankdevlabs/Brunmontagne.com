@@ -1,7 +1,5 @@
 import React from "react"; // eslint-disable-line no-unused-vars
 
-import App from "./src/app";
-
 export const onClientEntry = () => {
   // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
   if (!(`IntersectionObserver` in window)) {
@@ -10,6 +8,4 @@ export const onClientEntry = () => {
   }
 };
 
-export const wrapRootElement = ({ element }) => {
-  return <App>{element}</App>;
-};
+export { wrapRootElement } from "./gatsby-ssr";
