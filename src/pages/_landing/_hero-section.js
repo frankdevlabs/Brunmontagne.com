@@ -31,7 +31,7 @@ const SectionWithBackgroundImage = ({ children }) => {
   const bgImage = convertToBgImage(image);
   return (
     <BackgroundImage
-      Tag="div"
+      Tag="section"
       css={{
         height: "80vh",
         minHeight: "40rem",
@@ -40,6 +40,12 @@ const SectionWithBackgroundImage = ({ children }) => {
         marginLeft: "auto",
         marginRight: "auto",
         padding: 0,
+        [mq("xl")]: {
+          height: "70vh",
+        },
+        [mq("sm")]: {
+          height: "60vh",
+        },
       }}
       {...bgImage}
       preserveStackingContext
@@ -49,7 +55,7 @@ const SectionWithBackgroundImage = ({ children }) => {
   );
 };
 
-const Hero = () => {
+const HeroSection = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   return (
@@ -103,6 +109,10 @@ const Hero = () => {
                 fontSize: "2.6rem",
                 lineHeight: "31px",
                 letterSpacing: "0.03em",
+                [mq("sm")]: {
+                  fontSize: "2rem",
+                  lineHeight: "16px",
+                },
               }}
             >
               {t("hero.subtitle")}{" "}
@@ -118,13 +128,24 @@ const Hero = () => {
                 lineHeight: "41px",
                 letterSpacing: "0.01em",
                 textTransform: "uppercase",
+                [mq("sm")]: {
+                  fontSize: "3rem",
+                  lineHeight: "34px",
+                },
               }}
             >
               {t("hero.title-including")}{" "}
               <strong>{t("hero.title-automatic")}</strong>{" "}
               {t("hero.title-movement-of")} <strong>SEIKO</strong>
             </h1>
-            <div css={{ marginTop: "4.1rem" }}>
+            <div
+              css={{
+                marginTop: "4.1rem",
+                [mq("sm")]: {
+                  marginTop: "3.1rem",
+                },
+              }}
+            >
               <Link to="/collection/" ui="button">
                 {t("hero.button-link")}
               </Link>
@@ -136,4 +157,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroSection;

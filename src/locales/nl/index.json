@@ -2,7 +2,7 @@
   "title": "Brunmontagne",
   "pageTitle": "Represents you",
   "description": "Brunmontagne, Represents you. 'Opvallen, zonder hierin te overdrijven en geschikt voor iedere gelegenheid. Dat is de filosofie', Pascal Bruinenberg, oprichter.",
-  "hero" : {
+  "hero": {
     "subtitle": "De Representor van",
     "title-including": "Met",
     "title-automatic": "automatisch",
@@ -13,5 +13,63 @@
     "variant": "variant",
     "variants": "varianten",
     "available-in": "Beschikbaar in"
+  },
+  "collection": {
+    "title-part-1": "Bekijk onze",
+    "title-part-2": "stijlvolle",
+    "title-part-3": "collectie",
+    "button-link": "Bekijk alle horloges en banden"
+  },
+  "about": {
+    "quote-part-1": "Opvallen, zonder hierin te overdrijven",
+    "quote-part-2": "en geschikt voor iedere gelegenheid.",
+    "quote-part-3": "Dat is de filosofie achter de horloges van Brunmontagne. Uniek, stijlvol en tijdloos.",
+    "cited-person": "Pascal Bruinenberg, oprichter & eigenaar van Brunmontagne",
+    "button-link": "Lees ons verhaal"
+  },
+  "contact": {
+    "title-part-1": "Kom met ons in",
+    "title-part-2": "contact",
+    "name-input-label": "Naam",
+    "email-input-label": "Email",
+    "phone-input-label": "Telefoonnummer",
+    "message-input-label": "Bericht",
+    "button-label": "Versturen"
+},
+  "testimonial": {
+    "title-part-1": "Anderen",
+    "title-part-2": "over Brunmontagne",
+    "items": [
+      {
+        "content": "Onze laatste ontdekking is het merk Brunmontagne. Een tof, opkomend merk dat fraaie horloges maakt voor een nette prijs.",
+        "author": "fhm",
+        "link": "https://fhm.nl/brunmontagne-horloges/",
+        "highlights": ["tof, opkomend merk", "nette prijs"]
+      },
+      {
+        "content": "De kastvorm, de Genta-esque kast is echt heel tof. De plaat is met zijn sunburst echt een genot voor het oog. De wijzers vind ik heel goed gedaan, je hoort daar de weinig over vind ik. De prijs, want wat krijg je veel waar voor je geld zeg.",
+        "author": "Amaris - Horlogeforum.nl",
+        "link": "https://www.horlogeforum.nl/t/representor-for-a-week/264008/458",
+        "highlights": ["genot voor het oog"]
+      },
+      {
+        "content": "Jouw merk is een van de weinige nieuwe merken die niet een design hebben gepakt. Het is uniek, maar toch voelt het bekend en dat is een mooie combinatie.",
+        "author": "Nihat Uludağ",
+        "link": "",
+        "highlights": ["uniek", "voelt", "bekend"]
+      },
+      {
+        "content": "Wat een design en wat een topkwaliteit. Door de jaren heen aardig wat horloges aangeschaft, maar geen enkele kan tippen aan deze topper. Onwijs blij mee!",
+        "author": "Jari",
+        "link": "",
+        "highlights": ["topkwaliteit", "design", "geen enkele kan tippen aan deze topper"]
+      },
+      {
+        "content": "Heb hem nu één jaar. Draag hem dagelijks en kwaliteit is goed... Nog steeds blij mee.",
+        "author": "J Wester",
+        "link": "",
+        "highlights": ["draag hem dagelijks", "één jaar"]
+      }
+    ]
   }
 }

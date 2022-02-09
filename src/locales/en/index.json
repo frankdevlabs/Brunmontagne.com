@@ -13,5 +13,34 @@
     "variant": "variant",
     "variants": "variants",
     "available-in": "Available in"
+  },
+  "collection": {
+    "title-part-1": "Check our",
+    "title-part-2": "stylish",
+    "title-part-3": "collection",
+    "button-link": "View all watches en straps"
+  },
+  "about": {
+    "quote-part-1": "Stand out without exaggerating",
+    "quote-part-2": " and suitable for any occasion.",
+    "quote-part-3": "That is the philosophy behind Brunmontagne watches. Unique, stylish and timeless.",
+    "cited-person": "Pascal Bruinenberg, founder of Brunmontagne",
+    "button-link": "Read the full story"
+  },
+  "testimonial": {
+    "title-part-1": "Other",
+    "title-part-2": "about Brunmontagne",
+    "items": [
+      {
+        "content": "Our latest discovery is the Brunmontagne brand. A great, up and coming brand that makes beautiful watches for a decent price..",
+        "author": "fhm",
+        "link": "https://fhm.nl/brunmontagne-horloges/"
+      },
+      {
+        "content": "Onze laatste ontdekking is het merk Brunmontagne. Een tof, opkomend merk dat fraaie horloges maakt voor een nette prijs.",
+        "author": "fhm",
+        "link": "https://fhm.nl/brunmontagne-horloges/"
+      }
+    ]
   }
 }

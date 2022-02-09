@@ -65,7 +65,7 @@ const Button = ({
   let buttonStyles;
 
   if (ui === "arrow-btn") {
-    const firstColor = theme.colors.TERTIARY;
+    const firstColor = theme.colors.YELLOW;
     const secondColor = theme.colors.SECONDARY_LIGHT;
     buttonStyles = setArrowButtonStyles(firstColor, secondColor, size);
     return (

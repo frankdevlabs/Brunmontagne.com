@@ -4,6 +4,9 @@ import { graphql } from "gatsby";
 import LayoutContainer from "../containers/layout-container";
 import HeroSection from "./_landing/_hero-section";
 import CollectionSection from "./_landing/_collection-section";
+import AboutSection from "./_landing/_about-section";
+import TestimonialSection from "./_landing/_testimonial-section";
+import ContactSection from "./_landing/_contact-section";
 
 export const query = graphql`
   query ($language: String!) {
@@ -40,6 +43,9 @@ const IndexPage = ({ data, pageContext, location }) => {
     >
       <HeroSection />
       <CollectionSection products={data?.collection?.products} lang={lang} />
+      <AboutSection />
+      <TestimonialSection />
+      <ContactSection />
     </LayoutContainer>
   );
 };

@@ -1,7 +1,6 @@
 import React from "react"; // eslint-disable-line no-unused-vars
-// import { SkipNavContent, SkipNavLink } from "./skip-nav"
 import Header from "./header";
-// import { Footer } from "./footer"
+import Footer from "./footer";
 import Seo from "./seo";
 
 function Layout(props) {
@@ -16,7 +15,7 @@ function Layout(props) {
     >
       <Seo {...props} />
       <Header />
-      <main
+      <div
         css={{
           height: "80vh",
           minHeight: "35rem",
@@ -25,9 +24,9 @@ function Layout(props) {
             : {}),
         }}
       >
-        {children}
-      </main>
-      {/*<Footer />*/}
+        <main>{children}</main>
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -42,6 +42,9 @@ const ThemeProvider = ({ children }) => {
               backgroundColor: theme.colors.PRIMARY,
               color: theme.colors.SECONDARY,
             },
+            ul: {
+              listStyle: "none",
+            },
             select: {
               outline: "0",
             },
@@ -85,16 +88,27 @@ const ThemeProvider = ({ children }) => {
             ".flexbox.col-margin": {
               margin: "0 -15px",
               rowGap: "30px",
+              [mq("sm")]: {
+                margin: "0 -7px",
+                rowGap: "14px",
+              },
             },
             ".flexbox .col": {
               paddingRight: "15px",
               paddingLeft: "15px",
+              [mq("sm")]: {
+                paddingRight: "7px",
+                paddingLeft: "7px",
+              },
             },
             ".flexbox .col.third": {
               flex: "0 1 33.3%",
             },
             ".flexbox .col.fourth": {
               flex: "0 1 25%",
+              [mq("md")]: {
+                flex: "0 1 50%",
+              },
             },
           })}
         />
@@ -129,7 +143,7 @@ const ThemeProvider = ({ children }) => {
                 cursor: "pointer",
               },
               "&:hover, &:active": {
-                color: theme.colors.TERTIARY,
+                color: theme.colors.YELLOW,
               },
             },
           })}
