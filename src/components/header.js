@@ -5,9 +5,13 @@ import {
   Link as I18NextLink,
 } from "gatsby-plugin-react-i18next";
 import { useTheme } from "@emotion/react";
+import CartButton from "./cart-button";
+import Toast from "./toast";
 import mq from "../theme/media-queries";
+import { StoreContext } from "../context/store-context";
 import BMLogo from "../assets/vectors/bm-logo-vector.svg";
-import ShoppingCart from "../assets/vectors/shopping-cart.svg";
+// import ShoppingCart from "../assets/vectors/shopping-cart.svg";
+import Check from "../assets/vectors/check.svg";
 import User from "../assets/vectors/user.svg";
 
 const NavList = ({ lang }) => {
@@ -54,6 +58,16 @@ const NavItem = ({ to, children, lang }) => (
 const Header = () => {
   const theme = useTheme();
   const { lang } = useI18next();
+  const { t } = useTranslation();
+
+  const { checkout, loading, didJustAddToCart } =
+    React.useContext(StoreContext);
+
+  const items = checkout ? checkout.lineItems : [];
+
+  const quantity = items.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
   return (
     <header
       css={{
@@ -90,26 +104,18 @@ const Header = () => {
           <BMLogo />
         </I18NextLink>
       </div>
-      <div className="container">
+      <div className="container" css={{ position: "relative" }}>
         <div
           className="flexbox col-margin"
           css={{
-            "& > *:first-of-type": {
-              marginLeft: "2rem",
-            },
-            "& > *:last-child": {
-              marginRight: "2rem",
-            },
-            [mq("xxl")]: {
-              "& > *:first-of-type, & > *:last-child": {
-                margin: "0",
-                [mq("sm")]: {
-                  margin: " 0 2rem !important",
-                },
+            "& > div.col.third > div.flexbox > div.col": {
+              padding: "0",
+              "&:first-of-type": {
+                paddingRight: "1.4rem",
               },
             },
             [mq("sm")]: {
-              margin: "0",
+              margin: "0 !important",
               "& > div.col.third": {
                 padding: "0",
               },
@@ -165,7 +171,7 @@ const Header = () => {
               css={{
                 margin: "2.1rem 0 -1.5rem 0",
                 [mq("xl")]: {
-                  "& > div > svg": {
+                  "& > div > svg, & > div > a > svg": {
                     height: "24px",
                     width: "24px",
                   },
@@ -179,7 +185,7 @@ const Header = () => {
               className="flexbox justifyEnd"
             >
               <div className="col">
-                <ShoppingCart />
+                <CartButton quantity={quantity} />
               </div>
               <div className="col">
                 <User />
@@ -187,6 +193,18 @@ const Header = () => {
             </div>
           </div>
         </div>
+        <Toast show={loading || didJustAddToCart}>
+          {!didJustAddToCart ? (
+            "Updating…"
+          ) : (
+            <>
+              {t("added-to-cart")}{" "}
+              <span css={{ "& > svg": { color: theme.colors.GREEN_LIGHT } }}>
+                <Check />
+              </span>
+            </>
+          )}
+        </Toast>
       </div>
     </header>
   );

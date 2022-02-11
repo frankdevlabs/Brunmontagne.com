@@ -1,0 +1,14 @@
+{
+  "empty-cart": {
+    "title": "Je winkelmand is nog leeg",
+    "description": "Het lijkt erop dat je nog geen passend horloge hebt gevonden. We weten dat het moeilijk is om te kiezen - misschien helpt dit:",
+    "button": "Bekijk de nieuwste modellen"
+  },
+  "not-empty-cart": {
+    "title": "Winkelmand",
+    "checkout-button": "Afrekenen",
+    "subtotal": "Subtotaal",
+    "taxes": "BTW",
+    "total": "Totaal"
+  }
+}

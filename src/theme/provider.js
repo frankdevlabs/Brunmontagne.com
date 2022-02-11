@@ -86,19 +86,19 @@ const ThemeProvider = ({ children }) => {
               alignItems: "baseline",
             },
             ".flexbox.col-margin": {
-              margin: "0 -15px",
-              rowGap: "30px",
+              margin: "0 -1.5rem",
+              rowGap: "3rem",
               [mq("sm")]: {
-                margin: "0 -7px",
-                rowGap: "14px",
+                margin: "0 -0.7rem",
+                rowGap: "1.4rem",
               },
             },
             ".flexbox .col": {
-              paddingRight: "15px",
-              paddingLeft: "15px",
+              paddingRight: "1.5rem",
+              paddingLeft: "1.5rem",
               [mq("sm")]: {
-                paddingRight: "7px",
-                paddingLeft: "7px",
+                paddingRight: "0.7rem",
+                paddingLeft: "0.7rem",
               },
             },
             ".flexbox .col.third": {

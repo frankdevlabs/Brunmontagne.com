@@ -1,0 +1,14 @@
+{
+  "empty-cart": {
+    "title": "Your cart is empty",
+    "description": "Looks like you haven’t found anything yet. We understand that sometimes it’s hard to chose — maybe this helps:",
+    "button": "View trending products"
+  },
+  "not-empty-cart": {
+    "title": "Shopping cart",
+    "checkout-button": "Checkout",
+    "subtotal": "Subtotal",
+    "taxes": "Tax",
+    "total": "Total"
+  }
+}
