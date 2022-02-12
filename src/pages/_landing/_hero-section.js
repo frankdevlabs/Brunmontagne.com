@@ -14,11 +14,11 @@ const SectionWithBackgroundImage = ({ children }) => {
     graphql`
       query {
         placeholderImage: file(
-          relativePath: { eq: "images/background-placeholder.jpg" }
+          relativePath: { eq: "images/background-hero-section.jpg" }
         ) {
           childImageSharp {
             gatsbyImageData(
-              width: 1440
+              width: 1920
               placeholder: DOMINANT_COLOR
               formats: [AUTO, WEBP, AVIF]
             )
@@ -27,24 +27,31 @@ const SectionWithBackgroundImage = ({ children }) => {
       }
     `
   );
-  const image = getImage(placeholderImage);
+  const image = [
+    getImage(placeholderImage),
+    `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35))`,
+  ].reverse();
   const bgImage = convertToBgImage(image);
   return (
     <BackgroundImage
       Tag="section"
       css={{
         height: "80vh",
-        minHeight: "40rem",
+        minHeight: "55rem",
+        maxHeight: "873px",
         zIndex: 0,
-        maxWidth: "1440px",
+        maxWidth: "1920px",
+        width: "100%",
         marginLeft: "auto",
         marginRight: "auto",
         padding: 0,
         [mq("xl")]: {
           height: "70vh",
+          minHeight: "45rem",
         },
         [mq("sm")]: {
-          height: "60vh",
+          height: "40vh",
+          minHeight: "unset",
         },
       }}
       {...bgImage}
@@ -97,10 +104,6 @@ const HeroSection = () => {
               maxWidth: "539px",
               position: "absolute",
               top: "20rem",
-              marginLeft: "2rem",
-              [mq("xxl")]: {
-                marginLeft: "0",
-              },
             }}
           >
             <h2
