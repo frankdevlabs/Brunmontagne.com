@@ -97,35 +97,41 @@ const Order = ({
             },
           }}
         >
-          <div css={{ marginRight: "1.3rem" }}>{t("options-text")}:</div>
-          <fieldset>
-            <select
-              aria-label="variants"
-              onChange={handleVariantChange}
-              css={{
-                height: "3.6rem",
-                background: theme.colors.PRIMARY_LIGHT,
-                border: `1px solid ${theme.colors.SECONDARY_LIGHT}`,
-                borderRadius: "2px",
-                color: theme.colors.SECONDARY_LIGHT,
-              }}
-            >
-              {hasVariants &&
-                variants.map(({ id, fields, availableForSale }) => {
-                  const title = `${fields[`${lang}_locale`].title}${
-                    availableForSale
-                      ? ""
-                      : " (" + t("buttons.out-of-stock-option") + ")"
-                  }`;
-                  return (
-                    <option value={id} key={id}>
-                      {title.length >= 23 ? `${title.slice(0, 23)}...` : title}
-                    </option>
-                  );
-                })}
-            </select>
-          </fieldset>
+          {hasVariants && (
+            <>
+              <div css={{ marginRight: "1.3rem" }}>{t("options-text")}:</div>
+              <fieldset>
+                <select
+                  aria-label="variants"
+                  onChange={handleVariantChange}
+                  css={{
+                    height: "3.6rem",
+                    background: theme.colors.PRIMARY_LIGHT,
+                    border: `1px solid ${theme.colors.SECONDARY_LIGHT}`,
+                    borderRadius: "2px",
+                    color: theme.colors.SECONDARY_LIGHT,
+                  }}
+                >
+                  {variants.map(({ id, fields, availableForSale }) => {
+                    const title = `${fields[`${lang}_locale`].title}${
+                      availableForSale
+                        ? ""
+                        : " (" + t("buttons.out-of-stock-option") + ")"
+                    }`;
+                    return (
+                      <option value={id} key={id}>
+                        {title.length >= 23
+                          ? `${title.slice(0, 23)}...`
+                          : title}
+                      </option>
+                    );
+                  })}
+                </select>
+              </fieldset>
+            </>
+          )}
         </div>
+
         <div
           css={{
             paddingTop: "1.65rem",

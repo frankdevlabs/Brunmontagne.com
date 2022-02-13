@@ -79,6 +79,9 @@ const ThemeProvider = ({ children }) => {
             ".flexbox.grid": {
               flexWrap: "wrap",
             },
+            ".flexbox.justifyStart": {
+              justifyContent: "flex-start",
+            },
             ".flexbox.justifyEnd": {
               justifyContent: "flex-end",
             },
@@ -88,18 +91,18 @@ const ThemeProvider = ({ children }) => {
             ".flexbox.col-margin": {
               margin: "0 -1.5rem",
               rowGap: "3rem",
-              [mq("sm")]: {
-                margin: "0 -0.7rem",
-                rowGap: "1.4rem",
-              },
+              // [mq("sm")]: {
+              //   margin: "0 -0.7rem",
+              //   rowGap: "1.4rem",
+              // },
             },
             ".flexbox .col": {
               paddingRight: "1.5rem",
               paddingLeft: "1.5rem",
-              [mq("sm")]: {
-                paddingRight: "0.7rem",
-                paddingLeft: "0.7rem",
-              },
+              // [mq("sm")]: {
+              //   paddingRight: "0.7rem",
+              //   paddingLeft: "0.7rem",
+              // },
             },
             ".flexbox .col.third": {
               flex: "0 1 33.3%",

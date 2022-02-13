@@ -60,13 +60,13 @@ const AboutSection = () => {
         css={{
           padding: `3.2rem ${theme.padding.DEFAULT} 13.2rem ${theme.padding.DEFAULT}`,
           [mq("xl")]: {
-            padding: `3.2rem ${theme.padding.XL} 13.2rem ${theme.padding.XL}`,
+            padding: `2.2rem ${theme.padding.XL} 10.2rem ${theme.padding.XL}`,
           },
           [mq("md")]: {
-            padding: `3.2rem ${theme.padding.MD} 13.2rem ${theme.padding.MD}`,
+            padding: `1.2rem ${theme.padding.MD} 7.2rem ${theme.padding.MD}`,
           },
           [mq("sm")]: {
-            padding: `3.2rem ${theme.padding.SM} 13.2rem ${theme.padding.SM}`,
+            padding: `1.2rem ${theme.padding.SM} 7.2rem ${theme.padding.SM}`,
           },
         }}
       >
@@ -82,6 +82,8 @@ const AboutSection = () => {
                 fontSize: "3.5rem",
                 lineHeight: "42px",
                 letterSpacing: "0.02em",
+                [mq("lg")]: { fontSize: "2.5rem", lineHeight: "32px" },
+                [mq("sm")]: { fontSize: "1.6rem", lineHeight: "22px" },
               }}
             >
               &quot;

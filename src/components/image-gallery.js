@@ -152,7 +152,7 @@ const ImageGallery = ({
                 WebkitTapHighlightColor: "transparent",
               }}
             >
-              {images.map((image) => {
+              {images.slice(1).map((image) => {
                 return (
                   <div
                     key={image.id}

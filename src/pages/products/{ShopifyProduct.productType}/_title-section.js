@@ -29,9 +29,11 @@ const Title = ({ title, averageAllReviews, votes }) => {
           >
             {title}
           </div>
-          <div>
-            <Rating votes={votes} value={averageAllReviews.average} />
-          </div>
+          {averageAllReviews && (
+            <div>
+              <Rating votes={votes} value={averageAllReviews.average} />
+            </div>
+          )}
         </div>
       </div>
     </section>

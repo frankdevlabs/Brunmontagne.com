@@ -50,7 +50,7 @@ const SectionWithBackgroundImage = ({ children }) => {
           minHeight: "45rem",
         },
         [mq("sm")]: {
-          height: "40vh",
+          height: "52vh",
           minHeight: "unset",
         },
       }}

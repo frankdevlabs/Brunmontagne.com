@@ -6,12 +6,13 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 import Link from "./link";
 
 const ProductCard = ({ product, eager, size, lang }) => {
+  const _product = product.node ? product.node : product;
   const {
     fields,
     slug,
     images: [firstImage],
     totalVariants,
-  } = product;
+  } = _product;
 
   const title = fields[`${lang}_locale`].title;
 

@@ -27,19 +27,43 @@
     "cited-person": "Pascal Bruinenberg, founder of Brunmontagne",
     "button-link": "Read the full story"
   },
+  "contact": {
+    "title-part-1": "Get in",
+    "title-part-2": "contact with us",
+    "name-input-label": "Name",
+    "email-input-label": "Email",
+    "phone-input-label": "Phone number",
+    "message-input-label": "Message",
+    "button-label": "Send it"
+  },
   "testimonial": {
-    "title-part-1": "Other",
-    "title-part-2": "about Brunmontagne",
+    "title-part-1": "Anderen",
+    "title-part-2": "over Brunmontagne",
     "items": [
       {
-        "content": "Our latest discovery is the Brunmontagne brand. A great, up and coming brand that makes beautiful watches for a decent price..",
+        "content": "Our latest discovery is the Brunmontagne brand. A great, up and coming brand that makes beautiful watches for a decent price.",
         "author": "fhm",
         "link": "https://fhm.nl/brunmontagne-horloges/"
       },
       {
-        "content": "Onze laatste ontdekking is het merk Brunmontagne. Een tof, opkomend merk dat fraaie horloges maakt voor een nette prijs.",
-        "author": "fhm",
-        "link": "https://fhm.nl/brunmontagne-horloges/"
+        "content": "The cabinet shape, the Genta-esque cabinet, is really cool. With its sunburst, the record is a real pleasure to the eye. I think the hands are very well done, you don't hear much about them I think. The price, because you get a lot of value for money.",
+        "author": "Amaris - Horlogeforum.nl",
+        "link": "https://www.horlogeforum.nl/t/representor-for-a-week/264008/458"
+      },
+      {
+        "content": "Your brand is one of the few new brands that hasn't picked up a design. It is unique, yet it feels familiar and that is a nice combination.",
+        "author": "Nihat Uludağ",
+        "link": ""
+      },
+      {
+        "content": "What a design and what top quality. Bought quite a few watches over the years, but none can match this topper. Very happy with it!",
+        "author": "Jari",
+        "link": ""
+      },
+      {
+        "content": "Have it for one year now. Wear it daily and quality is good... Still happy with it.",
+        "author": "J Wester",
+        "link": ""
       }
     ]
   }

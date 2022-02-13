@@ -1,28 +1,23 @@
 import React from "react"; // eslint-disable-line no-unused-vars
-import { graphql, useStaticQuery } from "gatsby";
 import SectionTitle from "../../components/section-title";
 import { useTranslation } from "gatsby-plugin-react-i18next";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
+import mq from "../../theme/media-queries";
 
-const BlockquoteColumn = ({
-  children,
-  maxWidth = 0,
-  margin = "default",
-  flexPosition = "center",
-}) => {
+const MOBILE_HEIGHT = "20rem";
+const MOBILE_BREAKPOINT = "sm";
+
+const BlockquoteColumn = ({ children, flexPosition = "center" }) => {
   return (
     <div
       css={{
         flex: "1",
-        ...(maxWidth > 0
-          ? { maxWidth: `${maxWidth}rem` }
-          : { maxWidth: "39rem" }),
-        ...(margin === "default"
-          ? { marginRight: "4.3rem" }
-          : { margin: margin }),
         display: "flex",
         flexDirection: "column",
         justifyContent: flexPosition,
+        [mq(MOBILE_BREAKPOINT)]: {
+          height: MOBILE_HEIGHT,
+        },
       }}
     >
       {children}
@@ -31,7 +26,35 @@ const BlockquoteColumn = ({
 };
 
 const Row = ({ children }) => (
-  <div css={{ display: "flex", marginTop: "7.1rem" }}>{children}</div>
+  <div
+    css={{
+      display: "flex",
+      marginTop: "7.1rem",
+      justifyContent: "space-between",
+      "& > div:first-of-type": {
+        paddingRight: "2rem",
+        [mq(MOBILE_BREAKPOINT)]: {
+          paddingRight: "0",
+        },
+      },
+      "& > div:last-of-type": {
+        paddingLeft: "2rem",
+        [mq(MOBILE_BREAKPOINT)]: {
+          paddingLeft: "0",
+        },
+      },
+      [mq(MOBILE_BREAKPOINT)]: {
+        flexWrap: "wrap",
+        marginTop: "4rem",
+        maxHeight: MOBILE_HEIGHT,
+        "& > div": {
+          flex: "0 1 100%",
+        },
+      },
+    }}
+  >
+    {children}
+  </div>
 );
 
 const TestimonialSection = () => {
@@ -46,6 +69,16 @@ const TestimonialSection = () => {
           fontSize: "2.5rem",
           lineHeight: "30px",
           letterSpacing: "0.02em",
+          [mq("lg")]: {
+            fontSize: "1.8rem",
+            lineHeight: "22px",
+            letterSpacing: "0.01em",
+          },
+          [mq(MOBILE_BREAKPOINT)]: {
+            fontSize: "1.5rem",
+            lineHeight: "18px",
+            textAlign: "center",
+          },
         }}
       >
         &quot;{t.content}&quot;
@@ -55,6 +88,12 @@ const TestimonialSection = () => {
               fontStyle: "normal",
               fontSize: "1.6rem",
               lineHeight: "19px",
+              [mq("lg")]: {
+                fontSize: "1.4rem",
+              },
+              [mq("md")]: {
+                fontSize: "1.2rem",
+              },
             }}
           >
             {t.author}
@@ -63,74 +102,74 @@ const TestimonialSection = () => {
       </blockquote>
     )
   );
-  const { image1, image2, image3 } = useStaticQuery(
-    graphql`
-      query {
-        image1: file(relativePath: { eq: "images/testimonial-section-1.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(
-              width: 550
-              placeholder: DOMINANT_COLOR
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
-        image2: file(relativePath: { eq: "images/testimonial-section-2.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(
-              width: 364
-              placeholder: DOMINANT_COLOR
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
-        image3: file(relativePath: { eq: "images/testimonial-section-3.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(
-              width: 645
-              placeholder: DOMINANT_COLOR
-              formats: [AUTO, WEBP, AVIF]
-            )
-          }
-        }
-      }
-    `
-  );
 
   return (
     <section>
       <div className="container">
-        <div css={{ maxWidth: "1160px", marginRight: "auto" }}>
-          <div css={{ maxWidth: "68.6rem", marginTop: "10rem" }}>
+        <div>
+          <div
+            css={{
+              maxWidth: "68.6rem",
+              marginTop: "10rem",
+              [mq("md")]: { marginTop: "6rem" },
+            }}
+          >
             <SectionTitle textAlign="left">
               <strong>{t("testimonial.title-part-1")}</strong>{" "}
               {t("testimonial.title-part-2")}
             </SectionTitle>
           </div>
-          <div css={{ marginTop: "10rem" }}>
+          <div
+            css={{
+              marginTop: "10rem",
+              [mq(MOBILE_BREAKPOINT)]: {
+                marginTop: "6rem",
+                position: "relative",
+                "& > div > div.t-image": {
+                  maxHeight: MOBILE_HEIGHT,
+                  position: "absolute",
+                  opacity: "0.25",
+                  marginTop: "0",
+                },
+                "& > div > div.t-image > div": {
+                  maxHeight: MOBILE_HEIGHT,
+                },
+              },
+            }}
+          >
             <Row>
-              <BlockquoteColumn maxWidth={54}>
-                {Testimonials[0]}
-              </BlockquoteColumn>
-              <div css={{ flex: "0 1 550px" }}>
+              <BlockquoteColumn>{Testimonials[0]}</BlockquoteColumn>
+              <div
+                className="t-image"
+                css={{
+                  flex: "0 1 55%",
+                }}
+              >
                 <StaticImage
                   src="../../assets/images/testimonial-section-1.jpg"
                   alt="brunmontagne representor voorkant"
                   placeholder="blurred"
-                  layout="fixed"
-                  width={550}
-                  height={354}
+                  layout="constrained"
+                  height={421}
+                  width={750}
                 />
               </div>
             </Row>
             <Row>
-              <div css={{ flex: "0 1 364px", marginTop: "7.4rem" }}>
+              <div
+                className="t-image"
+                css={{
+                  flex: "0 1 35%",
+                  [mq("lg")]: { flex: "0 1 55%" },
+                  marginTop: "2rem",
+                }}
+              >
                 <StaticImage
                   src="../../assets/images/testimonial-section-2.jpg"
                   alt="brunmontagne representor gedragen door iemand met colbert"
                   placeholder="blurred"
-                  layout="fixed"
-                  width={364}
+                  layout="constrained"
+                  width={700}
                   height={500}
                 />
               </div>
@@ -140,22 +179,41 @@ const TestimonialSection = () => {
             </Row>
             <Row>
               <BlockquoteColumn>{Testimonials[2]}</BlockquoteColumn>
-              <div css={{ flex: "0 1 364px", marginTop: "7.4rem" }}>
+              <div
+                className="t-image"
+                css={{
+                  flex: "0 1 60%",
+                  [mq("xl")]: {
+                    flex: "0 1 44%",
+                  },
+                  marginTop: "2rem",
+                }}
+              >
                 <StaticImage
                   src="../../assets/images/testimonial-section-3.jpg"
                   alt="brunmontagne representor dial"
                   placeholder="blurred"
-                  layout="fixed"
-                  width={645}
+                  layout="constrained"
+                  width={800}
                   height={511}
                 />
               </div>
             </Row>
             <Row>
+              <div
+                className="t-image"
+                css={{ flex: "0 1 44%", marginTop: "2rem" }}
+              >
+                <StaticImage
+                  src="../../assets/images/testimonial-section-4.jpg"
+                  alt="brunmontagne representor table"
+                  placeholder="blurred"
+                  layout="constrained"
+                  width={500}
+                  height={450}
+                />
+              </div>
               <BlockquoteColumn>{Testimonials[3]}</BlockquoteColumn>
-              <BlockquoteColumn margin="0 14.9rem 0 auto">
-                {Testimonials[4]}
-              </BlockquoteColumn>
             </Row>
           </div>
         </div>
