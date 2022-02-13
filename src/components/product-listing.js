@@ -18,7 +18,7 @@ const ProductListing = ({
       <ProductCard
         size={size}
         product={p}
-        key={p.id}
+        key={p.id || p.node.id}
         eager={index === 0}
         lang={lang}
       />

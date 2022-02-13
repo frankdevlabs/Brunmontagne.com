@@ -6,13 +6,12 @@ import {
 } from "gatsby-plugin-react-i18next";
 import { useTheme } from "@emotion/react";
 import CartButton from "./cart-button";
+import LanguagePicker from "./language-picker";
 import Toast from "./toast";
 import mq from "../theme/media-queries";
 import { StoreContext } from "../context/store-context";
 import BMLogo from "../assets/vectors/bm-logo-vector.svg";
-// import ShoppingCart from "../assets/vectors/shopping-cart.svg";
 import Check from "../assets/vectors/check.svg";
-import User from "../assets/vectors/user.svg";
 
 const NavList = ({ lang }) => {
   const { t } = useTranslation();
@@ -188,7 +187,7 @@ const Header = () => {
                 <CartButton quantity={quantity} />
               </div>
               <div className="col">
-                <User />
+                <LanguagePicker />
               </div>
             </div>
           </div>
