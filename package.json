@@ -8,7 +8,8 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "get-token": "node_modules/.bin/gatsby-source-google-docs-token"
   },
   "repository": {
     "type": "git",
@@ -43,9 +44,11 @@
     "gatsby-plugin-sharp": "^4.4.0",
     "gatsby-plugin-sitemap": "^5.5.0",
     "gatsby-source-filesystem": "^4.4.0",
+    "gatsby-source-google-docs": "^2.2.1",
     "gatsby-source-google-spreadsheets": "^3.0.8",
     "gatsby-source-shopify": "^6.4.0",
     "gatsby-source-shopify-localized": "file:plugins/gatsby-source-shopify-localized",
+    "gatsby-transformer-remark": "^5.7.0",
     "gatsby-transformer-sharp": "^4.4.0",
     "gbimage-bridge": "^0.2.1",
     "i18next": "^21.6.5",

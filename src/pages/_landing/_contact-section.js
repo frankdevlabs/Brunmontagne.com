@@ -9,7 +9,7 @@ const ContactSection = () => {
   const { t } = useTranslation();
   return (
     <section css={{ paddingTop: "15rem", [mq("md")]: { paddingTop: "6rem" } }}>
-      <div className="container">
+      <div className="container" id="contact">
         <div css={{ maxWidth: "57.7rem", marginLeft: "auto" }}>
           <SectionTitle>
             {t("contact.title-part-1")} {t("contact.title-part-2")}

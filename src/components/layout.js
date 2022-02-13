@@ -9,7 +9,11 @@ function Layout(props) {
     <div
       css={{
         position: `${
-          props.path === "/" || props.path === "/en/" ? "relative" : "unset "
+          props.path === "/" ||
+          props.path === "/en/" ||
+          props.path.indexOf("/en#") === 0
+            ? "relative"
+            : "unset "
         }`,
       }}
     >
@@ -19,7 +23,9 @@ function Layout(props) {
         css={{
           height: "80vh",
           minHeight: "35rem",
-          ...(props.path === "/" || props.path === "/en/"
+          ...(props.path === "/" ||
+          props.path === "/en/" ||
+          props.path.indexOf("/en#") === 0
             ? { position: "absolute", top: "0", width: "100%" }
             : {}),
         }}

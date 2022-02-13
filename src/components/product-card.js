@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import { useTheme } from "@emotion/react";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import Link from "./link";
+import { formatPrice } from "../utils/format-price";
 
 const ProductCard = ({ product, eager, size, lang }) => {
   const _product = product.node ? product.node : product;
@@ -12,7 +13,13 @@ const ProductCard = ({ product, eager, size, lang }) => {
     slug,
     images: [firstImage],
     totalVariants,
+    priceRangeV2,
   } = _product;
+
+  const price = formatPrice(
+    priceRangeV2.minVariantPrice.currencyCode,
+    priceRangeV2.minVariantPrice.amount
+  );
 
   const title = fields[`${lang}_locale`].title;
 
@@ -45,6 +52,10 @@ const ProductCard = ({ product, eager, size, lang }) => {
             margin: "5px 1px 3px 0px",
             border: "2px solid white",
             color: theme.colors.YELLOW,
+
+            "& > div > div:last-of-type > span > div": {
+              color: theme.colors.YELLOW,
+            },
           },
         }}
       >
@@ -96,6 +107,15 @@ const ProductCard = ({ product, eager, size, lang }) => {
                 fontSize: "1.4rem",
               }}
             >
+              <div
+                css={{
+                  color: theme.colors.GREEN_LIGHT,
+                  marginBottom: "0.5rem",
+                  transition: "all 0.30s ease-in-out",
+                }}
+              >
+                {price}
+              </div>
               {t("product.available-in")} {totalVariants}{" "}
               {totalVariants > 1 ? t("product.variants") : t("product.variant")}
             </span>
@@ -124,6 +144,12 @@ export const query = graphql`
       }
       en_locale {
         title
+      }
+    }
+    priceRangeV2 {
+      minVariantPrice {
+        amount
+        currencyCode
       }
     }
     vendor

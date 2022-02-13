@@ -192,6 +192,14 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-source-google-docs",
+      options: {
+        folder: "1-hK3bFdcBPOmGR4yyFiWwhAT0AMTb5Ac",
+        createPages: true,
+      },
+    },
+    `gatsby-transformer-remark`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-netlify`,
   ].filter(Boolean),
