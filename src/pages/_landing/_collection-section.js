@@ -4,6 +4,7 @@ import ProductListing from "../../components/product-listing";
 import mq from "../../theme/media-queries";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import Link from "../../components/link";
+import ProductDeliveryTerms from "../../components/product-delivery-terms";
 
 const CollectionSection = (props) => {
   const { t } = useTranslation();
@@ -39,6 +40,9 @@ const CollectionSection = (props) => {
           </SectionTitle>
         </div>
         <ProductListing products={products} lang={lang} position="justifyEnd" />
+        <div css={{ margin: "4rem auto" }}>
+          <ProductDeliveryTerms position="flex-end" />
+        </div>
         <div
           css={{
             display: "flex",

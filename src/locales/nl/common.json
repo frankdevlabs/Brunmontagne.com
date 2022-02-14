@@ -10,7 +10,7 @@
     },
     {
       "label": "Contact",
-      "to": "#contact"
+      "to": "/#contact"
     }
   ],
   "buttons": {

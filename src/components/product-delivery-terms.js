@@ -2,7 +2,7 @@ import React from "react"; // eslint-disable-line no-unused-vars
 import FastDeliverTruck from "../assets/vectors/fast-delivery-truck.svg";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
-const ProductDeliveryTerms = () => {
+const ProductDeliveryTerms = ({ position = "default" }) => {
   const { t } = useTranslation();
   return (
     <div
@@ -10,6 +10,7 @@ const ProductDeliveryTerms = () => {
         display: "flex",
         fontSize: "1.2rem",
         lineHeight: "171%",
+        ...(position !== "default" ? { justifyContent: position } : {}),
         "& > svg": {
           height: "3.6rem",
           width: "3.6rem",
