@@ -261,9 +261,6 @@ export const query = graphql`
     }
     product: shopifyProduct(id: { eq: $id }) {
       productType
-      productTypeSlug: gatsbyPath(
-        filePath: "/products/{ShopifyProduct.productType}"
-      )
       tags
       metafields {
         id
