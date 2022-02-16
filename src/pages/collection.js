@@ -4,7 +4,7 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 import { graphql } from "gatsby";
 import ProductListing from "../components/product-listing";
 
-const CollectionPage = ({ data, pageContext }) => {
+const CollectionPage = ({ data, pageContext, location }) => {
   const { t } = useTranslation();
   const description = t("collection-page.description");
   const title = t("collection-page.title");

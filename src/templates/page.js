@@ -57,7 +57,7 @@ const Page = ({ data, pageContext, location }) => {
 export const pageQuery = graphql`
   query ($path: String!, $language: String!) {
     content: markdownRemark(
-      frontmatter: { slug: { eq: $path }, locale: { eq: $language } }
+      frontmatter: { handle: { eq: $path }, locale: { eq: $language } }
     ) {
       id
       frontmatter {

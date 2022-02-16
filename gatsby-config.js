@@ -73,13 +73,6 @@ module.exports = {
           },
           nsSeparator: false,
         },
-        // To ignore pages, see: https://github.com/microapps/gatsby-plugin-react-i18next/blob/master/example/gatsby-config.js
-        // pages: [
-        //   {
-        //     matchPath: "/ignored-page",
-        //     languages: ["en"],
-        //   },
-        // ],
       },
     },
     {
