@@ -9,7 +9,7 @@ import { formatPrice } from "../utils/format-price";
 import Button from "../components/button";
 import mq from "../theme/media-queries";
 
-const CartPage = ({ pageContext }) => {
+const CartPage = ({ pageContext, location }) => {
   const { checkout, loading } = useContext(StoreContext);
   const emptyCart = checkout.lineItems.length === 0;
 

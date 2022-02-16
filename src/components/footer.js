@@ -140,17 +140,17 @@ const Footer = () => {
                   }}
                 >
                   <li>
-                    <Link ui="simple" to="/terms">
+                    <Link ui="simple" to="/terms/">
                       Algemene Voorwaarden
                     </Link>
                   </li>
                   <li>
-                    <Link ui="simple" to="/returns">
+                    <Link ui="simple" to="/returns/">
                       Garantie en retouren
                     </Link>
                   </li>
                   <li>
-                    <Link ui="simple" to="/privacy">
+                    <Link ui="simple" to="/privacy/">
                       Privacy
                     </Link>
                   </li>

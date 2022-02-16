@@ -104,17 +104,17 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         excludes: [
-          `/404`,
+          `/404/`,
           `/404.html`,
-          `/en/404`,
+          `/en/404/`,
           `/en/404.html`,
-          `/offline-plugin-app-shell-fallback`,
-          `/en/terms`,
-          `/terms`,
-          `/en/privacy`,
-          `/privacy`,
-          `/en/returns`,
-          `/returns`,
+          `/offline-plugin-app-shell-fallback/`,
+          `/en/term/s`,
+          `/terms/`,
+          `/en/privacy/`,
+          `/privacy/`,
+          `/en/returns/`,
+          `/returns/`,
         ],
         query: `
           {
@@ -123,43 +123,52 @@ module.exports = {
                 siteUrl
               }
             }
-            allSitePage(filter: {context: {i18n: {routed: {eq: false}}}}) {
+            allSitePage {
               edges {
                 node {
-                  context {
-                    i18n {
-                      defaultLanguage
-                      languages
-                      originalPath
-                    }
-                  }
+                  pageContext
                   path
                 }
               }
             }
           }
         `,
-        serialize: ({ site, allSitePage }) => {
-          return allSitePage.edges.map((edge) => {
+        resolvePages: ({ allSitePage }) => {
+          const pages = allSitePage.edges.map(({ node }) => {
+            const { pageContext } = node;
             const { languages, originalPath, defaultLanguage } =
-              edge.node.context.i18n;
-            const { siteUrl } = site.siteMetadata;
-            const url = siteUrl + originalPath;
+              pageContext.i18n;
+            const path =
+              originalPath.substr(-1) === "/"
+                ? originalPath
+                : originalPath + "/";
             const links = [
-              { lang: defaultLanguage, url },
-              { lang: "x-default", url },
+              { lang: defaultLanguage, url: path },
+              { lang: "x-default", url: path },
             ];
             languages.forEach((lang) => {
               if (lang === defaultLanguage) return;
-              links.push({ lang, url: `${siteUrl}/${lang}${originalPath}` });
+              links.push({ lang, url: `/${lang}${path}` });
             });
             return {
-              url,
+              path: path,
               changefreq: "daily",
-              priority: originalPath === "/" ? 1.0 : 0.7,
+              priority: path === "/" ? 1.0 : 0.7,
               links,
             };
           });
+          return pages;
+        },
+        filterPages: (page, excludedRoute) => {
+          return page.path === excludedRoute;
+        },
+        serialize: ({ path, changefreq, priority, links }) => {
+          return {
+            url: path,
+            changefreq,
+            priority,
+            links,
+          };
         },
       },
     },

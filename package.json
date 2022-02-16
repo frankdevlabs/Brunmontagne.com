@@ -4,7 +4,8 @@
   "description": "Gatsby ecommerce website with Shopify Storefront API",
   "scripts": {
     "develop": "gatsby develop",
-    "debug": "gatsby clean && node $NODE_DEBUG_OPTION ./node_modules/.bin/gatsby develop -p 5555",
+    "debug-dev": "gatsby clean && node $NODE_DEBUG_OPTION ./node_modules/.bin/gatsby develop -p 5555",
+    "debug-build": "gatsby clean && node $NODE_DEBUG_OPTION ./node_modules/.bin/gatsby build",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
