@@ -17,7 +17,7 @@ const darkThemeColors = {
     TERTIARY: "#C33E39",
     GREEN: "#33DBC4",
     GREEN_LIGHT: "#34FBE0",
-    YELLOW: "#DCD40E",
+    YELLOW: "#B19206",
   },
 };
 

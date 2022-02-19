@@ -40,7 +40,7 @@ const ThemeProvider = ({ children }) => {
             body: {
               boxSizing: "border-box",
               backgroundColor: theme.colors.PRIMARY,
-              color: theme.colors.SECONDARY,
+              color: theme.colors.SECONDARY_LIGHT,
             },
             ul: {
               listStyle: "none",
