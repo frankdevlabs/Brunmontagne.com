@@ -58,9 +58,9 @@ const AboutSection = () => {
     <SectionWithBackgroundImage>
       <div
         css={{
-          padding: `3.2rem ${theme.padding.DEFAULT} 13.2rem ${theme.padding.DEFAULT}`,
+          padding: `3.2rem ${theme.padding.DEFAULT} 7.2rem ${theme.padding.DEFAULT}`,
           [mq("xl")]: {
-            padding: `2.2rem ${theme.padding.XL} 10.2rem ${theme.padding.XL}`,
+            padding: `2.2rem ${theme.padding.XL} 7.2rem ${theme.padding.XL}`,
           },
           [mq("md")]: {
             padding: `1.2rem ${theme.padding.MD} 7.2rem ${theme.padding.MD}`,

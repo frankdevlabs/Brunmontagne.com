@@ -29,7 +29,7 @@ const Row = ({ children }) => (
   <div
     css={{
       display: "flex",
-      marginTop: "7.1rem",
+      marginTop: "3.5rem",
       justifyContent: "space-between",
       "& > div:first-of-type": {
         paddingRight: "2rem",
@@ -110,7 +110,7 @@ const TestimonialSection = () => {
           <div
             css={{
               maxWidth: "68.6rem",
-              marginTop: "10rem",
+              marginTop: "4.5rem",
               [mq("md")]: { marginTop: "6rem" },
             }}
           >
@@ -121,9 +121,8 @@ const TestimonialSection = () => {
           </div>
           <div
             css={{
-              marginTop: "10rem",
+              marginTop: "1.5rem",
               [mq(MOBILE_BREAKPOINT)]: {
-                marginTop: "6rem",
                 position: "relative",
                 "& > div > div.t-image": {
                   maxHeight: MOBILE_HEIGHT,

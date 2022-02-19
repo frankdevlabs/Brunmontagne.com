@@ -21,7 +21,7 @@ const CollectionPage = ({ data, pageContext, location }) => {
     >
       <section>
         <div className="container">
-          <div css={{ margin: "5rem 0 7rem 0" }}>
+          <div css={{ margin: "5rem 0 3rem 0" }}>
             <h1>{title}</h1>
           </div>
           <div>
@@ -31,7 +31,7 @@ const CollectionPage = ({ data, pageContext, location }) => {
               justifyContent="justifyStart"
             />
           </div>
-          <div css={{ margin: "7rem 0 5rem" }}>
+          <div css={{ margin: "7rem 0 3rem" }}>
             <h2>{t("collection-page.title-straps")}</h2>
           </div>
           <div css={{ marginBottom: "7rem" }}>

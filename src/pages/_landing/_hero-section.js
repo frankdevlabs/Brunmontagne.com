@@ -132,7 +132,7 @@ const HeroSection = () => {
                 letterSpacing: "0.01em",
                 textTransform: "uppercase",
                 [mq("sm")]: {
-                  fontSize: "3rem",
+                  fontSize: "2,8rem",
                   lineHeight: "34px",
                 },
               }}

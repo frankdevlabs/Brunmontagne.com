@@ -14,17 +14,17 @@ const Footer = () => {
       css={{
         backgroundColor: theme.colors.TERTIARY,
         marginTop: "8rem",
-        padding: `12.5rem ${theme.padding.DEFAULT} 12.5rem ${theme.padding.DEFAULT}`,
+        padding: `6.5rem ${theme.padding.DEFAULT} 5.5rem ${theme.padding.DEFAULT}`,
         [mq("xl")]: {
-          padding: `12.5rem ${theme.padding.XL} 12.5rem ${theme.padding.XL}`,
+          padding: `6.5rem ${theme.padding.XL} 5.5rem ${theme.padding.XL}`,
           marginTop: "4rem",
         },
         [mq("md")]: {
-          padding: `6rem ${theme.padding.MD} 6rem ${theme.padding.MD}`,
+          padding: `4.5rem ${theme.padding.MD} 3.5rem ${theme.padding.MD}`,
           marginTop: "0",
         },
         [mq("sm")]: {
-          padding: `3.5rem ${theme.padding.SM} 3.5rem ${theme.padding.SM}`,
+          padding: `3.5rem ${theme.padding.SM} 2.5rem ${theme.padding.SM}`,
         },
       }}
     >
@@ -35,18 +35,15 @@ const Footer = () => {
             alignItems: "baseline",
             justifyContent: "flex-start",
             "& > div:not(:last-of-type) > div > div:last-of-type": {
-              marginTop: "5.8rem",
+              marginTop: "3.5rem",
               [mq("lg")]: {
-                marginTop: "4.4rem",
-              },
-              [mq("md")]: {
                 marginTop: "2.4rem",
               },
             },
             "& > div:last-of-type > div > div:last-of-type": {
-              marginTop: "9.1rem",
+              marginTop: "5rem",
               [mq("lg")]: {
-                marginTop: "6.4rem",
+                marginTop: "3.4rem",
               },
               [mq("md")]: {
                 marginTop: "2.4rem",
@@ -222,7 +219,7 @@ const Footer = () => {
       <div
         className="container"
         css={{
-          marginTop: "13.9rem",
+          marginTop: "5.5rem",
           [mq("md")]: {
             marginTop: "7.9rem",
           },
