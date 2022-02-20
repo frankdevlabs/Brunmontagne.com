@@ -136,7 +136,7 @@ export const query = graphql`
     images {
       id
       altText
-      gatsbyImageData(aspectRatio: 1.25, width: 270)
+      gatsbyImageData(aspectRatio: 1.25, width: 220)
     }
     fields {
       nl_locale {

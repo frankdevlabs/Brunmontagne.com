@@ -47,11 +47,10 @@ const SectionWithBackgroundImage = ({ children }) => {
         padding: 0,
         [mq("xl")]: {
           height: "70vh",
-          minHeight: "45rem",
+          minHeight: "51rem",
         },
         [mq("sm")]: {
           height: "52vh",
-          minHeight: "unset",
         },
       }}
       {...bgImage}
@@ -74,7 +73,7 @@ const HeroSection = () => {
             bottom: "-3rem",
             width: "100%",
             [mq("lg")]: {
-              bottom: "-6rem",
+              bottom: "-7rem",
             },
             [mq("sm")]: {
               bottom: "-9rem",

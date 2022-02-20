@@ -1,4 +1,11 @@
-import React, { useContext, useState, useCallback, useEffect } from "react"; // eslint-disable-line no-unused-vars
+import React, {
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+  memo,
+  useMemo,
+} from "react"; // eslint-disable-line no-unused-vars
 import { graphql } from "gatsby";
 import { useTheme } from "@emotion/react";
 import LayoutContainer from "../../../containers/layout-container";
@@ -88,6 +95,22 @@ const Product = (props) => {
   const description = fields[`${lang}_locale`].description;
   const metaDescription = fields[`${lang}_locale`].metaDescription;
 
+  // eslint-disable-next-line react/display-name
+  const OrderSectionMemo = memo(() => (
+    <OrderSection
+      title={title}
+      description={description}
+      price={price}
+      variantId={productVariant.storefrontId}
+      available={available}
+      hasVariants={hasVariants}
+      selectVariant={selectVariant}
+      handleVariantChange={handleVariantChange}
+      variants={variants}
+      lang={lang}
+    />
+  ));
+
   return (
     <LayoutContainer
       title={title}
@@ -96,6 +119,27 @@ const Product = (props) => {
       type="og:product"
       image={metaImage}
       lang={lang}
+      topLayerComponent={
+        <nav
+          role="navigation"
+          aria-label="mobile"
+          css={{
+            display: "none",
+            visibility: "hidden",
+            marginLeft: "auto",
+            flex: "0 1 100%",
+            [mq("lg")]: {
+              display: "block",
+              visibility: "visible",
+              position: "sticky",
+              bottom: "0",
+              zIndex: "9000",
+            },
+          }}
+        >
+          <OrderSectionMemo />
+        </nav>
+      }
     >
       <TitleSection
         title={title}
@@ -191,31 +235,20 @@ const Product = (props) => {
             <SuggestionsSection products={suggestions.nodes} lang={lang} />
           </div>
           <nav
+            role="navigation"
+            aria-label="main-product"
             css={{
               maxWidth: "49rem",
               marginLeft: "auto",
               flex: "0 1 34%",
               [mq("lg")]: {
                 flex: "0 1 100%",
-                position: "sticky",
-                bottom: "0",
-                zIndex: "9000",
-                maxWidth: "unset",
+                display: "none",
+                visibility: "hidden",
               },
             }}
           >
-            <OrderSection
-              title={title}
-              description={description}
-              price={price}
-              variantId={productVariant.storefrontId}
-              available={available}
-              hasVariants={hasVariants}
-              selectVariant={selectVariant}
-              handleVariantChange={handleVariantChange}
-              variants={variants}
-              lang={lang}
-            />
+            <OrderSectionMemo />
           </nav>
         </div>
       </div>

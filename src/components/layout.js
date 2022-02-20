@@ -4,7 +4,7 @@ import Footer from "./footer";
 import Seo from "./seo";
 
 function Layout(props) {
-  const { children } = props;
+  const { children, topLayerComponent } = props;
   return (
     <div
       css={{
@@ -32,6 +32,7 @@ function Layout(props) {
       >
         <main>{children}</main>
         <Footer />
+        {topLayerComponent}
       </div>
     </div>
   );

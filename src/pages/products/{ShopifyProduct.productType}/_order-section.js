@@ -2,7 +2,6 @@ import React from "react"; // eslint-disable-line no-unused-vars
 import { useTheme } from "@emotion/react";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import AddToCart from "../../../components/add-to-cart-button";
-import FastDeliverTruck from "../../../assets/vectors/fast-delivery-truck.svg";
 import ProductDescription from "../../../components/product-description";
 import ProductPrice from "../../../components/product-price";
 import ProductDeliveryTerms from "../../../components/product-delivery-terms";
@@ -33,16 +32,9 @@ const Order = ({
           backgroundColor: theme.colors.PRIMARY_LIGHT,
           padding: "0",
           width: "100vw",
-          left: `-${theme.padding.XL}`,
           position: "relative",
           borderLeft: "unset",
           borderTop: `1px solid ${theme.colors.SECONDARY_LIGHT}`,
-          [mq("md")]: {
-            left: `-${theme.padding.MD}`,
-          },
-          [mq("sm")]: {
-            left: `-${theme.padding.SM}`,
-          },
         },
       }}
     >
@@ -79,9 +71,6 @@ const Order = ({
             margin: "3.5rem 0",
             [mq("lg")]: {
               margin: "0",
-            },
-            [mq("sm")]: {
-              // flex: "0 1 50%",
             },
           }}
         >
