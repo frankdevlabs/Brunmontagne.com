@@ -26,6 +26,7 @@ const CollectionPage = ({ data, pageContext, location }) => {
           </div>
           <div>
             <ProductListing
+              name="Collection - Watch"
               products={watches?.edges}
               lang={lang}
               justifyContent="justifyStart"
@@ -36,6 +37,7 @@ const CollectionPage = ({ data, pageContext, location }) => {
           </div>
           <div css={{ marginBottom: "7rem" }}>
             <ProductListing
+              name="Collection - Straps"
               products={straps?.edges}
               lang={lang}
               justifyContent="justifyStart"

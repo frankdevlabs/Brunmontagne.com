@@ -98,6 +98,11 @@ const Product = (props) => {
   // eslint-disable-next-line react/display-name
   const OrderSectionMemo = memo(() => (
     <OrderSection
+      product={{
+        productVariant,
+        title: product.title,
+        productType: product.productType,
+      }}
       title={title}
       description={description}
       price={price}
@@ -232,7 +237,11 @@ const Product = (props) => {
                 lang={lang}
               />
             )}
-            <SuggestionsSection products={suggestions.nodes} lang={lang} />
+            <SuggestionsSection
+              title={product.title}
+              products={suggestions.nodes}
+              lang={lang}
+            />
           </div>
           <nav
             role="navigation"
@@ -295,6 +304,7 @@ export const query = graphql`
     product: shopifyProduct(id: { eq: $id }) {
       productType
       tags
+      title
       metafields {
         id
         key
@@ -338,6 +348,7 @@ export const query = graphql`
       }
       variants {
         id
+        sku
         availableForSale
         storefrontId
         title

@@ -16,6 +16,7 @@ const ContactSection = () => {
           </SectionTitle>
         </div>
         <form
+          className="contactForm-module"
           css={{
             marginTop: "5rem",
           }}

@@ -7,6 +7,8 @@ import { getShopifyImage } from "gatsby-source-shopify";
 import DeleteIcon from "../assets/vectors/delete.svg";
 import { useTheme } from "@emotion/react";
 import mq from "../theme/media-queries";
+import { getOriginProductList, REMOVE_FROM_CART_EVENT } from "../utils/gtm";
+import useCookie from "../utils/use-cookie";
 
 const NumericInput = ({ onIncrement, onDecrement, disabled, ...props }) => {
   const theme = useTheme();
@@ -82,6 +84,10 @@ const RemoveButton = ({ handleRemove }) => {
 };
 
 const CartItem = ({ item }) => {
+  const [productMetaList] = useCookie("productMetaList", {});
+  const [pref] = useCookie("pref", "analytics=1|personalisation=0");
+  const originList = getOriginProductList(item.variant.sku, productMetaList);
+
   const { removeLineItem, checkout, updateLineItem, loading } =
     React.useContext(StoreContext);
   const [quantity, setQuantity] = React.useState(item.quantity);
@@ -96,6 +102,11 @@ const CartItem = ({ item }) => {
   );
 
   const handleRemove = () => {
+    REMOVE_FROM_CART_EVENT(
+      item,
+      originList,
+      pref.includes("personalisation=1")
+    );
     removeLineItem(checkout.id, item.id);
   };
 

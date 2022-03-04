@@ -1,4 +1,4 @@
-import React, { useContext } from "react"; // eslint-disable-line no-unused-vars
+import React, { useContext, useEffect } from "react"; // eslint-disable-line no-unused-vars
 import { graphql } from "gatsby";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import LayoutContainer from "../containers/layout-container";
@@ -8,13 +8,29 @@ import Link from "../components/link";
 import { formatPrice } from "../utils/format-price";
 import Button from "../components/button";
 import mq from "../theme/media-queries";
+import { VIEW_CART_EVENT, BEGIN_CHECKOUT_EVENT } from "../utils/gtm";
+import useCookie from "../utils/use-cookie";
 
 const CartPage = ({ pageContext, location }) => {
   const { checkout, loading } = useContext(StoreContext);
   const emptyCart = checkout.lineItems.length === 0;
+  const [pref] = useCookie("pref", "analytics=1|personalisation=0");
+
+  useEffect(() => {
+    VIEW_CART_EVENT(checkout.lineItems, pref.includes("personalisation=1"));
+  });
 
   const handleCheckout = () => {
-    window.open(checkout.webUrl);
+    BEGIN_CHECKOUT_EVENT(
+      checkout.lineItems,
+      pref.includes("personalisation=1")
+    );
+    window.open(
+      `${checkout.webUrl.replace(
+        process.env.GATSBY_SHOPIFY_STORE_URL,
+        process.env.GATSBY_PUBLIC_SHOPIFY_STORE_URL
+      )}&note=2013-02-14`
+    );
   };
 
   const { t } = useTranslation();

@@ -26,6 +26,15 @@
     "suggestions-section": "Suggesties",
     "description-section": "Beschrijving"
   },
+  "cookie": {
+    "title": "Welkom",
+    "content-headline": "Kies je instellingen",
+    "content-paragraph": "We maken gebruik van cookies en vergelijkbare technieken om onze diensten en advertenties te leveren, te onderhouden en te verbeteren. Klik op akkoord als je wilt dat we de content en advertenties die je ziet op basis van je activiteit personaliseren. Meer informatie in het",
+    "content-privacy-policy": "privacy beleid",
+    "btn-refuse": "Weigeren",
+    "btn-agree": "Akkoord"
+
+  },
   "added-to-cart": "Aan winkelmand toegevoegd",
   "return-policy": "Wereldwijde verzending binnen 2 dagen | Retourneren mag altijd binnen 30 dagen",
   "options-text": "Opties",

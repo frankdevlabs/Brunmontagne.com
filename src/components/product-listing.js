@@ -8,6 +8,7 @@ const ProductListing = ({
   position,
   lang,
   justifyContent,
+  name,
 }) => (
   <div
     className={`flexbox col-margin alignBaseline grid${
@@ -16,6 +17,8 @@ const ProductListing = ({
   >
     {products.map((p, index) => (
       <ProductCard
+        listName={name}
+        listIndex={index}
         size={size}
         product={p}
         key={p.id || p.node.id}

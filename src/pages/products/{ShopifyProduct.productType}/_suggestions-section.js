@@ -3,7 +3,7 @@ import ProductListing from "../../../components/product-listing";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import mq from "../../../theme/media-queries";
 
-const SuggestionsSection = ({ products, lang }) => {
+const SuggestionsSection = ({ products, lang, title }) => {
   const { t } = useTranslation();
   return (
     <section>
@@ -29,7 +29,12 @@ const SuggestionsSection = ({ products, lang }) => {
           },
         }}
       >
-        <ProductListing size="third" products={products} lang={lang} />
+        <ProductListing
+          name={`suggestions@ ${title} product-page`}
+          size="third"
+          products={products}
+          lang={lang}
+        />
       </div>
     </section>
   );

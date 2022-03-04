@@ -86,7 +86,7 @@ module.exports = {
         icon: `src/assets/images/icon.png`,
         start_url: `/`,
         background_color: `#f1f1f1`,
-        theme_color: `#130f40`,
+        theme_color: `#000`,
         legacy: true,
         // cache_busting_mode: "none",
         localize: [

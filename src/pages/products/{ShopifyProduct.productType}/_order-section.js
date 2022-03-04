@@ -8,6 +8,7 @@ import ProductDeliveryTerms from "../../../components/product-delivery-terms";
 import mq from "../../../theme/media-queries";
 
 const Order = ({
+  product,
   title,
   price,
   variants,
@@ -151,7 +152,12 @@ const Order = ({
             },
           }}
         >
-          <AddToCart variantId={variantId} quantity={1} available={available} />
+          <AddToCart
+            product={product}
+            variantId={variantId}
+            quantity={1}
+            available={available}
+          />
         </div>
         <div
           css={{

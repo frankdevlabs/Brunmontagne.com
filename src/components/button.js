@@ -30,6 +30,7 @@ export const setArrowButtonStyles = (hoverColor, color, size) => {
 
 const setDefaultButtonStyles = (
   textColor,
+  textColorInHoverState,
   buttonColor,
   buttonColorInHoverState
 ) => {
@@ -45,6 +46,7 @@ const setDefaultButtonStyles = (
     letterSpacing: "0.04em",
     transition: "all 0.5s ease",
     "&:hover": {
+      color: textColorInHoverState,
       backgroundColor: buttonColorInHoverState,
     },
   };
@@ -57,6 +59,7 @@ const Button = ({
   ui = "default",
   disabled,
   textColor,
+  textColorInHoverState,
   buttonColorInHoverState,
   buttonColor,
   ...props
@@ -76,20 +79,26 @@ const Button = ({
     );
   }
 
-  let _textColor, _buttonColorInHoverState, _buttonColor;
+  let _textColor,
+    _textColorInHoverState,
+    _buttonColorInHoverState,
+    _buttonColor;
   if (!disabled) {
     _textColor = textColor || theme.colors.PRIMARY_LIGHT;
+    _textColorInHoverState = textColorInHoverState || textColor;
     _buttonColorInHoverState =
       buttonColorInHoverState || theme.colors.GREEN_LIGHT;
     _buttonColor = buttonColor || theme.colors.GREEN;
   } else {
     _textColor = textColor || theme.colors.PRIMARY_LIGHT;
+    _textColorInHoverState = textColorInHoverState || textColor;
     _buttonColorInHoverState =
       buttonColorInHoverState || theme.colors.SECONDARY_LIGHT;
     _buttonColor = buttonColor || theme.colors.SECONDARY_LIGHT;
   }
   buttonStyles = setDefaultButtonStyles(
     _textColor,
+    _textColorInHoverState,
     _buttonColor,
     _buttonColorInHoverState
   );

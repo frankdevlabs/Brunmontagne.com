@@ -5,8 +5,17 @@ import { useTheme } from "@emotion/react";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import Link from "./link";
 import { formatPrice } from "../utils/format-price";
+import { productCardData } from "../utils/gtm";
+import { useInView } from "../utils/use-in-view";
 
-const ProductCard = ({ product, eager, size, lang }) => {
+const ProductCard = ({
+  listName = "not set",
+  listIndex = 0,
+  product,
+  eager,
+  size,
+  lang,
+}) => {
   const _product = product.node ? product.node : product;
   const {
     fields,
@@ -30,10 +39,37 @@ const ProductCard = ({ product, eager, size, lang }) => {
 
   const theme = useTheme();
   const { t } = useTranslation();
+
+  // Start: GTM related
+  const gtmData = productCardData(_product, listName, listIndex);
+  const [cardRef, isVisible] = useInView(
+    {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    },
+    () => {
+      if (isVisible) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "viewed_list_item",
+          item: gtmData,
+          element: cardRef,
+        });
+      }
+    },
+    true
+  );
+  // END: GTM related
   return (
     <div
       className={`col ${size ? size : "fourth"}`}
       css={{ maxWidth: "27rem" }}
+      // Start: GTM related
+      ref={cardRef}
+      data-product-id={gtmData.item_id}
+      data-product-dl={JSON.stringify(gtmData)}
+      // END: GTM related
     >
       <Link
         to={slug}
@@ -129,6 +165,10 @@ const ProductCard = ({ product, eager, size, lang }) => {
 export const query = graphql`
   fragment ProductCard on ShopifyProduct {
     id
+    variants {
+      sku
+    }
+    productType
     title
     slug: gatsbyPath(
       filePath: "/products/{ShopifyProduct.productType}/{ShopifyProduct.handle}"

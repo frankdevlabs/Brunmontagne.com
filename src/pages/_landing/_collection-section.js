@@ -23,7 +23,12 @@ const CollectionSection = (props) => {
             {t("collection.title-part-3")}
           </SectionTitle>
         </div>
-        <ProductListing products={products} lang={lang} position="justifyEnd" />
+        <ProductListing
+          name="Home Page"
+          products={products}
+          lang={lang}
+          position="justifyEnd"
+        />
         <div css={{ margin: "4rem auto" }}>
           <ProductDeliveryTerms position="flex-end" />
         </div>
