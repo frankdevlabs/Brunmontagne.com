@@ -3,14 +3,13 @@ import Header from "./header";
 import Footer from "./footer";
 import Seo from "./seo";
 import CookieNotice from "./cookie-notice";
-import useCookie from "../utils/use-cookie";
 
 function Layout(props) {
   const { children, topLayerComponent } = props;
-  const [showNotice, setShowNotice] = useCookie("showNotice", 1);
+
   return (
     <>
-      {showNotice ? <CookieNotice setShowBanner={setShowNotice} /> : ""}
+      <CookieNotice />
       <div
         css={{
           position: `${

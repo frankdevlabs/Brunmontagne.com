@@ -1,4 +1,4 @@
-import React from "react"; // eslint-disable-line no-unused-vars
+import React, { useEffect, useState } from "react"; // eslint-disable-line no-unused-vars
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import Link from "./link";
 import Button from "./button";
@@ -7,13 +7,9 @@ import useCookie from "../utils/use-cookie";
 import mq from "../theme/media-queries";
 import { useTheme } from "@emotion/react";
 
-const CookieNotice = ({ setShowBanner }) => {
+const CookieNotice = () => {
   const theme = useTheme();
   const { t } = useTranslation();
-  const [_, setPreferences] = useCookie(
-    "pref",
-    "analytics=1|personalisation=0"
-  );
 
   const options = {
     expires: 0,
@@ -25,20 +21,38 @@ const CookieNotice = ({ setShowBanner }) => {
     sameSite: "none",
   };
 
+  const duration = 3000;
+  const [animation, setAnimation] = useState("");
+  const [showNotice, setShowNotice] = useCookie("showNotice", 1);
+  const [_, setPreferences] = useCookie(
+    "pref",
+    "analytics=1|personalisation=0"
+  );
+
+  useEffect(() => {
+    if (showNotice) {
+      const timeout = setTimeout(() => {
+        setAnimation("showing");
+      }, duration);
+      return () => clearTimeout(timeout);
+    }
+  });
+
   const accept = () => {
     setPreferences("analytics=1|personalisation=1", options);
-    setShowBanner("0", options);
+    setShowNotice("0", options);
     history.go(0);
   };
 
   const refuse = () => {
     setPreferences("analytics=1|personalisation=0", options);
-    setShowBanner("0", options);
+    setShowNotice("0", options);
     history.go(0);
   };
 
   return (
     <div
+      className={[animation].join(" ")}
       css={{
         position: "fixed",
         boxShadow: " 0 0 5px rgba(0,0,0,.25)",
@@ -49,7 +63,12 @@ const CookieNotice = ({ setShowBanner }) => {
         left: "50%",
         marginRight: "-50%",
         transform: "translate(-50%, -50%)",
-        zIndex: "9002",
+        zIndex: "-1",
+        opacity: "0",
+        animation: "showing 1s ease-in",
+        visibility: "hidden",
+        display: "none",
+
         "& > div": {
           margin: "0 auto",
         },
@@ -58,6 +77,22 @@ const CookieNotice = ({ setShowBanner }) => {
         },
         [mq("sm")]: {
           maxWidth: "80%",
+        },
+
+        "@keyframes showing": {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+
+        "&.showing": {
+          opacity: "1",
+          zIndex: "9002",
+          visibility: "unset",
+          display: "block",
         },
       }}
     >
