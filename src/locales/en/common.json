@@ -26,6 +26,15 @@
     "suggestions-section": "Suggestions",
     "description-section": "Description"
   },
+  "cookie": {
+    "title": "Welcome",
+    "content-headline": "Choose your settings",
+    "content-paragraph": "We uses cookies and similar technology to deliver, maintain and improve our services and ads. If you agree, we’ll personalise the content and ads that you see, based on your activity. More information in our",
+    "content-privacy-policy": "privacy policy",
+    "btn-refuse": "No, thanks",
+    "btn-agree": "Alright"
+
+  },
   "added-to-cart": "Added to cart",
   "return-policy": "Worldwide shipment within 2 days | 30 day return policy",
   "options-text": "Options",
