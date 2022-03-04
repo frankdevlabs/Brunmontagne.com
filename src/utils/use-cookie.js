@@ -69,6 +69,11 @@ const getCookie = (name, initialValue = "") => {
     ? cookies.reduce((r, v) => {
         const _name = v.slice(0, v.indexOf("="));
         let value = _name === name ? v.slice(v.indexOf("=") + 1) : r;
+        /* The below if statement allows the return of 0 in case 'let value = 0', which is a falsy value.
+        This is required for the functioning of our cookiebanner (cookie-notice and layout components). */
+        if (value === undefined || value === "") {
+          return initialValue;
+        }
         // The below if statement ensures Objects are returned accordingly (instead of String).
         if (
           typeof value !== "object" &&
@@ -89,11 +94,7 @@ const getCookie = (name, initialValue = "") => {
         if (typeof value === "string") {
           value = !isNaN(parseInt(value)) ? parseInt(value) : value;
         }
-        /* The below if statement allows the return of 0 in case 'let value = 0', which is a falsy value.
-      This is required for the functioning of our cookiebanner (cookie-notice and layout components). */
-        if (value === undefined) {
-          return initialValue;
-        }
+
         return value;
       }, "")
     : initialValue;
