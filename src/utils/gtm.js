@@ -174,7 +174,6 @@ export const REMOVE_FROM_CART_EVENT = (
 export const VIEW_CART_EVENT = (shopifyCheckoutItems, wantsPersonalisation) => {
   const GAProducts = shopifyCheckoutItems2GAProducts(shopifyCheckoutItems);
   const totalPrice = getTotalPrice(GAProducts);
-  console.log(GAProducts, totalPrice);
   // return GAProduct;
 
   /*
@@ -204,7 +203,6 @@ export const BEGIN_CHECKOUT_EVENT = (
 ) => {
   const GAProducts = shopifyCheckoutItems2GAProducts(shopifyCheckoutItems);
   const totalPrice = getTotalPrice(GAProducts);
-  console.log(GAProducts, totalPrice);
   // return GAProduct;
 
   /*
