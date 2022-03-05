@@ -157,7 +157,7 @@ export const REMOVE_FROM_CART_EVENT = (
   });
 
   if (wantsPersonalisation) {
-    const facebookProducts = GAProduct2FacebookProduct(GAProduct[0]);
+    const facebookProducts = GAProduct2FacebookProduct(GAProducts[0]);
     // eslint-disable-next-line no-undef
     dataLayer.push({ pixel: null }); // Clear the previous ecommerce object.
     // eslint-disable-next-line no-undef
