@@ -60,7 +60,7 @@ export const query = graphql`
         }
       }
     }
-    watches: allShopifyProduct(filter: { productType: { eq: "Watches" } }) {
+    watches: allShopifyProduct(filter: { productType: { eq: "Horloges" } }) {
       edges {
         node {
           ...ProductCard
