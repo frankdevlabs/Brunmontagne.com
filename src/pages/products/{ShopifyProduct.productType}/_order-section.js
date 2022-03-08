@@ -29,7 +29,7 @@ const Order = ({
         borderLeft: `0.5px solid ${theme.colors.SECONDARY_LIGHT}`,
         height: "100%",
         [mq("lg")]: {
-          maxHeight: "12rem",
+          maxHeight: "14rem",
           backgroundColor: theme.colors.PRIMARY_LIGHT,
           padding: "0",
           width: "100vw",
@@ -49,7 +49,7 @@ const Order = ({
             display: "flex",
             justifyContent: "space-between",
             alignItems: "baseline",
-            padding: "3%",
+            padding: "2%",
             flexWrap: "wrap",
           },
         }}
@@ -82,7 +82,7 @@ const Order = ({
             display: "flex",
             alignItems: "center",
             marginBottom: "3.1rem",
-            [mq("sm")]: {
+            [mq("md")]: {
               marginBottom: "1.5%",
             },
           }}
@@ -110,8 +110,8 @@ const Order = ({
                     }`;
                     return (
                       <option value={id} key={id}>
-                        {title.length >= 23
-                          ? `${title.slice(0, 23)}...`
+                        {title.length >= 36
+                          ? `${title.slice(0, 36)}...`
                           : title}
                       </option>
                     );
@@ -143,7 +143,7 @@ const Order = ({
               marginTop: "0",
               flex: "0 1 35%",
             },
-            [mq("sm")]: {
+            [mq("md")]: {
               flex: "0 1 100%",
 
               "& > button": {
