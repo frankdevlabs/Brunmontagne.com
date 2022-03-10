@@ -107,7 +107,6 @@ const ProductCard = ({
           <div>
             <h3
               css={{
-                fontWeight: "bold",
                 fontSize: "1.6rem",
                 lineHeight: "19px",
                 textAlign: "center",

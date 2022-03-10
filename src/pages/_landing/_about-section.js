@@ -120,7 +120,7 @@ const AboutSection = () => {
               justifyContent: "center",
             }}
           >
-            <Link to="/about/" ui="button">
+            <Link to="/our-story/" ui="button">
               {t("about.button-link")}
             </Link>
           </div>
