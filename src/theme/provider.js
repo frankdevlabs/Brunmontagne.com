@@ -120,7 +120,6 @@ const ThemeProvider = ({ children }) => {
               color: theme.colors.SECONDARY_LIGHT,
             },
             "h1,h2,h3,h4,h5,h6": {
-              fontFamily: "Rokkitt, serif",
               fontWeight: "700",
               letterSpacing: "0.01em",
               position: "relative",

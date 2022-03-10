@@ -111,6 +111,7 @@ const ProductCard = ({
                 fontSize: "1.6rem",
                 lineHeight: "19px",
                 textAlign: "center",
+                fontWeight: "400",
               }}
             >
               {title}
@@ -176,7 +177,7 @@ export const query = graphql`
     images {
       id
       altText
-      gatsbyImageData(aspectRatio: 1.25, width: 220)
+      gatsbyImageData(aspectRatio: 1, width: 220)
     }
     fields {
       nl_locale {

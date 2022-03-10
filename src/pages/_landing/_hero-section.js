@@ -128,7 +128,7 @@ const HeroSection = () => {
                 fontSize: "3.6rem",
                 fontWeight: "400",
                 lineHeight: "41px",
-                letterSpacing: "0.01em",
+                letterSpacing: "-0.03em",
                 textTransform: "uppercase",
                 [mq("sm")]: {
                   fontSize: "2,8rem",

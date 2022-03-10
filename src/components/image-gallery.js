@@ -116,7 +116,6 @@ const ImageGallery = ({
   return (
     <div
       css={{
-        backgroundColor: PRIMARY_LIGHT,
         maxWidth: "761px",
       }}
     >
@@ -176,7 +175,7 @@ const ImageGallery = ({
                         <GatsbyImage
                           image={image.gatsbyImageData}
                           style={{
-                            maxHeight: "42.8rem",
+                            maxHeight: "52.8rem",
                           }}
                           alt={image.altText || fallbackAltText}
                         />

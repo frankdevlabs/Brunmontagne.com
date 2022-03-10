@@ -88,7 +88,7 @@ const Product = (props) => {
   const specifications = metafields.filter((mf) => mf.key === "specifications");
   const hasVariants = variants.length > 1;
   const hasSpecifications = specifications.length === 1;
-  const hasReviews = reviews.edges.length > 1;
+  const hasReviews = reviews.edges.length > 0;
 
   const lang = pageContext.i18n.language;
   const title = fields[`${lang}_locale`].title;

@@ -10,9 +10,10 @@ const ContactSection = () => {
   return (
     <section css={{ paddingTop: "5rem", [mq("md")]: { paddingTop: "6rem" } }}>
       <div className="container" id="contact">
-        <div css={{ maxWidth: "57.7rem", marginLeft: "auto" }}>
+        <div css={{ maxWidth: "56.7rem", marginLeft: "auto" }}>
           <SectionTitle>
-            {t("contact.title-part-1")} {t("contact.title-part-2")}
+            {t("contact.title-part-1")}{" "}
+            <strong>{t("contact.title-part-2")}</strong>
           </SectionTitle>
         </div>
         <form
