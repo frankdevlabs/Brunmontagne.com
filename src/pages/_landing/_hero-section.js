@@ -136,9 +136,8 @@ const HeroSection = () => {
                 },
               }}
             >
-              {t("hero.title-including")}{" "}
-              <strong>{t("hero.title-automatic")}</strong>{" "}
-              {t("hero.title-movement-of")} <strong>SEIKO</strong>
+              {t("hero.title-part-1")} <strong>{t("hero.title-part-2")}</strong>{" "}
+              {t("hero.title-part-3")}
             </h1>
             <div
               css={{
