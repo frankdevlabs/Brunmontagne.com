@@ -201,7 +201,7 @@ const CartItem = ({ item }) => {
               },
             }}
           >
-            <RemoveButton />
+            <RemoveButton handleRemove={handleRemove} />
           </div>
           <div
             css={{
