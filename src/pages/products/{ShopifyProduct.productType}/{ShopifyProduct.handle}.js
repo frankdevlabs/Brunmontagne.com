@@ -4,7 +4,6 @@ import React, {
   useCallback,
   useEffect,
   memo,
-  useMemo,
 } from "react"; // eslint-disable-line no-unused-vars
 import { graphql } from "gatsby";
 import { useTheme } from "@emotion/react";
@@ -35,7 +34,6 @@ const Product = (props) => {
     images,
     metaImage,
     metafields,
-    selectVariant,
     fields,
   } = product;
 
@@ -109,7 +107,7 @@ const Product = (props) => {
       variantId={productVariant.storefrontId}
       available={available}
       hasVariants={hasVariants}
-      selectVariant={selectVariant}
+      selectVariant={variant}
       handleVariantChange={handleVariantChange}
       variants={variants}
       lang={lang}

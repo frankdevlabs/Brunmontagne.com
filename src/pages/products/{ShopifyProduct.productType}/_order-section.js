@@ -17,6 +17,7 @@ const Order = ({
   available,
   hasVariants,
   handleVariantChange,
+  selectVariant,
   lang,
 }) => {
   const { t } = useTranslation();
@@ -94,6 +95,7 @@ const Order = ({
                 <select
                   aria-label="variants"
                   onChange={handleVariantChange}
+                  value={selectVariant.id}
                   css={{
                     height: "3.6rem",
                     background: theme.colors.PRIMARY_LIGHT,
@@ -109,7 +111,11 @@ const Order = ({
                         : " (" + t("buttons.out-of-stock-option") + ")"
                     }`;
                     return (
-                      <option value={id} key={id}>
+                      <option
+                        value={id}
+                        key={id}
+                        // selected={selectVariant.id === id}
+                      >
                         {title.length >= 36
                           ? `${title.slice(0, 36)}...`
                           : title}
