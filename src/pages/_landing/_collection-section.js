@@ -30,7 +30,7 @@ const CollectionSection = (props) => {
         <div
           css={{
             maxWidth: "69.7rem",
-            margin: "2.5rem 0 4.4rem auto",
+            margin: "2.5rem auto 4.4rem 0",
           }}
         >
           <SectionTitle>
@@ -43,15 +43,15 @@ const CollectionSection = (props) => {
           name="Home Page"
           products={products}
           lang={lang}
-          position="justifyEnd"
+          position="justifyStart"
         />
         <div css={{ margin: "4rem auto" }}>
-          <ProductDeliveryTerms position="flex-end" />
+          <ProductDeliveryTerms position="flex-start" />
         </div>
         <div
           css={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "flex-start",
             margin: "5rem 0",
           }}
         >

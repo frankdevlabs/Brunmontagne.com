@@ -1,7 +1,7 @@
 import React from "react"; // eslint-disable-line no-unused-vars
 import mq from "../theme/media-queries";
 
-const SectionTitle = ({ children, textAlign = "right" }) => (
+const SectionTitle = ({ children, textAlign = "left" }) => (
   <h2
     css={{
       fontSize: "4.6rem",

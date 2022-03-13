@@ -85,6 +85,8 @@ const HeroSection = () => {
       </SectionWithBackgroundImage>
       <div
         css={{
+          position: "absolute",
+          top: "20rem",
           padding: `3.2rem ${theme.padding.DEFAULT} 0 ${theme.padding.DEFAULT}`,
           [mq("xl")]: {
             padding: `3.2rem ${theme.padding.XL} 0 ${theme.padding.XL}`,
@@ -101,8 +103,12 @@ const HeroSection = () => {
           <div
             css={{
               maxWidth: "539px",
-              position: "absolute",
-              top: "20rem",
+              [mq("lg")]: {
+                padding: "2%",
+                background:
+                  "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35))",
+                borderRadius: "2px",
+              },
             }}
           >
             <h2
@@ -111,32 +117,29 @@ const HeroSection = () => {
                 fontSize: "2.6rem",
                 lineHeight: "31px",
                 letterSpacing: "0.03em",
-                [mq("sm")]: {
+                [mq("md")]: {
                   fontSize: "2rem",
                   lineHeight: "16px",
                 },
               }}
             >
-              {t("hero.subtitle")}{" "}
-              <span css={{ textDecorationLine: "underline" }}>
-                Brunmontagne
-              </span>
+              {t("hero.subtitle")} Brunmontagne
             </h2>
             <h1
               css={{
                 marginTop: "1.4rem",
-                fontSize: "3.6rem",
-                fontWeight: "400",
+                fontSize: "3.3rem",
+                fontWeight: "300",
                 lineHeight: "41px",
                 letterSpacing: "-0.03em",
                 textTransform: "uppercase",
-                [mq("sm")]: {
-                  fontSize: "2,8rem",
-                  lineHeight: "34px",
+                [mq("md")]: {
+                  fontSize: "2.5rem",
+                  lineHeight: "24px",
                 },
               }}
             >
-              {t("hero.title-part-1")} <strong>{t("hero.title-part-2")}</strong>{" "}
+              {t("hero.title-part-1")} {t("hero.title-part-2")}{" "}
               {t("hero.title-part-3")}
             </h1>
             <div

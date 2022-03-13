@@ -34,6 +34,7 @@ const NavItem = ({ to, children, lang }) => (
     to={to}
     language={lang}
     css={{
+      filter: "drop-shadow(5px 5px 4px black)",
       fontSize: "1.6rem",
       lineHeight: "19px",
       letterSpacing: "0.01em",
@@ -89,6 +90,7 @@ const Header = () => {
         css={{
           display: "none",
           visibility: "hidden",
+          filter: "drop-shadow(0px 9px 0px rgba(255,255,255, 0.1))",
           [mq("lg")]: {
             visibility: "visible",
             display: "flex",
@@ -124,6 +126,7 @@ const Header = () => {
           <div
             className="col third"
             css={{
+              filter: "drop-shadow(5px 5px 4px black)",
               [mq("lg")]: {
                 "&.col.third": {
                   flex: "0 1 50%",
