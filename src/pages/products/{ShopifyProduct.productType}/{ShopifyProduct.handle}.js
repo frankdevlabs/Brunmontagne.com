@@ -77,11 +77,13 @@ const Product = (props) => {
   };
 
   useEffect(() => {
-    const variantImageId = variant.image.id;
-    const indexOfImage = _images.findIndex(
-      (i) => i.shopifyId === variantImageId
-    );
-    if (indexOfImage !== 0) setImages(arrayMove(_images, indexOfImage, 0));
+    if (variant.image) {
+      const variantImageId = variant.image.id;
+      const indexOfImage = _images.findIndex(
+        (i) => i.shopifyId === variantImageId
+      );
+      if (indexOfImage !== 0) setImages(arrayMove(_images, indexOfImage, 0));
+    }
     checkAvailablity(product.storefrontId);
   }, [
     productVariant.storefrontId,
