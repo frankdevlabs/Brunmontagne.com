@@ -17,6 +17,7 @@ import SpecificationsSection from "./_specifications-section";
 import MobileOnlyDescriptionSection from "./_mobile-only-description-section";
 import { StoreContext } from "../../../context/store-context";
 import { formatPrice } from "../../../utils/format-price";
+import { arrayMove } from "../../../utils/array-move";
 import mq from "../../../theme/media-queries";
 
 const Product = (props) => {
@@ -40,6 +41,7 @@ const Product = (props) => {
   const { client } = useContext(StoreContext);
 
   const [variant, setVariant] = useState({ ...initialVariant });
+  const [_images, setImages] = useState(images);
 
   const productVariant =
     client.product.helpers.variantForOptions(product, variant) || variant;
@@ -75,8 +77,19 @@ const Product = (props) => {
   };
 
   useEffect(() => {
+    const variantImageId = variant.image.id;
+    const indexOfImage = _images.findIndex(
+      (i) => i.shopifyId === variantImageId
+    );
+    if (indexOfImage !== 0) setImages(arrayMove(_images, indexOfImage, 0));
     checkAvailablity(product.storefrontId);
-  }, [productVariant.storefrontId, checkAvailablity, product.storefrontId]);
+  }, [
+    productVariant.storefrontId,
+    checkAvailablity,
+    product.storefrontId,
+    _images,
+    variant,
+  ]);
 
   const price = formatPrice(
     priceRangeV2.minVariantPrice.currencyCode,
@@ -107,7 +120,7 @@ const Product = (props) => {
       variantId={productVariant.storefrontId}
       available={available}
       hasVariants={hasVariants}
-      selectVariant={variant}
+      selectedVariant={variant}
       handleVariantChange={handleVariantChange}
       variants={variants}
       lang={lang}
@@ -216,7 +229,11 @@ const Product = (props) => {
                 },
               }}
             >
-              <GallerySection images={images} title={title} />
+              <GallerySection
+                images={_images}
+                title={title}
+                selectedVariant={variant}
+              />
               <MobileOnlyDescriptionSection
                 description={description}
                 price={price}
@@ -322,6 +339,7 @@ export const query = graphql`
       images {
         altText
         id
+        shopifyId
         gatsbyImageData(layout: FULL_WIDTH, width: 761, placeholder: TRACED_SVG)
       }
       metaImage: featuredImage {
@@ -351,6 +369,9 @@ export const query = graphql`
         storefrontId
         title
         price
+        image {
+          id
+        }
         fields {
           nl_locale {
             title

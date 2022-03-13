@@ -17,7 +17,7 @@ const Order = ({
   available,
   hasVariants,
   handleVariantChange,
-  selectVariant,
+  selectedVariant,
   lang,
 }) => {
   const { t } = useTranslation();
@@ -95,7 +95,7 @@ const Order = ({
                 <select
                   aria-label="variants"
                   onChange={handleVariantChange}
-                  value={selectVariant.id}
+                  value={selectedVariant.id}
                   css={{
                     height: "3.6rem",
                     background: theme.colors.PRIMARY_LIGHT,
@@ -116,9 +116,7 @@ const Order = ({
                         key={id}
                         // selected={selectVariant.id === id}
                       >
-                        {title.length >= 36
-                          ? `${title.slice(0, 36)}...`
-                          : title}
+                        {title}
                       </option>
                     );
                   })}

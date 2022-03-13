@@ -7,6 +7,7 @@ import NavRight from "../assets/vectors/nav-right.svg";
 import NavLeft from "../assets/vectors/nav-left.svg";
 import ImageGalleryThumbnails from "./image-gallery-thumbnails";
 import ImageGalleryNavigation from "./image-gallery-navigation";
+import { arrayMove } from "../utils/array-move";
 
 const NavButton = ({ direction, disabled, onClick, children, color }) => (
   <button
@@ -67,12 +68,13 @@ const NextButton = ({ enabled, onClick, color }) => (
 
 const ImageGallery = ({
   images,
+  selectedVariant,
   hasThumnails,
   hasNavigationDots,
   fallbackAltText,
 }) => {
   const theme = useTheme();
-  const { PRIMARY_LIGHT, TERTIARY } = theme.colors;
+  const { TERTIARY } = theme.colors;
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -112,7 +114,7 @@ const ImageGallery = ({
     onSelect();
     if (hasNavigationDots) setScrollSnaps(embla.scrollSnapList());
     embla.on("select", onSelect);
-  }, [embla, onSelect, emblaThumbs]);
+  }, [embla, onSelect, emblaThumbs, selectedVariant]);
   return (
     <div
       css={{
@@ -150,7 +152,7 @@ const ImageGallery = ({
                 WebkitTapHighlightColor: "transparent",
               }}
             >
-              {images.slice(1).map((image) => {
+              {images.map((image) => {
                 return (
                   <div
                     key={image.id}
