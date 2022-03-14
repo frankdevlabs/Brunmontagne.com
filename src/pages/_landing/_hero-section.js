@@ -146,7 +146,10 @@ const HeroSection = () => {
               css={{
                 marginTop: "4.1rem",
                 [mq("sm")]: {
-                  marginTop: "3.1rem",
+                  marginTop: "2rem",
+                },
+                [mq("sm")]: {
+                  marginTop: "0",
                 },
               }}
             >

@@ -30,7 +30,7 @@ const CollectionSection = (props) => {
         <div
           css={{
             maxWidth: "69.7rem",
-            margin: "2.5rem auto 4.4rem 0",
+            margin: "0 auto 4.4rem 0",
           }}
         >
           <SectionTitle>

@@ -10,6 +10,7 @@ const ProductDeliveryTerms = ({ position = "default" }) => {
         display: "flex",
         fontSize: "1.2rem",
         lineHeight: "171%",
+        alignItems: "center",
         ...(position !== "default" ? { justifyContent: position } : {}),
         "& > svg": {
           height: "3.6rem",

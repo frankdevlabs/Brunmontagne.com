@@ -10,7 +10,7 @@ const ContactSection = () => {
   return (
     <section css={{ paddingTop: "5rem", [mq("md")]: { paddingTop: "6rem" } }}>
       <div className="container" id="contact">
-        <div css={{ maxWidth: "56.7rem", marginLeft: "auto" }}>
+        <div css={{ maxWidth: "56.7rem", marginRight: "auto" }}>
           <SectionTitle>
             {t("contact.title-part-1")}{" "}
             <strong>{t("contact.title-part-2")}</strong>
@@ -51,8 +51,6 @@ const ContactSection = () => {
                   },
                 },
                 "& > div": {
-                  marginLeft: "auto",
-                  marginRight: "10rem",
                   [mq("xxl")]: {
                     marginLeft: "unset",
                     marginRight: "5rem",
@@ -105,7 +103,7 @@ const ContactSection = () => {
               marginTop: "5.5rem",
               marginBottom: "5.5rem",
               display: "flex",
-              justifyContent: "center",
+              justifyContent: "flex-start",
               [mq("md")]: {
                 marginTop: "4.4rem",
                 marginBottom: "4.4rem",

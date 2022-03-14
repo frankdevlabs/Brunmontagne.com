@@ -31,6 +31,9 @@ const Row = ({ children }) => (
       display: "flex",
       marginTop: "3.5rem",
       justifyContent: "space-between",
+      "& > *": {
+        flex: "0 1 50%",
+      },
       "& > div:first-of-type": {
         paddingRight: "2rem",
         [mq(MOBILE_BREAKPOINT)]: {
@@ -138,19 +141,14 @@ const TestimonialSection = () => {
           >
             <Row>
               <BlockquoteColumn>{Testimonials[0]}</BlockquoteColumn>
-              <div
-                className="t-image"
-                css={{
-                  flex: "0 1 55%",
-                }}
-              >
+              <div className="t-image">
                 <StaticImage
                   src="../../assets/images/testimonial-section-1.jpg"
                   alt="brunmontagne representor voorkant"
                   placeholder="blurred"
                   layout="constrained"
-                  height={421}
-                  width={750}
+                  height={511}
+                  width={700}
                 />
               </div>
             </Row>
@@ -158,8 +156,6 @@ const TestimonialSection = () => {
               <div
                 className="t-image"
                 css={{
-                  flex: "0 1 35%",
-                  [mq("lg")]: { flex: "0 1 55%" },
                   marginTop: "2rem",
                 }}
               >
@@ -169,7 +165,7 @@ const TestimonialSection = () => {
                   placeholder="blurred"
                   layout="constrained"
                   width={700}
-                  height={500}
+                  height={511}
                 />
               </div>
               <BlockquoteColumn margin="0 14.9rem 0 auto" maxWidth={36.9}>
@@ -181,10 +177,6 @@ const TestimonialSection = () => {
               <div
                 className="t-image"
                 css={{
-                  flex: "0 1 60%",
-                  [mq("xl")]: {
-                    flex: "0 1 44%",
-                  },
                   marginTop: "2rem",
                 }}
               >
@@ -193,23 +185,21 @@ const TestimonialSection = () => {
                   alt="brunmontagne representor dial"
                   placeholder="blurred"
                   layout="constrained"
-                  width={800}
+                  width={700}
                   height={511}
                 />
               </div>
             </Row>
             <Row>
-              <div
-                className="t-image"
-                css={{ flex: "0 1 44%", marginTop: "2rem" }}
-              >
+              <div className="t-image" css={{ marginTop: "2rem" }}>
                 <StaticImage
                   src="../../assets/images/testimonial-section-4.jpg"
                   alt="brunmontagne representor table"
                   placeholder="blurred"
                   layout="constrained"
-                  width={500}
-                  height={450}
+                  width={700}
+                  height={511}
+                  objectPosition="25% 50%"
                 />
               </div>
               <BlockquoteColumn>{Testimonials[3]}</BlockquoteColumn>
