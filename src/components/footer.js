@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer
       css={{
-        backgroundColor: theme.colors.TERTIARY,
+        backgroundColor: theme.colors.PRIMARY_LIGHT,
         marginTop: "8rem",
         padding: `6.5rem ${theme.padding.DEFAULT} 5.5rem ${theme.padding.DEFAULT}`,
         [mq("xl")]: {

@@ -11,13 +11,14 @@ const darkThemeColors = {
   colors: {
     PRIMARY: "#000",
     PRIMARY_LIGHT: "#181B1D",
+    PRIMARY_LIGHTEST: "#404046",
     SECONDARY: "#fff",
     SECONDARY_LIGHT: "#f1f1f1",
     SECONDARY_LIGHT_60: "rgba(255, 255, 255, 0.6)",
     TERTIARY: "#C33E39",
     GREEN: "#33DBC4",
-    GREEN_LIGHT: "#34FBE0",
     YELLOW: "#B19206",
+    YELLOW_LIGHT: "#c4ad44",
   },
 };
 

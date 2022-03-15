@@ -86,8 +86,8 @@ const Button = ({
     _textColor = textColor || theme.colors.PRIMARY_LIGHT;
     _textColorInHoverState = textColorInHoverState || textColor;
     _buttonColorInHoverState =
-      buttonColorInHoverState || theme.colors.GREEN_LIGHT;
-    _buttonColor = buttonColor || theme.colors.GREEN;
+      buttonColorInHoverState || theme.colors.YELLOW_LIGHT;
+    _buttonColor = buttonColor || theme.colors.YELLOW;
   } else {
     _textColor = textColor || theme.colors.PRIMARY_LIGHT;
     _textColorInHoverState = textColorInHoverState || textColor;

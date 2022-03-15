@@ -78,20 +78,14 @@ const ProductCard = ({
         customStyle={{
           display: "block",
           borderRadius: "1px",
-          border: `1px solid ${theme.colors.SECONDARY_LIGHT}`,
           height: "42rem",
-          padding: "2px 0px 2px 2px",
           margin: "5px 1px 3px 0px",
-          transition: "all 0.30s ease-in-out",
+          transition: "all 0.5s ease-in-out",
+          backgroundColor: theme.colors.PRIMARY_LIGHT,
           "&:hover": {
-            padding: "2px 0px 2px 2px",
             margin: "5px 1px 3px 0px",
-            border: "2px solid white",
-            color: theme.colors.YELLOW,
-
-            "& > div > div:last-of-type > span > div": {
-              color: theme.colors.YELLOW,
-            },
+            color: "unset",
+            backgroundColor: theme.colors.PRIMARY_LIGHTEST,
           },
         }}
       >

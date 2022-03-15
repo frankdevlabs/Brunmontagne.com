@@ -13,12 +13,20 @@ const CartButton = ({ quantity }) => {
       to="/cart"
       customStyle={{
         position: "relative",
-        "&:hover > svg > path, &:active > svg > path,": {
-          fill: theme.colors.YELLOW,
+        "&:hover > div, &:active > div": {
+          backgroundColor: theme.colors.YELLOW_LIGHT,
         },
       }}
     >
-      <Cart />
+      <div
+        css={{
+          backgroundColor: theme.colors.YELLOW,
+          borderRadius: "4px",
+          maxHeight: "36px",
+        }}
+      >
+        <Cart />
+      </div>
       {quantity > 0 && (
         <div
           css={{
