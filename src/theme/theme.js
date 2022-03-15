@@ -17,8 +17,8 @@ const darkThemeColors = {
     SECONDARY_LIGHT_60: "rgba(255, 255, 255, 0.6)",
     TERTIARY: "#C33E39",
     GREEN: "#33DBC4",
-    YELLOW: "#B19206",
-    YELLOW_LIGHT: "#c4ad44",
+    YELLOW: "#DC8622",
+    YELLOW_LIGHT: "#E5a459",
   },
 };
 
