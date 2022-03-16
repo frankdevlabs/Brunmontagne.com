@@ -23,7 +23,9 @@ const MobileOnlyDescriptionSection = ({ description }) => {
       }}
     >
       <div>
-        <h2>{t("titles.description-section")}</h2>
+        <div css={{ marginBottom: "1.8rem" }}>
+          <h2>{t("titles.description-section")}</h2>
+        </div>
         <ProductDescription description={description} />
       </div>
       <div css={{ marginTop: "3.2rem" }}>
