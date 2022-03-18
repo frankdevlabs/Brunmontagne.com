@@ -62,49 +62,51 @@ const Row = ({ children }) => (
 
 const TestimonialSection = () => {
   const { t } = useTranslation();
-  const Testimonials = t("testimonial.items", { returnObjects: true }).map(
-    (t, i) => (
-      <blockquote
-        key={i}
-        css={{
-          fontStyle: "italic",
-          fontWeight: "300",
-          fontSize: "2.5rem",
-          lineHeight: "30px",
-          letterSpacing: "0.02em",
-          [mq("lg")]: {
-            fontSize: "1.8rem",
-            lineHeight: "22px",
-            letterSpacing: "0.01em",
-          },
-          [mq(MOBILE_BREAKPOINT)]: {
-            fontSize: "1.5rem",
-            lineHeight: "18px",
-            textAlign: "center",
-          },
-        }}
-      >
-        &quot;{t.content}&quot;
-        <div css={{ marginTop: "2rem" }}>
-          <cite
-            css={{
-              fontStyle: "normal",
-              fontSize: "1.6rem",
-              lineHeight: "19px",
-              [mq("lg")]: {
-                fontSize: "1.4rem",
-              },
-              [mq("md")]: {
-                fontSize: "1.2rem",
-              },
-            }}
-          >
-            {t.author}
-          </cite>
-        </div>
-      </blockquote>
-    )
-  );
+  const Testimonials = Array.isArray(
+    t("testimonial.items", { returnObjects: true })
+  )
+    ? t("testimonial.items", { returnObjects: true }).map((t, i) => (
+        <blockquote
+          key={i}
+          css={{
+            fontStyle: "italic",
+            fontWeight: "300",
+            fontSize: "2.5rem",
+            lineHeight: "30px",
+            letterSpacing: "0.02em",
+            [mq("lg")]: {
+              fontSize: "1.8rem",
+              lineHeight: "22px",
+              letterSpacing: "0.01em",
+            },
+            [mq(MOBILE_BREAKPOINT)]: {
+              fontSize: "1.5rem",
+              lineHeight: "18px",
+              textAlign: "center",
+            },
+          }}
+        >
+          &quot;{t.content}&quot;
+          <div css={{ marginTop: "2rem" }}>
+            <cite
+              css={{
+                fontStyle: "normal",
+                fontSize: "1.6rem",
+                lineHeight: "19px",
+                [mq("lg")]: {
+                  fontSize: "1.4rem",
+                },
+                [mq("md")]: {
+                  fontSize: "1.2rem",
+                },
+              }}
+            >
+              {t.author}
+            </cite>
+          </div>
+        </blockquote>
+      ))
+    : [];
 
   return (
     <section>
