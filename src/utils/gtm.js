@@ -103,6 +103,8 @@ export const ADD_TO_CART_EVENT = (
     event is predefined by GA4. More info: https://support.google.com/analytics/answer/9268036?hl=en&ref_topic=9756175
   */
   // eslint-disable-next-line no-undef
+  window.dataLayer = window.dataLayer || [];
+  // eslint-disable-next-line no-undef
   dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object.
   // eslint-disable-next-line no-undef
   dataLayer.push({
@@ -145,6 +147,8 @@ export const REMOVE_FROM_CART_EVENT = (
      event is defined by GA4. More info: https://support.google.com/analytics/answer/9268036?hl=en&ref_topic=9756175
   */
   // eslint-disable-next-line no-undef
+  window.dataLayer = window.dataLayer || [];
+  // eslint-disable-next-line no-undef
   dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object.
   // eslint-disable-next-line no-undef
   dataLayer.push({
@@ -181,6 +185,8 @@ export const VIEW_CART_EVENT = (shopifyCheckoutItems, wantsPersonalisation) => {
      event is defined by GA4. More info: https://support.google.com/analytics/answer/9268036?hl=en&ref_topic=9756175
   */
   // eslint-disable-next-line no-undef
+  window.dataLayer = window.dataLayer || [];
+  // eslint-disable-next-line no-undef
   dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object.
   // eslint-disable-next-line no-undef
   dataLayer.push({
@@ -209,6 +215,8 @@ export const BEGIN_CHECKOUT_EVENT = (
      Measure clicking the 'checkout' button.
      event is defined by GA4. More info: https://support.google.com/analytics/answer/9268036?hl=en&ref_topic=9756175
   */
+  // eslint-disable-next-line no-undef
+  window.dataLayer = window.dataLayer || [];
   // eslint-disable-next-line no-undef
   dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object.
   // eslint-disable-next-line no-undef

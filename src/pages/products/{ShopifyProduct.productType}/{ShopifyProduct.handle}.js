@@ -1,10 +1,10 @@
-import React, {
+import React, { // eslint-disable-line no-unused-vars
   useContext,
   useState,
   useCallback,
   useEffect,
   memo,
-} from "react"; // eslint-disable-line no-unused-vars
+} from "react";
 import { graphql } from "gatsby";
 import { useTheme } from "@emotion/react";
 import LayoutContainer from "../../../containers/layout-container";

@@ -1,5 +1,6 @@
 import React from "react";
 import { useTheme } from "@emotion/react";
+import mq from "../theme/media-queries";
 
 const Toast = ({ show, duration = 1000, ...props }) => {
   const theme = useTheme();
@@ -40,6 +41,9 @@ const Toast = ({ show, duration = 1000, ...props }) => {
         zIndex: "10",
         whiteSpace: "nowrap",
         opacity: "1",
+        [mq("lg")]: {
+          bottom: "16rem",
+        },
 
         "@keyframes showing": {
           "0%": {

@@ -13,9 +13,6 @@ const CartButton = ({ quantity }) => {
       to="/cart"
       customStyle={{
         position: "relative",
-        "&:hover > div, &:active > div": {
-          backgroundColor: theme.colors.YELLOW_LIGHT,
-        },
       }}
     >
       <div
@@ -23,6 +20,9 @@ const CartButton = ({ quantity }) => {
           backgroundColor: theme.colors.YELLOW,
           borderRadius: "4px",
           maxHeight: "36px",
+          "&:hover": {
+            backgroundColor: theme.colors.YELLOW_LIGHT,
+          },
         }}
       >
         <Cart />
@@ -31,12 +31,9 @@ const CartButton = ({ quantity }) => {
         <div
           css={{
             position: "absolute",
-            top: "-3rem",
-            right: "0rem",
+            right: "-4.4rem",
             fontSize: "1rem",
-            [mq("xl")]: {
-              top: "-2rem",
-            },
+            top: "0",
           }}
         >
           {quantity}

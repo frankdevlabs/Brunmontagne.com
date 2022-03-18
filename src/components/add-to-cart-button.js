@@ -1,14 +1,23 @@
 import React, { useContext } from "react"; // eslint-disable-line no-unused-vars
 import Button from "./button";
+import { navigate } from "gatsby";
 import { StoreContext } from "../context/store-context";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 import { ADD_TO_CART_EVENT } from "../utils/gtm";
 import useCookie from "../utils/use-cookie";
 import { getOriginProductList } from "../utils/gtm";
 
-const AddToCart = ({ product, variantId, quantity, available, ...props }) => {
+const AddToCart = ({
+  product,
+  variantId,
+  quantity,
+  available,
+  duration,
+  ...props
+}) => {
   const { t } = useTranslation();
 
+  const { lang } = useI18next();
   const { addVariantToCart, loading } = useContext(StoreContext);
   const [productMetaList] = useCookie("productMetaList", {});
   const [pref] = useCookie("pref", "analytics=1|personalisation=0");
@@ -21,6 +30,10 @@ const AddToCart = ({ product, variantId, quantity, available, ...props }) => {
     e.preventDefault();
     ADD_TO_CART_EVENT(product, originList, pref.includes("personalisation=1"));
     addVariantToCart(variantId, quantity);
+    const timeout = setTimeout(() => {
+      navigate(`${lang === "en" ? "/en" : ""}/cart/`);
+    }, duration + 500);
+    return () => clearTimeout(timeout);
   }
 
   return (

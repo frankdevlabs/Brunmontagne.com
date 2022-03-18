@@ -1,7 +1,6 @@
 import React from "react"; // eslint-disable-line no-unused-vars
 import ProductDescription from "../../../components/product-description";
 import mq from "../../../theme/media-queries";
-import ProductPrice from "../../../components/product-price";
 import ProductDeliveryTerms from "../../../components/product-delivery-terms";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 

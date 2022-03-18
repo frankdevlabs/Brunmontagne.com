@@ -22,9 +22,16 @@ const darkThemeColors = {
   },
 };
 
+const durations = {
+  durations: {
+    ADD_TO_CART: 1000,
+  },
+};
+
 export const useTheme = () => {
   return {
     ...darkThemeColors,
     ...paddingStyles,
+    ...durations,
   };
 };

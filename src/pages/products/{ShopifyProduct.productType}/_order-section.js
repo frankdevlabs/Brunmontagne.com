@@ -161,6 +161,7 @@ const Order = ({
             variantId={variantId}
             quantity={1}
             available={available}
+            duration={theme.durations.ADD_TO_CART}
           />
         </div>
         <div

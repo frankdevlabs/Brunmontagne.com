@@ -15,15 +15,19 @@ import Check from "../assets/vectors/check.svg";
 
 const NavList = ({ lang }) => {
   const { t } = useTranslation();
-  const NavItems = t("menu", { returnObjects: true });
+  const NavItems = t("menu", { returnObjects: true }) || [];
 
   return (
     <div>
-      {NavItems.map((i, n) => (
-        <NavItem key={n} to={i.to} lang={lang}>
-          {i.label}
-        </NavItem>
-      ))}
+      {Array.isArray(NavItems) ? (
+        NavItems.map((i, n) => (
+          <NavItem key={n} to={i.to} lang={lang}>
+            {i.label}
+          </NavItem>
+        ))
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
@@ -195,7 +199,10 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <Toast show={loading || didJustAddToCart}>
+        <Toast
+          show={loading || didJustAddToCart}
+          duration={theme.durations.ADD_TO_CART}
+        >
           {!didJustAddToCart ? (
             "Updating…"
           ) : (
