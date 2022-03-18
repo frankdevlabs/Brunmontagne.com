@@ -1,6 +1,7 @@
 import React from "react"; // eslint-disable-line no-unused-vars
-import Rating from "../../../components/rating";
+// import Rating from "../../../components/rating";
 
+// eslint-disable-next-line no-unused-vars
 const Title = ({ title, averageAllReviews, votes }) => {
   return (
     <section css={{ paddingBottom: "1rem" }}>
@@ -29,11 +30,11 @@ const Title = ({ title, averageAllReviews, votes }) => {
           >
             {title}
           </div>
-          {averageAllReviews && (
-            <div>
-              <Rating votes={votes} value={averageAllReviews.average} />
-            </div>
-          )}
+          {/*{averageAllReviews && (*/}
+          {/*  <div>*/}
+          {/*    <Rating votes={votes} value={averageAllReviews.average} />*/}
+          {/*  </div>*/}
+          {/*)}*/}
         </div>
       </div>
     </section>
