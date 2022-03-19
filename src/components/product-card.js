@@ -104,7 +104,7 @@ const ProductCard = ({
                 fontSize: "1.6rem",
                 lineHeight: "19px",
                 textAlign: "center",
-                fontWeight: "400",
+                fontWeight: "700",
               }}
             >
               {title}
@@ -135,13 +135,15 @@ const ProductCard = ({
                 lineHeight: "17px",
                 fontWeight: "300",
                 fontSize: "1.4rem",
+                color: theme.colors.SECONDARY_LIGHT_60,
               }}
             >
               <div
                 css={{
-                  color: theme.colors.GREEN_LIGHT,
+                  color: theme.colors.GREEN,
                   marginBottom: "0.5rem",
                   transition: "all 0.30s ease-in-out",
+                  fontWeight: "400",
                 }}
               >
                 {price}

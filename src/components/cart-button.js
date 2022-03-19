@@ -15,30 +15,32 @@ const CartButton = ({ quantity }) => {
         position: "relative",
       }}
     >
-      <div
-        css={{
-          backgroundColor: theme.colors.YELLOW,
-          borderRadius: "4px",
-          maxHeight: "36px",
-          "&:hover": {
-            backgroundColor: theme.colors.YELLOW_LIGHT,
-          },
-        }}
-      >
-        <Cart />
-      </div>
-      {quantity > 0 && (
+      <div css={{ position: "relative" }}>
         <div
           css={{
-            position: "absolute",
-            right: "-4.4rem",
-            fontSize: "1rem",
-            top: "0",
+            backgroundColor: theme.colors.YELLOW,
+            borderRadius: "4px",
+            maxHeight: "36px",
+            "&:hover": {
+              backgroundColor: theme.colors.YELLOW_LIGHT,
+            },
           }}
         >
-          {quantity}
+          <Cart />
         </div>
-      )}
+        {quantity > 0 && (
+          <div
+            css={{
+              position: "absolute",
+              right: "-1rem",
+              fontSize: "1rem",
+              top: "-1rem",
+            }}
+          >
+            {quantity}
+          </div>
+        )}
+      </div>
     </Link>
   );
 };
