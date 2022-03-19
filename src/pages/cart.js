@@ -5,6 +5,7 @@ import LayoutContainer from "../containers/layout-container";
 import { StoreContext } from "../context/store-context";
 import CartItem from "../components/cart-item";
 import Link from "../components/link";
+import ProductDeliveryTerms from "../components/product-delivery-terms";
 import { formatPrice } from "../utils/format-price";
 import Button from "../components/button";
 import mq from "../theme/media-queries";
@@ -168,6 +169,14 @@ const CartPage = ({ pageContext, location }) => {
               </div>
             </>
           )}
+        </div>
+        <div>
+          <ProductDeliveryTerms />
+        </div>
+        <div css={{ marginTop: "2.7rem" }}>
+          <Link ui="button" to="/collection/">
+            Verder winkelen
+          </Link>
         </div>
       </section>
     </LayoutContainer>

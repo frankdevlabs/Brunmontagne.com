@@ -10,7 +10,7 @@ const CartButton = ({ quantity }) => {
     <Link
       ui="custom"
       aria-label={`Shopping Cart with ${quantity} items`}
-      to="/cart"
+      to="/cart/"
       customStyle={{
         position: "relative",
       }}
