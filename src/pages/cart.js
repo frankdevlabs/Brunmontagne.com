@@ -122,23 +122,25 @@ const CartPage = ({ pageContext, location }) => {
                       },
                     }}
                   >
+                    {/*<div>*/}
+                    {/*  <span>{t("not-empty-cart.subtotal")}:</span>*/}
+                    {/*  <span>*/}
+                    {/*    {formatPrice(*/}
+                    {/*      checkout.subtotalPriceV2.currencyCode,*/}
+                    {/*      checkout.subtotalPriceV2.amount*/}
+                    {/*    )}*/}
+                    {/*  </span>*/}
+                    {/*</div>*/}
                     <div>
-                      <span>{t("not-empty-cart.subtotal")}:</span>
-                      <span>
-                        {formatPrice(
-                          checkout.subtotalPriceV2.currencyCode,
-                          checkout.subtotalPriceV2.amount
-                        )}
+                      <span css={{ textAlign: "right" }}>
+                        {t("not-empty-cart.taxes")}
                       </span>
-                    </div>
-                    <div>
-                      <span>{t("not-empty-cart.taxes")}:</span>
-                      <span>
-                        {formatPrice(
-                          checkout.totalTaxV2.currencyCode,
-                          checkout.totalTaxV2.amount
-                        )}
-                      </span>
+                      {/*<span>*/}
+                      {/*  {formatPrice(*/}
+                      {/*    checkout.totalTaxV2.currencyCode,*/}
+                      {/*    checkout.totalTaxV2.amount*/}
+                      {/*  )}*/}
+                      {/*</span>*/}
                     </div>
                     <div
                       css={{ marginTop: "1rem", borderTop: "1px solid white" }}
