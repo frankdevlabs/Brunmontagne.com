@@ -175,7 +175,7 @@ const CartPage = ({ pageContext, location }) => {
         </div>
         <div css={{ marginTop: "2.7rem" }}>
           <Link ui="button" to="/collection/">
-            Verder winkelen
+            {t("not-empty-cart.shopping-button")}
           </Link>
         </div>
       </section>

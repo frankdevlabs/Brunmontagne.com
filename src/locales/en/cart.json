@@ -9,6 +9,7 @@
     "checkout-button": "Checkout",
     "subtotal": "Subtotal",
     "taxes": "Tax",
-    "total": "Total"
+    "total": "Total",
+    "shopping-button": "Continue shopping"
   }
 }
