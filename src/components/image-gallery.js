@@ -114,6 +114,7 @@ const ImageGallery = ({
     onSelect();
     if (hasNavigationDots) setScrollSnaps(embla.scrollSnapList());
     embla.on("select", onSelect);
+    scrollTo(0);
   }, [embla, onSelect, emblaThumbs, selectedVariant]);
   return (
     <div
