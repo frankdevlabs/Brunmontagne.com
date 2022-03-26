@@ -8,6 +8,7 @@ import { useTheme } from "@emotion/react";
 import CartButton from "./cart-button";
 import LanguagePicker from "./language-picker";
 import Toast from "./toast";
+import Search from "./search";
 import mq from "../theme/media-queries";
 import { StoreContext } from "../context/store-context";
 import BMLogo from "../assets/vectors/bm-logo-vector.svg";
@@ -115,7 +116,7 @@ const Header = () => {
           css={{
             "& > div.col.third > div.flexbox > div.col": {
               padding: "0",
-              "&:first-of-type": {
+              "&:not(:last-of-type)": {
                 paddingRight: "1.4rem",
               },
             },
@@ -191,9 +192,12 @@ const Header = () => {
               className="flexbox justifyEnd"
             >
               <div className="col">
-                <CartButton quantity={quantity} />
+                <Search indices={[{ name: `Pages`, title: `Pages` }]} />
               </div>
               <div className="col">
+                <CartButton quantity={quantity} />
+              </div>
+              <div className="col" css={{ "& > div": { height: "2.4rem" } }}>
                 <LanguagePicker />
               </div>
             </div>
