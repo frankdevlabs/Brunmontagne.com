@@ -7,6 +7,7 @@ const pageQuery = `{
         slug: handle
         title
         description
+        productType
       }
     }
   }
@@ -23,7 +24,7 @@ const queries = [
     transformer: ({ data }) =>
       data.allShopifyProduct.edges.map(pageToAlgoliaRecord),
     indexName,
-    settings: { attributesToSnippet: [`excerpt:20`] },
+    settings: { attributesToSnippet: [`description:20`] },
   },
 ];
 module.exports = queries;

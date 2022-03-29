@@ -1,5 +1,5 @@
 import React from "react"; // eslint-disable-line no-unused-vars
-import { Link } from "gatsby";
+import Link from "./link";
 import {
   connectStateResults,
   Highlight,
@@ -22,17 +22,20 @@ const HitCount = connectStateResults(({ searchResults }) => {
 
 const PageHit = ({ hit }) => (
   <div>
-    <Link to={hit.slug}>
+    <Link
+      to={`/products/${hit.productType.toLowerCase()}/${hit.slug}/`}
+      ui="simple"
+    >
       <h4>
         <Highlight attribute="title" hit={hit} tagName="mark" />
       </h4>
     </Link>
-    <Snippet attribute="excerpt" hit={hit} tagName="mark" />
+    <Snippet attribute="description" hit={hit} tagName="mark" />
   </div>
 );
 
 const HitsInIndex = ({ index, color }) => (
-  <Index indexName={index.name}>
+  <Index indexName={index.name} attributesToSnippet={["description:3"]}>
     <HitCount />
     <Hits
       css={{
