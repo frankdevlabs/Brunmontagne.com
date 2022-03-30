@@ -18,16 +18,17 @@ const SearchBox = ({ refine, currentRefinement, onFocus, hasFocus }) => {
       css={{
         "&.focus": {
           position: "fixed",
-          width: "50rem",
+          width: "94%",
+          marginLeft: "-47%",
           height: "10rem",
-          top: "16%",
+          top: "7%",
           left: "50%",
-          margiTop: "-5rem",
-          marginLeft: " -25rem",
+          marginTop: "-5rem",
           backgroundColor: theme.colors.PRIMARY_LIGHT,
           display: "flex",
           borderRadius: "2px",
           padding: "2%",
+          zIndex: "9005",
         },
       }}
     >

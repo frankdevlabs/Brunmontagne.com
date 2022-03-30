@@ -20,19 +20,29 @@ const HitCount = connectStateResults(({ searchResults }) => {
   ) : null;
 });
 
-const PageHit = ({ hit }) => (
-  <div>
-    <Link
-      to={`/products/${hit.productType.toLowerCase()}/${hit.slug}/`}
-      ui="simple"
-    >
-      <h4>
-        <Highlight attribute="title" hit={hit} tagName="mark" />
-      </h4>
-    </Link>
-    <Snippet attribute="description" hit={hit} tagName="mark" />
-  </div>
-);
+const PageHit = ({ hit }) => {
+  const snippetLength = hit._snippetResult.description.value.split(" ").length;
+  return (
+    <div>
+      <Link
+        to={`/products/${hit.productType.toLowerCase()}/${hit.slug}/`}
+        ui="simple"
+      >
+        <h4>
+          <Highlight attribute="title" hit={hit} tagName="mark" />
+        </h4>
+      </Link>
+      {hit._snippetResult.description.matchLevel === "full" ? (
+        <>
+          <Snippet attribute="description" hit={hit} tagName="mark" />
+          {snippetLength === 20 || snippetLength === 19 ? "..." : ""}
+        </>
+      ) : (
+        ""
+      )}
+    </div>
+  );
+};
 
 const HitsInIndex = ({ index, color }) => (
   <Index indexName={index.name} attributesToSnippet={["description:3"]}>
@@ -64,22 +74,20 @@ const SearchResult = ({ indices, show }) => {
     <div
       css={{
         display: show ? `block` : `none`,
-        maxHeight: "80vh",
         overflow: "scroll",
         webkitOverflowScrolling: "touch",
-        zIndex: "2",
         right: "0",
-        marginTop: "0.5em",
-        maxWidth: "30em",
         boxShadow: " 0 0 5px 0",
         padding: "1em",
         borderRadius: "2px",
         background: theme.colors.PRIMARY_LIGHT,
         position: "fixed",
-        width: "50rem",
-        top: "27%",
+        width: "94%",
+        marginLeft: "-47%",
+        top: "18%",
         left: "50%",
-        marginLeft: "-25rem",
+        marginTop: "-5rem",
+        zIndex: "9006",
 
         "& .ais-PoweredBy": {
           display: "flex",
