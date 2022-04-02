@@ -30,7 +30,7 @@ const Link = (props) => {
     targetBlank,
     underline = true,
   } = props;
-  const { lang } = useI18next();
+  const { language } = useI18next();
   const _props = { to, ...(ariaLabel ? { "aria-label": ariaLabel } : {}) };
   const theme = useTheme();
 
@@ -39,7 +39,7 @@ const Link = (props) => {
     const hoverColor = theme.colors.YELLOW;
     const buttonStyles = setArrowButtonStyles(hoverColor, color);
     return (
-      <I18NextLink css={buttonStyles} {..._props} language={lang}>
+      <I18NextLink css={buttonStyles} {..._props} language={language}>
         <span css={{ marginRight: "3rem" }}>{children}</span>
         <ArrowEast />
       </I18NextLink>
@@ -48,7 +48,7 @@ const Link = (props) => {
 
   if (ui === "custom") {
     return (
-      <I18NextLink css={customStyle} {..._props} language={lang}>
+      <I18NextLink css={customStyle} {..._props} language={language}>
         {children}
       </I18NextLink>
     );
@@ -71,7 +71,7 @@ const Link = (props) => {
   if (ui === "simple") {
     const simpleUI = setSimpleUI(theme);
     return (
-      <I18NextLink css={simpleUI} {..._props} language={lang}>
+      <I18NextLink css={simpleUI} {..._props} language={language}>
         {children}
       </I18NextLink>
     );

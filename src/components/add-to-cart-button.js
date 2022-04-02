@@ -17,7 +17,7 @@ const AddToCart = ({
 }) => {
   const { t } = useTranslation();
 
-  const { lang } = useI18next();
+  const { language } = useI18next();
   const { addVariantToCart, loading } = useContext(StoreContext);
   const [productMetaList] = useCookie("productMetaList", {});
   const [pref] = useCookie("pref", "analytics=1|personalisation=0");
@@ -31,7 +31,7 @@ const AddToCart = ({
     ADD_TO_CART_EVENT(product, originList, pref.includes("personalisation=1"));
     addVariantToCart(variantId, quantity);
     const timeout = setTimeout(() => {
-      navigate(`${lang === "en" ? "/en" : ""}/cart/`);
+      navigate(`${language === "en" ? "/en" : ""}/cart/`);
     }, duration + 500);
     return () => clearTimeout(timeout);
   }

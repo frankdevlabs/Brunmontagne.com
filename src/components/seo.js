@@ -20,14 +20,15 @@ function Seo(props) {
       : `${process.env.GATSBY_HOME_PAGE}/op-brand-image.jpg`;
   const metaImageAlt = (image && image.alt) || "Brunmontagne.com";
   const canonicalUrl = `${process.env.GATSBY_HOME_PAGE}${
-    lang === "nl" ? "" : "/en/"
-  }${path}`;
+    lang === "nl" ? path.replace("/en/", "/") : path
+  }`;
   const nonCanonicalUrl = `${process.env.GATSBY_HOME_PAGE}${
-    lang !== "nl" ? "" : "/en"
-  }${path}`;
+    lang === "nl" ? "/en" + path : path.replace("/en/", "/")
+  }`;
 
   return (
     <Helmet
+      defer={false}
       htmlAttributes={{
         lang,
         prefix: "og: http://ogp.me/ns#",
@@ -38,7 +39,9 @@ function Seo(props) {
         { rel: "canonical", href: canonicalUrl },
         {
           rel: "alternate",
-          href: process.env.GATSBY_HOME_PAGE + "/",
+          href: `${process.env.GATSBY_HOME_PAGE}${
+            lang === "nl" ? path : path.replace("/en/", "/")
+          }`,
           hrefLang: "x-default",
         },
         {
@@ -117,7 +120,7 @@ function Seo(props) {
       )}
     >
       <noscript>
-        {` < link href=${GOOGLE_FONTS_PATH} rel="stylesheet" type="text/css" />`}
+        {`<link href=${GOOGLE_FONTS_PATH} rel="stylesheet" type="text/css" />`}
       </noscript>
     </Helmet>
   );

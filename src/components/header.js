@@ -61,7 +61,7 @@ const NavItem = ({ to, children, lang }) => (
 
 const Header = () => {
   const theme = useTheme();
-  const { lang } = useI18next();
+  const { language } = useI18next();
   const { t } = useTranslation();
 
   const { checkout, loading, didJustAddToCart } =
@@ -105,7 +105,7 @@ const Header = () => {
           },
         }}
       >
-        <I18NextLink aria-label="home-button" to="/" language={lang}>
+        <I18NextLink aria-label="home-button" to="/" language={language}>
           <BMLogo />
         </I18NextLink>
       </div>
@@ -144,7 +144,7 @@ const Header = () => {
                 marginTop: "2.6rem",
               }}
             >
-              <NavList lang={lang} />
+              <NavList lang={language} />
             </div>
           </div>
           <div className="col third">
@@ -158,7 +158,7 @@ const Header = () => {
                 },
               }}
             >
-              <I18NextLink aria-label="home-button" to="/" language={lang}>
+              <I18NextLink aria-label="home-button" to="/" language={language}>
                 <BMLogo />
               </I18NextLink>
             </div>
