@@ -7,7 +7,6 @@ import NavRight from "../assets/vectors/nav-right.svg";
 import NavLeft from "../assets/vectors/nav-left.svg";
 import ImageGalleryThumbnails from "./image-gallery-thumbnails";
 import ImageGalleryNavigation from "./image-gallery-navigation";
-import { arrayMove } from "../utils/array-move";
 
 const NavButton = ({ direction, disabled, onClick, children, color }) => (
   <button

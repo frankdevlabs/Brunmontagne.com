@@ -47,6 +47,25 @@ const ThemeProvider = ({ children }) => {
           select: {
             outline: "0",
           },
+          ".SRLOpened": {
+            [mq("md")]: {
+              marginRight: "unset",
+              overflow: "unset",
+            },
+          },
+          "#SRLLightbox": {
+            [mq("md")]: {
+              opacity: "0 !important",
+              display: "none",
+              visibility: "hidden",
+              zIndex: "-9999",
+              position: "unset",
+              width: "unset",
+              height: "unset",
+              top: "unset",
+              left: "unset",
+            },
+          },
           "button,[type='button'],[type='reset'],[type='submit']": {
             webkitAppearance: "button",
             background: "transparent",
