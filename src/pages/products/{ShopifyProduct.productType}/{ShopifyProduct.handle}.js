@@ -19,6 +19,8 @@ import { StoreContext } from "../../../context/store-context";
 import { formatPrice } from "../../../utils/format-price";
 import { arrayMove } from "../../../utils/array-move";
 import mq from "../../../theme/media-queries";
+import useQueryString from "use-query-string";
+import { navigate } from "gatsby";
 
 const Product = (props) => {
   const theme = useTheme();
@@ -27,18 +29,17 @@ const Product = (props) => {
     location,
     data: { product, reviews, averageAllReviews, suggestions },
   } = props;
-
-  const {
-    variants,
-    variants: [initialVariant],
-    priceRangeV2,
-    images,
-    metaImage,
-    metafields,
-    fields,
-  } = product;
+  const { variants, priceRangeV2, images, metaImage, metafields, fields } =
+    product;
 
   const { client } = useContext(StoreContext);
+
+  const [query] = useQueryString(props.location, navigate);
+  let initialVariant = variants[0];
+  if (query.sku) {
+    const index = variants.findIndex((v) => v.sku === query.sku);
+    if (index > -1) initialVariant = variants[index];
+  }
 
   const [variant, setVariant] = useState({ ...initialVariant });
   const [_images, setImages] = useState(images);
@@ -123,6 +124,7 @@ const Product = (props) => {
       available={available}
       hasVariants={hasVariants}
       selectedVariant={variant}
+      querySku={query.sku}
       handleVariantChange={handleVariantChange}
       variants={variants}
       lang={lang}

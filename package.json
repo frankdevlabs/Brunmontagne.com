@@ -64,7 +64,8 @@
     "react-lite-youtube-embed": "^2.2.1",
     "react-rating": "^2.0.5",
     "shopify-buy": "^2.14.0",
-    "simple-react-lightbox": "^3.6.9-0"
+    "simple-react-lightbox": "^3.6.9-0",
+    "use-query-string": "^2.4.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
