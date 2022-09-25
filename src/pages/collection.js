@@ -9,8 +9,8 @@ const CollectionPage = ({ data, pageContext, location }) => {
   const description = t("collection-page.description");
   const title = t("collection-page.title");
   const lang = pageContext.i18n.language;
-  const { straps, watches } = data;
-
+  const { straps, watches, specials } = data;
+  console.log({ specials: specials, watches: watches });
   return (
     <LayoutContainer
       title={title}
@@ -23,6 +23,20 @@ const CollectionPage = ({ data, pageContext, location }) => {
         <div className="container">
           <div css={{ margin: "5rem 0 3rem 0" }}>
             <h1>{title}</h1>
+          </div>
+          <div css={{ margin: "7rem 0 3rem" }}>
+            <h2>{t("collection-page.title-specials")}</h2>
+          </div>
+          <div>
+            <ProductListing
+              name="Collection - Special Editions"
+              products={specials?.edges}
+              lang={lang}
+              justifyContent="justifyStart"
+            />
+          </div>
+          <div css={{ margin: "7rem 0 3rem" }}>
+            <h2>{t("collection-page.title-watches")}</h2>
           </div>
           <div>
             <ProductListing
@@ -57,6 +71,17 @@ export const query = graphql`
           ns
           data
           language
+        }
+      }
+    }
+    specials: allShopifyProduct(
+      filter: {
+        collections: { elemMatch: { handle: { eq: "speciale-uitgave" } } }
+      }
+    ) {
+      edges {
+        node {
+          ...ProductCard
         }
       }
     }
