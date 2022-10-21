@@ -85,7 +85,12 @@ export const query = graphql`
         }
       }
     }
-    watches: allShopifyProduct(filter: { productType: { eq: "Horloges" } }) {
+    watches: allShopifyProduct(
+      filter: {
+        productType: { eq: "Horloges" }
+        collections: { elemMatch: { handle: { nin: "speciale-uitgave" } } }
+      }
+    ) {
       edges {
         node {
           ...ProductCard
