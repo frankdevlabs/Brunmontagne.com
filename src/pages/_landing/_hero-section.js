@@ -69,6 +69,98 @@ const HeroSection = () => {
       <SectionWithBackgroundImage>
         <div
           css={{
+            position: "relative",
+            padding: `3.2rem ${theme.padding.DEFAULT} 0 ${theme.padding.DEFAULT}`,
+            [mq("xl")]: {
+              padding: `3.2rem ${theme.padding.XL} 0 ${theme.padding.XL}`,
+            },
+            [mq("md")]: {
+              padding: `3.2rem ${theme.padding.MD} 0 ${theme.padding.MD}`,
+            },
+            [mq("sm")]: {
+              padding: `3.2rem ${theme.padding.SM} 0 ${theme.padding.SM}`,
+            },
+          }}
+        >
+          <div
+            css={{
+              maxWidth: "1440px",
+              position: "relative",
+              marginRight: "auto",
+              marginLeft: "auto",
+            }}
+          >
+            <div
+              css={{
+                position: "absolute",
+                top: "20rem",
+              }}
+            >
+              <div className="container">
+                <div
+                  css={{
+                    maxWidth: "539px",
+                    [mq("lg")]: {
+                      padding: "2%",
+                      background:
+                        "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35))",
+                      borderRadius: "2px",
+                    },
+                  }}
+                >
+                  <h2
+                    css={{
+                      fontFamily: "Lato, sans-serif",
+                      fontSize: "2.6rem",
+                      lineHeight: "31px",
+                      letterSpacing: "0.03em",
+                      [mq("md")]: {
+                        fontSize: "2rem",
+                        lineHeight: "16px",
+                      },
+                    }}
+                  >
+                    {t("hero.subtitle")} Brunmontagne
+                  </h2>
+                  <h1
+                    css={{
+                      marginTop: "1.4rem",
+                      fontSize: "3.3rem",
+                      fontWeight: "300",
+                      lineHeight: "41px",
+                      letterSpacing: "-0.03em",
+                      textTransform: "uppercase",
+                      [mq("md")]: {
+                        fontSize: "2.5rem",
+                        lineHeight: "24px",
+                      },
+                    }}
+                  >
+                    {t("hero.title-part-1")} {t("hero.title-part-2")}{" "}
+                    {t("hero.title-part-3")}
+                  </h1>
+                  <div
+                    css={{
+                      marginTop: "4.1rem",
+                      [mq("sm")]: {
+                        marginTop: "2rem",
+                      },
+                      [mq("sm")]: {
+                        marginTop: "0",
+                      },
+                    }}
+                  >
+                    <Link to="/collection/" ui="button">
+                      {t("hero.button-link")}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          css={{
             position: "absolute",
             bottom: "-3rem",
             width: "100%",
@@ -83,83 +175,6 @@ const HeroSection = () => {
           <HeroToMainOverlay />
         </div>
       </SectionWithBackgroundImage>
-      <div
-        css={{
-          position: "absolute",
-          top: "20rem",
-          padding: `3.2rem ${theme.padding.DEFAULT} 0 ${theme.padding.DEFAULT}`,
-          [mq("xl")]: {
-            padding: `3.2rem ${theme.padding.XL} 0 ${theme.padding.XL}`,
-          },
-          [mq("md")]: {
-            padding: `3.2rem ${theme.padding.MD} 0 ${theme.padding.MD}`,
-          },
-          [mq("sm")]: {
-            padding: `3.2rem ${theme.padding.SM} 0 ${theme.padding.SM}`,
-          },
-        }}
-      >
-        <div className="container">
-          <div
-            css={{
-              maxWidth: "539px",
-              [mq("lg")]: {
-                padding: "2%",
-                background:
-                  "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35))",
-                borderRadius: "2px",
-              },
-            }}
-          >
-            <h2
-              css={{
-                fontFamily: "Lato, sans-serif",
-                fontSize: "2.6rem",
-                lineHeight: "31px",
-                letterSpacing: "0.03em",
-                [mq("md")]: {
-                  fontSize: "2rem",
-                  lineHeight: "16px",
-                },
-              }}
-            >
-              {t("hero.subtitle")} Brunmontagne
-            </h2>
-            <h1
-              css={{
-                marginTop: "1.4rem",
-                fontSize: "3.3rem",
-                fontWeight: "300",
-                lineHeight: "41px",
-                letterSpacing: "-0.03em",
-                textTransform: "uppercase",
-                [mq("md")]: {
-                  fontSize: "2.5rem",
-                  lineHeight: "24px",
-                },
-              }}
-            >
-              {t("hero.title-part-1")} {t("hero.title-part-2")}{" "}
-              {t("hero.title-part-3")}
-            </h1>
-            <div
-              css={{
-                marginTop: "4.1rem",
-                [mq("sm")]: {
-                  marginTop: "2rem",
-                },
-                [mq("sm")]: {
-                  marginTop: "0",
-                },
-              }}
-            >
-              <Link to="/collection/" ui="button">
-                {t("hero.button-link")}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 };

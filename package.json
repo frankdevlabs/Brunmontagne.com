@@ -22,9 +22,6 @@
   ],
   "author": "Frank de Vries",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/frankdevlabs/Brunmontagne.com/issues"
-  },
   "homepage": "https://github.com/frankdevlabs/Brunmontagne.com#readme",
   "dependencies": {
     "@emotion/is-prop-valid": "^1.1.2",
