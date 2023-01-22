@@ -11,6 +11,7 @@ import Button from "../components/button";
 import mq from "../theme/media-queries";
 import { VIEW_CART_EVENT, BEGIN_CHECKOUT_EVENT } from "../utils/gtm";
 import useCookie from "../utils/use-cookie";
+import { updateCheckoutLanguage } from "../utils/update-checkout-language";
 
 const CartPage = ({ pageContext, location }) => {
   const { checkout, loading } = useContext(StoreContext);
@@ -21,16 +22,23 @@ const CartPage = ({ pageContext, location }) => {
     VIEW_CART_EVENT(checkout.lineItems, pref.includes("personalisation=1"));
   });
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
+    const language = pageContext.language === "nl" ? "NL" : "EN";
+    const country = language === "NL" ? "NL" : "FR";
+    const webUrl = await updateCheckoutLanguage(
+      country,
+      language,
+      checkout.lineItems
+    );
     BEGIN_CHECKOUT_EVENT(
       checkout.lineItems,
       pref.includes("personalisation=1")
     );
     window.open(
-      `${checkout.webUrl.replace(
+      `${webUrl.replace(
         process.env.GATSBY_SHOPIFY_STORE_URL,
         process.env.GATSBY_PUBLIC_SHOPIFY_STORE_URL
-      )}&note=2013-02-14`
+      )}`
     );
   };
 
@@ -163,7 +171,10 @@ const CartPage = ({ pageContext, location }) => {
                       },
                     }}
                   >
-                    <Button onClick={handleCheckout} disabled={loading}>
+                    <Button
+                      onClick={async () => await handleCheckout()}
+                      disabled={loading}
+                    >
                       {t("not-empty-cart.checkout-button")}
                     </Button>
                   </div>

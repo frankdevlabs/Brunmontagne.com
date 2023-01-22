@@ -7,6 +7,7 @@ import React, { // eslint-disable-line no-unused-vars
 } from "react";
 import { graphql } from "gatsby";
 import { useTheme } from "@emotion/react";
+import { useI18next } from "gatsby-plugin-react-i18next";
 import LayoutContainer from "../../../containers/layout-container";
 import TitleSection from "./_title-section";
 import OrderSection from "./_order-section";
@@ -32,6 +33,7 @@ const Product = (props) => {
   const { variants, priceRangeV2, images, metaImage, metafields, fields } =
     product;
 
+  const { language } = useI18next();
   const { client } = useContext(StoreContext);
 
   const [query] = useQueryString(props.location, navigate);

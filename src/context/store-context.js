@@ -1,6 +1,7 @@
 import React from "react"; // eslint-disable-line no-unused-vars
 import fetch from "isomorphic-fetch";
 import Client from "shopify-buy";
+import { isBrowser } from "../utils/is-browser";
 
 const client = Client.buildClient(
   {
@@ -27,8 +28,7 @@ const defaultValues = {
 
 export const StoreContext = React.createContext(defaultValues);
 
-const isBrowser = typeof window !== `undefined`;
-const localStorageKey = `shopify_checkout_id`;
+export const localStorageKey = `shopify_checkout_id`;
 
 export const StoreProvider = ({ children }) => {
   const [checkout, setCheckout] = React.useState(defaultValues.checkout);
